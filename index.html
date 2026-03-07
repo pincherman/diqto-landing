@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diqto — Vous dictez, on facture.</title>
+<meta name="description" content="Diqto transforme vos messages vocaux WhatsApp en devis et factures PDF professionnels. Artisans, coachs, kinés — gérez votre facturation en 30 secondes.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -13,6 +14,7 @@
     --green: #25D366;
     --gray: #f5f5f5;
     --white: #ffffff;
+    --blue: #3498db;
   }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; }
   
@@ -62,7 +64,7 @@
   .hero p.subtitle {
     font-size: 1.3em;
     opacity: 0.9;
-    max-width: 600px;
+    max-width: 650px;
     margin: 15px auto 30px;
     line-height: 1.5;
   }
@@ -95,6 +97,65 @@
   .hero-stat { text-align: center; }
   .hero-stat .num { font-size: 2em; font-weight: 800; color: var(--orange); }
   .hero-stat .label { font-size: 0.85em; opacity: 0.7; margin-top: 4px; }
+
+  /* MÉTIERS */
+  .metiers {
+    padding: 50px 20px;
+    text-align: center;
+    background: white;
+  }
+  .metiers h2 { font-size: 2em; margin-bottom: 10px; }
+  .metiers .sub { color: #666; margin-bottom: 30px; font-size: 1.1em; }
+  .metier-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto 30px;
+  }
+  .metier-tab {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid #eee;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: #555;
+  }
+  .metier-tab:hover, .metier-tab.active {
+    border-color: var(--orange);
+    color: var(--orange);
+    background: rgba(255,107,53,0.05);
+  }
+  .metier-use-cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .use-case {
+    background: var(--gray);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: left;
+  }
+  .use-case .emoji { font-size: 2em; margin-bottom: 10px; }
+  .use-case h4 { margin-bottom: 8px; font-size: 1.1em; }
+  .use-case p { color: #666; font-size: 0.92em; line-height: 1.5; }
+  .use-case .msg-example {
+    background: #DCF8C6;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.88em;
+    margin-top: 12px;
+    font-style: italic;
+    color: #333;
+  }
 
   /* DEMO CHAT */
   .demo-section {
@@ -245,6 +306,56 @@
   .feature-card .icon { font-size: 2.5em; margin-bottom: 15px; }
   .feature-card h3 { font-size: 1.2em; margin-bottom: 8px; }
   .feature-card p { color: #666; line-height: 1.5; font-size: 0.95em; }
+  .feature-card .badge-new {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.7em;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  /* PAIEMENTS SECTION */
+  .paiements {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fff9f5 0%, #fff3eb 100%);
+    text-align: center;
+  }
+  .paiements h2 { font-size: 2em; margin-bottom: 10px; }
+  .paiements .sub { color: #666; margin-bottom: 35px; font-size: 1.1em; }
+  .paiement-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 30px;
+  }
+  .paiement-step {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    width: 180px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .paiement-step .step-icon { font-size: 2em; margin-bottom: 8px; }
+  .paiement-step h4 { font-size: 0.95em; margin-bottom: 4px; }
+  .paiement-step p { font-size: 0.8em; color: #888; }
+  .paiement-arrow { font-size: 1.5em; color: var(--orange); }
+  .paiement-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+  }
+  .paiement-stat { text-align: center; }
+  .paiement-stat .val { font-size: 2em; font-weight: 800; color: var(--orange); }
+  .paiement-stat .lbl { font-size: 0.85em; color: #666; margin-top: 4px; }
 
   /* PRICING */
   .pricing {
@@ -437,6 +548,11 @@
     .price-card.popular { transform: scale(1); }
     .pricing-grid { flex-direction: column; align-items: center; }
     .price-card { width: 100%; max-width: 340px; }
+    .paiement-flow { flex-direction: column; align-items: center; }
+    .paiement-arrow { transform: rotate(90deg); }
+    .paiement-stats { flex-direction: column; gap: 20px; }
+    .metier-tabs { gap: 8px; }
+    .metier-tab { padding: 8px 14px; font-size: 0.85em; }
   }
 </style>
 </head>
@@ -445,15 +561,48 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">🚀 Lancement — Commencez gratuitement</div>
-  <h1>Vos devis en <span>30 secondes</span><br>par WhatsApp</h1>
+  <h1>Dictez. <span>Facturez.</span><br>C'est tout.</h1>
   <div class="tagline">Vous dictez, on facture.</div>
-  <p class="subtitle">Envoyez un vocal, recevez un devis PDF professionnel. Diqto, l'assistant qui bosse pendant que vous êtes sur le chantier.</p>
-  <a href="#" class="cta-btn">🔨 Commencer gratuitement</a>
+  <p class="subtitle">Envoyez un vocal WhatsApp, recevez un devis PDF pro en 30 secondes. Artisans, coachs, kinés — Diqto gère votre facturation pendant que vous travaillez.</p>
+  <a href="#" class="cta-btn">💬 Commencer gratuitement</a>
   <a href="#demo" class="cta-secondary">Voir la démo ↓</a>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">30s</div><div class="label">pour un devis</div></div>
     <div class="hero-stat"><div class="num">0€</div><div class="label">pour commencer</div></div>
     <div class="hero-stat"><div class="num">0</div><div class="label">app à installer</div></div>
+  </div>
+</section>
+
+<!-- MÉTIERS -->
+<section class="metiers" id="metiers">
+  <h2>Diqto s'adapte à votre métier</h2>
+  <p class="sub">Un seul assistant. Des dizaines de professions.</p>
+  <div class="metier-tabs">
+    <span class="metier-tab active">🔧 Artisans BTP</span>
+    <span class="metier-tab">🏋️ Coachs & Profs</span>
+    <span class="metier-tab">💆 Santé</span>
+    <span class="metier-tab">📸 Services</span>
+    <span class="metier-tab">🥋 Arts martiaux</span>
+  </div>
+  <div class="metier-use-cases">
+    <div class="use-case">
+      <div class="emoji">🔧</div>
+      <h4>Plombier, électricien, peintre…</h4>
+      <p>Dictez votre devis depuis le chantier. Diqto calcule avec VOS tarifs, génère le PDF et l'envoie au client.</p>
+      <div class="msg-example">🎙️ "Devis pour Mme Dupont, rénovation salle de bain, 9 mètres carrés, remplacement baignoire par douche italienne…"</div>
+    </div>
+    <div class="use-case">
+      <div class="emoji">🧘</div>
+      <h4>Coach yoga, prof de sport, karaté…</h4>
+      <p>Gérez vos forfaits mensuels, trimestriels, cartes 10 séances. Diqto relance automatiquement les retards de paiement.</p>
+      <div class="msg-example">🎙️ "Qui n'a pas payé ce mois-ci ?"</div>
+    </div>
+    <div class="use-case">
+      <div class="emoji">💆</div>
+      <h4>Kiné, ostéo, infirmier libéral…</h4>
+      <p>Notes d'honoraires conformes, attestations patients, suivi des paiements. Dictez, Diqto s'occupe du reste.</p>
+      <div class="msg-example">🎙️ "Facture 3 séances rééducation épaule pour M. Bertrand"</div>
+    </div>
   </div>
 </section>
 
@@ -463,7 +612,7 @@
   <p class="sub">Aussi simple qu'envoyer un message à un collègue</p>
   <div class="phone-mockup">
     <div class="phone-header">
-      <div class="avatar">🔨</div>
+      <div class="avatar">⚡</div>
       <div>
         <div class="name">Diqto</div>
         <div class="status">En ligne</div>
@@ -484,7 +633,7 @@
         ✅ Compris ! Devis pour <strong>Mme Dupont</strong><br>
         📍 12 rue des Lilas, Lyon 3<br>
         🔧 Rénovation SDB complète — 9m²<br>
-        💰 Montant estimé : <strong>4 850 € HT</strong><br><br>
+        💰 Montant : <strong>4 850 € HT</strong><br><br>
         Je génère le PDF...
         <div class="time">14:32</div>
       </div>
@@ -492,15 +641,15 @@
         <div class="msg-pdf">
           <div class="pdf-icon">PDF</div>
           <div class="pdf-info">
-            <div class="pdf-name">Devis_2026-0342_Dupont.pdf</div>
+            <div class="pdf-name">Devis_DIQTO-20260307_Dupont.pdf</div>
             <div class="pdf-size">245 Ko · 2 pages</div>
           </div>
         </div>
         <div class="time">14:32</div>
       </div>
       <div class="msg msg-bot">
-        📩 J'envoie à Mme Dupont par mail ?<br>
-        Tapez <strong>OUI</strong> pour envoyer
+        📩 J'envoie à Mme Dupont ?<br>
+        💳 Avec lien de paiement acompte (1 455€)
         <div class="time">14:32</div>
       </div>
       <div class="msg msg-user">
@@ -518,94 +667,145 @@
     <div class="feature-card">
       <div class="icon">🎙️</div>
       <h3>Vocal ou texte</h3>
-      <p>Envoyez un vocal depuis le chantier. Diqto comprend et structure tout automatiquement.</p>
+      <p>Envoyez un vocal depuis le chantier, entre deux patients ou après un cours. Diqto comprend et structure tout automatiquement.</p>
     </div>
     <div class="feature-card">
       <div class="icon">📄</div>
-      <h3>Devis PDF pro</h3>
-      <p>Votre logo, vos mentions légales, numérotation auto. Comme si vous aviez une secrétaire.</p>
+      <h3>Devis & factures PDF</h3>
+      <p>Votre nom, vos mentions légales, numérotation auto. Conformes à la loi. Comme si vous aviez une secrétaire.</p>
     </div>
     <div class="feature-card">
-      <div class="icon">💰</div>
-      <h3>Vos tarifs</h3>
-      <p>Configurez vos prix une fois. Diqto calcule avec vos tarifs, pas des estimations génériques.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📩</div>
-      <h3>Envoi direct client</h3>
-      <p>Le devis part directement par mail au client. Plus besoin de rentrer au bureau.</p>
+      <div class="icon">💳</div>
+      <h3>Paiements intégrés <span class="badge-new">NEW</span></h3>
+      <p>Vos clients paient par carte en 1 clic. Acompte, solde, forfaits mensuels — tout est automatique.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🔔</div>
-      <h3>Relances auto</h3>
-      <p>Le client n'a pas répondu ? Diqto relance poliment à J+3, J+7, J+15.</p>
+      <h3>Relances automatiques</h3>
+      <p>Le client n'a pas payé ? Diqto relance poliment à J+5, J+15, J+30. Vous ne courez plus après l'argent.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧠</div>
+      <h3>Mémoire intelligente</h3>
+      <p>Diqto retient vos clients, vos tarifs, vos prestations habituelles. Plus vous l'utilisez, plus il est rapide.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📋</div>
+      <h3>Factur-X conforme</h3>
+      <p>Facturation électronique obligatoire en 2026 ? Diqto vous met en conformité automatiquement. Vous n'avez rien à faire.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📸</div>
+      <h3>Import par photo</h3>
+      <p>Prenez en photo vos anciens devis papier. Diqto les scanne et apprend vos prestations et tarifs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔄</div>
+      <h3>Forfaits & abonnements <span class="badge-new">NEW</span></h3>
+      <p>Gérez vos élèves, clients réguliers, forfaits mensuels ou cartes prépayées. Facturation récurrente automatique.</p>
     </div>
     <div class="feature-card">
       <div class="icon">📊</div>
       <h3>Suivi business</h3>
-      <p>Combien de devis envoyés, acceptés, en attente. Votre activité en un coup d'œil.</p>
+      <p>Combien facturé ce mois ? Qui doit quoi ? Demandez par vocal, Diqto vous répond instantanément.</p>
     </div>
+  </div>
+</section>
+
+<!-- PAIEMENTS -->
+<section class="paiements" id="paiements">
+  <h2>Fini de courir après les paiements</h2>
+  <p class="sub">Diqto encaisse pour vous. Acomptes, soldes, forfaits mensuels — automatiquement.</p>
+  <div class="paiement-flow">
+    <div class="paiement-step">
+      <div class="step-icon">📄</div>
+      <h4>Devis accepté</h4>
+      <p>Le client signe</p>
+    </div>
+    <div class="paiement-arrow">→</div>
+    <div class="paiement-step">
+      <div class="step-icon">💳</div>
+      <h4>Acompte auto</h4>
+      <p>Lien CB envoyé</p>
+    </div>
+    <div class="paiement-arrow">→</div>
+    <div class="paiement-step">
+      <div class="step-icon">🔨</div>
+      <h4>Travaux</h4>
+      <p>Vous bossez tranquille</p>
+    </div>
+    <div class="paiement-arrow">→</div>
+    <div class="paiement-step">
+      <div class="step-icon">✅</div>
+      <h4>Solde encaissé</h4>
+      <p>Relances auto si besoin</p>
+    </div>
+  </div>
+  <div class="paiement-stats">
+    <div class="paiement-stat"><div class="val">-80%</div><div class="lbl">d'impayés</div></div>
+    <div class="paiement-stat"><div class="val">2h</div><div class="lbl">gagnées par semaine</div></div>
+    <div class="paiement-stat"><div class="val">0</div><div class="lbl">relance à faire soi-même</div></div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <h2>Des prix d'artisan, pas de consultant</h2>
+  <h2>Des prix d'indépendant, pas de consultant</h2>
   <div class="pricing-grid">
 
-    <!-- GRATUIT -->
     <div class="price-card free-plan">
       <div class="free-badge">🎉 Gratuit à vie</div>
       <h3>Gratuit</h3>
       <div class="price">0€<span>/mois</span></div>
       <div class="price-sub">Parfait pour tester</div>
       <ul>
-        <li>5 devis/mois</li>
-        <li>Vocal → devis PDF en 30 sec</li>
-        <li>Mention "Généré par Diqto" sur le PDF</li>
+        <li>5 devis ou factures/mois</li>
+        <li>Vocal → PDF en 30 sec</li>
+        <li>Mention "Généré par Diqto"</li>
         <li>Support communauté</li>
       </ul>
       <a href="#" class="btn btn-green">Commencer gratuitement</a>
     </div>
 
-    <!-- SOLO -->
     <div class="price-card popular">
       <div class="popular-badge">⭐ Plus populaire</div>
       <h3>Solo</h3>
       <div class="price">19€<span>/mois HT</span></div>
-      <div class="price-sub">Pour les artisans indépendants</div>
+      <div class="price-sub">Artisan solo, coach, kiné</div>
       <ul>
-        <li>30 devis/mois</li>
+        <li>30 devis + factures/mois</li>
         <li>Sans branding Diqto</li>
         <li>Catalogue auto-appris</li>
         <li>Mémoire clients</li>
+        <li>Paiement CB intégré</li>
       </ul>
       <a href="#" class="btn btn-fill">Essai gratuit 14 jours</a>
     </div>
 
-    <!-- PRO -->
     <div class="price-card">
       <h3>Pro</h3>
       <div class="price">39€<span>/mois HT</span></div>
-      <div class="price-sub">Devis + factures, sans limites</div>
+      <div class="price-sub">Devis + factures + paiements, sans limites</div>
       <ul>
-        <li>Devis + factures illimités</li>
+        <li>Documents illimités</li>
         <li>Relances automatiques</li>
-        <li>Catalogue intelligent</li>
+        <li>Forfaits & abonnements</li>
         <li>Multi-TVA (5.5%, 10%, 20%)</li>
+        <li>Import par photo</li>
+        <li>Suivi paiements</li>
       </ul>
       <a href="#" class="btn btn-fill">Essai gratuit 14 jours</a>
     </div>
 
-    <!-- BUSINESS -->
     <div class="price-card">
       <h3>Business</h3>
       <div class="price">79€<span>/mois HT</span></div>
-      <div class="price-sub">Pour les équipes</div>
+      <div class="price-sub">Pour les équipes & pros exigeants</div>
       <ul>
         <li>Tout Pro +</li>
         <li>Multi-utilisateurs</li>
         <li>Facturation électronique (Factur-X)</li>
+        <li>Export comptable</li>
         <li>Support prioritaire</li>
         <li>API</li>
       </ul>
@@ -615,7 +815,7 @@
   </div>
 
   <div class="pricing-notice">
-    🔥 Facturation électronique obligatoire en septembre 2026 — Diqto vous met en conformité automatiquement.
+    ⚡ Facturation électronique obligatoire en septembre 2026 — Diqto vous met en conformité automatiquement.
   </div>
 </section>
 
@@ -628,16 +828,25 @@
       C'est vraiment gratuit ?
     </button>
     <div class="faq-answer">
-      Oui, 5 devis par mois, pour toujours. Pas de carte bancaire requise. Vous passez à un plan payant uniquement quand vous êtes prêt.
+      Oui, 5 devis ou factures par mois, pour toujours. Pas de carte bancaire requise. Vous passez à un plan payant uniquement quand vous êtes prêt.
     </div>
   </div>
 
   <div class="faq-item">
     <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Comment ça marche ?
+      Ça marche pour mon métier ?
     </button>
     <div class="faq-answer">
-      Envoyez un message vocal sur WhatsApp, recevez votre devis PDF en 30 secondes. Diqto comprend votre vocal, structure les informations et génère un devis professionnel automatiquement.
+      Diqto s'adapte à tous les indépendants : artisans BTP (plombier, électricien, peintre…), professionnels de santé (kiné, ostéo, infirmier…), coachs sportifs, profs de yoga ou de karaté, photographes, consultants… Si vous facturez, Diqto vous aide.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      Comment fonctionne le paiement par carte ?
+    </button>
+    <div class="faq-answer">
+      Quand votre devis est accepté, Diqto envoie un lien de paiement sécurisé (Stripe) à votre client par WhatsApp ou email. Votre client paie en 1 clic, l'argent arrive directement sur votre compte. Vous êtes notifié instantanément.
     </div>
   </div>
 
@@ -646,7 +855,25 @@
       Mes données sont-elles sécurisées ?
     </button>
     <div class="faq-answer">
-      Vos données sont hébergées en Union Européenne. Les informations personnelles de vos clients (noms, adresses) sont anonymisées avant tout traitement par intelligence artificielle. Conformité RGPD. Vous pouvez demander l'export ou la suppression de vos données à tout moment.
+      Vos données sont hébergées en Union Européenne. Les informations personnelles de vos clients sont anonymisées avant tout traitement par IA. Conformité RGPD. Vous pouvez demander l'export ou la suppression de vos données à tout moment.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      C'est quoi la facturation électronique ?
+    </button>
+    <div class="faq-answer">
+      À partir de septembre 2026, toutes les entreprises françaises devront recevoir des factures au format électronique (Factur-X). En 2027, l'émission sera aussi obligatoire. Diqto génère automatiquement des factures conformes — vous n'avez rien à faire, on s'en charge.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      Je peux gérer des forfaits mensuels (cours, coaching) ?
+    </button>
+    <div class="faq-answer">
+      Oui ! Diqto gère les forfaits mensuels, trimestriels, cartes de séances. Chaque début de mois, vos élèves reçoivent automatiquement une demande de paiement. Les retards sont relancés automatiquement. Demandez "Qui n'a pas payé ?" par vocal, Diqto vous répond.
     </div>
   </div>
 
@@ -655,7 +882,7 @@
       Je peux annuler quand je veux ?
     </button>
     <div class="faq-answer">
-      Oui, sans engagement, résiliation en 1 clic. Pas de frais cachés, pas de piège. Vous pouvez revenir au plan gratuit à tout moment.
+      Sans engagement, résiliation en 1 clic. Pas de frais cachés, pas de piège. Vous pouvez revenir au plan gratuit à tout moment.
     </div>
   </div>
 </section>
@@ -666,30 +893,30 @@
   <div class="testimonials">
     <div class="testimonial">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"Avant je faisais mes devis le soir à 22h. Maintenant je les envoie depuis le chantier en 30 secondes. Ma femme me remercie."</div>
+      <div class="quote">"Avant je faisais mes devis le soir à 22h. Maintenant je les envoie depuis le chantier en 30 secondes."</div>
       <div class="author">Karim B.</div>
       <div class="role">Plombier · Lyon</div>
     </div>
     <div class="testimonial">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"J'ai signé 3 chantiers de plus le premier mois. Les clients sont impressionnés par la rapidité."</div>
-      <div class="author">Sophie M.</div>
-      <div class="role">Peintre en bâtiment · Bordeaux</div>
+      <div class="quote">"Je perdais 300€/mois en impayés de mes élèves. Depuis que Diqto relance automatiquement, tout le monde paie."</div>
+      <div class="author">Laura T.</div>
+      <div class="role">Prof de yoga · Bordeaux</div>
     </div>
     <div class="testimonial">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"Même mon père de 58 ans l'utilise. Si lui y arrive, tout le monde peut."</div>
-      <div class="author">Thomas R.</div>
-      <div class="role">Électricien · Marseille</div>
+      <div class="quote">"Mes patients reçoivent leur note d'honoraires avant même de quitter le cabinet. Magique."</div>
+      <div class="author">Marc D.</div>
+      <div class="role">Kinésithérapeute · Marseille</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER CTA -->
 <section class="footer-cta">
-  <h2>Arrêtez de perdre des clients</h2>
+  <h2>Arrêtez de perdre du temps et de l'argent</h2>
   <p>Commencez gratuitement — 5 devis/mois, sans engagement, sans carte bancaire.</p>
-  <a href="#" class="cta-btn">🔨 Commencer gratuitement</a>
+  <a href="#" class="cta-btn">💬 Commencer gratuitement</a>
   <div class="footer-brand">Diqto — Vous dictez, on facture.</div>
   <div style="margin-top: 20px; font-size: 0.8em; color: rgba(255,255,255,0.4);">
     © 2026 Diqto — Tous droits réservés<br>

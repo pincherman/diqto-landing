@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité — Diqto</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF6B35;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+    --gray: #f5f5f5;
+    --white: #ffffff;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; line-height: 1.7; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .header a.back {
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 0.95em;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .header a.back:hover { text-decoration: underline; }
+  .header h1 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+  }
+  .header h1 span { color: var(--orange); }
+  .header p.date {
+    opacity: 0.7;
+    font-size: 0.95em;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .content h2 {
+    color: var(--dark);
+    font-size: 1.4em;
+    margin: 40px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+  .content h2:first-of-type { margin-top: 0; }
+  .content h3 {
+    color: var(--dark);
+    font-size: 1.15em;
+    margin: 20px 0 10px;
+  }
+  .content p { margin-bottom: 12px; }
+  .content ul {
+    margin: 10px 0 15px 25px;
+  }
+  .content ul li { margin-bottom: 6px; }
+  .content a { color: var(--orange); }
+  .content strong { color: var(--dark); }
+  .content .highlight-box {
+    background: var(--gray);
+    border-left: 4px solid var(--orange);
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.92em;
+  }
+  table.data-table th, table.data-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+  }
+  table.data-table th {
+    background: var(--dark);
+    color: white;
+    font-weight: 600;
+  }
+  table.data-table tr:nth-child(even) { background: var(--gray); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+  .footer a { color: var(--orange); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.6em; }
+    .content h2 { font-size: 1.2em; }
+    table.data-table { font-size: 0.8em; }
+    table.data-table th, table.data-table td { padding: 8px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="/" class="back">← Retour à diqto.fr</a>
+  <h1>Politique de <span>Confidentialité</span></h1>
+  <p class="date">Dernière mise à jour : 7 mars 2026</p>
+</div>
+
+<div class="content">
+
+  <p>La présente Politique de Confidentialité décrit comment Diqto collecte, utilise, stocke et protège les données personnelles dans le cadre de son service d'assistant WhatsApp pour la génération de devis BTP. Elle est établie conformément au <strong>Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679)</strong> et à la <strong>loi n° 78-17 du 6 janvier 1978</strong> relative à l'informatique, aux fichiers et aux libertés.</p>
+
+  <h2>1. Responsable du traitement</h2>
+  <div class="highlight-box">
+    <strong>Diqto</strong><br>
+    Email : <a href="mailto:contact@diqto.fr">contact@diqto.fr</a><br>
+    Site web : <a href="https://diqto.fr">diqto.fr</a>
+  </div>
+  <p>Pour toute question relative à la protection de vos données personnelles, vous pouvez contacter Diqto à l'adresse ci-dessus.</p>
+
+  <h2>2. Données collectées</h2>
+
+  <h3>2.1 Données de l'Artisan (Utilisateur)</h3>
+  <ul>
+    <li>Nom et/ou raison sociale</li>
+    <li>Numéro SIRET</li>
+    <li>Numéro de téléphone et numéro WhatsApp</li>
+    <li>Adresse email</li>
+    <li>Adresse postale professionnelle</li>
+    <li>Métier / activité exercée</li>
+    <li>Logo de l'entreprise (si fourni)</li>
+  </ul>
+
+  <h3>2.2 Données des clients de l'Artisan</h3>
+  <p>Dans le cadre de la génération des devis, l'Artisan transmet via ses messages vocaux ou textuels les informations suivantes relatives à ses propres clients :</p>
+  <ul>
+    <li>Nom et prénom du client</li>
+    <li>Adresse du chantier / adresse postale</li>
+    <li>Numéro de téléphone</li>
+  </ul>
+  <div class="highlight-box">
+    <strong>📌 Note :</strong> L'Artisan est responsable de l'obtention du consentement de ses clients pour la transmission de ces données à Diqto. Les données des clients sont <strong>anonymisées avant tout envoi</strong> vers les services d'intelligence artificielle (OpenAI, Anthropic).
+  </div>
+
+  <h3>2.3 Données d'usage</h3>
+  <ul>
+    <li>Messages envoyés à Diqto (vocaux et textuels)</li>
+    <li>Nombre et historique des devis générés</li>
+    <li>Dates et heures de connexion / utilisation</li>
+    <li>Données de facturation et de paiement (gérées par Stripe)</li>
+  </ul>
+
+  <h3>2.4 Données collectées sur le site diqto.fr</h3>
+  <ul>
+    <li>Données de navigation (pages visitées, durée — via cookies analytics optionnels)</li>
+    <li>Adresse IP (anonymisée)</li>
+  </ul>
+
+  <h2>3. Finalités des traitements</h2>
+  <table class="data-table">
+    <tr>
+      <th>Finalité</th>
+      <th>Données concernées</th>
+    </tr>
+    <tr>
+      <td>Génération de devis PDF</td>
+      <td>Données artisan + données clients de l'artisan + messages</td>
+    </tr>
+    <tr>
+      <td>Gestion du compte utilisateur</td>
+      <td>Données d'identification de l'artisan, SIRET</td>
+    </tr>
+    <tr>
+      <td>Facturation et paiement</td>
+      <td>Email, données de paiement (via Stripe)</td>
+    </tr>
+    <tr>
+      <td>Amélioration du service</td>
+      <td>Données d'usage anonymisées, retours utilisateurs</td>
+    </tr>
+    <tr>
+      <td>Support client</td>
+      <td>Messages, email, données du compte</td>
+    </tr>
+    <tr>
+      <td>Communication commerciale</td>
+      <td>Email (avec consentement préalable)</td>
+    </tr>
+  </table>
+
+  <h2>4. Base légale des traitements</h2>
+  <ul>
+    <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de devis, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
+    <li><strong>Intérêt légitime</strong> (article 6.1.f du RGPD) : les traitements liés à l'amélioration du service et aux statistiques d'usage sont fondés sur l'intérêt légitime de Diqto à améliorer son offre.</li>
+    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales et les cookies analytics sont soumis au consentement préalable de l'Utilisateur.</li>
+    <li><strong>Obligation légale</strong> (article 6.1.c du RGPD) : la conservation des données de facturation est requise par les obligations comptables et fiscales.</li>
+  </ul>
+
+  <h2>5. Sous-traitants et transferts de données</h2>
+  <p>Diqto fait appel aux sous-traitants suivants, tous liés par des accords de traitement de données (DPA) :</p>
+  <table class="data-table">
+    <tr>
+      <th>Sous-traitant</th>
+      <th>Fonction</th>
+      <th>Localisation</th>
+      <th>Garanties</th>
+    </tr>
+    <tr>
+      <td><strong>OpenAI</strong></td>
+      <td>Traitement IA (extraction des données des messages)</td>
+      <td>États-Unis</td>
+      <td>DPA signé, Clauses Contractuelles Types (SCCs). <strong>Données personnelles anonymisées avant envoi.</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Anthropic</strong></td>
+      <td>Traitement IA (extraction des données des messages)</td>
+      <td>États-Unis</td>
+      <td>DPA signé, Clauses Contractuelles Types (SCCs). <strong>Données personnelles anonymisées avant envoi.</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Stripe</strong></td>
+      <td>Paiement et facturation</td>
+      <td>États-Unis / UE</td>
+      <td>Certifié PCI-DSS, DPA, SCCs. Données de paiement uniquement.</td>
+    </tr>
+    <tr>
+      <td><strong>Supabase</strong></td>
+      <td>Hébergement base de données</td>
+      <td>UE (Francfort, Allemagne)</td>
+      <td>Hébergement dans l'Union européenne. Chiffrement au repos et en transit.</td>
+    </tr>
+    <tr>
+      <td><strong>Meta / WhatsApp</strong></td>
+      <td>Canal de communication</td>
+      <td>États-Unis / UE</td>
+      <td>API WhatsApp Business. Chiffrement de bout en bout des messages.</td>
+    </tr>
+  </table>
+  <div class="highlight-box">
+    <strong>🔒 Anonymisation :</strong> Avant tout envoi de données vers les services d'IA (OpenAI, Anthropic), les données personnelles identifiantes (noms, adresses, téléphones des clients) sont remplacées par des identifiants anonymes. Les données originales ne quittent pas l'infrastructure européenne de Diqto.
+  </div>
+
+  <h2>6. Durée de conservation</h2>
+  <table class="data-table">
+    <tr>
+      <th>Type de données</th>
+      <th>Durée de conservation</th>
+    </tr>
+    <tr>
+      <td>Données du compte artisan</td>
+      <td>Durée de l'abonnement actif + 3 ans après résiliation</td>
+    </tr>
+    <tr>
+      <td>Données des clients de l'artisan</td>
+      <td>Durée de l'abonnement actif. Supprimées dans les 30 jours suivant la résiliation.</td>
+    </tr>
+    <tr>
+      <td>Devis générés</td>
+      <td>Durée de l'abonnement actif + 3 ans (obligation légale de conservation des factures et devis)</td>
+    </tr>
+    <tr>
+      <td>Données de facturation</td>
+      <td>10 ans (obligation comptable et fiscale — article L123-22 du Code de commerce)</td>
+    </tr>
+    <tr>
+      <td>Messages vocaux / textuels</td>
+      <td>90 jours après traitement, puis suppression automatique</td>
+    </tr>
+    <tr>
+      <td>Données de navigation (site web)</td>
+      <td>13 mois maximum (recommandation CNIL)</td>
+    </tr>
+  </table>
+
+  <h2>7. Droits des personnes</h2>
+  <p>Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles :</p>
+  <ul>
+    <li><strong>Droit d'accès</strong> (article 15) : obtenir la confirmation que des données vous concernant sont traitées et en obtenir une copie.</li>
+    <li><strong>Droit de rectification</strong> (article 16) : faire corriger des données inexactes ou incomplètes.</li>
+    <li><strong>Droit à l'effacement</strong> (article 17) : demander la suppression de vos données, sous réserve des obligations légales de conservation.</li>
+    <li><strong>Droit à la portabilité</strong> (article 20) : recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</li>
+    <li><strong>Droit d'opposition</strong> (article 21) : vous opposer au traitement de vos données fondé sur l'intérêt légitime.</li>
+    <li><strong>Droit à la limitation</strong> (article 18) : demander la limitation du traitement dans certaines circonstances.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>📬 Comment exercer vos droits :</strong><br>
+    Envoyez votre demande à <a href="mailto:contact@diqto.fr">contact@diqto.fr</a> en précisant votre identité et le(s) droit(s) que vous souhaitez exercer.<br><br>
+    <strong>Délai de réponse :</strong> 30 jours maximum à compter de la réception de votre demande.<br><br>
+    <strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :<br>
+    <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.
+  </div>
+
+  <h2>8. Sécurité des données</h2>
+  <p>Diqto met en œuvre les mesures techniques et organisationnelles appropriées pour garantir la sécurité des données personnelles :</p>
+  <ul>
+    <li><strong>Chiffrement en transit :</strong> Toutes les communications sont protégées par TLS (Transport Layer Security).</li>
+    <li><strong>Hébergement EU :</strong> Les données sont hébergées dans l'Union européenne (Supabase — Francfort, Allemagne).</li>
+    <li><strong>Accès restreint :</strong> L'accès aux données est limité aux personnes strictement nécessaires au fonctionnement du service.</li>
+    <li><strong>Anonymisation :</strong> Les données personnelles sont anonymisées avant tout traitement par les services d'IA hors UE.</li>
+    <li><strong>Sauvegardes :</strong> Des sauvegardes régulières sont effectuées pour prévenir la perte de données.</li>
+    <li><strong>Surveillance :</strong> Les accès et opérations sur les données sont journalisés et surveillés.</li>
+  </ul>
+
+  <h2>9. Cookies</h2>
+  <h3>9.1 Service WhatsApp</h3>
+  <p>Le service Diqto via WhatsApp <strong>n'utilise aucun cookie</strong>. L'interaction se fait exclusivement via l'API WhatsApp Business.</p>
+
+  <h3>9.2 Site web diqto.fr</h3>
+  <p>Le site <a href="https://diqto.fr">diqto.fr</a> peut utiliser les cookies suivants :</p>
+  <table class="data-table">
+    <tr>
+      <th>Cookie</th>
+      <th>Type</th>
+      <th>Finalité</th>
+      <th>Durée</th>
+      <th>Consentement</th>
+    </tr>
+    <tr>
+      <td>Cookies techniques</td>
+      <td>Strictement nécessaires</td>
+      <td>Fonctionnement du site</td>
+      <td>Session</td>
+      <td>Non requis</td>
+    </tr>
+    <tr>
+      <td>Cookies analytics</td>
+      <td>Mesure d'audience</td>
+      <td>Statistiques de fréquentation</td>
+      <td>13 mois max.</td>
+      <td><strong>Optionnel</strong> — Consentement requis</td>
+    </tr>
+  </table>
+  <p>L'Utilisateur peut gérer ses préférences de cookies à tout moment via le bandeau de consentement présent sur le site.</p>
+
+  <h2>10. Mise à jour de la politique</h2>
+  <p>La présente Politique de Confidentialité peut être modifiée à tout moment pour refléter les évolutions du service ou de la réglementation applicable.</p>
+  <p>En cas de modification substantielle, les Utilisateurs seront informés par message WhatsApp et/ou par email au moins <strong>30 jours avant l'entrée en vigueur</strong> des modifications.</p>
+  <p>La version en vigueur est toujours accessible à l'adresse : <a href="https://diqto.fr/confidentialite.html">diqto.fr/confidentialite.html</a>.</p>
+
+</div>
+
+<div class="footer">
+  <p>Diqto © 2026 — <a href="/">Accueil</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:contact@diqto.fr">Contact</a></p>
+</div>
+
+</body>
+</html>

@@ -258,20 +258,26 @@
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   .price-card {
     background: white;
     border-radius: 16px;
     padding: 30px;
-    width: 280px;
+    width: 265px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
   .price-card.popular {
     border: 3px solid var(--orange);
     transform: scale(1.05);
+    box-shadow: 0 8px 35px rgba(255,107,53,0.2);
+  }
+  .price-card.free-plan {
+    border: 2px solid var(--green);
   }
   .popular-badge {
     position: absolute;
@@ -284,12 +290,27 @@
     border-radius: 12px;
     font-size: 12px;
     font-weight: 700;
+    white-space: nowrap;
+  }
+  .free-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
   }
   .price-card h3 { font-size: 1.3em; margin-bottom: 5px; }
-  .price-card .price { font-size: 2.5em; font-weight: 800; color: var(--dark); margin: 15px 0; }
+  .price-card .price { font-size: 2.5em; font-weight: 800; color: var(--dark); margin: 15px 0 5px; }
   .price-card .price span { font-size: 0.4em; font-weight: 400; color: #999; }
-  .price-card ul { list-style: none; text-align: left; margin: 20px 0; }
-  .price-card ul li { padding: 8px 0; font-size: 0.9em; color: #555; }
+  .price-card .price-sub { font-size: 0.85em; color: #999; margin-bottom: 10px; }
+  .price-card ul { list-style: none; text-align: left; margin: 15px 0; flex-grow: 1; }
+  .price-card ul li { padding: 6px 0; font-size: 0.88em; color: #555; }
   .price-card ul li::before { content: '✓ '; color: var(--orange); font-weight: 700; }
   .price-card .btn {
     display: block;
@@ -298,14 +319,83 @@
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s;
+    text-align: center;
+    margin-top: auto;
   }
   .btn-outline { border: 2px solid var(--orange); color: var(--orange); background: transparent; }
+  .btn-outline:hover { background: rgba(255,107,53,0.05); }
   .btn-fill { background: var(--orange); color: white; border: 2px solid var(--orange); }
+  .btn-fill:hover { background: #e5592b; border-color: #e5592b; }
+  .btn-green { background: var(--green); color: white; border: 2px solid var(--green); }
+  .btn-green:hover { background: #1ebe59; border-color: #1ebe59; }
+
+  .pricing-notice {
+    margin-top: 35px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0cc 100%);
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--dark);
+    max-width: 700px;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 60px 20px;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .faq h2 { text-align: center; font-size: 2em; margin-bottom: 35px; }
+  .faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 1.05em;
+    font-weight: 700;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+  }
+  .faq-question::after {
+    content: '+';
+    font-size: 1.4em;
+    color: var(--orange);
+    font-weight: 700;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-question::after {
+    content: '−';
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 24px 20px;
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95em;
+  }
+  .faq-item.open .faq-answer {
+    display: block;
+  }
 
   /* SOCIAL PROOF */
   .social-proof {
     padding: 60px 20px;
     text-align: center;
+    background: var(--gray);
   }
   .social-proof h2 { font-size: 2em; margin-bottom: 30px; }
   .testimonials {
@@ -341,10 +431,12 @@
   .footer-cta .footer-brand { margin-top: 30px; opacity: 0.5; font-size: 0.85em; }
 
   /* RESPONSIVE */
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .hero h1 { font-size: 2em; }
     .hero-stats { flex-direction: column; gap: 20px; }
     .price-card.popular { transform: scale(1); }
+    .pricing-grid { flex-direction: column; align-items: center; }
+    .price-card { width: 100%; max-width: 340px; }
   }
 </style>
 </head>
@@ -352,15 +444,15 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🚀 Lancement — 50 places beta gratuites</div>
+  <div class="hero-badge">🚀 Lancement — Commencez gratuitement</div>
   <h1>Vos devis en <span>30 secondes</span><br>par WhatsApp</h1>
   <div class="tagline">Vous dictez, on facture.</div>
   <p class="subtitle">Envoyez un vocal, recevez un devis PDF professionnel. Diqto, l'assistant qui bosse pendant que vous êtes sur le chantier.</p>
-  <a href="#" class="cta-btn">🔨 Essayer gratuitement</a>
+  <a href="#" class="cta-btn">🔨 Commencer gratuitement</a>
   <a href="#demo" class="cta-secondary">Voir la démo ↓</a>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">30s</div><div class="label">pour un devis</div></div>
-    <div class="hero-stat"><div class="num">0€</div><div class="label">pendant 30 jours</div></div>
+    <div class="hero-stat"><div class="num">0€</div><div class="label">pour commencer</div></div>
     <div class="hero-stat"><div class="num">0</div><div class="label">app à installer</div></div>
   </div>
 </section>
@@ -457,47 +549,113 @@
 </section>
 
 <!-- PRICING -->
-<section class="pricing">
+<section class="pricing" id="pricing">
   <h2>Des prix d'artisan, pas de consultant</h2>
   <div class="pricing-grid">
-    <div class="price-card">
+
+    <!-- GRATUIT -->
+    <div class="price-card free-plan">
+      <div class="free-badge">🎉 Gratuit à vie</div>
+      <h3>Gratuit</h3>
+      <div class="price">0€<span>/mois</span></div>
+      <div class="price-sub">Parfait pour tester</div>
+      <ul>
+        <li>5 devis/mois</li>
+        <li>Vocal → devis PDF en 30 sec</li>
+        <li>Mention "Généré par Diqto" sur le PDF</li>
+        <li>Support communauté</li>
+      </ul>
+      <a href="#" class="btn btn-green">Commencer gratuitement</a>
+    </div>
+
+    <!-- SOLO -->
+    <div class="price-card popular">
+      <div class="popular-badge">⭐ Plus populaire</div>
       <h3>Solo</h3>
-      <div class="price">79€<span>/mois HT</span></div>
+      <div class="price">19€<span>/mois HT</span></div>
+      <div class="price-sub">Pour les artisans indépendants</div>
       <ul>
         <li>30 devis/mois</li>
-        <li>Vocal + texte WhatsApp</li>
-        <li>PDF avec votre logo</li>
-        <li>Envoi mail client</li>
-        <li>Support WhatsApp</li>
+        <li>Sans branding Diqto</li>
+        <li>Catalogue auto-appris</li>
+        <li>Mémoire clients</li>
       </ul>
-      <a href="#" class="btn btn-outline">Commencer</a>
+      <a href="#" class="btn btn-fill">Essai gratuit 14 jours</a>
     </div>
-    <div class="price-card popular">
-      <div class="popular-badge">⭐ POPULAIRE</div>
-      <h3>Pro</h3>
-      <div class="price">149€<span>/mois HT</span></div>
-      <ul>
-        <li>Devis illimités</li>
-        <li>Tout Solo +</li>
-        <li>Relances automatiques</li>
-        <li>Base clients mémorisée</li>
-        <li>Catalogue prestations</li>
-        <li>Dashboard web</li>
-      </ul>
-      <a href="#" class="btn btn-fill">Essai gratuit 30j</a>
-    </div>
+
+    <!-- PRO -->
     <div class="price-card">
-      <h3>Premium</h3>
-      <div class="price">299€<span>/mois HT</span></div>
+      <h3>Pro</h3>
+      <div class="price">39€<span>/mois HT</span></div>
+      <div class="price-sub">Devis + factures, sans limites</div>
+      <ul>
+        <li>Devis + factures illimités</li>
+        <li>Relances automatiques</li>
+        <li>Catalogue intelligent</li>
+        <li>Multi-TVA (5.5%, 10%, 20%)</li>
+      </ul>
+      <a href="#" class="btn btn-fill">Essai gratuit 14 jours</a>
+    </div>
+
+    <!-- BUSINESS -->
+    <div class="price-card">
+      <h3>Business</h3>
+      <div class="price">79€<span>/mois HT</span></div>
+      <div class="price-sub">Pour les équipes</div>
       <ul>
         <li>Tout Pro +</li>
-        <li>Facturation complète</li>
-        <li>Suivi paiements</li>
-        <li>Appels d'offres publics</li>
         <li>Multi-utilisateurs</li>
+        <li>Facturation électronique (Factur-X)</li>
         <li>Support prioritaire</li>
+        <li>API</li>
       </ul>
       <a href="#" class="btn btn-outline">Nous contacter</a>
+    </div>
+
+  </div>
+
+  <div class="pricing-notice">
+    🔥 Facturation électronique obligatoire en septembre 2026 — Diqto vous met en conformité automatiquement.
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <h2>Questions fréquentes</h2>
+
+  <div class="faq-item open">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      C'est vraiment gratuit ?
+    </button>
+    <div class="faq-answer">
+      Oui, 5 devis par mois, pour toujours. Pas de carte bancaire requise. Vous passez à un plan payant uniquement quand vous êtes prêt.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      Comment ça marche ?
+    </button>
+    <div class="faq-answer">
+      Envoyez un message vocal sur WhatsApp, recevez votre devis PDF en 30 secondes. Diqto comprend votre vocal, structure les informations et génère un devis professionnel automatiquement.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      Mes données sont-elles sécurisées ?
+    </button>
+    <div class="faq-answer">
+      Hébergement en France, conformité RGPD. Vos données ne sont jamais partagées avec des tiers. Vous restez propriétaire de vos informations.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+      Je peux annuler quand je veux ?
+    </button>
+    <div class="faq-answer">
+      Oui, sans engagement, résiliation en 1 clic. Pas de frais cachés, pas de piège. Vous pouvez revenir au plan gratuit à tout moment.
     </div>
   </div>
 </section>
@@ -530,9 +688,9 @@
 <!-- FOOTER CTA -->
 <section class="footer-cta">
   <h2>Arrêtez de perdre des clients</h2>
-  <p>Rejoignez les 50 premiers artisans beta. Gratuit pendant 30 jours, sans engagement.</p>
-  <a href="#" class="cta-btn">🔨 Démarrer maintenant — C'est gratuit</a>
-  <div class="footer-brand">Devis généré par Diqto</div>
+  <p>Commencez gratuitement — 5 devis/mois, sans engagement, sans carte bancaire.</p>
+  <a href="#" class="cta-btn">🔨 Commencer gratuitement</a>
+  <div class="footer-brand">Diqto — Vous dictez, on facture.</div>
 </section>
 
 </body>

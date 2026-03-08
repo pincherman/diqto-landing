@@ -318,6 +318,70 @@
     margin-left: 6px;
   }
 
+  /* BRIEFING SECTION */
+  .briefing {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
+    text-align: center;
+  }
+  .briefing h2 { font-size: 2em; margin-bottom: 10px; }
+  .briefing .sub { color: #666; margin-bottom: 35px; font-size: 1.1em; max-width: 650px; margin-left: auto; margin-right: auto; }
+  .briefing-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .briefing-points {
+    text-align: left;
+    max-width: 400px;
+    flex: 1;
+    min-width: 280px;
+  }
+  .briefing-points li {
+    list-style: none;
+    padding: 12px 0;
+    font-size: 1em;
+    color: #444;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .briefing-points li:last-child { border-bottom: none; }
+  .briefing-points li .bp-icon { margin-right: 10px; font-size: 1.2em; }
+  .briefing-mockup {
+    max-width: 340px;
+    flex: 1;
+    min-width: 280px;
+  }
+  .wa-bubble {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--green);
+    position: relative;
+  }
+  .wa-bubble .wa-header {
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .wa-bubble .wa-line { margin-bottom: 6px; }
+  .wa-bubble .wa-time {
+    font-size: 11px;
+    color: #999;
+    text-align: right;
+    margin-top: 10px;
+  }
+
   /* PAIEMENTS SECTION */
   .paiements {
     padding: 60px 20px;
@@ -682,7 +746,7 @@
     <div class="feature-card">
       <div class="icon">🔔</div>
       <h3>Relances automatiques</h3>
-      <p>Diqto relance poliment votre client à votre place, dans le délai que vous choisissez (J+5, J+15, J+30) — ne vous souciez plus de vos relances d'impayés.</p>
+      <p>Diqto relance poliment votre client à votre place — J+7, J+15, J+30 — automatiquement. Ne vous souciez plus de vos impayés.</p>
     </div>
     <div class="feature-card">
       <div class="icon">🧠</div>
@@ -706,8 +770,52 @@
     </div>
     <div class="feature-card">
       <div class="icon">📊</div>
-      <h3>Suivi business</h3>
-      <p>Combien facturé ce mois ? Qui doit quoi ? Demandez par vocal, Diqto vous répond instantanément.</p>
+      <h3>Tableau de bord vocal</h3>
+      <p>"Combien j'ai facturé ce mois ?" — demandez par vocal, Diqto vous répond instantanément avec vos chiffres clés.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📩</div>
+      <h3>Envoi au client par WhatsApp <span class="badge-new">NEW</span></h3>
+      <p>Diqto envoie votre devis directement à votre client par WhatsApp. Un message pro, avec le PDF en pièce jointe.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔄</div>
+      <h3>Devis → Facture en 1 message <span class="badge-new">NEW</span></h3>
+      <p>"Transforme le devis Dupont en facture" — Diqto convertit instantanément, avec le bon numéro et les bonnes mentions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">✏️</div>
+      <h3>Modification par message <span class="badge-new">NEW</span></h3>
+      <p>"Change le prix de la ligne 2 à 450€" — modifiez vos devis par simple message, sans tout refaire.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🗂️</div>
+      <h3>Catalogue auto-appris</h3>
+      <p>Diqto retient vos prix et prestations. Plus besoin de les répéter — il les propose automatiquement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEFING QUOTIDIEN -->
+<section class="briefing" id="briefing">
+  <h2>📬 Votre assistant vous briefe chaque matin</h2>
+  <p class="sub">Un résumé quotidien de vos devis, factures et relances — sans rien demander</p>
+  <div class="briefing-content">
+    <ul class="briefing-points">
+      <li><span class="bp-icon">☀️</span><strong>Briefing du matin</strong> — devis en attente, factures impayées, relances du jour</li>
+      <li><span class="bp-icon">📊</span><strong>Bilan hebdo le lundi</strong> — CA, taux de conversion devis, top clients de la semaine</li>
+      <li><span class="bp-icon">💡</span><strong>Astuces personnalisées</strong> — des conseils concrets pour améliorer votre activité</li>
+      <li><span class="bp-icon">⚙️</span><strong>Configurable</strong> — quotidien, hebdo, ou les deux — à l'heure qui vous arrange</li>
+    </ul>
+    <div class="briefing-mockup">
+      <div class="wa-bubble">
+        <div class="wa-header">☀️ Bonjour ! Voici votre briefing</div>
+        <div class="wa-line">📄 <strong>3 devis</strong> en attente de réponse</div>
+        <div class="wa-line">💰 <strong>2 factures</strong> impayées (1 850 €)</div>
+        <div class="wa-line">🔔 <strong>1 relance</strong> à envoyer aujourd'hui (M. Bernard — J+15)</div>
+        <div class="wa-line" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid #eee;">💡 <em>Astuce : vos devis acceptés le jour même ont 3× plus de chances d'être payés rapidement !</em></div>
+        <div class="wa-time">07:30</div>
+      </div>
     </div>
   </div>
 </section>

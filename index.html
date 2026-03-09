@@ -4,641 +4,169 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diqto — Vous dictez, on facture.</title>
-<meta name="description" content="Diqto transforme vos messages vocaux WhatsApp en devis et factures PDF professionnels. Artisans, coachs, kinés — gérez votre facturation en 30 secondes.">
+<meta name="description" content="L'assistant WhatsApp qui transforme vos messages vocaux en devis et factures professionnels. Artisans, coachs, kinés — essayez gratuitement.">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --orange: #FF6B35;
-    --dark: #1a1a2e;
-    --darker: #16213e;
-    --green: #25D366;
-    --gray: #f5f5f5;
-    --white: #ffffff;
-    --blue: #3498db;
-  }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; }
-  
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 500px;
-    height: 500px;
-    background: var(--orange);
-    opacity: 0.05;
-    border-radius: 50%;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,107,53,0.2);
-    color: var(--orange);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    line-height: 1.1;
-  }
-  .hero h1 span { color: var(--orange); }
-  .hero .tagline {
-    font-size: 1.4em;
-    color: var(--orange);
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-  .hero p.subtitle {
-    font-size: 1.3em;
-    opacity: 0.9;
-    max-width: 650px;
-    margin: 15px auto 30px;
-    line-height: 1.5;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
-    padding: 16px 40px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(255,107,53,0.4);
-  }
-  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(255,107,53,0.5); }
-  .cta-secondary {
-    display: inline-block;
-    color: rgba(255,255,255,0.8);
-    margin-left: 20px;
-    text-decoration: underline;
-    font-size: 1em;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 40px;
-  }
-  .hero-stat { text-align: center; }
-  .hero-stat .num { font-size: 2em; font-weight: 800; color: var(--orange); }
-  .hero-stat .label { font-size: 0.85em; opacity: 0.7; margin-top: 4px; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#25D366;--green-dark:#1ebe59;--dark:#1e293b;--gray:#f8fafc;--text:#334155;--text-light:#64748b;--white:#fff}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
 
-  /* MÉTIERS */
-  .metiers {
-    padding: 50px 20px;
-    text-align: center;
-    background: white;
-  }
-  .metiers h2 { font-size: 2em; margin-bottom: 10px; }
-  .metiers .sub { color: #666; margin-bottom: 30px; font-size: 1.1em; }
-  .metier-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin: 0 auto 30px;
-  }
-  .metier-tab {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 2px solid #eee;
-    background: white;
-    cursor: pointer;
-    font-size: 0.95em;
-    font-weight: 600;
-    transition: all 0.2s;
-    text-decoration: none;
-    color: #555;
-  }
-  .metier-tab:hover, .metier-tab.active {
-    border-color: var(--orange);
-    color: var(--orange);
-    background: rgba(255,107,53,0.05);
-  }
-  .metier-use-cases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .use-case {
-    background: var(--gray);
-    border-radius: 16px;
-    padding: 25px;
-    text-align: left;
-  }
-  .use-case .emoji { font-size: 2em; margin-bottom: 10px; }
-  .use-case h4 { margin-bottom: 8px; font-size: 1.1em; }
-  .use-case p { color: #666; font-size: 0.92em; line-height: 1.5; }
-  .use-case .msg-example {
-    background: #DCF8C6;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 0.88em;
-    margin-top: 12px;
-    font-style: italic;
-    color: #333;
-  }
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-  /* DEMO CHAT */
-  .demo-section {
-    padding: 60px 20px;
-    background: var(--gray);
-    text-align: center;
-  }
-  .demo-section h2 { font-size: 2em; margin-bottom: 10px; }
-  .demo-section .sub { color: #666; margin-bottom: 30px; font-size: 1.1em; }
-  .phone-mockup {
-    max-width: 380px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    overflow: hidden;
-    border: 8px solid #1a1a1a;
-  }
-  .phone-header {
-    background: #075E54;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .phone-header .avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-  }
-  .phone-header .name { font-weight: 600; }
-  .phone-header .status { font-size: 12px; opacity: 0.8; }
-  .chat-body {
-    padding: 20px;
-    background: #ECE5DD;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .msg {
-    max-width: 80%;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.4;
-    position: relative;
-    opacity: 0;
-    animation: fadeIn 0.4s ease forwards;
-  }
-  .msg-user {
-    background: #DCF8C6;
-    align-self: flex-end;
-    border-bottom-right-radius: 2px;
-  }
-  .msg-bot {
-    background: white;
-    align-self: flex-start;
-    border-bottom-left-radius: 2px;
-  }
-  .msg .time {
-    font-size: 11px;
-    color: #999;
-    text-align: right;
-    margin-top: 4px;
-  }
-  .msg-voice {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .voice-wave {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-  }
-  .voice-wave span {
-    display: block;
-    width: 3px;
-    background: #075E54;
-    border-radius: 2px;
-    animation: wave 0.8s ease-in-out infinite alternate;
-  }
-  .voice-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
-  .voice-wave span:nth-child(2) { height: 16px; animation-delay: 0.1s; }
-  .voice-wave span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
-  .voice-wave span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
-  .voice-wave span:nth-child(5) { height: 12px; animation-delay: 0.4s; }
-  .voice-wave span:nth-child(6) { height: 18px; animation-delay: 0.5s; }
-  .voice-wave span:nth-child(7) { height: 8px; animation-delay: 0.6s; }
-  .msg-pdf {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-  }
-  .pdf-icon {
-    width: 40px;
-    height: 50px;
-    background: #E74C3C;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 12px;
-  }
-  .pdf-info .pdf-name { font-weight: 600; font-size: 13px; }
-  .pdf-info .pdf-size { font-size: 11px; color: #999; }
-  @keyframes fadeIn { to { opacity: 1; } }
-  @keyframes wave { to { height: 6px; } }
-  .msg:nth-child(1) { animation-delay: 0.3s; }
-  .msg:nth-child(2) { animation-delay: 1.2s; }
-  .msg:nth-child(3) { animation-delay: 2.5s; }
-  .msg:nth-child(4) { animation-delay: 3.5s; }
-  .msg:nth-child(5) { animation-delay: 4.5s; }
+/* HERO */
+.hero{padding:100px 20px 80px;text-align:center;background:var(--white)}
+.hero h1{font-size:clamp(2.4em,6vw,3.8em);font-weight:800;color:var(--dark);letter-spacing:-0.02em;margin-bottom:16px}
+.hero h1 span{color:var(--green)}
+.hero .subtitle{font-size:clamp(1.1em,2.5vw,1.35em);color:var(--text-light);max-width:600px;margin:0 auto 40px;line-height:1.5}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(37,211,102,.35)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.45)}
+.btn-wa svg{width:24px;height:24px;fill:currentColor}
 
-  /* FEATURES */
-  .features {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .features h2 { text-align: center; font-size: 2em; margin-bottom: 40px; }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-  }
-  .feature-card {
-    padding: 30px;
-    border-radius: 16px;
-    background: var(--gray);
-    transition: transform 0.2s;
-  }
-  .feature-card:hover { transform: translateY(-4px); }
-  .feature-card .icon { font-size: 2.5em; margin-bottom: 15px; }
-  .feature-card h3 { font-size: 1.2em; margin-bottom: 8px; }
-  .feature-card p { color: #666; line-height: 1.5; font-size: 0.95em; }
-  .feature-card .badge-new {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-size: 0.7em;
-    font-weight: 700;
-    vertical-align: middle;
-    margin-left: 6px;
-  }
+/* STEPS */
+.steps{padding:80px 20px;background:var(--gray)}
+.steps h2{text-align:center;font-size:1.8em;font-weight:700;color:var(--dark);margin-bottom:50px}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;max-width:900px;margin:0 auto}
+.step{text-align:center}
+.step .icon{font-size:3em;margin-bottom:16px}
+.step .num{display:inline-block;background:var(--green);color:var(--white);width:28px;height:28px;border-radius:50%;font-size:.85em;font-weight:700;line-height:28px;margin-bottom:10px}
+.step h3{font-size:1.15em;font-weight:700;color:var(--dark);margin-bottom:6px}
+.step p{color:var(--text-light);font-size:.95em;max-width:280px;margin:0 auto}
 
-  /* BRIEFING SECTION */
-  .briefing {
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
-    text-align: center;
-  }
-  .briefing h2 { font-size: 2em; margin-bottom: 10px; }
-  .briefing .sub { color: #666; margin-bottom: 35px; font-size: 1.1em; max-width: 650px; margin-left: auto; margin-right: auto; }
-  .briefing-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-    max-width: 950px;
-    margin: 0 auto;
-  }
-  .briefing-points {
-    text-align: left;
-    max-width: 400px;
-    flex: 1;
-    min-width: 280px;
-  }
-  .briefing-points li {
-    list-style: none;
-    padding: 12px 0;
-    font-size: 1em;
-    color: #444;
-    line-height: 1.5;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .briefing-points li:last-child { border-bottom: none; }
-  .briefing-points li .bp-icon { margin-right: 10px; font-size: 1.2em; }
-  .briefing-mockup {
-    max-width: 340px;
-    flex: 1;
-    min-width: 280px;
-  }
-  .wa-bubble {
-    background: white;
-    border-radius: 12px;
-    padding: 16px 18px;
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-left: 4px solid var(--green);
-    position: relative;
-  }
-  .wa-bubble .wa-header {
-    font-weight: 700;
-    color: var(--green);
-    margin-bottom: 10px;
-    font-size: 15px;
-  }
-  .wa-bubble .wa-line { margin-bottom: 6px; }
-  .wa-bubble .wa-time {
-    font-size: 11px;
-    color: #999;
-    text-align: right;
-    margin-top: 10px;
-  }
+/* FEATURES */
+.features{padding:80px 20px;background:var(--white)}
+.features h2{text-align:center;font-size:1.8em;font-weight:700;color:var(--dark);margin-bottom:50px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:900px;margin:0 auto}
+.feature-card{background:var(--gray);border-radius:16px;padding:32px;transition:transform .2s}
+.feature-card:hover{transform:translateY(-4px)}
+.feature-card .icon{font-size:2.2em;margin-bottom:14px}
+.feature-card h3{font-size:1.1em;font-weight:700;color:var(--dark);margin-bottom:8px}
+.feature-card p{color:var(--text-light);font-size:.93em;line-height:1.55}
 
-  /* PAIEMENTS SECTION */
-  .paiements {
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #fff9f5 0%, #fff3eb 100%);
-    text-align: center;
-  }
-  .paiements h2 { font-size: 2em; margin-bottom: 10px; }
-  .paiements .sub { color: #666; margin-bottom: 35px; font-size: 1.1em; }
-  .paiement-flow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 0 auto 30px;
-  }
-  .paiement-step {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    width: 180px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    text-align: center;
-  }
-  .paiement-step .step-icon { font-size: 2em; margin-bottom: 8px; }
-  .paiement-step h4 { font-size: 0.95em; margin-bottom: 4px; }
-  .paiement-step p { font-size: 0.8em; color: #888; }
-  .paiement-arrow { font-size: 1.5em; color: var(--orange); }
-  .paiement-stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
-  }
-  .paiement-stat { text-align: center; }
-  .paiement-stat .val { font-size: 2em; font-weight: 800; color: var(--orange); }
-  .paiement-stat .lbl { font-size: 0.85em; color: #666; margin-top: 4px; }
+/* MÉTIERS */
+.metiers{padding:60px 20px;text-align:center;background:var(--gray)}
+.metiers h2{font-size:1.8em;font-weight:700;color:var(--dark);margin-bottom:10px}
+.metiers .sub{color:var(--text-light);margin-bottom:30px;font-size:1.1em}
+.metier-tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto 30px}
+.metier-tab{padding:10px 20px;border-radius:25px;border:2px solid #e2e8f0;background:var(--white);cursor:pointer;font-size:.95em;font-weight:600;transition:all .2s;color:var(--text-light);text-decoration:none}
+.metier-tab:hover,.metier-tab.active{border-color:var(--green);color:var(--green);background:rgba(37,211,102,.05)}
+.metier-use-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.use-case{background:var(--white);border-radius:16px;padding:25px;text-align:left}
+.use-case .emoji{font-size:2em;margin-bottom:10px}
+.use-case h4{margin-bottom:8px;font-size:1.1em;color:var(--dark)}
+.use-case p{color:var(--text-light);font-size:.92em;line-height:1.5}
+.use-case .msg-example{background:#DCF8C6;border-radius:10px;padding:10px 14px;font-size:.88em;margin-top:12px;font-style:italic;color:#333}
 
-  /* PRICING */
-  .pricing {
-    padding: 60px 20px;
-    background: var(--gray);
-    text-align: center;
-  }
-  .pricing h2 { font-size: 2em; margin-bottom: 40px; }
-  .pricing-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .price-card {
-    background: white;
-    border-radius: 16px;
-    padding: 30px;
-    width: 265px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .price-card.popular {
-    border: 3px solid var(--orange);
-    transform: scale(1.05);
-    box-shadow: 0 8px 35px rgba(255,107,53,0.2);
-  }
-  .price-card.free-plan {
-    border: 2px solid var(--green);
-  }
-  .popular-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--orange);
-    color: white;
-    padding: 4px 16px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .free-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--green);
-    color: white;
-    padding: 4px 16px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .price-card h3 { font-size: 1.3em; margin-bottom: 5px; }
-  .price-card .price { font-size: 2.5em; font-weight: 800; color: var(--dark); margin: 15px 0 5px; }
-  .price-card .price span { font-size: 0.4em; font-weight: 400; color: #999; }
-  .price-card .price-sub { font-size: 0.85em; color: #999; margin-bottom: 10px; }
-  .price-card ul { list-style: none; text-align: left; margin: 15px 0; flex-grow: 1; }
-  .price-card ul li { padding: 6px 0; font-size: 0.88em; color: #555; }
-  .price-card ul li::before { content: '✓ '; color: var(--orange); font-weight: 700; }
-  .price-card .btn {
-    display: block;
-    padding: 12px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s;
-    text-align: center;
-    margin-top: auto;
-  }
-  .btn-outline { border: 2px solid var(--orange); color: var(--orange); background: transparent; }
-  .btn-outline:hover { background: rgba(255,107,53,0.05); }
-  .btn-fill { background: var(--orange); color: white; border: 2px solid var(--orange); }
-  .btn-fill:hover { background: #e5592b; border-color: #e5592b; }
-  .btn-green { background: var(--green); color: white; border: 2px solid var(--green); }
-  .btn-green:hover { background: #1ebe59; border-color: #1ebe59; }
+/* PRICING */
+.pricing{padding:60px 20px;background:var(--gray);text-align:center}
+.pricing h2{font-size:1.8em;font-weight:700;color:var(--dark);margin-bottom:40px}
+.pricing-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.price-card{background:var(--white);border-radius:16px;padding:30px;width:265px;box-shadow:0 4px 20px rgba(0,0,0,.06);position:relative;display:flex;flex-direction:column}
+.price-card.popular{border:3px solid var(--green);transform:scale(1.05);box-shadow:0 8px 35px rgba(37,211,102,.15)}
+.price-card.free-plan{border:2px solid var(--green)}
+.popular-badge,.free-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);color:var(--white);padding:4px 16px;border-radius:12px;font-size:12px;font-weight:700;white-space:nowrap}
+.popular-badge{background:var(--green)}
+.free-badge{background:var(--green)}
+.price-card h3{font-size:1.3em;margin-bottom:5px;color:var(--dark)}
+.price-card .price{font-size:2.5em;font-weight:800;color:var(--dark);margin:15px 0 5px}
+.price-card .price span{font-size:.4em;font-weight:400;color:var(--text-light)}
+.price-card .price-sub{font-size:.85em;color:var(--text-light);margin-bottom:10px}
+.price-card ul{list-style:none;text-align:left;margin:15px 0;flex-grow:1}
+.price-card ul li{padding:6px 0;font-size:.88em;color:var(--text-light)}
+.price-card ul li::before{content:'✓ ';color:var(--green);font-weight:700}
+.price-card .btn{display:block;padding:12px;border-radius:25px;text-decoration:none;font-weight:600;transition:all .2s;text-align:center;margin-top:auto}
+.btn-outline{border:2px solid var(--green);color:var(--green);background:transparent}
+.btn-outline:hover{background:rgba(37,211,102,.05)}
+.btn-fill{background:var(--green);color:var(--white);border:2px solid var(--green)}
+.btn-fill:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.pricing-notice{margin-top:35px;padding:16px 24px;background:rgba(37,211,102,.08);border-radius:12px;display:inline-block;font-size:1.05em;font-weight:600;color:var(--dark);max-width:700px}
 
-  .pricing-notice {
-    margin-top: 35px;
-    padding: 16px 24px;
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0cc 100%);
-    border-radius: 12px;
-    display: inline-block;
-    font-size: 1.05em;
-    font-weight: 600;
-    color: var(--dark);
-    max-width: 700px;
-  }
+/* CTA FINAL */
+.cta-final{padding:80px 20px;text-align:center;background:var(--dark);color:var(--white)}
+.cta-final h2{font-size:clamp(1.6em,4vw,2.2em);font-weight:700;margin-bottom:30px}
 
-  /* FAQ */
-  .faq {
-    padding: 60px 20px;
-    max-width: 750px;
-    margin: 0 auto;
-  }
-  .faq h2 { text-align: center; font-size: 2em; margin-bottom: 35px; }
-  .faq-item {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    overflow: hidden;
-  }
-  .faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 20px 24px;
-    text-align: left;
-    font-size: 1.05em;
-    font-weight: 700;
-    color: var(--dark);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: inherit;
-  }
-  .faq-question::after {
-    content: '+';
-    font-size: 1.4em;
-    color: var(--orange);
-    font-weight: 700;
-    transition: transform 0.2s;
-  }
-  .faq-item.open .faq-question::after {
-    content: '−';
-  }
-  .faq-answer {
-    display: none;
-    padding: 0 24px 20px;
-    color: #555;
-    line-height: 1.6;
-    font-size: 0.95em;
-  }
-  .faq-item.open .faq-answer {
-    display: block;
-  }
+/* FOOTER */
+footer{padding:30px 20px;text-align:center;background:#0f172a;color:rgba(255,255,255,.4);font-size:.85em}
+footer a{color:rgba(255,255,255,.5);text-decoration:none}
+footer a:hover{color:rgba(255,255,255,.7)}
+footer .links{margin-top:10px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
 
-  /* SOCIAL PROOF */
-  .social-proof {
-    padding: 60px 20px;
-    text-align: center;
-    background: var(--gray);
-  }
-  .social-proof h2 { font-size: 2em; margin-bottom: 30px; }
-  .testimonials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .testimonial {
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 25px;
-    max-width: 280px;
-    text-align: left;
-  }
-  .testimonial .stars { color: #F39C12; margin-bottom: 10px; }
-  .testimonial .quote { font-style: italic; color: #555; line-height: 1.5; margin-bottom: 15px; font-size: 0.95em; }
-  .testimonial .author { font-weight: 700; font-size: 0.9em; }
-  .testimonial .role { font-size: 0.8em; color: #999; }
-
-  /* FOOTER CTA */
-  .footer-cta {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  .footer-cta h2 { font-size: 2em; margin-bottom: 15px; }
-  .footer-cta p { opacity: 0.8; margin-bottom: 30px; font-size: 1.1em; }
-  .footer-cta .footer-brand { margin-top: 30px; opacity: 0.5; font-size: 0.85em; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 2em; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .price-card.popular { transform: scale(1); }
-    .pricing-grid { flex-direction: column; align-items: center; }
-    .price-card { width: 100%; max-width: 340px; }
-    .paiement-flow { flex-direction: column; align-items: center; }
-    .paiement-arrow { transform: rotate(90deg); }
-    .paiement-stats { flex-direction: column; gap: 20px; }
-    .metier-tabs { gap: 8px; }
-    .metier-tab { padding: 8px 14px; font-size: 0.85em; }
-  }
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{padding:70px 20px 60px}
+  .price-card.popular{transform:scale(1)}
+  .pricing-grid{flex-direction:column;align-items:center}
+  .price-card{width:100%;max-width:340px}
+  .metier-tabs{gap:8px}
+  .metier-tab{padding:8px 14px;font-size:.85em}
+}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🚀 Lancement — Commencez gratuitement</div>
-  <h1>Dictez. <span>Facturez.</span><br>C'est tout.</h1>
-  <div class="tagline">Vous dictez, on facture.</div>
-  <p class="subtitle">Envoyez un vocal WhatsApp, recevez un devis PDF pro en 30 secondes. Artisans, coachs, kinés — Diqto gère votre facturation pendant que vous travaillez.</p>
-  <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" class="cta-btn" target="_blank">💬 Commencer gratuitement</a>
-  <a href="#demo" class="cta-secondary">Voir la démo ↓</a>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">30s</div><div class="label">pour un devis</div></div>
-    <div class="hero-stat"><div class="num">0€</div><div class="label">pour commencer</div></div>
-    <div class="hero-stat"><div class="num">0</div><div class="label">app à installer</div></div>
+  <h1>Vous dictez, <span>on facture.</span></h1>
+  <p class="subtitle">L'assistant WhatsApp qui transforme vos messages vocaux en devis et factures professionnels.</p>
+  <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn-wa">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Essayer gratuitement
+  </a>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="steps reveal">
+  <h2>Comment ça marche</h2>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="icon">🎙️</div>
+      <span class="num">1</span>
+      <h3>Vous dictez</h3>
+      <p>Décrivez votre prestation par message vocal ou texte</p>
+    </div>
+    <div class="step">
+      <div class="icon">📄</div>
+      <span class="num">2</span>
+      <h3>Diqto rédige</h3>
+      <p>Votre devis professionnel est généré en quelques secondes</p>
+    </div>
+    <div class="step">
+      <div class="icon">📩</div>
+      <span class="num">3</span>
+      <h3>Vous envoyez</h3>
+      <p>Envoyez le PDF à votre client directement par WhatsApp</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features reveal">
+  <h2>Ce qui change tout</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">✏️</div>
+      <h3>Modifiez par message</h3>
+      <p>Changez un prix, ajoutez une ligne, en un message. Sans tout refaire.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔄</div>
+      <h3>Devis → Facture en 1 clic</h3>
+      <p>Votre client accepte ? Dites « facture » et c'est fait. Numérotation et mentions conformes.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📬</div>
+      <h3>Briefing du matin</h3>
+      <p>Chaque matin, l'état de vos devis, factures et relances. Rien ne vous échappe.</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:30px">
+    <a href="/fonctionnalites.html" style="color:var(--green);font-weight:600;text-decoration:none;font-size:.95em">Voir toutes les fonctionnalités →</a>
   </div>
 </section>
 
 <!-- MÉTIERS -->
-<section class="metiers" id="metiers">
+<section class="metiers reveal" id="metiers">
   <h2>Diqto s'adapte à votre métier</h2>
   <p class="sub">Un seul assistant. Des dizaines de professions.</p>
   <div class="metier-tabs">
@@ -670,197 +198,10 @@
   </div>
 </section>
 
-<!-- DEMO -->
-<section class="demo-section" id="demo">
-  <h2>Comment ça marche ?</h2>
-  <p class="sub">Aussi simple qu'envoyer un message à un ami</p>
-  <div class="phone-mockup">
-    <div class="phone-header">
-      <div class="avatar">⚡</div>
-      <div>
-        <div class="name">Diqto</div>
-        <div class="status">En ligne</div>
-      </div>
-    </div>
-    <div class="chat-body">
-      <div class="msg msg-user">
-        <div class="msg-voice">
-          🎙️
-          <div class="voice-wave">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <span style="font-size:12px;color:#999">0:12</span>
-        </div>
-        <div class="time">14:32 ✓✓</div>
-      </div>
-      <div class="msg msg-bot">
-        ✅ Compris ! Devis pour <strong>Mme Dupont</strong><br>
-        📍 12 rue des Lilas, Lyon 3<br>
-        🔧 Rénovation SDB complète — 9m²<br>
-        💰 Montant : <strong>4 850 € HT</strong><br><br>
-        Je génère le PDF...
-        <div class="time">14:32</div>
-      </div>
-      <div class="msg msg-bot">
-        <div class="msg-pdf">
-          <div class="pdf-icon">PDF</div>
-          <div class="pdf-info">
-            <div class="pdf-name">Devis_DIQTO-20260307_Dupont.pdf</div>
-            <div class="pdf-size">245 Ko · 2 pages</div>
-          </div>
-        </div>
-        <div class="time">14:32</div>
-      </div>
-      <div class="msg msg-bot">
-        📩 J'envoie à Mme Dupont ?<br>
-        💳 Avec lien de paiement acompte (1 455€)
-        <div class="time">14:32</div>
-      </div>
-      <div class="msg msg-user">
-        OUI
-        <div class="time">14:33 ✓✓</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-  <h2>Tout ce qu'il vous faut, rien de plus</h2>
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="icon">🎙️</div>
-      <h3>Vocal ou texte</h3>
-      <p>Où que vous soyez — même juste après avoir rencontré votre client. Diqto comprend et structure tout automatiquement.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📄</div>
-      <h3>Devis & factures PDF</h3>
-      <p>Votre nom, vos mentions légales, numérotation automatique des documents. Conformes à la loi. Comme si vous aviez un assistant dédié.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">💳</div>
-      <h3>Paiements intégrés <span class="badge-new">NEW</span></h3>
-      <p>Vos clients paient par carte en 1 clic. Acompte, solde, forfaits mensuels — tout est automatique.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🔔</div>
-      <h3>Relances automatiques</h3>
-      <p>Diqto relance poliment votre client à votre place — J+7, J+15, J+30 — automatiquement. Ne vous souciez plus de vos impayés.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🧠</div>
-      <h3>Mémoire intelligente</h3>
-      <p>Diqto retient vos clients, vos tarifs, vos prestations habituelles. Plus vous l'utilisez, plus il est rapide.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📋</div>
-      <h3>Factur-X conforme</h3>
-      <p>Diqto adapte automatiquement votre facturation aux nouvelles exigences légales de facturation électronique à compter de septembre 2026.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📸</div>
-      <h3>Import par photo</h3>
-      <p>Prenez en photo vos anciens devis papier. Diqto les scanne et apprend vos prestations et tarifs.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🔄</div>
-      <h3>Forfaits & abonnements <span class="badge-new">NEW</span></h3>
-      <p>Gérez vos élèves, clients réguliers, forfaits mensuels ou cartes prépayées. Facturation récurrente automatique.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>Tableau de bord vocal</h3>
-      <p>"Combien j'ai facturé ce mois ?" — demandez par vocal, Diqto vous répond instantanément avec vos chiffres clés.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📩</div>
-      <h3>Envoi au client par WhatsApp <span class="badge-new">NEW</span></h3>
-      <p>Diqto envoie votre devis directement à votre client par WhatsApp. Un message pro, avec le PDF en pièce jointe.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🔄</div>
-      <h3>Devis → Facture en 1 message <span class="badge-new">NEW</span></h3>
-      <p>"Transforme le devis Dupont en facture" — Diqto convertit instantanément, avec le bon numéro et les bonnes mentions.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">✏️</div>
-      <h3>Modification par message <span class="badge-new">NEW</span></h3>
-      <p>"Change le prix de la ligne 2 à 450€" — modifiez vos devis par simple message, sans tout refaire.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🗂️</div>
-      <h3>Catalogue auto-appris</h3>
-      <p>Diqto retient vos prix et prestations. Plus besoin de les répéter — il les propose automatiquement.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BRIEFING QUOTIDIEN -->
-<section class="briefing" id="briefing">
-  <h2>📬 Votre assistant vous briefe chaque matin</h2>
-  <p class="sub">Un résumé quotidien de vos devis, factures et relances — sans rien demander</p>
-  <div class="briefing-content">
-    <ul class="briefing-points">
-      <li><span class="bp-icon">☀️</span><strong>Briefing du matin</strong> — devis en attente, factures impayées, relances du jour</li>
-      <li><span class="bp-icon">📊</span><strong>Bilan hebdo le lundi</strong> — CA, taux de conversion devis, top clients de la semaine</li>
-      <li><span class="bp-icon">💡</span><strong>Astuces personnalisées</strong> — des conseils concrets pour améliorer votre activité</li>
-      <li><span class="bp-icon">⚙️</span><strong>Configurable</strong> — quotidien, hebdo, ou les deux — à l'heure qui vous arrange</li>
-    </ul>
-    <div class="briefing-mockup">
-      <div class="wa-bubble">
-        <div class="wa-header">☀️ Bonjour ! Voici votre briefing</div>
-        <div class="wa-line">📄 <strong>3 devis</strong> en attente de réponse</div>
-        <div class="wa-line">💰 <strong>2 factures</strong> impayées (1 850 €)</div>
-        <div class="wa-line">🔔 <strong>1 relance</strong> à envoyer aujourd'hui (M. Bernard — J+15)</div>
-        <div class="wa-line" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid #eee;">💡 <em>Astuce : vos devis acceptés le jour même ont 3× plus de chances d'être payés rapidement !</em></div>
-        <div class="wa-time">07:30</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PAIEMENTS -->
-<section class="paiements" id="paiements">
-  <h2>Fini de courir après les paiements</h2>
-  <p class="sub">Diqto encaisse pour vous. Acomptes, soldes, forfaits mensuels — automatiquement.</p>
-  <div class="paiement-flow">
-    <div class="paiement-step">
-      <div class="step-icon">📄</div>
-      <h4>Devis accepté</h4>
-      <p>Le client signe</p>
-    </div>
-    <div class="paiement-arrow">→</div>
-    <div class="paiement-step">
-      <div class="step-icon">💳</div>
-      <h4>Acompte auto</h4>
-      <p>Lien CB envoyé</p>
-    </div>
-    <div class="paiement-arrow">→</div>
-    <div class="paiement-step">
-      <div class="step-icon">🔨</div>
-      <h4>Travaux</h4>
-      <p>Vous bossez tranquille</p>
-    </div>
-    <div class="paiement-arrow">→</div>
-    <div class="paiement-step">
-      <div class="step-icon">✅</div>
-      <h4>Solde encaissé</h4>
-      <p>Relances auto si besoin</p>
-    </div>
-  </div>
-  <div class="paiement-stats">
-    <div class="paiement-stat"><div class="val">-80%</div><div class="lbl">d'impayés</div></div>
-    <div class="paiement-stat"><div class="val">2h</div><div class="lbl">gagnées par semaine</div></div>
-    <div class="paiement-stat"><div class="val">0</div><div class="lbl">relance à faire soi-même</div></div>
-  </div>
-</section>
-
 <!-- PRICING -->
-<section class="pricing" id="pricing">
+<section class="pricing reveal" id="pricing">
   <h2>Des prix d'indépendant, pas de consultant</h2>
   <div class="pricing-grid">
-
     <div class="price-card free-plan">
       <div class="free-badge">🎉 Gratuit à vie</div>
       <h3>Gratuit</h3>
@@ -872,9 +213,8 @@
         <li>Mention "Généré par Diqto"</li>
         <li>Support communauté</li>
       </ul>
-      <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn btn-green">Commencer gratuitement</a>
+      <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn btn-fill">Commencer gratuitement</a>
     </div>
-
     <div class="price-card popular">
       <div class="popular-badge">⭐ Plus populaire</div>
       <h3>Solo</h3>
@@ -889,7 +229,6 @@
       </ul>
       <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn btn-fill">Essai gratuit 14 jours</a>
     </div>
-
     <div class="price-card">
       <h3>Pro</h3>
       <div class="price">39€<span>/mois HT</span></div>
@@ -904,7 +243,6 @@
       </ul>
       <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn btn-fill">Essai gratuit 14 jours</a>
     </div>
-
     <div class="price-card">
       <h3>Business</h3>
       <div class="price">79€<span>/mois HT</span></div>
@@ -919,118 +257,45 @@
       </ul>
       <a href="#" class="btn btn-outline">Nous contacter</a>
     </div>
-
   </div>
-
   <div class="pricing-notice">
     ⚡ Diqto adapte automatiquement votre facturation aux nouvelles exigences légales à compter de septembre 2026.
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <h2>Questions fréquentes</h2>
-
-  <div class="faq-item open">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      C'est vraiment gratuit ?
-    </button>
-    <div class="faq-answer">
-      Oui, 5 devis ou factures par mois, pour toujours. Pas de carte bancaire requise. Vous passez à un plan payant uniquement quand vous êtes prêt.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Ça marche pour mon métier ?
-    </button>
-    <div class="faq-answer">
-      Diqto s'adapte à tous les indépendants : artisans BTP (plombier, électricien, peintre, serrurier…), bien-être à domicile, professionnels de santé (kiné, ostéo, infirmier…), coachs sportifs, profs de yoga, jardiniers, paysagistes, photographes, consultants… Si vous facturez, Diqto vous aide.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Comment fonctionne le paiement par carte ?
-    </button>
-    <div class="faq-answer">
-      Quand votre devis est accepté, Diqto envoie un lien de paiement sécurisé (Stripe) à votre client par WhatsApp ou email. Votre client paie en 1 clic, l'argent arrive directement sur votre compte. Vous êtes notifié instantanément.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Mes données sont-elles sécurisées ?
-    </button>
-    <div class="faq-answer">
-      Vos données sont hébergées en Union Européenne. Les informations personnelles de vos clients sont anonymisées avant tout traitement par IA. Conformité RGPD. Vous pouvez demander l'export ou la suppression de vos données à tout moment.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      C'est quoi la facturation électronique ?
-    </button>
-    <div class="faq-answer">
-      À partir de septembre 2026, toutes les entreprises françaises devront recevoir des factures au format électronique (Factur-X). En 2027, l'émission sera aussi obligatoire. Diqto adapte automatiquement votre facturation à ces nouvelles exigences légales — vous n'avez rien à faire.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Je peux gérer des forfaits mensuels (cours, coaching) ?
-    </button>
-    <div class="faq-answer">
-      Oui ! Diqto gère les forfaits mensuels, trimestriels, cartes de séances. Chaque début de mois, vos élèves reçoivent automatiquement une demande de paiement. Les retards sont relancés automatiquement. Demandez "Qui n'a pas payé ?" par vocal, Diqto vous répond.
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-      Je peux annuler quand je veux ?
-    </button>
-    <div class="faq-answer">
-      Sans engagement, résiliation en 1 clic. Pas de frais cachés, pas de piège. Vous pouvez revenir au plan gratuit à tout moment.
-    </div>
-  </div>
+<!-- CTA FINAL -->
+<section class="cta-final reveal">
+  <h2>Prêt à gagner du temps ?</h2>
+  <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="btn-wa">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Essayer gratuitement sur WhatsApp
+  </a>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="social-proof">
-  <h2>Ils l'ont adopté</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"Avant je faisais mes devis le soir à 22h. Maintenant je les envoie depuis le chantier en 30 secondes."</div>
-      <div class="author">Karim B.</div>
-      <div class="role">Plombier · Lyon</div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"Je perdais 300€/mois en impayés de mes élèves. Depuis que Diqto relance automatiquement, tout le monde paie."</div>
-      <div class="author">Laura T.</div>
-      <div class="role">Prof de yoga · Bordeaux</div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <div class="quote">"Mes patients reçoivent leur note d'honoraires avant même de quitter le cabinet. Magique."</div>
-      <div class="author">Marc D.</div>
-      <div class="role">Kinésithérapeute · Marseille</div>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 Diqto — Vous dictez, on facture.</div>
+  <div class="links">
+    <a href="/fonctionnalites.html">Fonctionnalités</a>
+    <a href="/cgu.html">CGU</a>
+    <a href="/confidentialite.html">Confidentialité</a>
   </div>
-</section>
+</footer>
 
-<!-- FOOTER CTA -->
-<section class="footer-cta">
-  <h2>Arrêtez de perdre du temps et de l'argent</h2>
-  <p>Commencez gratuitement — 5 devis/mois, sans engagement, sans carte bancaire.</p>
-  <a href="https://wa.me/33745275486?text=Salut%20Diqto%20!" target="_blank" class="cta-btn">💬 Commencer gratuitement</a>
-  <div class="footer-brand">Diqto — Vous dictez, on facture.</div>
-  <div style="margin-top: 20px; font-size: 0.8em; color: rgba(255,255,255,0.4);">
-    © 2026 Diqto — Tous droits réservés<br>
-    <a href="/cgu.html" style="color: rgba(255,255,255,0.4); text-decoration: none;">Conditions Générales d'Utilisation</a> | <a href="/confidentialite.html" style="color: rgba(255,255,255,0.4); text-decoration: none;">Politique de Confidentialité</a>
-  </div>
-</section>
+<script>
+// Intersection Observer for reveal animations
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+// Metier tabs (keep interactive)
+document.querySelectorAll('.metier-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.metier-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>

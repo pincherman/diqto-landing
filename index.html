@@ -48,10 +48,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .metiers{padding:60px 20px;text-align:center;background:var(--gray)}
 .metiers h2{font-size:1.8em;font-weight:700;color:var(--dark);margin-bottom:10px}
 .metiers .sub{color:var(--text-light);margin-bottom:30px;font-size:1.1em}
-.metier-tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto 30px}
-.metier-tab{padding:10px 20px;border-radius:25px;border:2px solid #e2e8f0;background:var(--white);cursor:pointer;font-size:.95em;font-weight:600;transition:all .2s;color:var(--text-light);text-decoration:none}
-.metier-tab:hover,.metier-tab.active{border-color:var(--green);color:var(--green);background:rgba(37,211,102,.05)}
-.metier-use-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.metier-grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:1000px;margin:0 auto}
+.metier-card{background:var(--white);border-radius:16px;padding:24px;text-align:center;border:2px solid #e2e8f0;transition:all .2s}
+.metier-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.metier-card .emoji{font-size:2em;margin-bottom:8px}
+.metier-card h4{font-size:1em;font-weight:700;color:var(--dark);margin-bottom:6px}
+.metier-card p{font-size:.9em;color:var(--text-light);font-style:italic;margin:0}
 .use-case{background:var(--white);border-radius:16px;padding:25px;text-align:left}
 .use-case .emoji{font-size:2em;margin-bottom:10px}
 .use-case h4{margin-bottom:8px;font-size:1.1em;color:var(--dark)}
@@ -98,9 +100,9 @@ footer .links{margin-top:10px;display:flex;justify-content:center;gap:20px;flex-
   .price-card.popular{transform:scale(1)}
   .pricing-grid{flex-direction:column;align-items:center}
   .price-card{width:100%;max-width:340px}
-  .metier-tabs{gap:8px}
-  .metier-tab{padding:8px 14px;font-size:.85em}
 }
+@media(min-width:550px){.metier-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.metier-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -169,44 +171,19 @@ footer .links{margin-top:10px;display:flex;justify-content:center;gap:20px;flex-
 <section class="metiers reveal" id="metiers">
   <h2>Diqto s'adapte à votre métier</h2>
   <p class="sub">Un seul assistant. Des dizaines de professions.</p>
-  <div class="metier-tabs">
-    <span class="metier-tab active">🔧 Artisans BTP</span>
-    <span class="metier-tab">🏋️ Coachs & Profs</span>
-    <span class="metier-tab">💆 Santé</span>
-    <span class="metier-tab">📸 Services</span>
-    <span class="metier-tab">🌿 Jardiniers & Paysagistes</span>
-  </div>
-  <div class="metier-use-cases">
-    <div class="use-case">
-      <div class="emoji">🔧</div>
-      <h4>Plombier, électricien, peintre…</h4>
-      <p>Dictez votre devis depuis le chantier. Diqto calcule avec VOS tarifs, génère le PDF et l'envoie au client.</p>
-      <div class="msg-example">🎙️ "Devis pour Mme Dupont, rénovation salle de bain, 9 mètres carrés, remplacement baignoire par douche italienne…"</div>
-    </div>
-    <div class="use-case">
-      <div class="emoji">🧘</div>
-      <h4>Coach sportif, prof de yoga, prof de danse…</h4>
-      <p>Gérez vos forfaits mensuels, trimestriels, cartes 10 séances. Diqto relance automatiquement les retards de paiement.</p>
-      <div class="msg-example">🎙️ "Qui n'a pas payé ce mois-ci ?"</div>
-    </div>
-    <div class="use-case">
-      <div class="emoji">💆</div>
-      <h4>Kiné, ostéo, infirmier libéral…</h4>
-      <p>Notes d'honoraires conformes, attestations patients, suivi des paiements. Dictez, Diqto s'occupe du reste.</p>
-      <div class="msg-example">🎙️ "Facture 3 séances rééducation épaule pour M. Bertrand"</div>
-    </div>
-    <div class="use-case">
-      <div class="emoji">📸</div>
-      <h4>Photographe, vidéaste, graphiste…</h4>
-      <p>Forfait shooting, retouches, livraison — structurez vos prestations créatives et facturez sans tableur.</p>
-      <div class="msg-example">🎙️ "Devis pour shooting mariage 8h pour les Martin, pack premium avec album"</div>
-    </div>
-    <div class="use-case">
-      <div class="emoji">🌿</div>
-      <h4>Jardinier, paysagiste, élagueur…</h4>
-      <p>Tonte, taille, aménagement — chiffrez sur place et envoyez le devis avant de quitter le jardin.</p>
-      <div class="msg-example">🎙️ "Devis entretien mensuel jardin 400m2, tonte, taille haies et désherbage"</div>
-    </div>
+  <div class="metier-grid">
+    <div class="metier-card"><div class="emoji">🔧</div><h4>Plombiers &amp; Chauffagistes</h4><p>Dictez vos devis chantier entre deux interventions</p></div>
+    <div class="metier-card"><div class="emoji">⚡</div><h4>Électriciens</h4><p>Un devis par pièce, envoyé avant de quitter le chantier</p></div>
+    <div class="metier-card"><div class="emoji">🧱</div><h4>Maçons &amp; Façadiers</h4><p>Calculs au m², métrés complexes — dictez, Diqto chiffre</p></div>
+    <div class="metier-card"><div class="emoji">🎨</div><h4>Peintres</h4><p>Surfaces, sous-couches, finitions — le devis sort en 30 secondes</p></div>
+    <div class="metier-card"><div class="emoji">🏠</div><h4>Menuisiers &amp; Charpentiers</h4><p>Devis sur-mesure dictés depuis l'atelier ou chez le client</p></div>
+    <div class="metier-card"><div class="emoji">💪</div><h4>Coachs sportifs</h4><p>Forfaits, cartes 10 séances, relances de paiement — tout par WhatsApp</p></div>
+    <div class="metier-card"><div class="emoji">🧘</div><h4>Profs yoga, pilates &amp; danse</h4><p>Gérez vos abonnements et facturez vos élèves sans tableur</p></div>
+    <div class="metier-card"><div class="emoji">📸</div><h4>Photographes</h4><p>Devis shooting, forfaits retouche, facturation après prestation</p></div>
+    <div class="metier-card"><div class="emoji">🏡</div><h4>Paysagistes &amp; Jardiniers</h4><p>Chiffrez tonte, taille et aménagement avant de quitter le jardin</p></div>
+    <div class="metier-card"><div class="emoji">🧹</div><h4>Nettoyage &amp; Ménage</h4><p>Forfaits récurrents, devis au m² — dictez et envoyez</p></div>
+    <div class="metier-card"><div class="emoji">🩺</div><h4>Kinés &amp; Ostéos</h4><p>Notes d'honoraires et attestations patients en un message vocal</p></div>
+    <div class="metier-card"><div class="emoji">🎨</div><h4>Graphistes &amp; Consultants</h4><p>Structurez vos prestations créatives et facturez sans friction</p></div>
   </div>
 </section>
 
@@ -310,13 +287,7 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Metier tabs (keep interactive)
-document.querySelectorAll('.metier-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.metier-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-  });
-});
+// Metier tabs removed — now pure CSS grid
 </script>
 </body>
 </html>

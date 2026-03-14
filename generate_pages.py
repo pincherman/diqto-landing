@@ -232,8 +232,55 @@ def get_seo_description(metier_data):
         return f"Diqto pour les {name.lower()}s : devis et factures par WhatsApp. Dictez par vocal, recevez un PDF pro en 30 secondes. Gratuit."
 
 
+def get_narrative_story(metier_data):
+    """Generate a short narrative story for the métier, like the main landing page quotidien section."""
+    name = metier_data.get("name", metier_data.get("label", ""))
+    profile = metier_data.get("profile", "devis")
+    
+    stories = {
+        "devis": {
+            "scene": f"Mardi 8h. Le client appelle.",
+            "dialogue1": "« Vous pouvez me faire un devis ? »",
+            "context": f"Tu es en intervention. Les mains occupées.",
+            "dialogue2": "« Je vous envoie ça ce soir. »",
+            "consequence": "Ce soir, tu es crevé. Le devis attendra demain.",
+            "punchline": "Demain, le client a signé chez un autre.",
+            "resolution": f"Et si ton devis de {name.lower()} était déjà parti ?",
+        },
+        "abonnement": {
+            "scene": "Fin du mois. Les cotisations.",
+            "dialogue1": "« Faut que je fasse les factures de tous mes élèves. »",
+            "context": "Tu ouvres un tableur. Tu copies-colles. Tu recommences.",
+            "dialogue2": "« Plus que 23 à faire... »",
+            "consequence": "2 heures plus tard, tu as facturé. Mais ta soirée est foutue.",
+            "punchline": "Et le mois prochain, rebelote.",
+            "resolution": "Et si un message vocal suffisait pour tout facturer ?",
+        },
+        "honoraires": {
+            "scene": "Entre deux consultations. La paperasse.",
+            "dialogue1": "« Il faut que je fasse ma note d'honoraires. »",
+            "context": "Tu ouvres Word. Tu cherches le dernier modèle. Tu corriges les montants.",
+            "dialogue2": "« Je ferai ça ce soir. »",
+            "consequence": "Ce soir, tu as 3 autres notes en retard.",
+            "punchline": "Et ton comptable qui relance.",
+            "resolution": "Et si ta note était générée en 30 secondes ?",
+        },
+    }
+    
+    s = stories.get(profile, stories["devis"])
+    story_html = f"""<p>{s['scene']}</p>
+    <p class="dialogue">{s['dialogue1']}</p>
+    <p>&nbsp;</p>
+    <p>{s['context']}</p>
+    <p class="dialogue">{s['dialogue2']}</p>
+    <p>&nbsp;</p>
+    <p>{s['consequence']}</p>
+    <p class="emphasis">{s['punchline']}</p>"""
+    return story_html, s['resolution']
+
+
 def generate_page(metier_id, metier_data, all_metiers):
-    """Generate a full HTML page for a métier."""
+    """Generate a full narrative HTML page for a métier."""
     name = metier_data.get("name", metier_data.get("label", metier_id))
     emoji = metier_data.get("emoji", "📋")
     profile = metier_data.get("profile", "devis")
@@ -242,6 +289,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     seo_desc = get_seo_description(metier_data)
     features_html = get_features_html(metier_data)
     wa_convo = get_whatsapp_conversation(metier_data)
+    narrative_html, narrative_resolution = get_narrative_story(metier_data)
     related = get_related_metiers(metier_id, all_metiers)
     
     # Related links
@@ -344,24 +392,34 @@ h1,h2,h3,h4,h5,h6{{font-family:'Outfit','DM Sans',sans-serif}}
 .logo-diqto.logo-sm{{transform:scale(.6);transform-origin:left center}}
 
 /* NAV */
-nav{{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e2e8f0}}
-.nav-logo{{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.3em;color:var(--dark)}}
-nav a.nav-cta{{background:var(--green);color:var(--white);padding:10px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9em;transition:transform .2s;display:inline-flex;align-items:center;gap:6px}}
-nav a.nav-cta:hover{{transform:translateY(-1px)}}
+nav{{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);z-index:100;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.06)}}
+nav .logo-diqto{{transform:scale(.55);transform-origin:left center}}
+nav a.nav-cta{{background:var(--green);color:var(--white);padding:11px 26px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9em;transition:transform .2s;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 12px rgba(37,211,102,.2)}}
+nav a.nav-cta:hover{{transform:translateY(-1px);box-shadow:0 4px 20px rgba(37,211,102,.35)}}
 
 /* HERO */
-.hero{{padding:130px 24px 80px;text-align:center;background:var(--white)}}
-.hero h1{{font-family:'Outfit',sans-serif;font-size:clamp(2em,5vw,3em);font-weight:800;color:var(--dark);letter-spacing:-0.02em;margin-bottom:16px}}
+.hero{{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 24px 80px;text-align:center;background:var(--white)}}
+.hero h1{{font-family:'Work Sans',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:20px}}
 .hero h1 .emoji{{font-size:1.1em}}
-.hero .subtitle{{font-size:clamp(1em,2.5vw,1.25em);color:var(--text-light);max-width:560px;margin:0 auto 40px;line-height:1.5}}
-.btn-wa{{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(37,211,102,.35)}}
-.btn-wa:hover{{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.45)}}
+.hero .subtitle{{font-size:clamp(1em,2.5vw,1.2em);color:var(--text-light);max-width:560px;margin:0 auto 40px;line-height:1.6}}
+.btn-wa{{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(37,211,102,.3)}}
+.btn-wa:hover{{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}}
+
+/* STORY / NARRATIVE */
+.story-section{{padding:100px 24px;background:var(--gray);text-align:center}}
+.story-section h2{{font-family:'Work Sans',sans-serif;font-size:clamp(1.3em,3vw,1.8em);font-weight:700;color:var(--dark);margin-bottom:48px;letter-spacing:-.5px}}
+.story{{max-width:520px;margin:0 auto;font-size:clamp(1rem,2vw,1.1rem);line-height:2;color:var(--text-light)}}
+.story p{{margin-bottom:8px}}
+.story .dialogue{{color:var(--dark);font-style:italic;font-weight:500}}
+.story .emphasis{{color:var(--dark);font-weight:600}}
+.story-separator{{width:48px;height:2px;background:var(--green);margin:40px auto;border-radius:2px}}
+.story-punchline{{font-family:'Work Sans',sans-serif;font-size:clamp(1.2em,3vw,1.6em);font-weight:700;color:var(--dark);letter-spacing:-.5px;text-align:center;margin-top:40px}}
 
 /* SECTIONS */
-.section{{padding:60px 24px;max-width:800px;margin:0 auto}}
+.section{{padding:80px 24px;max-width:800px;margin:0 auto}}
 .section-alt{{background:var(--gray)}}
 .section-dark{{background:var(--dark);color:var(--white)}}
-h2{{font-size:clamp(1.4em,3vw,1.8em);font-weight:700;color:var(--dark);margin-bottom:20px;text-align:center}}
+h2{{font-family:'Work Sans',sans-serif;font-size:clamp(1.4em,3vw,1.8em);font-weight:700;color:var(--dark);margin-bottom:24px;text-align:center;letter-spacing:-.5px}}
 .section-dark h2{{color:var(--white)}}
 
 /* STEPS */
@@ -416,7 +474,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo logo-diqto logo-sm logo-light">
+  <a href="/" class="logo-diqto logo-light">
     <span class="bubble"><i></i><i></i><i></i></span>
     <span class="text">diq<em>to</em></span>
   </a>
@@ -427,23 +485,27 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 
 <!-- HERO -->
 <section class="hero">
-  <h1><span class="emoji">{emoji}</span> Diqto pour les {name}s</h1>
-  <p class="subtitle">{accroche}</p>
+  <h1><span class="emoji">{emoji}</span> {accroche}</h1>
+  <p class="subtitle">Tu parles. C'est facturé.</p>
   <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa">
-    💬 Essayer gratuitement sur WhatsApp
+    💬 Essayer sur WhatsApp — Gratuit
   </a>
 </section>
 
-<!-- PROBLÈME -->
-<section class="section">
-  <h2>Vous perdez du temps avec vos {profile_data['doc_word_plural']} ?</h2>
-  <p style="text-align:center;color:var(--text-light);font-size:1.05em;max-width:600px;margin:0 auto">{profile_data['pain_point']}</p>
+<!-- LE QUOTIDIEN (narrative) -->
+<section class="story-section">
+  <h2>Le scénario que tu connais par cœur</h2>
+  <div class="story">
+    {narrative_html}
+  </div>
+  <div class="story-separator"></div>
+  <p class="story-punchline">{narrative_resolution}</p>
 </section>
 
 <!-- SOLUTION -->
-<section class="section section-alt" style="max-width:100%;padding:60px 24px">
+<section class="section section-alt" style="max-width:100%;padding:80px 24px">
   <div style="max-width:800px;margin:0 auto">
-    <h2>Avec Diqto, c'est simple</h2>
+    <h2>Tu parles. C'est facturé.</h2>
     <div class="steps-grid">
       <div class="step">
         <span class="num">1</span>
@@ -461,33 +523,32 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
   </div>
 </section>
 
+<!-- EXEMPLE WhatsApp -->
+<section class="section" style="text-align:center">
+  <h2>Exemple : {exemple_title}</h2>
+  <div class="wa-mockup">
+    {wa_convo}
+  </div>
+</section>
+
 <!-- FEATURES -->
-<section class="section">
-  <h2>Conçu pour les {name}s</h2>
-  <div class="metier-features">
-    {features_html}
-  </div>
-  {mentions_html}
-</section>
-
-<!-- EXEMPLE -->
-<section class="section section-alt" style="max-width:100%;padding:60px 24px">
+<section class="section section-alt" style="max-width:100%;padding:80px 24px">
   <div style="max-width:800px;margin:0 auto">
-    <h2>Exemple : {exemple_title}</h2>
-    <div class="wa-mockup">
-      {wa_convo}
+    <h2>Et ça ne s'arrête pas là.</h2>
+    <div class="metier-features">
+      {features_html}
     </div>
+    {mentions_html}
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA FINAL -->
 <section class="cta-section">
-  <h2>Prêt à gagner du temps ?</h2>
-  <p class="cta-sub">Envoyez "Salut" sur WhatsApp et créez votre premier document en 30 secondes.</p>
-  <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa">
-    💬 Essayer gratuitement — 2 minutes
+  <h2>Ton prochain {profile_data['doc_word']} prend 30 secondes.<br>Pas 30 minutes.</h2>
+  <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa" style="margin:24px 0">
+    💬 Essayer sur WhatsApp — Gratuit
   </a>
-  <p style="color:rgba(255,255,255,.5);margin-top:16px;font-size:.9em">Gratuit · Sans engagement · 51 métiers supportés</p>
+  <p class="cta-sub">Pas d'app. Pas de compte. Juste WhatsApp.<br>2 minutes pour s'inscrire. Ton premier document dans la foulée.</p>
 </section>
 
 <!-- AUTRES MÉTIERS -->
@@ -503,7 +564,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
   <p>© 2026 Diqto — Vous dictez, on facture.</p>
   <div class="links">
     <a href="/">Accueil</a>
-    <a href="/fonctionnalites.html">Fonctionnalités</a>
+    <a href="mailto:contact@diqto.fr">Contact</a>
     <a href="/cgu.html">CGU</a>
     <a href="/confidentialite.html">Confidentialité</a>
   </div>

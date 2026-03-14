@@ -108,6 +108,37 @@ nav a.nav-cta:hover{transform:translateY(-1px)}
 .step h3{font-size:1.15em;font-weight:700;color:var(--dark);margin-bottom:6px}
 .step p{color:var(--text-light);font-size:.93em;max-width:260px;margin:0 auto}
 
+/* FEATURES GRID */
+.features{padding:80px 24px;background:var(--white)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.feature-card{background:var(--gray);border-radius:16px;padding:24px;text-align:center;transition:transform .2s}
+.feature-card:hover{transform:translateY(-3px)}
+.feature-card .feat-icon{font-size:2.4em;margin-bottom:12px}
+.feature-card h3{font-size:1.05em;font-weight:700;color:var(--dark);margin-bottom:6px}
+.feature-card p{color:var(--text-light);font-size:.88em;line-height:1.5}
+
+/* POUR QUI */
+.pour-qui{padding:80px 24px;background:var(--gray)}
+.profiles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:900px;margin:0 auto}
+.profile-card{background:var(--white);border-radius:20px;padding:32px 24px;text-align:center;transition:transform .2s;border:2px solid transparent}
+.profile-card:hover{transform:translateY(-4px);border-color:var(--green)}
+.profile-card .profile-icon{font-size:3em;margin-bottom:16px}
+.profile-card h3{font-size:1.2em;font-weight:700;color:var(--dark);margin-bottom:10px}
+.profile-card ul{list-style:none;text-align:left;margin:0}
+.profile-card ul li{padding:4px 0;font-size:.9em;color:var(--text-light)}
+.profile-card ul li::before{content:'✓ ';color:var(--green);font-weight:700}
+.profile-card .profile-cta{display:inline-block;margin-top:16px;color:var(--green);font-weight:600;font-size:.9em;text-decoration:none}
+.profile-card .profile-cta:hover{text-decoration:underline}
+
+/* METIERS SECTION */
+.metiers-section{padding:80px 24px;background:var(--white)}
+.metiers-categories{max-width:900px;margin:0 auto}
+.metier-category{margin-bottom:28px}
+.metier-category h3{font-size:1.1em;font-weight:700;color:var(--dark);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gray)}
+.metier-tags{display:flex;flex-wrap:wrap;gap:8px}
+.metier-tag{display:inline-flex;align-items:center;gap:4px;background:var(--gray);padding:8px 16px;border-radius:25px;text-decoration:none;font-size:.85em;color:var(--text);font-weight:500;transition:all .2s;border:1px solid transparent}
+.metier-tag:hover{border-color:var(--green);background:rgba(37,211,102,.06);color:var(--dark)}
+
 /* MID CTA */
 .mid-cta{padding:50px 24px;text-align:center;background:var(--white)}
 .mid-cta p{color:var(--text-light);font-size:1em;margin-bottom:20px}
@@ -219,7 +250,7 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
 <!-- SOCIAL PROOF BAR -->
 <section class="proof-bar">
   <div class="proof-grid">
-    <div class="proof-item"><span class="proof-icon">🔧</span> <span class="proof-number">39+</span> métiers supportés</div>
+    <div class="proof-item"><span class="proof-icon">🔧</span> <span class="proof-number">51+</span> métiers supportés</div>
     <div class="proof-item"><span class="proof-icon">⚡</span> Devis en <span class="proof-number">30 sec</span></div>
     <div class="proof-item"><span class="proof-icon">💳</span> Paiement CB intégré</div>
     <div class="proof-item"><span class="proof-icon">🎁</span> <span class="proof-number">100%</span> gratuit pour commencer</div>
@@ -251,9 +282,99 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- FONCTIONNALITÉS -->
+<section class="features reveal">
+  <h2 class="section-title">Tout ce qu'il faut pour facturer sans prise de tête</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feat-icon">📸</div>
+      <h3>Photo → Devis IA</h3>
+      <p>Prenez en photo le chantier, Diqto propose un devis automatique</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">✍️</div>
+      <h3>Signature électronique</h3>
+      <p>Votre client signe sur son téléphone. Zéro papier.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">💳</div>
+      <h3>Paiement CB intégré</h3>
+      <p>Lien de paiement Stripe inclus dans chaque facture</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">📥</div>
+      <h3>Import devis</h3>
+      <p>Importez vos devis existants (Word, Excel, papier) et transformez-les en factures conformes</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">📇</div>
+      <h3>Import contacts</h3>
+      <p>Importez vos clients en photo ou fichier. Fini la saisie manuelle.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">📊</div>
+      <h3>Export comptable</h3>
+      <p>Export CSV + PDF pour votre comptable en 1 clic</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🛡️</div>
+      <h3>Sécurité</h3>
+      <p>Emails protégés, documents signés, données chiffrées</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">🔧</div>
+      <h3>51 métiers</h3>
+      <p>BTP, Santé, Coachs, Avocats, Comptables… 51 métiers supportés</p>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI ? -->
+<section class="pour-qui reveal">
+  <h2 class="section-title">Pour qui ?</h2>
+  <div class="profiles-grid">
+    <div class="profile-card">
+      <div class="profile-icon">🔧</div>
+      <h3>Artisans BTP</h3>
+      <ul>
+        <li>Devis & factures sur le chantier</li>
+        <li>Photo → devis automatique</li>
+        <li>Signature client sur téléphone</li>
+        <li>Paiement CB intégré</li>
+        <li>Décennale sur les devis</li>
+      </ul>
+      <a href="metiers/plombier.html" class="profile-cta">Voir les métiers BTP →</a>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon">🥋</div>
+      <h3>Coachs & Profs</h3>
+      <ul>
+        <li>Gestion des élèves</li>
+        <li>Cotisations & abonnements</li>
+        <li>Facturation batch en 1 clic</li>
+        <li>Import contacts en photo</li>
+        <li>Gestion de saison</li>
+      </ul>
+      <a href="metiers/prof_karate.html" class="profile-cta">Voir les métiers enseignement →</a>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon">🏥</div>
+      <h3>Professions libérales</h3>
+      <ul>
+        <li>Notes d'honoraires</li>
+        <li>Conventions d'honoraires</li>
+        <li>Export comptable automatique</li>
+        <li>Paiement CB patient/client</li>
+        <li>RPPS / Barreau intégré</li>
+      </ul>
+      <a href="metiers/avocat.html" class="profile-cta">Voir les métiers libéraux →</a>
+    </div>
+  </div>
+</section>
+
 <!-- MID CTA 1 -->
 <section class="mid-cta">
-  <p>Rejoignez les artisans qui gagnent du temps chaque jour</p>
+  <p>Rejoignez les professionnels qui gagnent du temps chaque jour</p>
   <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     💬 Essayer gratuitement sur WhatsApp
@@ -286,8 +407,9 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
         <li>Devis & factures illimités</li>
         <li>Sans branding Diqto</li>
         <li>Catalogue auto-appris</li>
-        <li>Mémoire clients</li>
-        <li>Paiement CB intégré</li>
+        <li>Signature électronique</li>
+        <li>Paiement CB intégré (Stripe)</li>
+        <li>Import devis & contacts</li>
         <li>Relances automatiques</li>
       </ul>
       <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn btn-fill">Essai gratuit 14 jours</a>
@@ -358,6 +480,93 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- DÉCOUVRIR PAR MÉTIER -->
+<section class="metiers-section reveal">
+  <h2 class="section-title">Découvrez Diqto pour votre métier</h2>
+  <div class="metiers-categories">
+    <div class="metier-category">
+      <h3>🏗️ Bâtiment & Travaux</h3>
+      <div class="metier-tags">
+        <a href="metiers/plombier.html" class="metier-tag">🔧 Plombier</a>
+        <a href="metiers/electricien.html" class="metier-tag">⚡ Électricien</a>
+        <a href="metiers/peintre.html" class="metier-tag">🎨 Peintre</a>
+        <a href="metiers/macon.html" class="metier-tag">🧱 Maçon</a>
+        <a href="metiers/carreleur.html" class="metier-tag">🔲 Carreleur</a>
+        <a href="metiers/menuisier.html" class="metier-tag">🪚 Menuisier</a>
+        <a href="metiers/couvreur.html" class="metier-tag">🏠 Couvreur</a>
+        <a href="metiers/chauffagiste.html" class="metier-tag">🔥 Chauffagiste</a>
+        <a href="metiers/serrurier.html" class="metier-tag">🔑 Serrurier</a>
+        <a href="metiers/paysagiste.html" class="metier-tag">🌿 Paysagiste</a>
+        <a href="metiers/charpentier.html" class="metier-tag">🪵 Charpentier</a>
+        <a href="metiers/platrier.html" class="metier-tag">🏗️ Plâtrier</a>
+        <a href="metiers/facade.html" class="metier-tag">🏢 Façadier</a>
+        <a href="metiers/terrassier.html" class="metier-tag">🚜 Terrassier</a>
+        <a href="metiers/pisciniste.html" class="metier-tag">🏊 Pisciniste</a>
+        <a href="metiers/climatisation.html" class="metier-tag">❄️ Climatisation</a>
+        <a href="metiers/domotique.html" class="metier-tag">🏠 Domotique</a>
+        <a href="metiers/ramoneur.html" class="metier-tag">🧹 Ramoneur</a>
+        <a href="metiers/diagnostiqueur.html" class="metier-tag">📋 Diagnostiqueur</a>
+      </div>
+    </div>
+    <div class="metier-category">
+      <h3>🏥 Santé & Bien-être</h3>
+      <div class="metier-tags">
+        <a href="metiers/osteopathe.html" class="metier-tag">🦴 Ostéopathe</a>
+        <a href="metiers/kine.html" class="metier-tag">💪 Kiné</a>
+        <a href="metiers/infirmier.html" class="metier-tag">💉 Infirmier</a>
+        <a href="metiers/podologue.html" class="metier-tag">🦶 Podologue</a>
+        <a href="metiers/orthophoniste.html" class="metier-tag">🗣️ Orthophoniste</a>
+        <a href="metiers/psychologue.html" class="metier-tag">🧠 Psychologue</a>
+        <a href="metiers/sage_femme.html" class="metier-tag">👶 Sage-femme</a>
+        <a href="metiers/dieteticien.html" class="metier-tag">🥗 Diététicien</a>
+        <a href="metiers/masseur.html" class="metier-tag">🙌 Masseur</a>
+        <a href="metiers/sophrologue.html" class="metier-tag">🧘 Sophrologue</a>
+        <a href="metiers/veterinaire.html" class="metier-tag">🐾 Vétérinaire</a>
+      </div>
+    </div>
+    <div class="metier-category">
+      <h3>🥋 Enseignement & Coaching</h3>
+      <div class="metier-tags">
+        <a href="metiers/coach_sportif.html" class="metier-tag">🏋️ Coach sportif</a>
+        <a href="metiers/prof_karate.html" class="metier-tag">🥋 Prof de karaté</a>
+        <a href="metiers/prof_yoga.html" class="metier-tag">🧘 Prof de yoga</a>
+        <a href="metiers/prof_danse.html" class="metier-tag">💃 Prof de danse</a>
+        <a href="metiers/prof_musique.html" class="metier-tag">🎵 Prof de musique</a>
+        <a href="metiers/prof_langue.html" class="metier-tag">🌍 Prof de langue</a>
+        <a href="metiers/prof_natation.html" class="metier-tag">🏊 Prof de natation</a>
+        <a href="metiers/moniteur_ski.html" class="metier-tag">⛷️ Moniteur de ski</a>
+        <a href="metiers/auto_ecole.html" class="metier-tag">🚗 Auto-école</a>
+        <a href="metiers/formateur.html" class="metier-tag">📚 Formateur</a>
+      </div>
+    </div>
+    <div class="metier-category">
+      <h3>⚖️ Juridique & Finance</h3>
+      <div class="metier-tags">
+        <a href="metiers/avocat.html" class="metier-tag">⚖️ Avocat</a>
+        <a href="metiers/expert_comptable.html" class="metier-tag">📊 Expert-comptable</a>
+        <a href="metiers/consultant.html" class="metier-tag">💼 Consultant</a>
+        <a href="metiers/architecte.html" class="metier-tag">📐 Architecte</a>
+        <a href="metiers/architecte_interieur.html" class="metier-tag">🏡 Architecte d'intérieur</a>
+      </div>
+    </div>
+    <div class="metier-category">
+      <h3>🎨 Services & Créatifs</h3>
+      <div class="metier-tags">
+        <a href="metiers/photographe.html" class="metier-tag">📸 Photographe</a>
+        <a href="metiers/animateur.html" class="metier-tag">🎧 Animateur / DJ</a>
+        <a href="metiers/graphiste.html" class="metier-tag">🎨 Graphiste</a>
+        <a href="metiers/coiffeur.html" class="metier-tag">✂️ Coiffeur</a>
+        <a href="metiers/estheticienne.html" class="metier-tag">💅 Esthéticienne</a>
+        <a href="metiers/tatoueur.html" class="metier-tag">🖊️ Tatoueur</a>
+        <a href="metiers/fleuriste.html" class="metier-tag">💐 Fleuriste</a>
+        <a href="metiers/traiteur.html" class="metier-tag">🍽️ Traiteur</a>
+        <a href="metiers/nettoyage.html" class="metier-tag">🧹 Nettoyage</a>
+        <a href="metiers/garagiste.html" class="metier-tag">🚗 Garagiste</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="cta-final reveal">
   <h2>Prêt à gagner du temps ?</h2>
@@ -374,6 +583,11 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
   <div class="footer-legal">Marque déposée INPI N°5234942</div>
   <div class="links">
     <a href="/fonctionnalites.html">Fonctionnalités</a>
+    <a href="/metiers/plombier.html">Plombier</a>
+    <a href="/metiers/electricien.html">Électricien</a>
+    <a href="/metiers/avocat.html">Avocat</a>
+    <a href="/metiers/osteopathe.html">Ostéopathe</a>
+    <a href="/metiers/prof_karate.html">Karaté</a>
     <a href="/cgu.html">CGU</a>
     <a href="/confidentialite.html">Confidentialité</a>
     <a href="/mentions-legales.html">Mentions légales</a>

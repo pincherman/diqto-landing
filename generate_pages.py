@@ -285,6 +285,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     emoji = metier_data.get("emoji", "📋")
     profile = metier_data.get("profile", "devis")
     profile_data = PROFILE_DATA.get(profile, PROFILE_DATA["devis"])
+    doc_word = profile_data["doc_word"]
     accroche = get_accroche(metier_data)
     seo_desc = get_seo_description(metier_data)
     features_html = get_features_html(metier_data)
@@ -486,7 +487,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <!-- HERO -->
 <section class="hero">
   <h1><span class="emoji">{emoji}</span> {accroche}</h1>
-  <p class="subtitle">Tu parles. C'est facturé.</p>
+  <p class="subtitle">Tu t'es mis à ton compte pour faire ce que tu aimes.<br><strong>Pas pour faire de l'administratif.</strong></p>
   <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa">
     💬 Essayer sur WhatsApp — Gratuit
   </a>
@@ -505,7 +506,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <!-- SOLUTION -->
 <section class="section section-alt" style="max-width:100%;padding:80px 24px">
   <div style="max-width:800px;margin:0 auto">
-    <h2>Tu parles. C'est facturé.</h2>
+    <h2>En 2026, l'IA fait tes {doc_word} en 30 secondes.</h2>
     <div class="steps-grid">
       <div class="step">
         <span class="num">1</span>

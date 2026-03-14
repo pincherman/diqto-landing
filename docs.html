@@ -191,6 +191,13 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
       <li><a href="#profil">Mon profil</a></li>
       <li><a href="#commandes">Commandes utiles</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="#depenses">Suivi des dépenses</a></li>
+      <li><a href="#cotisations">Cotisations &amp; Impôts</a></li>
+      <li><a href="#livre-recettes">Livre de recettes</a></li>
+      <li><a href="#bilan">Bilan &amp; Prévisionnel</a></li>
+      <li><a href="#avoirs">Avoirs &amp; Attestations</a></li>
+      <li><a href="#agenda">Agenda &amp; Chantiers</a></li>
+      <li><a href="#parrainage">Parrainage</a></li>
     </ol>
   </div>
 
@@ -559,6 +566,19 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
         <tr><td>"facture tous mes élèves"</td><td>Génère les factures mensuelles</td></tr>
         <tr><td>"qui n'a pas payé ?"</td><td>Liste les retards de paiement</td></tr>
         <tr><td>"mon logo"</td><td>Change le logo (envoie une image)</td></tr>
+        <tr><td>"mes dépenses"</td><td>Rapport des dépenses par catégorie</td></tr>
+        <tr><td>"ma marge"</td><td>Calcule CA − dépenses</td></tr>
+        <tr><td>"mes cotisations"</td><td>Estimation URSSAF temps réel</td></tr>
+        <tr><td>"ma déclaration"</td><td>CA pré-calculé + lien URSSAF</td></tr>
+        <tr><td>"mon livre de recettes"</td><td>Registre chronologique conforme</td></tr>
+        <tr><td>"mon bilan"</td><td>CA, dépenses, marge, top clients</td></tr>
+        <tr><td>"mon prévisionnel"</td><td>Estimation CA trimestre suivant</td></tr>
+        <tr><td>"coaching prix"</td><td>Comparaison tarifs du métier</td></tr>
+        <tr><td>"avoir sur FAC-xxx"</td><td>Crée une note de crédit conforme</td></tr>
+        <tr><td>"attestation tva"</td><td>CERFA simplifié (BTP)</td></tr>
+        <tr><td>"bloque le 15 mars"</td><td>Bloque une date dans l'agenda</td></tr>
+        <tr><td>"nouveau chantier Dupont"</td><td>Crée un suivi chantier complet</td></tr>
+        <tr><td>"invite un ami"</td><td>Lien de parrainage WhatsApp</td></tr>
       </tbody>
     </table>
 
@@ -605,6 +625,200 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
     <div class="faq-item">
       <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Je peux annuler un document ?</div>
       <div class="faq-a"><p>Tu peux <strong>modifier</strong> un devis autant de fois que tu veux. Pour une facture, tu peux créer un <strong>avoir</strong> (facture d'annulation) pour rester conforme à la réglementation.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== 11. SUIVI DES DÉPENSES ===== -->
+  <section class="doc-section" id="depenses">
+    <h2><span class="section-num">11</span> Suivi des dépenses</h2>
+    <p class="section-desc">Photographie tes tickets de caisse, Diqto les catégorise et calcule ta marge automatiquement.</p>
+
+    <h3>📸 Photo ticket → tracking automatique</h3>
+    <p>Prends en photo un ticket de caisse, une facture fournisseur ou un reçu. Diqto extrait le montant, la date et la catégorie automatiquement.</p>
+
+    <div class="step-box">
+      <span class="step-label">Comment faire</span>
+      <p>1. Prends en photo ton ticket avec WhatsApp (📎 → 📷)</p>
+      <p>2. Diqto détecte le montant et la catégorie</p>
+      <p>3. La dépense est enregistrée dans ton suivi</p>
+    </div>
+
+    <h3>🏷️ Catégorisation intelligente</h3>
+    <p>Diqto classe automatiquement tes dépenses : <strong>matériaux</strong>, <strong>déplacements</strong>, <strong>outillage</strong>, <strong>sous-traitance</strong>, <strong>fournitures de bureau</strong>… Tu peux corriger la catégorie à tout moment.</p>
+
+    <h3>📊 Rapport par catégorie</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>mes dépenses</code> pour voir le détail par catégorie et par période.</p>
+    </div>
+
+    <h3>💰 Calcul de marge</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>ma marge</code> pour voir ton CA moins tes dépenses = ta marge réelle.</p>
+    </div>
+
+    <div class="tip">
+      <p><strong>Prends l'habitude de photographier chaque ticket !</strong> En fin de mois, tu auras une vision claire de ta rentabilité.</p>
+    </div>
+  </section>
+
+  <!-- ===== 12. COTISATIONS & IMPÔTS ===== -->
+  <section class="doc-section" id="cotisations">
+    <h2><span class="section-num">12</span> Cotisations &amp; Impôts</h2>
+    <p class="section-desc">Anticipe tes charges URSSAF et ne te fais plus jamais surprendre.</p>
+
+    <h3>📊 Estimation URSSAF temps réel</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>mes cotisations</code> et Diqto calcule tes cotisations URSSAF estimées selon ton CA réel et ton régime (BIC/BNC).</p>
+    </div>
+
+    <h3>📋 Déclaration pré-remplie</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>ma déclaration</code> pour obtenir ton CA pré-calculé par trimestre + un lien direct vers le site URSSAF.</p>
+    </div>
+
+    <h3>⚠️ Alertes seuils micro-entrepreneur</h3>
+    <p>Diqto te prévient automatiquement quand tu approches des seuils de CA micro-entrepreneur :</p>
+    <ul style="margin:12px 0 20px 20px;color:var(--text2)">
+      <li><strong>70%</strong> du plafond → information préventive</li>
+      <li><strong>85%</strong> du plafond → alerte sérieuse</li>
+      <li><strong>95%</strong> du plafond → action requise, tu risques de dépasser</li>
+    </ul>
+
+    <h3>🚗 Barème IK kilométriques</h3>
+    <p>Diqto intègre le barème officiel des indemnités kilométriques. Déclare tes trajets et calcule tes frais déductibles automatiquement.</p>
+
+    <div class="info">
+      <p><strong>Les estimations sont indicatives</strong> et basées sur les barèmes en vigueur. Consulte ton comptable ou l'URSSAF pour les déclarations définitives.</p>
+    </div>
+  </section>
+
+  <!-- ===== 13. LIVRE DE RECETTES ===== -->
+  <section class="doc-section" id="livre-recettes">
+    <h2><span class="section-num">13</span> Livre de recettes</h2>
+    <p class="section-desc">Registre conforme micro-entrepreneur, généré automatiquement à partir de tes factures.</p>
+
+    <h3>📒 Registre chronologique</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>mon livre de recettes</code> pour afficher le registre : date, référence facture, client, nature, montant et mode de paiement.</p>
+    </div>
+
+    <h3>📄 Export PDF conforme</h3>
+    <p>Le livre de recettes est exportable en <strong>PDF conforme</strong> aux obligations micro-entrepreneur. Parfait pour un contrôle fiscal ou pour ton comptable.</p>
+
+    <h3>🛒 Registre des achats</h3>
+    <p>Si ton activité le requiert (achat-revente, fourniture de denrées), Diqto tient aussi un <strong>registre des achats</strong> conforme.</p>
+
+    <div class="tip">
+      <p><strong>Le livre de recettes est obligatoire pour les micro-entrepreneurs.</strong> Avec Diqto, il se remplit tout seul au fil de tes factures.</p>
+    </div>
+  </section>
+
+  <!-- ===== 14. BILAN & PRÉVISIONNEL ===== -->
+  <section class="doc-section" id="bilan">
+    <h2><span class="section-num">14</span> Bilan &amp; Prévisionnel</h2>
+    <p class="section-desc">Vue d'ensemble de ton activité et projections pour anticiper.</p>
+
+    <h3>📊 Bilan d'activité</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>mon bilan</code> pour voir en un coup d'œil : <strong>CA total</strong>, <strong>dépenses</strong>, <strong>marge nette</strong>, <strong>top clients</strong>, et évolution mois par mois.</p>
+    </div>
+
+    <h3>🔮 Prévisionnel</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>mon prévisionnel</code> et Diqto estime ton CA pour le trimestre suivant, basé sur tes tendances passées et tes devis en cours.</p>
+    </div>
+
+    <h3>💡 Coaching prix</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>coaching prix</code> pour comparer tes tarifs avec les prix moyens de ton métier dans ta région. Diqto te dit si tu es en dessous, dans la moyenne ou au-dessus du marché.</p>
+    </div>
+
+    <div class="tip">
+      <p><strong>Le coaching prix t'aide à ne pas brader ton travail.</strong> Beaucoup d'artisans facturent 20 à 30% en dessous du marché sans le savoir.</p>
+    </div>
+  </section>
+
+  <!-- ===== 15. AVOIRS & ATTESTATIONS ===== -->
+  <section class="doc-section" id="avoirs">
+    <h2><span class="section-num">15</span> Avoirs &amp; Attestations</h2>
+    <p class="section-desc">Notes de crédit conformes et documents administratifs en un message.</p>
+
+    <h3>📝 Note de crédit (avoir)</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>avoir sur FAC-xxx</code> (remplace xxx par le numéro de ta facture) pour générer une <strong>note de crédit conforme</strong>. L'avoir annule partiellement ou totalement la facture d'origine.</p>
+    </div>
+
+    <h3>📋 Attestation TVA (BTP)</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>attestation tva</code> pour générer un <strong>CERFA simplifié d'attestation de TVA</strong>, indispensable pour les travaux dans les logements de plus de 2 ans (taux réduit 10% ou 5,5%).</p>
+    </div>
+
+    <div class="info">
+      <p><strong>L'attestation TVA est obligatoire en BTP</strong> pour appliquer le taux réduit. Diqto pré-remplit les champs avec les infos de ton client et de ton entreprise.</p>
+    </div>
+  </section>
+
+  <!-- ===== 16. AGENDA & CHANTIERS ===== -->
+  <section class="doc-section" id="agenda">
+    <h2><span class="section-num">16</span> Agenda &amp; Chantiers</h2>
+    <p class="section-desc">Gère ton planning et tes chantiers sans quitter WhatsApp.</p>
+
+    <h3>📅 Agenda intégré</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>bloque le 15 mars</code> pour réserver une date. Tu peux ajouter un client et un lieu : <code>bloque le 20 mars chez M. Martin à Bordeaux</code>.</p>
+    </div>
+
+    <h3>🏗️ Suivi chantier</h3>
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>nouveau chantier Dupont</code> pour créer un suivi complet : devis associés, planning, avancement, photos de suivi, notes.</p>
+    </div>
+
+    <h3>🔔 Rappels automatiques</h3>
+    <p>Diqto t'envoie des <strong>rappels WhatsApp automatiques</strong> la veille de chaque rendez-vous ou chantier. Plus besoin de vérifier ton agenda le soir.</p>
+
+    <div class="tip">
+      <p><strong>Combine agenda et devis :</strong> quand tu crées un devis, Diqto peut automatiquement bloquer la date du chantier dans ton planning.</p>
+    </div>
+  </section>
+
+  <!-- ===== 17. PARRAINAGE ===== -->
+  <section class="doc-section" id="parrainage">
+    <h2><span class="section-num">17</span> Parrainage</h2>
+    <p class="section-desc">Invite tes collègues et gagne 1 mois gratuit pour chaque filleul inscrit.</p>
+
+    <div class="step-box">
+      <span class="step-label">Commande</span>
+      <p>Écris <code>invite un ami</code> et Diqto te génère un <strong>lien de parrainage personnalisé</strong> à partager par WhatsApp.</p>
+    </div>
+
+    <div class="wa-mockup">
+      <div class="wa-header">
+        <div class="wa-avatar">D</div>
+        <div>
+          <div class="wa-name">Diqto</div>
+          <div class="wa-status">en ligne</div>
+        </div>
+      </div>
+      <div class="wa-chat">
+        <div class="wa-bubble sent">Invite un ami<span class="wa-time">20:00 <span class="wa-ticks">✓✓</span></span></div>
+        <div class="wa-bubble received">🎁 <strong>Parrainage Diqto</strong><br><br>Partage ce lien avec un collègue :<br>🔗 <em>wa.me/33745275486?text=PARRAIN-PHI</em><br><br>✅ Quand il s'inscrit, vous gagnez <strong>tous les deux 1 mois offert</strong> !<span class="wa-time">20:00</span></div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <p><strong>Pas de limite !</strong> Plus tu parraines, plus tu gagnes de mois gratuits. 5 parrainages = presque 6 mois offerts.</p>
     </div>
   </section>
 

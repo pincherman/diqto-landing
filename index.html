@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diqto — Devis et factures par WhatsApp pour artisans | Gratuit</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%2325d366'/><circle cx='15' cy='19' r='3' fill='white' opacity='.7'/><circle cx='24' cy='19' r='3' fill='white' opacity='.7'/><circle cx='33' cy='19' r='3' fill='white' opacity='.7'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%2325d366'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Work+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="description" content="Dictez vos devis et factures par message vocal sur WhatsApp. Gratuit pour les artisans, plombiers, électriciens, coachs. PDF en 30 secondes.">
 <meta name="keywords" content="devis whatsapp, facture artisan, devis vocal, facturation whatsapp, facture whatsapp, devis artisan, assistant facturation">
 <link rel="canonical" href="https://diqto.fr/">
@@ -51,23 +51,27 @@
 /* ===== RESET & VARIABLES ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --green:#25D366;--green-dark:#1ebe59;--blue:#2563EB;
-  --dark:#0A0A0F;--dark2:#111119;--gray:#F9FAFB;
-  --text:#111827;--text2:#6B7280;--white:#FFFFFF;
+  --green:#25D366;--green-dark:#1ebe59;--blue:#25D366;
+  --dark:#0C0C0C;--dark2:#111119;--gray:#F9FAFB;
+  --text:#0C0C0C;--text2:#4B5563;--white:#FFFFFF;
+  --black:#0C0C0C;--border:#E5E7EB;--bg-alt:#F9FAFB;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+body{font-family:'Work Sans',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden;font-size:16px;-webkit-font-smoothing:antialiased}
 
 /* ===== LOGO DIQTO ===== */
-@keyframes dotPulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+@keyframes waveBar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.5)}}
 .logo-diqto{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
-.logo-diqto .bubble{width:48px;height:38px;background:#25d366;border-radius:19px 19px 19px 4px;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 16px rgba(37,211,102,.25)}
-.logo-diqto .bubble i{display:block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.7);animation:dotPulse 1.4s ease infinite}
-.logo-diqto .bubble i:nth-child(2){animation-delay:.2s}
-.logo-diqto .bubble i:nth-child(3){animation-delay:.4s}
+.logo-diqto .bubble{width:48px;height:38px;background:#25d366;border-radius:19px 19px 19px 4px;display:flex;align-items:center;justify-content:center;gap:2px;box-shadow:0 4px 16px rgba(37,211,102,.25)}
+.logo-diqto .bubble i{display:block;width:3.5px;border-radius:2px;background:rgba(255,255,255,.8);animation:waveBar 1s ease infinite}
+.logo-diqto .bubble i:nth-child(1){height:10px;animation-delay:0s}
+.logo-diqto .bubble i:nth-child(2){height:16px;animation-delay:.1s}
+.logo-diqto .bubble i:nth-child(3){height:20px;animation-delay:.2s}
+.logo-diqto .bubble i:nth-child(4){height:14px;animation-delay:.3s}
+.logo-diqto .bubble i:nth-child(5){height:9px;animation-delay:.4s}
 .logo-diqto .text{font-family:'Work Sans',sans-serif;font-size:34px;font-weight:800;letter-spacing:-1.5px}
 .logo-diqto .text em{font-style:normal;color:#25d366}
-.logo-diqto.logo-light .text{color:var(--text)}
+.logo-diqto.logo-light .text{color:var(--black)}
 .logo-diqto.logo-dark .text{color:#fff}
 
 /* ===== ANIMATIONS ===== */
@@ -80,7 +84,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;overflow
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:background .3s}
 nav .logo-diqto{transform:scale(.55);transform-origin:left center}
-nav .nav-cta{background:var(--green);color:#fff;padding:11px 26px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9em;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 12px rgba(37,211,102,.2)}
+nav .nav-cta{background:var(--black);color:var(--white);padding:11px 26px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9em;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 12px rgba(0,0,0,.1)}
 nav .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(37,211,102,.35)}
 nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 
@@ -89,12 +93,12 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 
 /* ===== SECTION 1 — HERO / HOOK ===== */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;background:var(--white);position:relative}
-.hero h1{font-family:'Work Sans',sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:800;color:var(--text);letter-spacing:-1.5px;line-height:1.1;margin-bottom:24px;max-width:700px}
+.hero h1{font-family:'Work Sans',sans-serif;font-size:clamp(2.4rem,6vw,3.5rem);font-weight:800;color:var(--black);letter-spacing:-2px;line-height:1.06;margin-bottom:24px;max-width:700px}
 .hero h1 br{display:block}
 .hero .tagline{font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--text2);margin-bottom:48px;font-weight:400}
 .hero .tagline strong{color:var(--green);font-weight:600}
-.btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(37,211,102,.3)}
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--white);padding:18px 44px;border-radius:10px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.25)}
 .hero .proof{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;color:var(--text2);font-size:.9em;font-weight:500}
 .hero .proof span{display:inline-flex;align-items:center;gap:4px}
 
@@ -165,12 +169,12 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .solution .steps-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;max-width:700px;margin:0 auto 48px}
 .solution .step-item{text-align:center;max-width:180px}
 .solution .step-item .step-icon{font-size:2em;margin-bottom:8px}
-.solution .step-item .step-num{display:inline-block;background:var(--green);color:#fff;width:28px;height:28px;border-radius:50%;font-size:.8em;font-weight:700;line-height:28px;margin-bottom:8px}
+.solution .step-item .step-num{display:inline-block;background:var(--black);color:var(--white);width:28px;height:28px;border-radius:50%;font-size:.8em;font-weight:700;line-height:28px;margin-bottom:8px}
 .solution .step-item h3{font-family:'Work Sans',sans-serif;font-size:1em;font-weight:700;color:var(--text);margin-bottom:4px}
 .solution .step-item p{font-size:.85em;color:var(--text2);line-height:1.4}
 
 /* ===== SECTION 4 — WOW FEATURES ===== */
-.wow{padding:120px 24px;background:var(--dark);text-align:center}
+.wow{padding:120px 24px;background:var(--black);text-align:center}
 .wow .section-title{font-family:'Work Sans',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:64px}
 .wow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:800px;margin:0 auto}
 .wow-card{background:#fff;border-radius:20px;padding:36px 28px;text-align:left;transition:transform .2s}
@@ -184,9 +188,9 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .metiers{padding:120px 24px;background:var(--white);text-align:center}
 .metiers .section-title{font-family:'Work Sans',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);letter-spacing:-1px;margin-bottom:48px}
 .metier-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px}
-.metier-tab{padding:12px 24px;border-radius:50px;border:2px solid #e5e7eb;background:transparent;font-family:'DM Sans',sans-serif;font-size:.9em;font-weight:600;color:var(--text2);cursor:pointer;transition:all .2s}
+.metier-tab{padding:12px 24px;border-radius:50px;border:2px solid #e5e7eb;background:transparent;font-family:'Work Sans',sans-serif;font-size:.9em;font-weight:600;color:var(--text2);cursor:pointer;transition:all .2s}
 .metier-tab:hover{border-color:var(--green);color:var(--text)}
-.metier-tab.active{background:var(--green);border-color:var(--green);color:#fff}
+.metier-tab.active{background:var(--black);border-color:var(--black);color:#fff}
 .metier-panel{display:none;max-width:600px;margin:0 auto;text-align:left;background:var(--gray);border-radius:20px;padding:40px 36px}
 .metier-panel.active{display:block}
 .metier-panel .panel-subtitle{font-size:1em;color:var(--text2);margin-bottom:20px;font-style:italic}
@@ -195,7 +199,7 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .metier-panel .panel-features li::before{content:'→';color:var(--green);font-weight:700;flex-shrink:0}
 .metier-panel .panel-example{background:#fff;border-radius:12px;padding:16px 20px;font-size:.9em;color:var(--text);border-left:3px solid var(--green);margin-bottom:24px;font-style:italic}
 .metier-panel .panel-example strong{color:var(--green);font-style:normal}
-.metier-panel .panel-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9em;transition:transform .2s}
+.metier-panel .panel-cta{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9em;transition:transform .2s}
 .metier-panel .panel-cta:hover{transform:translateY(-1px)}
 
 /* Métier tags links */
@@ -219,7 +223,7 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .testimonial-card .author-job{color:var(--text2);font-size:.82em}
 .counters{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
 .counter{text-align:center}
-.counter .counter-num{font-family:'Work Sans',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--green);letter-spacing:-1px}
+.counter .counter-num{font-family:'Work Sans',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--black);letter-spacing:-1px}
 .counter .counter-label{font-size:.88em;color:var(--text2);margin-top:4px}
 
 /* ===== SECTION 7 — PRICING ===== */
@@ -228,9 +232,9 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .pricing-grid{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;max-width:900px;margin:0 auto}
 .price-card{background:var(--gray);border-radius:20px;padding:36px 28px;width:270px;display:flex;flex-direction:column;transition:transform .2s;position:relative}
 .price-card:hover{transform:translateY(-4px)}
-.price-card.popular{border:3px solid var(--green);transform:scale(1.05);background:#fff;box-shadow:0 8px 40px rgba(37,211,102,.1)}
+.price-card.popular{border:3px solid var(--green);transform:scale(1.05);background:#fff;box-shadow:0 8px 40px rgba(37,211,102,.15)}
 .price-card.popular:hover{transform:scale(1.05) translateY(-4px)}
-.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:5px 18px;border-radius:12px;font-size:.75em;font-weight:700;white-space:nowrap}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--black);color:var(--white);padding:5px 18px;border-radius:12px;font-size:.75em;font-weight:700;white-space:nowrap}
 .price-card h3{font-family:'Work Sans',sans-serif;font-size:1.2em;font-weight:700;color:var(--text);margin-bottom:4px}
 .price-card .price{font-family:'Work Sans',sans-serif;font-size:2.8em;font-weight:800;color:var(--text);margin:12px 0 4px}
 .price-card .price span{font-size:.32em;font-weight:400;color:var(--text2)}
@@ -238,21 +242,21 @@ nav .nav-cta svg{width:16px;height:16px;fill:currentColor}
 .price-card ul{list-style:none;text-align:left;flex-grow:1;margin-bottom:20px}
 .price-card ul li{padding:5px 0;font-size:.88em;color:var(--text2)}
 .price-card ul li::before{content:'✓ ';color:var(--green);font-weight:700}
-.price-card .btn{display:block;padding:14px;border-radius:50px;text-decoration:none;font-weight:600;text-align:center;font-size:.95em;transition:all .2s}
-.btn-fill{background:var(--green);color:#fff}
-.btn-fill:hover{background:var(--green-dark)}
-.btn-outline{border:2px solid var(--green);color:var(--green);background:transparent}
-.btn-outline:hover{background:rgba(37,211,102,.06)}
+.price-card .btn{display:block;padding:14px;border-radius:10px;text-decoration:none;font-weight:600;text-align:center;font-size:.95em;transition:all .2s}
+.btn-fill{background:var(--black);color:var(--white)}
+.btn-fill:hover{background:#222}
+.btn-outline{border:2px solid var(--black);color:var(--black);background:transparent}
+.btn-outline:hover{background:rgba(12,12,12,.06)}
 
 /* ===== SECTION 8 — CTA FINAL ===== */
-.cta-final{padding:120px 24px;background:var(--dark);text-align:center}
+.cta-final{padding:120px 24px;background:var(--black);text-align:center}
 .cta-final h2{font-family:'Work Sans',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:16px;line-height:1.2}
 .cta-final h2 span{color:var(--green)}
-.cta-final .btn-wa{margin:32px 0 24px;padding:22px 52px;font-size:1.25em}
+.cta-final .btn-wa{margin:32px 0 24px;padding:22px 52px;font-size:1.25em;background:var(--green);color:var(--white);border-radius:10px}
 .cta-final .sub-cta{color:rgba(255,255,255,.5);font-size:.95em;line-height:1.8}
 
 /* ===== FOOTER ===== */
-footer{padding:40px 24px 32px;background:#06060a;color:rgba(255,255,255,.35);font-size:.85em;text-align:center}
+footer{padding:40px 24px 32px;background:var(--black);border-top:1px solid #222;color:rgba(255,255,255,.35);font-size:.85em;text-align:center}
 footer .footer-brand{margin-bottom:4px;display:flex;justify-content:center}
 footer .footer-tagline{margin-bottom:16px;font-size:.9em}
 footer .footer-legal{margin-bottom:12px;font-size:.8em}
@@ -296,7 +300,7 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin
 <!-- ===== NAV ===== -->
 <nav>
   <a href="/" class="logo-diqto logo-light">
-    <span class="bubble"><i></i><i></i><i></i></span>
+    <span class="bubble"><i></i><i></i><i></i><i></i><i></i></span>
     <span class="text">diq<em>to</em></span>
   </a>
   <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="nav-cta">
@@ -314,7 +318,7 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin
     💬 Essayer sur WhatsApp — Gratuit
   </a>
   <div class="proof">
-    <span>🔧 51 métiers</span>
+    <span>🔧 56 métiers</span>
     <span>⚡ Devis en 30s</span>
     <span>💳 Paiement CB</span>
     <span>🛡️ Conforme 2027</span>
@@ -636,7 +640,7 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin
   </div>
   <div class="counters reveal">
     <div class="counter">
-      <div class="counter-num">51+</div>
+      <div class="counter-num">56</div>
       <div class="counter-label">métiers supportés</div>
     </div>
     <div class="counter">
@@ -719,7 +723,7 @@ footer .links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin
 <footer>
   <div class="footer-brand">
     <div class="logo-diqto logo-dark" style="transform:scale(.45);transform-origin:center">
-      <span class="bubble"><i></i><i></i><i></i></span>
+      <span class="bubble"><i></i><i></i><i></i><i></i><i></i></span>
       <span class="text">diq<em>to</em></span>
     </div>
   </div>

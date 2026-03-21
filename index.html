@@ -71,6 +71,48 @@ body {
 .text-gray { color: var(--gray-400); }
 .text-center { text-align: center; }
 
+/* ─── LOGO DIQTO ─── */
+@keyframes waveBar { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.5); } }
+.logo-diqto {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-diqto .bubble {
+  width: 44px;
+  height: 34px;
+  background: var(--green);
+  border-radius: 17px 17px 17px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 4px 16px var(--green-glow);
+}
+.logo-diqto .bubble i {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.85);
+  animation: waveBar 1s ease infinite;
+}
+.logo-diqto .bubble i:nth-child(1) { height: 9px; animation-delay: 0s; }
+.logo-diqto .bubble i:nth-child(2) { height: 14px; animation-delay: .1s; }
+.logo-diqto .bubble i:nth-child(3) { height: 18px; animation-delay: .2s; }
+.logo-diqto .bubble i:nth-child(4) { height: 12px; animation-delay: .3s; }
+.logo-diqto .bubble i:nth-child(5) { height: 8px; animation-delay: .4s; }
+.logo-diqto .text {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--white);
+}
+.logo-diqto .text em {
+  font-style: normal;
+  color: var(--green);
+}
+
 /* ─── NAV ─── */
 nav {
   position: fixed;
@@ -602,7 +644,10 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="container">
-    <a href="/" class="nav-logo">diq<span>to</span></a>
+    <a href="/" class="logo-diqto">
+      <div class="bubble"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="text">diq<em>to</em></div>
+    </a>
     <div class="nav-links">
       <a href="#comment">Comment ça marche</a>
       <a href="#fonctionnalites">Fonctionnalités</a>
@@ -870,7 +915,10 @@ footer {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="nav-logo">diq<span>to</span></a>
+        <a href="/" class="logo-diqto" style="margin-bottom: 12px;">
+          <div class="bubble"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="text">diq<em>to</em></div>
+        </a>
         <p>L'assistant IA qui gère votre administratif. Vous dictez, on facture.</p>
         <p style="margin-top: 12px; font-size: 12px;">Marque déposée INPI N° 5234942</p>
       </div>

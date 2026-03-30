@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diqto — Devis et factures IA pour micro-entrepreneurs, artisans et professions libérales</title>
+<title>Diqto — L'assistant vocal IA qui comprend votre métier</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%2325d366'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<meta name="description" content="Diqto est le copilote IA pour indépendants : ostéopathes, artisans, coachs, avocats. Dictée notes de séance, factures, fiches conseil patient IA, paiement CB intégré. 71 métiers. Gratuit.">
-<meta name="keywords" content="devis facture micro-entrepreneur, facturation auto-entrepreneur, devis artisan IA, facture profession libérale, assistant facturation IA, note honoraires, application devis gratuit, logiciel facturation indépendant">
+<meta name="description" content="Diqto est l'assistant vocal IA pour indépendants. Vous parlez, Diqto crée vos documents, suit vos clients, gère votre administratif. 71 métiers. Gratuit pour commencer.">
+<meta name="keywords" content="assistant vocal indépendant, facturation IA, devis vocal, assistant métier IA, facture profession libérale, copilote praticien, application devis gratuit, logiciel facturation indépendant">
 <link rel="canonical" href="https://diqto.fr/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://diqto.fr/">
-<meta property="og:title" content="Diqto — Devis et factures IA pour micro-entrepreneurs et artisans">
+<meta property="og:title" content="Diqto — Vous parlez. Diqto s'occupe du reste.">
 <meta property="og:site_name" content="Diqto">
-<meta property="og:description" content="Créez devis et factures en parlant, en photographiant ou en tapant. L'IA comprend, remplit, calcule. Vous validez en 1 tap.">
+<meta property="og:description" content="L'assistant vocal IA qui comprend votre métier. Parlez naturellement après votre consultation, votre chantier, votre cours. Diqto crée vos documents et gère votre administratif.">
 <meta property="og:image" content="https://diqto.fr/og-image.png">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Diqto — Devis et factures par IA pour indépendants">
-<meta name="twitter:description" content="Dictez, photographiez ou tapez. L'IA crée vos devis et factures en 3 secondes. 71 métiers. Gratuit.">
+<meta name="twitter:title" content="Diqto — Vous parlez. Diqto s'occupe du reste.">
+<meta name="twitter:description" content="L'assistant vocal IA pour indépendants. 71 métiers. Parlez, Diqto gère. Gratuit pour commencer.">
 <meta name="twitter:image" content="https://diqto.fr/og-image.png">
 <script type="application/ld+json">
 {
@@ -29,12 +29,12 @@
   "@type": "SoftwareApplication",
   "name": "Diqto",
   "url": "https://diqto.fr",
-  "description": "Assistant IA de facturation pour indépendants et micro-entrepreneurs. Devis, factures, notes d'honoraires par la voix, la photo ou le texte.",
+  "description": "Assistant vocal IA pour indépendants et professions libérales. Parlez naturellement, Diqto crée vos documents, suit vos clients et gère votre administratif. 71 métiers supportés.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "iOS",
   "offers": [
     { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Gratuit — 5 documents/mois" },
-    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "description": "Solo — Documents illimités + IA" },
+    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "description": "Solo — Documents illimités + IA vocale" },
     { "@type": "Offer", "price": "39", "priceCurrency": "EUR", "description": "Pro — Copilote praticien + Business coach" },
     { "@type": "Offer", "price": "79", "priceCurrency": "EUR", "description": "Business — Multi-praticien + Analytics" }
   ]
@@ -135,14 +135,6 @@ nav .container {
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo {
-  font-weight: 800;
-  font-size: 24px;
-  text-decoration: none;
-  color: var(--white);
-  letter-spacing: -0.5px;
-}
-.nav-logo span { color: var(--green); }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   color: var(--gray-400);
@@ -212,7 +204,7 @@ nav .container {
 .hero p {
   font-size: clamp(18px, 2.5vw, 22px);
   color: var(--gray-400);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto 48px;
   line-height: 1.6;
   font-weight: 400;
@@ -313,33 +305,74 @@ section { padding: 120px 0; }
 }
 .section-subtitle.centered { margin: 0 auto; }
 
-/* ─── MODES (3 modes de création) ─── */
-.modes {
+/* ─── PROBLEM SECTION ─── */
+.problem {
   background: var(--gray-900);
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.modes-grid {
+.problem-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 64px;
 }
-.mode-card {
+.problem-card {
   background: var(--black);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-lg);
   padding: 48px 32px;
   text-align: center;
   transition: border-color 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
 }
-.mode-card:hover {
+.problem-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-4px);
+}
+.problem-icon {
+  font-size: 56px;
+  margin-bottom: 24px;
+  display: block;
+}
+.problem-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.problem-card p {
+  color: var(--gray-400);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.problem-punchline {
+  margin-top: 48px;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ─── TRANSFORMATION (Comment ça marche) ─── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+  position: relative;
+}
+.step-card {
+  background: var(--gray-900);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.step-card:hover {
   border-color: var(--green);
   transform: translateY(-4px);
 }
-.mode-card::after {
+.step-card::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -348,94 +381,157 @@ section { padding: 120px 0; }
   opacity: 0;
   transition: opacity 0.3s;
 }
-.mode-card:hover::after { opacity: 1; }
-.mode-icon {
-  font-size: 56px;
+.step-card:hover::after { opacity: 1; }
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.15);
+  color: var(--green);
+  font-size: 20px;
+  font-weight: 800;
   margin-bottom: 24px;
-  display: block;
 }
-.mode-card h3 {
+.step-card h3 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 12px;
 }
-.mode-card p {
+.step-card p {
   color: var(--gray-400);
   font-size: 15px;
   line-height: 1.6;
 }
-
-/* ─── FEATURES ─── */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 64px;
-}
-.feature-card {
+.step-modes {
+  margin-top: 48px;
+  text-align: center;
+  padding: 24px;
   background: var(--gray-900);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-lg);
-  padding: 40px;
-  transition: border-color 0.3s;
 }
-.feature-card:hover { border-color: rgba(37,211,102,0.3); }
-.feature-card .icon {
-  font-size: 40px;
-  margin-bottom: 20px;
-  display: block;
-}
-.feature-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.feature-card p {
+.step-modes p {
   color: var(--gray-400);
   font-size: 15px;
-  line-height: 1.6;
 }
-.feature-highlight {
-  grid-column: span 2;
-  background: linear-gradient(135deg, rgba(37,211,102,0.08) 0%, var(--gray-900) 100%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+.step-modes strong {
+  color: var(--white);
 }
-.feature-highlight .content { padding-right: 24px; }
-.feature-highlight .visual {
-  background: var(--black);
-  border-radius: var(--radius);
-  padding: 32px;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 14px;
-  color: var(--gray-400);
-  line-height: 2;
-}
-.feature-highlight .visual .green { color: var(--green); font-weight: 600; }
 
-/* ─── AI MAGIC ─── */
-.ai-section { position: relative; }
-.ai-grid {
+/* ─── BENEFITS ─── */
+.benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 64px;
 }
-.ai-card {
+.benefit-card {
   background: var(--gray-900);
   border: 1px solid rgba(255,255,255,0.05);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 48px 36px;
+  transition: border-color 0.3s, transform 0.3s;
 }
-.ai-card .emoji {
+.benefit-card:hover {
+  border-color: rgba(37,211,102,0.3);
+  transform: translateY(-4px);
+}
+.benefit-card .icon {
+  font-size: 48px;
+  margin-bottom: 24px;
+  display: block;
+}
+.benefit-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.benefit-card p {
+  color: var(--gray-400);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ─── TESTIMONIALS / EXEMPLES ─── */
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+.example-card {
+  background: var(--gray-900);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  transition: border-color 0.3s;
+}
+.example-card:hover { border-color: rgba(37,211,102,0.3); }
+.example-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.example-emoji {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.example-meta h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.example-meta span {
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 500;
+}
+.example-card blockquote {
+  color: var(--gray-400);
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid var(--green);
+  padding-left: 16px;
+  margin: 0;
+}
+
+/* ─── COPILOTE PRATICIEN ─── */
+.copilote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.copilote-card {
+  background: var(--black);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.copilote-card:hover {
+  border-color: rgba(99,102,241,0.5);
+  transform: translateY(-4px);
+}
+.copilote-card .emoji {
   font-size: 36px;
   margin-bottom: 16px;
   display: block;
 }
-.ai-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.ai-card p { color: var(--gray-400); font-size: 14px; line-height: 1.6; }
+.copilote-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.copilote-card p {
+  color: var(--gray-400);
+  font-size: 14px;
+  line-height: 1.6;
+}
 
 /* ─── MÉTIERS ─── */
 .metiers-scroll {
@@ -464,14 +560,33 @@ section { padding: 120px 0; }
 }
 .metier-chip:hover { border-color: var(--green); }
 .metier-chip .emoji { font-size: 18px; }
+.statuts-chips {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.statut-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: rgba(37,211,102,0.08);
+  border: 1px solid rgba(37,211,102,0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+}
 
 /* ─── PRICING ─── */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
   margin-top: 64px;
-  max-width: 800px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -479,7 +594,7 @@ section { padding: 120px 0; }
   background: var(--gray-900);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-lg);
-  padding: 48px 40px;
+  padding: 48px 36px;
   position: relative;
 }
 .price-card.featured {
@@ -602,7 +717,6 @@ footer {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
 }
-.footer-brand .nav-logo { display: inline-block; margin-bottom: 12px; }
 .footer-brand p { color: var(--gray-400); font-size: 14px; line-height: 1.6; max-width: 280px; }
 .footer-col h4 {
   font-size: 13px;
@@ -634,10 +748,11 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .modes-grid { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: 1fr; }
-  .feature-highlight { grid-column: span 1; grid-template-columns: 1fr; }
-  .ai-grid { grid-template-columns: 1fr; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .examples-grid { grid-template-columns: 1fr; }
+  .copilote-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .hero-stats { flex-wrap: wrap; gap: 32px; }
@@ -655,11 +770,11 @@ footer {
       <div class="text">diq<em>to</em></div>
     </a>
     <div class="nav-links">
+      <a href="#probleme">Le problème</a>
       <a href="#comment">Comment ça marche</a>
-      <a href="#fonctionnalites">Fonctionnalités</a>
       <a href="#metiers">Métiers</a>
       <a href="#tarifs">Tarifs</a>
-      <a class="nav-cta" href="#telecharger">Télécharger</a>
+      <a class="nav-cta" href="#beta">Accès beta →</a>
     </div>
   </div>
 </nav>
@@ -667,10 +782,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="container" style="position:relative; z-index:1;">
-    <div class="hero-badge">🧠 Propulsé par l'intelligence artificielle</div>
-    <h1>Vous dictez.<br><span class="text-green">On facture.</span></h1>
-    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Assistant IA de devis et facturation pour auto-entrepreneurs, micro-entrepreneurs, artisans et professions libérales</h2>
-    <p>Le copilote IA qui gère tout votre administratif. Ostéopathe, artisan, coach, avocat — dictez vos notes de séance, créez vos factures, envoyez des fiches conseil à vos patients. L'IA comprend votre métier. Vous validez en 1 tap.</p>
+    <div class="hero-badge">🎤 L'assistant IA qui comprend votre métier</div>
+    <h1>Vous parlez.<br><span class="text-green">Diqto s'occupe du reste.</span></h1>
+    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Assistant vocal IA pour indépendants, micro-entrepreneurs, artisans et professions libérales</h2>
+    <p>Après votre consultation, votre chantier, votre cours — parlez naturellement. Diqto crée vos documents, suit vos clients et gère votre administratif.</p>
     <div class="hero-ctas">
       <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto&body=Bonjour%2C%20je%20souhaite%20tester%20Diqto.%20Mon%20métier%20%3A%20" class="btn-primary">Demander l'accès beta →</a>
       <a href="#comment" class="btn-secondary">Voir comment ça marche</a>
@@ -682,186 +797,182 @@ footer {
       </div>
       <div class="hero-stat">
         <strong>3s</strong>
-        <span>Pour créer un devis</span>
+        <span>Pour créer un document</span>
       </div>
       <div class="hero-stat">
         <strong>0€</strong>
         <span>Pour commencer</span>
       </div>
       <div class="hero-stat">
-        <strong>2027</strong>
-        <span>Conforme Factur-X</span>
+        <strong>6</strong>
+        <span>Statuts juridiques</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3 MODES -->
-<section class="modes" id="comment">
+<!-- LE PROBLÈME -->
+<section class="problem" id="probleme">
+  <div class="container text-center">
+    <span class="section-label">Le constat</span>
+    <h2 class="section-title">Vous faites un métier que vous aimez.<br>Et chaque soir, la paperasse.</h2>
+    <p class="section-subtitle centered">Vous n'êtes pas devenu indépendant pour faire de l'administratif.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-icon">📋</span>
+        <h3>Devis à taper</h3>
+        <p>Vous rentrez du chantier, il faut encore 30 minutes de saisie. Le soir, le week-end. Toujours en retard.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📊</span>
+        <h3>Déclarations à faire</h3>
+        <p>URSSAF, TVA, seuils de CA... Qui se souvient des échéances ? Qui anticipe les cotisations ?</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📱</span>
+        <h3>Clients à relancer</h3>
+        <p>Facture impayée depuis 15 jours... Vous l'avez envoyée ? Vous l'avez relancée ? Vous vous en souvenez ?</p>
+      </div>
+    </div>
+    <p class="problem-punchline">Et si tout ça se faisait pendant que vous travaillez ?</p>
+  </div>
+</section>
+
+<!-- LA TRANSFORMATION (Comment ça marche) -->
+<section id="comment">
   <div class="container text-center">
     <span class="section-label">Comment ça marche</span>
-    <h2 class="section-title">Trois façons de créer.<br>Zéro friction.</h2>
-    <p class="section-subtitle centered">Choisissez votre mode. Passez de l'un à l'autre sans perdre votre saisie. L'IA s'adapte à vous, pas l'inverse.</p>
-    <div class="modes-grid">
-      <div class="mode-card">
-        <span class="mode-icon">🎤</span>
-        <h3>Dictez</h3>
-        <p>Parlez naturellement. "Consultation ostéo pour Emma Laurent, douleur lombaire, techniques tissulaires, 60 euros." Ou : "Devis pour Martin, pose carrelage 30m² à 45€." L'IA transcrit et remplit tout.</p>
+    <h2 class="section-title">1 minute de parole.<br>Tout est fait.</h2>
+    <p class="section-subtitle centered">Les autres transcrivent. Diqto prépare le travail fini.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-number">1</span>
+        <h3>Parlez</h3>
+        <p>Après votre rendez-vous, décrivez ce que vous avez fait. Naturellement, comme à un collègue. Pas de formulaire, pas de menu.</p>
       </div>
-      <div class="mode-card">
-        <span class="mode-icon">📸</span>
-        <h3>Photographiez</h3>
-        <p>Prenez en photo un bon de commande, une carte de visite, un ancien devis. L'IA extrait les données et pré-remplit votre document. Zéro saisie.</p>
+      <div class="step-card">
+        <span class="step-number">2</span>
+        <h3>Diqto comprend</h3>
+        <p>L'IA structure, calcule, met en forme. Document professionnel, mentions légales, bon montant, bon format. Adapté à votre métier.</p>
       </div>
-      <div class="mode-card">
-        <span class="mode-icon">💬</span>
-        <h3>Conversez</h3>
-        <p>Discutez avec l'IA comme avec un assistant. Elle pose les bonnes questions, propose des prix, corrige les erreurs. Vous gardez le contrôle.</p>
+      <div class="step-card">
+        <span class="step-number">3</span>
+        <h3>Validez</h3>
+        <p>Relisez, modifiez si besoin, envoyez. En un tap. Votre client reçoit un document pro. Vous, vous passez au suivant.</p>
       </div>
+    </div>
+    <div class="step-modes">
+      <p>🎤 <strong>Voix</strong> · 📸 <strong>Photo</strong> · 💬 <strong>Texte</strong> — Trois façons de créer, zéro friction. Photographiez un ancien devis, conversez avec l'IA, ou dictez. Passez d'un mode à l'autre sans perdre votre saisie.</p>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section id="fonctionnalites">
-  <div class="container">
-    <span class="section-label">Fonctionnalités</span>
-    <h2 class="section-title">Tout ce dont vous avez besoin.<br>Rien de superflu.</h2>
-    <p class="section-subtitle">Chaque fonctionnalité existe parce qu'elle vous fait gagner du temps. Pas pour décorer.</p>
-
-    <div class="features-grid">
-      <!-- Highlight: Catalogue auto-appris -->
-      <div class="feature-card feature-highlight">
-        <div class="content">
-          <span class="icon">🧠</span>
-          <h3>Catalogue auto-appris</h3>
-          <p>Diqto apprend de chaque document que vous créez. Vos prestations récurrentes, vos prix habituels, vos formulations préférées. Au bout de quelques factures, l'IA vous connaît mieux qu'un assistant humain.</p>
-          <p style="margin-top:16px; color: var(--green); font-weight: 600; font-size: 14px;">Plus vous l'utilisez, plus c'est rapide. C'est votre catalogue, unique à votre activité.</p>
-        </div>
-        <div class="visual">
-          <div><span class="green">→</span> Consultation ostéo 45min — <span class="green">60€</span></div>
-          <div><span class="green">→</span> Pose carrelage 60×60 — <span class="green">45€/m²</span></div>
-          <div><span class="green">→</span> Cours yoga collectif 1h — <span class="green">15€</span></div>
-          <div><span class="green">→</span> Consultation initiale avocate — <span class="green">150€</span></div>
-          <div style="margin-top: 16px; color: var(--green); font-weight: 600;">💡 "Emma vient chaque vendredi. Créer sa note d'honoraires ?"</div>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <span class="icon">📄</span>
-        <h3>Devis & factures PDF</h3>
-        <p>Documents professionnels conformes, mentions légales automatiques, numérotation séquentielle. Envoi par email ou partage en 1 tap.</p>
-      </div>
-      <div class="feature-card">
-        <span class="icon">✍️</span>
-        <h3>Signature électronique</h3>
-        <p>Vos clients signent au doigt sur leur téléphone. Conforme eIDAS, horodatage, hash SHA-256. Valeur juridique.</p>
-      </div>
-      <div class="feature-card">
-        <span class="icon">💳</span>
-        <h3>Paiement CB intégré</h3>
-        <p>Vos clients paient par carte directement depuis la facture. Pas de TPE, pas d'app bancaire. L'argent arrive sur votre compte.</p>
-      </div>
-      <div class="feature-card">
-        <span class="icon">🔄</span>
-        <h3>Relances automatiques</h3>
-        <p>Diqto relance vos clients à J+7, J+15, J+30. Poliment, automatiquement, efficacement. Vous n'avez rien à faire.</p>
-      </div>
-      <div class="feature-card">
-        <span class="icon">📊</span>
-        <h3>Business coach IA</h3>
-        <p>Pas juste des stats. Des vrais insights : taux de conversion, comparaison secteur, suggestions de prix, alertes seuils. L'IA vous aide à piloter.</p>
-      </div>
-      <div class="feature-card">
-        <span class="icon">🏛️</span>
-        <h3>URSSAF & Comptabilité</h3>
-        <p>Alertes proactives avant les échéances, estimation des cotisations, livre des recettes, export FEC pour votre comptable.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI INTELLIGENCE -->
-<section class="ai-section" style="background: var(--gray-900); border-top: 1px solid rgba(255,255,255,0.05);">
+<!-- LES BÉNÉFICES -->
+<section id="benefices" style="background: var(--gray-900); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
   <div class="container text-center">
-    <span class="section-label">Intelligence artificielle</span>
-    <h2 class="section-title">L'IA qui anticipe<br>vos besoins.</h2>
-    <p class="section-subtitle centered">Diqto ne se contente pas d'exécuter. Il comprend votre activité et vous aide à la développer.</p>
-    <div class="ai-grid">
-      <div class="ai-card">
-        <span class="emoji">🔮</span>
-        <h3>Anticipation</h3>
-        <p>"Devis non relancé depuis 8 jours. Je relance Mme Martin ?" L'IA identifie les actions à faire avant vous.</p>
+    <span class="section-label">Bénéfices</span>
+    <h2 class="section-title">Moins d'administratif.<br>Plus de temps pour votre vrai métier.</h2>
+    <p class="section-subtitle centered">Chaque fonctionnalité existe parce qu'elle vous fait gagner du temps. Pas pour décorer.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="icon">🗣️</span>
+        <h3>Parlez, c'est fait</h3>
+        <p>Dictez votre intervention. Diqto crée le bon document : devis, facture, note d'honoraires, convention. Adapté à votre métier, avec les bonnes mentions légales et les bons calculs.</p>
       </div>
-      <div class="ai-card">
-        <span class="emoji">💰</span>
-        <h3>Coaching prix</h3>
-        <p>"Vos tarifs sont 20% sous la moyenne locale." L'IA vous aide à vous positionner au bon prix.</p>
+      <div class="benefit-card">
+        <span class="icon">👥</span>
+        <h3>Vos clients sont suivis</h3>
+        <p>Relances automatiques à J+7, J+15, J+30. Fiche conseil personnalisée pour vos patients. Historique complet. Votre client se sent accompagné — sans effort de votre part.</p>
       </div>
-      <div class="ai-card">
-        <span class="emoji">📈</span>
-        <h3>Prédiction</h3>
-        <p>"À ce rythme, vous dépasserez le seuil micro en septembre." Anticipez les décisions importantes.</p>
-      </div>
-      <div class="ai-card">
-        <span class="emoji">🎯</span>
-        <h3>Conversion</h3>
-        <p>"34% de conversion devis→facture. La moyenne BTP est 45%. Voici 3 pistes d'amélioration."</p>
-      </div>
-      <div class="ai-card">
-        <span class="emoji">👤</span>
-        <h3>Connaissance client</h3>
-        <p>"Client fidèle, 5ème intervention. Proposer -10% fidélité ?" L'IA connaît vos relations.</p>
-      </div>
-      <div class="ai-card">
-        <span class="emoji">⚡</span>
-        <h3>Automatisation</h3>
-        <p>Relances, rappels, exports, attestations — tout ce qui peut être automatisé l'est. Vous, vous travaillez.</p>
+      <div class="benefit-card">
+        <span class="icon">📊</span>
+        <h3>Zéro surprise fiscale</h3>
+        <p>URSSAF, TVA, seuils de CA... Diqto anticipe et vous prévient. Vous ne découvrez plus rien le jour de la déclaration. Export comptable en un tap.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXEMPLES PAR MÉTIER -->
+<section id="exemples">
+  <div class="container text-center">
+    <span class="section-label">Ils exercent. Diqto gère.</span>
+    <h2 class="section-title">Chaque métier a ses mots,<br>ses documents, ses besoins.</h2>
+    <p class="section-subtitle centered">Diqto ne plaque pas un template générique. Il parle votre langue.</p>
+    <div class="examples-grid">
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-emoji">🩺</span>
+          <div class="example-meta">
+            <h3>Dr. Sophie, ostéopathe</h3>
+            <span>Profession libérale · Notes d'honoraires</span>
+          </div>
+        </div>
+        <blockquote>Je dicte mes notes en sortant de séance. La facture part automatiquement, mon patient reçoit sa fiche conseil avec ses exercices. Avant Diqto, ça me prenait 20 minutes. Maintenant, c'est 30 secondes.</blockquote>
+      </div>
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-emoji">⚡</span>
+          <div class="example-meta">
+            <h3>Marc, électricien</h3>
+            <span>Micro-entreprise · Devis &amp; factures</span>
+          </div>
+        </div>
+        <blockquote>Mon devis est envoyé avant de quitter le chantier. Le client signe sur son téléphone. Plus de "je vous envoie ça ce soir" et de devis oubliés en rentrant.</blockquote>
+      </div>
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-emoji">⚖️</span>
+          <div class="example-meta">
+            <h3>Maître Dupont, avocate</h3>
+            <span>SASU · Notes d'honoraires</span>
+          </div>
+        </div>
+        <blockquote>Chaque heure est loguée. Ma note d'honoraires est prête en fin de mois. Je n'ai plus besoin de reconstituer mes temps passés à partir de mon agenda.</blockquote>
+      </div>
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-emoji">🏋️</span>
+          <div class="example-meta">
+            <h3>Thomas, coach sportif</h3>
+            <span>Micro-entreprise · Abonnements</span>
+          </div>
+        </div>
+        <blockquote>Mes élèves sont inscrits, leurs abonnements suivis, les relances partent toutes seules. Je me concentre sur mes cours, pas sur qui a payé ou pas.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- COPILOTE PRATICIEN -->
-<section style="padding: 80px 0; background: linear-gradient(180deg, var(--black) 0%, #0a0a1a 100%); border-top: 1px solid rgba(99,102,241,0.2);">
+<section style="padding: 100px 0; background: linear-gradient(180deg, var(--black) 0%, #0a0a1a 100%); border-top: 1px solid rgba(99,102,241,0.2);">
   <div class="container text-center">
-    <span class="section-label" style="background: rgba(99,102,241,0.15); color: #818CF8;">Exclusivité Diqto</span>
-    <h2 class="section-title">Le copilote praticien.<br><span class="text-green">Unique sur le marché.</span></h2>
-    <p class="section-subtitle centered">Ostéopathe, kiné, psy, coach — Diqto vous accompagne avant, pendant et après chaque séance.</p>
-    <div class="ai-grid" style="margin-top:40px;">
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
+    <span class="section-label" style="background: rgba(99,102,241,0.15); color: #818CF8; padding: 6px 16px; border-radius: 100px;">Exclusivité Diqto</span>
+    <h2 class="section-title" style="margin-top: 24px;">Pour les praticiens : un copilote<br>avant, pendant et après <span class="text-green">chaque séance.</span></h2>
+    <p class="section-subtitle centered">Aucun autre outil ne fait ça. Ostéopathe, kiné, psy, coach — Diqto vous accompagne à chaque étape.</p>
+    <div class="copilote-grid">
+      <div class="copilote-card">
         <span class="emoji">📋</span>
-        <h3>Avant la séance</h3>
-        <p>Briefing IA automatique : historique patient, séances précédentes, progression, points d'attention. Zéro préparation manuelle.</p>
+        <h3>Avant : briefing automatique</h3>
+        <p>Historique patient, séances précédentes, progression, points d'attention. Vous arrivez préparé, sans rien chercher.</p>
       </div>
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
+      <div class="copilote-card">
         <span class="emoji">🎤</span>
-        <h3>Pendant la séance</h3>
-        <p>Timer intégré. Dictez vos notes en langage naturel. L'IA structure : motif, techniques, observations, score douleur, plan de suivi.</p>
+        <h3>Pendant : dictez vos notes</h3>
+        <p>Parlez naturellement. L'IA structure : motif, techniques, observations, score douleur, plan de suivi. Zéro saisie manuelle.</p>
       </div>
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
-        <span class="emoji">🩺</span>
-        <h3>Fiche conseil patient</h3>
-        <p>Après chaque consultation, une fiche personnalisée avec exercices, prévention et bonnes pratiques — envoyée automatiquement au patient par email.</p>
-      </div>
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
-        <span class="emoji">📈</span>
-        <h3>Suivi longitudinal</h3>
-        <p>Évolution de la douleur séance après séance. Tendances, progrès, alertes. Vos données structurées, pas des notes en vrac.</p>
-      </div>
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
+      <div class="copilote-card">
         <span class="emoji">📤</span>
-        <h3>Export vers vos outils</h3>
-        <p>Partagez les notes vers vos outils habituels en 1 tap. Compatible avec votre workflow existant.</p>
+        <h3>Après : tout part automatiquement</h3>
+        <p>Facture envoyée, fiche conseil patient générée avec exercices personnalisés, lien de paiement CB inclus. Votre patient est accompagné.</p>
       </div>
-      <div class="ai-card" style="border-color: rgba(99,102,241,0.3);">
-        <span class="emoji">💰</span>
-        <h3>Facturation intégrée</h3>
-        <p>Note d'honoraires générée automatiquement après la séance. Lien de paiement CB inclus. Le patient paie depuis son téléphone.</p>
+      <div class="copilote-card">
+        <span class="emoji">📈</span>
+        <h3>Suivi : progression visible</h3>
+        <p>Évolution de la douleur séance après séance. Votre patient suit ses exercices, note son ressenti. Vous voyez sa progression en un coup d'œil.</p>
       </div>
     </div>
-    <p style="margin-top: 32px; font-size: 15px; color: var(--gray-400);">Vos patients prennent rendez-vous. <strong style="color: var(--green);">Diqto gère tout le reste.</strong></p>
+    <p style="margin-top: 40px; font-size: 16px; color: var(--gray-400);">Vos patients prennent rendez-vous. <strong style="color: var(--green);">Diqto gère tout le reste.</strong></p>
   </div>
 </section>
 
@@ -869,8 +980,8 @@ footer {
 <section id="metiers">
   <div class="container text-center">
     <span class="section-label">71 métiers</span>
-    <h2 class="section-title">Pensé pour votre métier.<br>Pas un outil générique.</h2>
-    <p class="section-subtitle centered">Chaque profession a ses termes, ses prix, ses documents. Diqto s'adapte automatiquement.</p>
+    <h2 class="section-title">Diqto s'adapte.<br>Pas l'inverse.</h2>
+    <p class="section-subtitle centered">71 métiers. 6 statuts juridiques. L'app se configure entièrement à votre activité — vocabulaire, documents, calculs, mentions légales.</p>
     <div class="metiers-scroll">
       <div class="metier-chip" style="border-color: var(--green);"><span class="emoji">🦴</span> Ostéopathe</div>
       <div class="metier-chip" style="border-color: var(--green);"><span class="emoji">💆</span> Kinésithérapeute</div>
@@ -886,10 +997,8 @@ footer {
       <div class="metier-chip"><span class="emoji">🏮</span> Médecine chinoise</div>
       <div class="metier-chip"><span class="emoji">🪡</span> Acupuncteur</div>
       <div class="metier-chip"><span class="emoji">🌿</span> Naturopathe</div>
-      <div class="metier-chip"><span class="emoji">⚖️</span> Avocat</div>
       <div class="metier-chip"><span class="emoji">✂️</span> Coiffeur</div>
       <div class="metier-chip"><span class="emoji">🐾</span> Pet Sitter</div>
-      <div class="metier-chip"><span class="emoji">⚓</span> Accastilleur</div>
       <div class="metier-chip"><span class="emoji">🦶</span> Réflexologue</div>
       <div class="metier-chip"><span class="emoji">🌀</span> Hypnothérapeute</div>
       <div class="metier-chip"><span class="emoji">🥗</span> Diététicien</div>
@@ -898,8 +1007,18 @@ footer {
       <div class="metier-chip"><span class="emoji">🧹</span> Nettoyage</div>
       <div class="metier-chip"><span class="emoji">🏠</span> Décorateur</div>
       <div class="metier-chip"><span class="emoji">🌳</span> Paysagiste</div>
+      <div class="metier-chip"><span class="emoji">🧠</span> Psychologue</div>
+      <div class="metier-chip"><span class="emoji">💼</span> Consultant</div>
     </div>
-    <p style="margin-top: 24px; color: var(--gray-600); font-size: 14px;">Et 45 autres métiers — <a href="#telecharger" style="color: var(--green); text-decoration: none;">voir la liste complète →</a></p>
+    <div class="statuts-chips">
+      <span class="statut-chip">Micro-entreprise</span>
+      <span class="statut-chip">EI</span>
+      <span class="statut-chip">EURL</span>
+      <span class="statut-chip">SASU</span>
+      <span class="statut-chip">Association</span>
+      <span class="statut-chip">SCI</span>
+    </div>
+    <p style="margin-top: 24px; color: var(--gray-600); font-size: 14px;">Et bien d'autres — <a href="#beta" style="color: var(--green); text-decoration: none;">demandez l'accès beta pour voir la liste complète →</a></p>
   </div>
 </section>
 
@@ -907,53 +1026,53 @@ footer {
 <section id="tarifs" style="background: var(--gray-900); border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="container text-center">
     <span class="section-label">Tarifs</span>
-    <h2 class="section-title">Simple. Transparent.<br>Ton argent, c'est ton argent.</h2>
+    <h2 class="section-title">Transparent. Sans commission.<br>Votre argent reste le vôtre.</h2>
     <p class="section-subtitle centered">Zéro commission sur vos paiements. Zéro frais cachés. Jamais.</p>
-    <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    <div class="pricing-grid">
       <div class="price-card">
         <div class="price-name">Gratuit</div>
         <div class="price-amount">0€ <span>/ mois</span></div>
-        <p class="price-desc">Découverte — 5 documents/mois</p>
+        <p class="price-desc">Découverte — prenez vos marques.</p>
         <ul class="price-features">
-          <li>5 docs/mois (devis, factures, notes)</li>
+          <li>5 documents/mois</li>
           <li>PDF conformes + mentions légales</li>
           <li>Envoi par email</li>
           <li>71 métiers supportés</li>
-          <li>Saisie manuelle + formulaire</li>
+          <li>Saisie texte + formulaire</li>
         </ul>
-        <a href="#telecharger" class="price-btn secondary">Commencer gratuitement</a>
+        <a href="#beta" class="price-btn secondary">Commencer gratuitement</a>
       </div>
       <div class="price-card featured">
         <div class="price-name">Solo</div>
         <div class="price-amount">19€ <span>/ mois</span></div>
-        <p class="price-desc">L'indispensable pour indépendants.</p>
+        <p class="price-desc">L'indispensable pour les indépendants actifs.</p>
         <ul class="price-features">
           <li>Documents illimités</li>
           <li>🎤 Dictée vocale IA</li>
-          <li>📸 Photo → Devis automatique</li>
+          <li>📸 Photo → Document automatique</li>
           <li>🧠 Catalogue auto-appris</li>
           <li>💳 Paiement CB intégré</li>
           <li>🔄 Relances automatiques</li>
-          <li>🏛️ Alertes URSSAF</li>
+          <li>🏛️ Alertes URSSAF &amp; TVA</li>
           <li>✍️ Signature électronique</li>
         </ul>
-        <a href="#telecharger" class="price-btn primary">Essai gratuit 14 jours →</a>
+        <a href="#beta" class="price-btn primary">Essai gratuit 14 jours →</a>
       </div>
       <div class="price-card">
         <div class="price-name">Pro</div>
         <div class="price-amount">39€ <span>/ mois</span></div>
-        <p class="price-desc">Pour praticiens et professionnels actifs.</p>
+        <p class="price-desc">Pour praticiens et professionnels exigeants.</p>
         <ul class="price-features">
           <li>Tout le plan Solo</li>
           <li>🩺 Copilote praticien IA</li>
           <li>🎤 Dictée notes de séance</li>
           <li>💌 Fiche conseil patient IA</li>
-          <li>⏱️ Timer de séance</li>
+          <li>📈 Suivi patient longitudinal</li>
           <li>📊 Business coach IA</li>
           <li>Export FEC comptable</li>
           <li>Support prioritaire</li>
         </ul>
-        <a href="#telecharger" class="price-btn primary">Essai gratuit 14 jours →</a>
+        <a href="#beta" class="price-btn primary">Essai gratuit 14 jours →</a>
       </div>
       <div class="price-card">
         <div class="price-name">Business</div>
@@ -964,7 +1083,7 @@ footer {
           <li>Multi-profils praticiens</li>
           <li>Analytics avancés</li>
           <li>Portail expert-comptable</li>
-          <li>Webhooks & API</li>
+          <li>Webhooks &amp; API</li>
         </ul>
         <a href="mailto:support@diqto.fr" class="price-btn secondary">Nous contacter</a>
       </div>
@@ -973,13 +1092,13 @@ footer {
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta" id="telecharger">
+<section class="final-cta" id="beta">
   <div class="container" style="position:relative; z-index:1;">
-    <h2>Prêt à gagner du temps ?</h2>
-    <p>Rejoignez les indépendants qui ont choisi l'IA<br>pour gérer leur administratif.</p>
+    <h2>Votre métier mérite mieux<br>que de la <span class="text-green">paperasse.</span></h2>
+    <p>Essayez Diqto gratuitement.<br>Parlez. Le reste suit.</p>
     <div class="hero-ctas">
       <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto&body=Bonjour%2C%20je%20souhaite%20tester%20Diqto.%20Mon%20métier%20%3A%20" class="btn-primary" style="font-size: 18px; padding: 18px 48px;">
-        📱 Télécharger l'app
+        Demander l'accès beta →
       </a>
     </div>
     <p style="margin-top: 24px; font-size: 14px; color: var(--gray-600);">Disponible sur iOS. Android et Web bientôt. Gratuit pour commencer.</p>
@@ -995,13 +1114,13 @@ footer {
           <div class="bubble"><i></i><i></i><i></i><i></i><i></i></div>
           <div class="text">diq<em>to</em></div>
         </a>
-        <p>L'assistant IA qui gère votre administratif. Vous dictez, on facture.</p>
+        <p>L'assistant vocal IA qui comprend votre métier. Vous parlez, Diqto s'occupe du reste.</p>
         <p style="margin-top: 12px; font-size: 12px;">Marque déposée INPI N° 5234942</p>
       </div>
       <div class="footer-col">
         <h4>Produit</h4>
         <a href="#comment">Comment ça marche</a>
-        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#benefices">Bénéfices</a>
         <a href="#metiers">Métiers</a>
         <a href="#tarifs">Tarifs</a>
       </div>
@@ -1009,7 +1128,6 @@ footer {
         <h4>Ressources</h4>
         <a href="mailto:support@diqto.fr">Support</a>
         <a href="mailto:support@diqto.fr">Nous contacter</a>
-        
       </div>
       <div class="footer-col">
         <h4>Légal</h4>

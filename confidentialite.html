@@ -4,39 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de Confidentialité — Diqto</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%2325d366'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --orange: #FF6B35;
-    --dark: #1a1a2e;
-    --darker: #16213e;
-    --gray: #f5f5f5;
-    --white: #ffffff;
+    --green: #25D366;
+    --green-glow: #25D36640;
+    --black: #0C0C0C;
+    --gray-900: #171717;
+    --gray-800: #262626;
+    --gray-400: #A3A3A3;
+    --gray-200: #E5E5E5;
+    --white: #FFFFFF;
   }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; line-height: 1.7; }
+  body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black);
+    color: var(--gray-200);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* LOGO */
+  @keyframes waveBar { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.5); } }
+  .logo-diqto {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-diqto .bubble {
+    width: 44px;
+    height: 34px;
+    background: var(--green);
+    border-radius: 17px 17px 17px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    box-shadow: 0 4px 16px var(--green-glow);
+  }
+  .logo-diqto .bubble i {
+    display: block;
+    width: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,.85);
+    animation: waveBar 1s ease infinite;
+  }
+  .logo-diqto .bubble i:nth-child(1) { height: 9px; animation-delay: 0s; }
+  .logo-diqto .bubble i:nth-child(2) { height: 14px; animation-delay: .1s; }
+  .logo-diqto .bubble i:nth-child(3) { height: 18px; animation-delay: .2s; }
+  .logo-diqto .bubble i:nth-child(4) { height: 12px; animation-delay: .3s; }
+  .logo-diqto .bubble i:nth-child(5) { height: 8px; animation-delay: .4s; }
+  .logo-diqto .text {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--white);
+  }
+  .logo-diqto .text em {
+    font-style: normal;
+    color: var(--green);
+  }
 
   /* HEADER */
   .header {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+    background: var(--gray-900);
     color: white;
     padding: 40px 20px;
     text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .header .logo-container {
+    margin-bottom: 20px;
   }
   .header a.back {
-    color: var(--orange);
+    color: var(--green);
     text-decoration: none;
     font-size: 0.95em;
     display: inline-block;
     margin-bottom: 15px;
+    font-weight: 500;
   }
   .header a.back:hover { text-decoration: underline; }
   .header h1 {
     font-size: 2.2em;
     margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
   }
-  .header h1 span { color: var(--orange); }
+  .header h1 span { color: var(--green); }
   .header p.date {
-    opacity: 0.7;
+    opacity: 0.5;
     font-size: 0.95em;
   }
 
@@ -47,29 +109,31 @@
     padding: 40px 20px 80px;
   }
   .content h2 {
-    color: var(--dark);
+    color: var(--white);
     font-size: 1.4em;
     margin: 40px 0 15px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--orange);
+    border-bottom: 2px solid var(--green);
     display: inline-block;
+    font-weight: 700;
   }
   .content h2:first-of-type { margin-top: 0; }
   .content h3 {
-    color: var(--dark);
+    color: var(--white);
     font-size: 1.15em;
     margin: 20px 0 10px;
+    font-weight: 600;
   }
   .content p { margin-bottom: 12px; }
   .content ul {
     margin: 10px 0 15px 25px;
   }
   .content ul li { margin-bottom: 6px; }
-  .content a { color: var(--orange); }
-  .content strong { color: var(--dark); }
+  .content a { color: var(--green); }
+  .content strong { color: var(--white); }
   .content .highlight-box {
-    background: var(--gray);
-    border-left: 4px solid var(--orange);
+    background: var(--gray-900);
+    border-left: 4px solid var(--green);
     padding: 15px 20px;
     margin: 15px 0;
     border-radius: 0 8px 8px 0;
@@ -83,26 +147,28 @@
   table.data-table th, table.data-table td {
     padding: 10px 14px;
     text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     vertical-align: top;
   }
   table.data-table th {
-    background: var(--dark);
-    color: white;
+    background: var(--gray-900);
+    color: var(--green);
     font-weight: 600;
+    border-bottom: 2px solid var(--green);
   }
-  table.data-table tr:nth-child(even) { background: var(--gray); }
+  table.data-table tr:nth-child(even) { background: rgba(255,255,255,0.03); }
 
   /* FOOTER */
   .footer {
-    background: var(--dark);
+    background: var(--gray-900);
     color: white;
     text-align: center;
     padding: 30px 20px;
     font-size: 0.9em;
     opacity: 0.8;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
-  .footer a { color: var(--orange); text-decoration: none; }
+  .footer a { color: var(--green); text-decoration: none; }
 
   @media (max-width: 600px) {
     .header h1 { font-size: 1.6em; }
@@ -115,51 +181,66 @@
 <body>
 
 <div class="header">
+  <div class="logo-container">
+    <a href="/" class="logo-diqto">
+      <span class="bubble"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="text">diq<em>to</em></span>
+    </a>
+  </div>
   <a href="/" class="back">← Retour à diqto.fr</a>
   <h1>Politique de <span>Confidentialité</span></h1>
-  <p class="date">Dernière mise à jour : 7 mars 2026</p>
+  <p class="date">Dernière mise à jour : 30 mars 2026</p>
 </div>
 
 <div class="content">
 
-  <p>La présente Politique de Confidentialité décrit comment Diqto collecte, utilise, stocke et protège les données personnelles dans le cadre de son service d'assistant WhatsApp pour la génération de devis BTP. Elle est établie conformément au <strong>Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679)</strong> et à la <strong>loi n° 78-17 du 6 janvier 1978</strong> relative à l'informatique, aux fichiers et aux libertés.</p>
+  <p>La présente Politique de Confidentialité décrit comment Diqto collecte, utilise, stocke et protège les données personnelles dans le cadre de son service d'assistant vocal IA pour la création de documents professionnels. Elle est établie conformément au <strong>Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679)</strong> et à la <strong>loi n° 78-17 du 6 janvier 1978</strong> relative à l'informatique, aux fichiers et aux libertés.</p>
 
   <h2>1. Responsable du traitement</h2>
   <div class="highlight-box">
     <strong>Diqto</strong><br>
-    Email : <a href="mailto:contact@diqto.fr">contact@diqto.fr</a><br>
+    Email : <a href="mailto:support@diqto.fr">support@diqto.fr</a><br>
     Site web : <a href="https://diqto.fr">diqto.fr</a>
   </div>
   <p>Pour toute question relative à la protection de vos données personnelles, vous pouvez contacter Diqto à l'adresse ci-dessus.</p>
 
   <h2>2. Données collectées</h2>
 
-  <h3>2.1 Données de l'Artisan (Utilisateur)</h3>
+  <h3>2.1 Données de l'Utilisateur</h3>
   <ul>
     <li>Nom et/ou raison sociale</li>
-    <li>Numéro SIRET</li>
-    <li>Numéro de téléphone et numéro WhatsApp</li>
+    <li>Numéro SIRET (si applicable)</li>
+    <li>Numéro de téléphone mobile</li>
     <li>Adresse email</li>
     <li>Adresse postale professionnelle</li>
-    <li>Métier / activité exercée</li>
+    <li>Statut juridique (micro-entreprise, EI, EURL, SASU, association, profession libérale)</li>
+    <li>Métier / activité exercée (parmi 71 métiers supportés)</li>
     <li>Logo de l'entreprise (si fourni)</li>
+    <li>Données vocales : transcrites en texte par l'IA, puis <strong>audio supprimé immédiatement</strong> — l'audio n'est jamais conservé</li>
   </ul>
 
-  <h3>2.2 Données des clients de l'Artisan</h3>
-  <p>Dans le cadre de la génération des devis, l'Artisan transmet via ses messages vocaux ou textuels les informations suivantes relatives à ses propres clients :</p>
+  <h3>2.2 Données des clients de l'Utilisateur</h3>
+  <p>Dans le cadre de la création de documents professionnels, l'Utilisateur transmet via ses messages vocaux, photos ou saisies textuelles les informations suivantes relatives à ses propres clients :</p>
   <ul>
     <li>Nom et prénom du client</li>
-    <li>Adresse du chantier / adresse postale</li>
+    <li>Adresse postale</li>
     <li>Numéro de téléphone</li>
+    <li>Adresse email</li>
+    <li>Historique des prestations</li>
+    <li>Notes de séance (pour les praticiens : santé, bien-être, coaching)</li>
+    <li>Données de suivi patient — si companion activé (score douleur, exercices prescrits, évolution)</li>
   </ul>
   <div class="highlight-box">
-    <strong>📌 Note :</strong> L'Artisan est responsable de l'obtention du consentement de ses clients pour la transmission de ces données à Diqto. Les données des clients sont <strong>anonymisées avant tout envoi</strong> vers les services d'intelligence artificielle (OpenAI, Anthropic).
+    <strong>📌 Note :</strong> L'Utilisateur est responsable de l'obtention du consentement de ses clients pour la transmission de ces données à Diqto. Les données des clients sont <strong>anonymisées avant tout envoi</strong> vers les services d'intelligence artificielle (Anthropic, OpenAI). Pour les praticiens de santé, l'Utilisateur est responsable du respect du secret médical et des obligations renforcées du RGPD relatives aux données de santé.
   </div>
 
   <h3>2.3 Données d'usage</h3>
   <ul>
-    <li>Messages envoyés à Diqto (vocaux et textuels)</li>
-    <li>Nombre et historique des devis générés</li>
+    <li>Messages envoyés à Diqto (vocaux transcrits et textuels)</li>
+    <li>Historique des documents créés (devis, factures, notes d'honoraires, conventions, reçus)</li>
+    <li>Notes de séance structurées par l'IA</li>
+    <li>Données de timetracking (durée des séances/prestations)</li>
+    <li>Interactions avec le companion patient (si activé)</li>
     <li>Dates et heures de connexion / utilisation</li>
     <li>Données de facturation et de paiement (gérées par Stripe)</li>
   </ul>
@@ -177,16 +258,28 @@
       <th>Données concernées</th>
     </tr>
     <tr>
-      <td>Génération de devis PDF</td>
-      <td>Données artisan + données clients de l'artisan + messages</td>
+      <td>Création de documents professionnels (PDF)</td>
+      <td>Données Utilisateur + données clients + messages / dictées vocales</td>
+    </tr>
+    <tr>
+      <td>Structuration des notes de séance</td>
+      <td>Messages vocaux transcrits, données patient (praticiens)</td>
+    </tr>
+    <tr>
+      <td>Suivi client et relances</td>
+      <td>Historique prestations, coordonnées clients, données de paiement</td>
     </tr>
     <tr>
       <td>Gestion du compte utilisateur</td>
-      <td>Données d'identification de l'artisan, SIRET</td>
+      <td>Données d'identification, statut juridique, métier</td>
     </tr>
     <tr>
       <td>Facturation et paiement</td>
       <td>Email, données de paiement (via Stripe)</td>
+    </tr>
+    <tr>
+      <td>Alertes URSSAF et coaching business</td>
+      <td>Données financières (CA, seuils), statut juridique</td>
     </tr>
     <tr>
       <td>Amélioration du service</td>
@@ -204,7 +297,7 @@
 
   <h2>4. Base légale des traitements</h2>
   <ul>
-    <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de devis, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
+    <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de documents, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
     <li><strong>Intérêt légitime</strong> (article 6.1.f du RGPD) : les traitements liés à l'amélioration du service et aux statistiques d'usage sont fondés sur l'intérêt légitime de Diqto à améliorer son offre.</li>
     <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales et les cookies analytics sont soumis au consentement préalable de l'Utilisateur.</li>
     <li><strong>Obligation légale</strong> (article 6.1.c du RGPD) : la conservation des données de facturation est requise par les obligations comptables et fiscales.</li>
@@ -220,16 +313,40 @@
       <th>Garanties</th>
     </tr>
     <tr>
-      <td><strong>OpenAI</strong></td>
-      <td>Traitement IA (extraction des données des messages)</td>
+      <td><strong>Anthropic</strong></td>
+      <td>Traitement IA (Claude Haiku — structuration documents, notes de séance)</td>
       <td>États-Unis</td>
-      <td>DPA signé, Clauses Contractuelles Types (SCCs). <strong>Données personnelles anonymisées avant envoi.</strong></td>
+      <td>DPA, SCCs. Données personnelles anonymisées avant envoi.</td>
     </tr>
     <tr>
-      <td><strong>Anthropic</strong></td>
-      <td>Traitement IA (extraction des données des messages)</td>
+      <td><strong>OpenAI</strong></td>
+      <td>Embeddings (recherche sémantique dans les notes et documents)</td>
       <td>États-Unis</td>
-      <td>DPA signé, Clauses Contractuelles Types (SCCs). <strong>Données personnelles anonymisées avant envoi.</strong></td>
+      <td>DPA, SCCs. Données personnelles anonymisées avant envoi.</td>
+    </tr>
+    <tr>
+      <td><strong>Deepgram</strong></td>
+      <td>Transcription vocale (speech-to-text)</td>
+      <td>États-Unis</td>
+      <td>DPA, SCCs. Audio supprimé immédiatement après transcription.</td>
+    </tr>
+    <tr>
+      <td><strong>Neon</strong></td>
+      <td>Base de données PostgreSQL</td>
+      <td>UE (Francfort)</td>
+      <td>Hébergement UE. Chiffrement au repos et en transit.</td>
+    </tr>
+    <tr>
+      <td><strong>Cloudflare R2</strong></td>
+      <td>Stockage documents PDF</td>
+      <td>UE</td>
+      <td>Hébergement UE. Chiffrement au repos et en transit.</td>
+    </tr>
+    <tr>
+      <td><strong>Koyeb</strong></td>
+      <td>Hébergement application</td>
+      <td>UE (Francfort)</td>
+      <td>Hébergement UE.</td>
     </tr>
     <tr>
       <td><strong>Stripe</strong></td>
@@ -238,20 +355,20 @@
       <td>Certifié PCI-DSS, DPA, SCCs. Données de paiement uniquement.</td>
     </tr>
     <tr>
-      <td><strong>Supabase</strong></td>
-      <td>Hébergement base de données</td>
-      <td>UE (Francfort, Allemagne)</td>
-      <td>Hébergement dans l'Union européenne. Chiffrement au repos et en transit.</td>
+      <td><strong>Resend</strong></td>
+      <td>Envoi d'emails transactionnels</td>
+      <td>États-Unis</td>
+      <td>DPA, SCCs.</td>
     </tr>
     <tr>
       <td><strong>Meta / WhatsApp</strong></td>
-      <td>Canal de communication</td>
+      <td>Envoi OTP authentification</td>
       <td>États-Unis / UE</td>
-      <td>API WhatsApp Business. Chiffrement de bout en bout des messages.</td>
+      <td>API WhatsApp Business. Chiffrement de bout en bout (E2EE).</td>
     </tr>
   </table>
   <div class="highlight-box">
-    <strong>🔒 Anonymisation :</strong> Avant tout envoi de données vers les services d'IA (OpenAI, Anthropic), les données personnelles identifiantes (noms, adresses, téléphones des clients) sont remplacées par des identifiants anonymes. Les données originales ne quittent pas l'infrastructure européenne de Diqto.
+    <strong>🔒 Anonymisation :</strong> Avant tout envoi de données vers les services d'IA (Anthropic, OpenAI), les données personnelles identifiantes (noms, adresses, téléphones des clients) sont remplacées par des identifiants anonymes. Les données originales ne quittent pas l'infrastructure européenne de Diqto.
   </div>
 
   <h2>6. Durée de conservation</h2>
@@ -261,23 +378,31 @@
       <th>Durée de conservation</th>
     </tr>
     <tr>
-      <td>Données du compte artisan</td>
+      <td>Données du compte Utilisateur</td>
       <td>Durée de l'abonnement actif + 3 ans après résiliation</td>
     </tr>
     <tr>
-      <td>Données des clients de l'artisan</td>
+      <td>Données des clients de l'Utilisateur</td>
       <td>Durée de l'abonnement actif. Supprimées dans les 30 jours suivant la résiliation.</td>
     </tr>
     <tr>
-      <td>Devis générés</td>
-      <td>Durée de l'abonnement actif + 3 ans (obligation légale de conservation des factures et devis)</td>
+      <td>Documents générés (devis, factures, etc.)</td>
+      <td>Durée de l'abonnement actif + 3 ans (obligation légale de conservation)</td>
+    </tr>
+    <tr>
+      <td>Notes de séance / données patient</td>
+      <td>Durée de l'abonnement actif. Supprimées dans les 30 jours suivant la résiliation.</td>
+    </tr>
+    <tr>
+      <td>Données vocales (audio)</td>
+      <td><strong>Supprimées immédiatement après transcription</strong> — jamais stockées</td>
     </tr>
     <tr>
       <td>Données de facturation</td>
       <td>10 ans (obligation comptable et fiscale — article L123-22 du Code de commerce)</td>
     </tr>
     <tr>
-      <td>Messages vocaux / textuels</td>
+      <td>Messages textuels</td>
       <td>90 jours après traitement, puis suppression automatique</td>
     </tr>
     <tr>
@@ -299,7 +424,7 @@
 
   <div class="highlight-box">
     <strong>📬 Comment exercer vos droits :</strong><br>
-    Envoyez votre demande à <a href="mailto:contact@diqto.fr">contact@diqto.fr</a> en précisant votre identité et le(s) droit(s) que vous souhaitez exercer.<br><br>
+    Envoyez votre demande à <a href="mailto:support@diqto.fr">support@diqto.fr</a> en précisant votre identité et le(s) droit(s) que vous souhaitez exercer.<br><br>
     <strong>Délai de réponse :</strong> 30 jours maximum à compter de la réception de votre demande.<br><br>
     <strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :<br>
     <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.
@@ -309,7 +434,12 @@
   <p>Diqto met en œuvre les mesures techniques et organisationnelles appropriées pour garantir la sécurité des données personnelles :</p>
   <ul>
     <li><strong>Chiffrement en transit :</strong> Toutes les communications sont protégées par TLS (Transport Layer Security).</li>
-    <li><strong>Hébergement EU :</strong> Les données sont hébergées dans l'Union européenne (Supabase — Francfort, Allemagne).</li>
+    <li><strong>Hébergement EU :</strong> Les données sont hébergées dans l'Union européenne (Neon — Francfort, Cloudflare R2 — UE, Koyeb — Francfort).</li>
+    <li><strong>Authentification par code OTP :</strong> Chaque connexion est vérifiée par un code à usage unique envoyé par SMS ou WhatsApp.</li>
+    <li><strong>Tokens d'accès avec expiration :</strong> Les tokens d'authentification expirent automatiquement après 24 heures.</li>
+    <li><strong>Signature électronique sécurisée :</strong> Hash SHA-256 avec audit trail complet (qui, quand, IP, hash du document).</li>
+    <li><strong>Données patient chiffrées au repos :</strong> Les données sensibles (notes de séance, données de suivi patient) sont chiffrées dans la base de données.</li>
+    <li><strong>Audio vocal jamais stocké :</strong> Les enregistrements vocaux sont transcrits en temps réel et l'audio est supprimé immédiatement après transcription.</li>
     <li><strong>Accès restreint :</strong> L'accès aux données est limité aux personnes strictement nécessaires au fonctionnement du service.</li>
     <li><strong>Anonymisation :</strong> Les données personnelles sont anonymisées avant tout traitement par les services d'IA hors UE.</li>
     <li><strong>Sauvegardes :</strong> Des sauvegardes régulières sont effectuées pour prévenir la perte de données.</li>
@@ -317,8 +447,8 @@
   </ul>
 
   <h2>9. Cookies</h2>
-  <h3>9.1 Service WhatsApp</h3>
-  <p>Le service Diqto via WhatsApp <strong>n'utilise aucun cookie</strong>. L'interaction se fait exclusivement via l'API WhatsApp Business.</p>
+  <h3>9.1 Application mobile iOS</h3>
+  <p>L'application mobile Diqto <strong>n'utilise aucun cookie</strong>. L'authentification se fait via code OTP et tokens d'accès sécurisés.</p>
 
   <h3>9.2 Site web diqto.fr</h3>
   <p>Le site <a href="https://diqto.fr">diqto.fr</a> peut utiliser les cookies suivants :</p>
@@ -349,13 +479,13 @@
 
   <h2>10. Mise à jour de la politique</h2>
   <p>La présente Politique de Confidentialité peut être modifiée à tout moment pour refléter les évolutions du service ou de la réglementation applicable.</p>
-  <p>En cas de modification substantielle, les Utilisateurs seront informés par message WhatsApp et/ou par email au moins <strong>30 jours avant l'entrée en vigueur</strong> des modifications.</p>
+  <p>En cas de modification substantielle, les Utilisateurs seront informés par notification dans l'application et/ou par email au moins <strong>30 jours avant l'entrée en vigueur</strong> des modifications.</p>
   <p>La version en vigueur est toujours accessible à l'adresse : <a href="https://diqto.fr/confidentialite.html">diqto.fr/confidentialite.html</a>.</p>
 
 </div>
 
 <div class="footer">
-  <p>Diqto © 2026 — <a href="/">Accueil</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:contact@diqto.fr">Contact</a></p>
+  <p>Diqto © 2026 — <a href="/">Accueil</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:support@diqto.fr">Contact</a></p>
 </div>
 
 </body>

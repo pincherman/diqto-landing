@@ -4,39 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conditions Générales d'Utilisation — Diqto</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%2325d366'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --orange: #FF6B35;
-    --dark: #1a1a2e;
-    --darker: #16213e;
-    --gray: #f5f5f5;
-    --white: #ffffff;
+    --green: #25D366;
+    --green-glow: #25D36640;
+    --black: #0C0C0C;
+    --gray-900: #171717;
+    --gray-800: #262626;
+    --gray-400: #A3A3A3;
+    --gray-200: #E5E5E5;
+    --white: #FFFFFF;
   }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; line-height: 1.7; }
+  body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black);
+    color: var(--gray-200);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* LOGO */
+  @keyframes waveBar { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.5); } }
+  .logo-diqto {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-diqto .bubble {
+    width: 44px;
+    height: 34px;
+    background: var(--green);
+    border-radius: 17px 17px 17px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    box-shadow: 0 4px 16px var(--green-glow);
+  }
+  .logo-diqto .bubble i {
+    display: block;
+    width: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,.85);
+    animation: waveBar 1s ease infinite;
+  }
+  .logo-diqto .bubble i:nth-child(1) { height: 9px; animation-delay: 0s; }
+  .logo-diqto .bubble i:nth-child(2) { height: 14px; animation-delay: .1s; }
+  .logo-diqto .bubble i:nth-child(3) { height: 18px; animation-delay: .2s; }
+  .logo-diqto .bubble i:nth-child(4) { height: 12px; animation-delay: .3s; }
+  .logo-diqto .bubble i:nth-child(5) { height: 8px; animation-delay: .4s; }
+  .logo-diqto .text {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--white);
+  }
+  .logo-diqto .text em {
+    font-style: normal;
+    color: var(--green);
+  }
 
   /* HEADER */
   .header {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+    background: var(--gray-900);
     color: white;
     padding: 40px 20px;
     text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .header .logo-container {
+    margin-bottom: 20px;
   }
   .header a.back {
-    color: var(--orange);
+    color: var(--green);
     text-decoration: none;
     font-size: 0.95em;
     display: inline-block;
     margin-bottom: 15px;
+    font-weight: 500;
   }
   .header a.back:hover { text-decoration: underline; }
   .header h1 {
     font-size: 2.2em;
     margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
   }
-  .header h1 span { color: var(--orange); }
+  .header h1 span { color: var(--green); }
   .header p.date {
-    opacity: 0.7;
+    opacity: 0.5;
     font-size: 0.95em;
   }
 
@@ -47,12 +109,13 @@
     padding: 40px 20px 80px;
   }
   .content h2 {
-    color: var(--dark);
+    color: var(--white);
     font-size: 1.4em;
     margin: 40px 0 15px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--orange);
+    border-bottom: 2px solid var(--green);
     display: inline-block;
+    font-weight: 700;
   }
   .content h2:first-of-type { margin-top: 0; }
   .content p { margin-bottom: 12px; }
@@ -60,11 +123,11 @@
     margin: 10px 0 15px 25px;
   }
   .content ul li { margin-bottom: 6px; }
-  .content a { color: var(--orange); }
-  .content strong { color: var(--dark); }
+  .content a { color: var(--green); }
+  .content strong { color: var(--white); }
   .content .highlight-box {
-    background: var(--gray);
-    border-left: 4px solid var(--orange);
+    background: var(--gray-900);
+    border-left: 4px solid var(--green);
     padding: 15px 20px;
     margin: 15px 0;
     border-radius: 0 8px 8px 0;
@@ -77,25 +140,27 @@
   table.pricing th, table.pricing td {
     padding: 10px 15px;
     text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   table.pricing th {
-    background: var(--dark);
-    color: white;
+    background: var(--gray-900);
+    color: var(--green);
     font-weight: 600;
+    border-bottom: 2px solid var(--green);
   }
-  table.pricing tr:nth-child(even) { background: var(--gray); }
+  table.pricing tr:nth-child(even) { background: rgba(255,255,255,0.03); }
 
   /* FOOTER */
   .footer {
-    background: var(--dark);
+    background: var(--gray-900);
     color: white;
     text-align: center;
     padding: 30px 20px;
     font-size: 0.9em;
     opacity: 0.8;
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
-  .footer a { color: var(--orange); text-decoration: none; }
+  .footer a { color: var(--green); text-decoration: none; }
 
   @media (max-width: 600px) {
     .header h1 { font-size: 1.6em; }
@@ -108,52 +173,65 @@
 <body>
 
 <div class="header">
+  <div class="logo-container">
+    <a href="/" class="logo-diqto">
+      <span class="bubble"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="text">diq<em>to</em></span>
+    </a>
+  </div>
   <a href="/" class="back">← Retour à diqto.fr</a>
   <h1>Conditions Générales <span>d'Utilisation</span></h1>
-  <p class="date">Dernière mise à jour : 7 mars 2026</p>
+  <p class="date">Dernière mise à jour : 30 mars 2026</p>
 </div>
 
 <div class="content">
 
   <h2>Article 1 — Objet du service</h2>
-  <p>Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les conditions dans lesquelles Diqto (ci-après « Diqto », « nous », « notre ») met à disposition des professionnels du bâtiment et des travaux publics (ci-après « l'Utilisateur », « l'Artisan ») un service d'assistant intelligent accessible via WhatsApp permettant la génération automatisée de devis au format PDF.</p>
-  <p>Diqto est édité par Diqto — Site web : <a href="https://diqto.fr">diqto.fr</a> — Contact : <a href="mailto:contact@diqto.fr">contact@diqto.fr</a>.</p>
+  <p>Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les conditions dans lesquelles Diqto (ci-après « Diqto », « nous », « notre ») met à disposition des professionnels indépendants, micro-entrepreneurs, artisans et professions libérales (ci-après « l'Utilisateur ») un assistant vocal IA accessible via application mobile iOS (et bientôt web et Android) permettant la création automatisée de documents professionnels (devis, factures, notes d'honoraires, conventions, reçus), le suivi client, et la gestion administrative.</p>
+  <p>Diqto est édité par Diqto — Site web : <a href="https://diqto.fr">diqto.fr</a> — Contact : <a href="mailto:support@diqto.fr">support@diqto.fr</a>.</p>
 
   <h2>Article 2 — Acceptation des CGU</h2>
-  <p>L'utilisation du service Diqto implique l'acceptation pleine et entière des présentes CGU. Cette acceptation intervient lors de la procédure d'inscription (onboarding) via WhatsApp, au moment où l'Utilisateur confirme avoir lu et accepté les présentes conditions.</p>
+  <p>L'utilisation du service Diqto implique l'acceptation pleine et entière des présentes CGU. Cette acceptation intervient lors de la procédure d'inscription (onboarding) via l'application mobile, au moment où l'Utilisateur confirme avoir lu et accepté les présentes conditions.</p>
   <p>En cas de désaccord avec tout ou partie des CGU, l'Utilisateur est invité à ne pas utiliser le service.</p>
   <div class="highlight-box">
-    <strong>📌 Important :</strong> En envoyant votre premier message à Diqto sur WhatsApp et en confirmant votre inscription, vous acceptez les présentes CGU et notre <a href="/confidentialite.html">Politique de Confidentialité</a>.
+    <strong>📌 Important :</strong> En créant votre compte sur l'application Diqto et en confirmant votre inscription, vous acceptez les présentes CGU et notre <a href="/confidentialite.html">Politique de Confidentialité</a>.
   </div>
 
   <h2>Article 3 — Description du service</h2>
-  <p>Diqto est un assistant WhatsApp qui permet aux artisans du BTP de générer des devis professionnels au format PDF de manière rapide et simplifiée. Le service fonctionne comme suit :</p>
+  <p>Diqto est un assistant vocal métier propulsé par l'intelligence artificielle, conçu pour les professionnels indépendants. Le service offre les fonctionnalités suivantes :</p>
   <ul>
-    <li><strong>Envoi :</strong> L'Artisan envoie un message vocal ou textuel via WhatsApp décrivant les travaux à réaliser (nature des travaux, quantités, prix, informations client).</li>
-    <li><strong>Traitement :</strong> Un modèle d'intelligence artificielle (IA) analyse le message et en extrait les informations structurées nécessaires à l'établissement du devis.</li>
-    <li><strong>Génération :</strong> Un devis PDF conforme aux mentions légales obligatoires est automatiquement généré.</li>
-    <li><strong>Renvoi :</strong> Le devis PDF est renvoyé à l'Artisan via WhatsApp.</li>
+    <li><strong>Création de documents professionnels :</strong> Devis, factures, notes d'honoraires, conventions et reçus, générés par dictée vocale, photo ou saisie texte. Les documents sont conformes aux mentions légales obligatoires et produits au format PDF.</li>
+    <li><strong>Structuration automatique des notes de séance :</strong> Pour les praticiens (santé, bien-être, coaching), l'IA structure automatiquement les notes dictées après chaque consultation ou séance.</li>
+    <li><strong>Suivi client :</strong> Gestion des relances automatiques, fiches conseil patient générées par IA, et companion de suivi patient (exercices, scores douleur).</li>
+    <li><strong>Alertes URSSAF et coaching business IA :</strong> Notifications proactives sur les obligations fiscales et sociales, accompagnement business personnalisé par l'IA.</li>
+    <li><strong>Paiement CB intégré :</strong> Encaissement par carte bancaire directement depuis les documents, via Stripe Connect.</li>
+    <li><strong>Signature électronique :</strong> Signature conforme au règlement eIDAS, avec hash SHA-256 et audit trail.</li>
+    <li><strong>71 métiers et 6 statuts juridiques :</strong> Support natif de micro-entreprise, EI, EURL, SASU, association et profession libérale, avec vocabulaire et documents adaptés à chaque métier.</li>
+    <li><strong>Catalogue auto-appris :</strong> L'IA apprend les prestations récurrentes de l'Utilisateur et les suggère automatiquement.</li>
   </ul>
-  <p>Le service est accessible 24h/24 et 7j/7, sous réserve des opérations de maintenance et de la disponibilité de la plateforme WhatsApp.</p>
+  <p>Le service est accessible via l'application mobile iOS, et bientôt via application web et Android. Il est disponible 24h/24 et 7j/7, sous réserve des opérations de maintenance et de la disponibilité des services tiers.</p>
 
   <h2>Article 4 — Inscription et compte</h2>
-  <p>Pour utiliser Diqto, l'Artisan doit :</p>
+  <p>Pour utiliser Diqto, l'Utilisateur doit :</p>
   <ul>
-    <li>Disposer d'un numéro WhatsApp actif.</li>
-    <li>Être un professionnel déclaré, disposant d'un numéro SIRET valide.</li>
-    <li>Compléter la procédure d'onboarding en fournissant les informations requises : nom ou raison sociale, SIRET, adresse, téléphone, email, métier/activité.</li>
+    <li>Disposer d'un numéro de téléphone mobile.</li>
+    <li>Être un professionnel déclaré ou en cours d'immatriculation.</li>
+    <li>Compléter la procédure d'onboarding via l'application mobile en fournissant les informations requises : nom ou raison sociale, statut juridique, adresse, téléphone, email, métier/activité.</li>
     <li>Accepter les présentes CGU et la <a href="/confidentialite.html">Politique de Confidentialité</a>.</li>
   </ul>
-  <p>L'Utilisateur garantit l'exactitude et la mise à jour des informations fournies. Diqto se réserve le droit de vérifier le numéro SIRET et de refuser ou suspendre l'accès en cas d'informations inexactes ou frauduleuses.</p>
+  <p>L'inscription se fait via l'application mobile avec authentification par code OTP (SMS ou WhatsApp).</p>
+  <p>L'Utilisateur garantit l'exactitude et la mise à jour des informations fournies. Diqto se réserve le droit de vérifier les informations professionnelles et de refuser ou suspendre l'accès en cas d'informations inexactes ou frauduleuses.</p>
 
   <h2>Article 5 — Obligations de l'Utilisateur</h2>
   <p>L'Utilisateur s'engage à :</p>
   <ul>
-    <li><strong>Fournir des informations exactes</strong> dans ses messages (descriptions des travaux, prix, coordonnées clients).</li>
-    <li><strong>Vérifier et valider chaque devis</strong> généré par le service avant de le transmettre à ses clients. L'Artisan est seul responsable du contenu final du devis.</li>
+    <li><strong>Fournir des informations exactes</strong> dans ses messages et saisies (descriptions de prestations, notes de séance, informations clients, prix, coordonnées).</li>
+    <li><strong>Vérifier et valider chaque document</strong> généré par le service avant de le transmettre à ses clients. L'Utilisateur est seul responsable du contenu final des documents.</li>
+    <li><strong>Préserver la confidentialité de ses identifiants d'accès</strong> (numéro de téléphone, code OTP, tokens d'authentification). Toute utilisation du compte est réputée faite par l'Utilisateur.</li>
     <li><strong>Utiliser le service conformément à son objet</strong> et ne pas l'utiliser à des fins illicites, frauduleuses ou contraires aux bonnes mœurs.</li>
-    <li><strong>Disposer des assurances obligatoires</strong> (assurance décennale, RC Pro) prévues par la réglementation applicable à son activité.</li>
-    <li><strong>Obtenir le consentement de ses clients</strong> pour la transmission de leurs données personnelles (nom, adresse, téléphone) à Diqto dans le cadre de la génération des devis.</li>
+    <li><strong>Disposer des assurances obligatoires</strong> (assurance décennale, RC Pro, ou toute assurance) prévues par la réglementation applicable à son activité.</li>
+    <li><strong>Obtenir le consentement de ses clients</strong> pour la transmission de leurs données personnelles (nom, adresse, téléphone, email) à Diqto dans le cadre de la génération des documents.</li>
+    <li><strong>Pour les praticiens de santé :</strong> L'Utilisateur est seul responsable du respect du secret médical et des obligations renforcées du RGPD relatives aux données de santé. Diqto ne se substitue pas au praticien dans ses obligations déontologiques.</li>
     <li><strong>Ne pas tenter d'accéder de manière non autorisée</strong> aux systèmes, bases de données ou infrastructures de Diqto.</li>
   </ul>
 
@@ -161,23 +239,23 @@
   <p>Diqto s'engage à :</p>
   <ul>
     <li><strong>Fournir un service de qualité</strong> avec une disponibilité raisonnable, sous réserve des interruptions liées à la maintenance, aux mises à jour ou à des événements de force majeure.</li>
-    <li><strong>Générer des devis conformes</strong> aux mentions légales obligatoires prévues par le Code de la consommation et le Code du commerce pour les devis de travaux BTP (date, identité des parties, description des travaux, prix unitaires, TVA, conditions de paiement, durée de validité).</li>
+    <li><strong>Générer des documents conformes</strong> aux mentions légales obligatoires prévues par le Code de la consommation et le Code du commerce (date, identité des parties, description des prestations, prix unitaires, TVA, conditions de paiement, durée de validité).</li>
     <li><strong>Protéger les données personnelles</strong> conformément au RGPD et à la loi Informatique et Libertés (cf. <a href="/confidentialite.html">Politique de Confidentialité</a>).</li>
     <li><strong>Informer les Utilisateurs</strong> en cas de modification substantielle du service ou des présentes CGU.</li>
-    <li><strong>Assurer un support</strong> accessible par email à <a href="mailto:contact@diqto.fr">contact@diqto.fr</a>.</li>
+    <li><strong>Assurer un support</strong> accessible par email à <a href="mailto:support@diqto.fr">support@diqto.fr</a>.</li>
   </ul>
 
   <h2>Article 7 — Limitation de responsabilité</h2>
   <div class="highlight-box">
-    <strong>⚠️ Clause essentielle :</strong> Diqto est un outil d'aide à la rédaction de devis. L'Artisan demeure seul responsable du contenu, de l'exactitude et de la conformité des devis transmis à ses clients.
+    <strong>⚠️ Clause essentielle :</strong> Diqto est un outil d'aide à la rédaction de documents professionnels. L'Utilisateur demeure seul responsable du contenu, de l'exactitude et de la conformité des documents transmis à ses clients.
   </div>
   <p>Diqto ne saurait être tenu responsable :</p>
   <ul>
-    <li>Des erreurs, omissions ou inexactitudes dans les devis résultant d'informations incorrectes, incomplètes ou ambiguës fournies par l'Utilisateur.</li>
-    <li>Des conséquences financières, juridiques ou commerciales découlant de l'utilisation des devis générés.</li>
-    <li>Des interruptions de service liées à WhatsApp, aux fournisseurs d'infrastructure ou à des événements de force majeure.</li>
+    <li>Des erreurs, omissions ou inexactitudes dans les documents résultant d'informations incorrectes, incomplètes ou ambiguës fournies par l'Utilisateur.</li>
+    <li>Des conséquences financières, juridiques ou commerciales découlant de l'utilisation des documents générés.</li>
+    <li>Des interruptions de service liées aux fournisseurs d'infrastructure, aux stores d'applications ou à des événements de force majeure.</li>
     <li>Des erreurs d'interprétation de l'intelligence artificielle dans le traitement des messages vocaux ou textuels.</li>
-    <li>De l'utilisation que fait l'Artisan des devis (engagement contractuel envers ses clients, respect des normes professionnelles).</li>
+    <li>De l'utilisation que fait l'Utilisateur des documents (engagement contractuel envers ses clients, respect des normes professionnelles et déontologiques).</li>
   </ul>
   <p>En tout état de cause, la responsabilité de Diqto est limitée au montant des sommes effectivement versées par l'Utilisateur au cours des 12 derniers mois précédant le fait générateur.</p>
 
@@ -192,33 +270,33 @@
     <tr>
       <td><strong>Gratuit</strong></td>
       <td>0 €</td>
-      <td>3 devis / mois — Fonctionnalités de base</td>
+      <td>5 documents/mois — PDF conformes — 71 métiers</td>
     </tr>
     <tr>
       <td><strong>Solo</strong></td>
       <td>19 €</td>
-      <td>30 devis / mois — Logo personnalisé — Historique</td>
+      <td>Documents illimités — Dictée vocale IA — Photo → document — Catalogue auto-appris — Paiement CB — Relances auto — URSSAF — Signature électronique</td>
     </tr>
     <tr>
       <td><strong>Pro</strong></td>
       <td>39 €</td>
-      <td>Devis illimités — Suivi client — Relances automatiques</td>
+      <td>Tout Solo + Copilote praticien IA — Notes de séance — Fiche conseil patient — Timer — Business coach IA — Export FEC</td>
     </tr>
     <tr>
       <td><strong>Business</strong></td>
       <td>79 €</td>
-      <td>Multi-utilisateurs — Statistiques avancées — Support prioritaire</td>
+      <td>Tout Pro + Multi-profils — Analytics avancés — Portail expert-comptable — API</td>
     </tr>
   </table>
   <p>Les prix sont indiqués hors taxes (HT). La TVA applicable sera ajoutée conformément à la réglementation en vigueur.</p>
-  <p>Le paiement est effectué par carte bancaire via la plateforme sécurisée <strong>Stripe</strong>. L'abonnement est prélevé mensuellement à date anniversaire de la souscription. Les factures sont disponibles depuis l'interface Stripe.</p>
+  <p>Le paiement est effectué par carte bancaire via la plateforme sécurisée <strong>Stripe</strong>. L'abonnement est prélevé mensuellement à date anniversaire de la souscription. Les factures sont disponibles depuis l'application.</p>
   <p>Diqto se réserve le droit de modifier ses tarifs. Toute modification tarifaire sera notifiée à l'Utilisateur au moins 30 jours avant son entrée en vigueur. L'Utilisateur pourra résilier son abonnement avant l'application des nouveaux tarifs.</p>
 
   <h2>Article 9 — Résiliation</h2>
   <p><strong>L'abonnement est sans engagement.</strong> L'Utilisateur peut résilier son abonnement à tout moment :</p>
   <ul>
-    <li>En envoyant un message WhatsApp à Diqto avec la commande de résiliation.</li>
-    <li>En envoyant un email à <a href="mailto:contact@diqto.fr">contact@diqto.fr</a>.</li>
+    <li>Depuis l'application mobile Diqto (section Paramètres).</li>
+    <li>En envoyant un email à <a href="mailto:support@diqto.fr">support@diqto.fr</a>.</li>
   </ul>
   <p>La résiliation prend effet à la fin de la période d'abonnement en cours. Aucun remboursement prorata temporis n'est dû pour la période restante.</p>
   <p>Diqto se réserve le droit de suspendre ou résilier l'accès d'un Utilisateur en cas de :</p>
@@ -231,16 +309,16 @@
 
   <h2>Article 10 — Propriété intellectuelle</h2>
   <p><strong>Propriété de Diqto :</strong> L'ensemble des éléments constituant le service Diqto (code source, algorithmes, modèles, interfaces, marque, logo, contenus éditoriaux) sont la propriété exclusive de Diqto et sont protégés par le droit de la propriété intellectuelle. Toute reproduction, représentation ou utilisation non autorisée est interdite.</p>
-  <p><strong>Propriété de l'Artisan :</strong> Les données métier de l'Artisan (informations clients, descriptions de travaux, prix, devis générés) restent la propriété exclusive de l'Artisan. Diqto ne revendique aucun droit de propriété sur ces données.</p>
-  <p>L'Artisan accorde à Diqto une licence limitée, non exclusive et révocable d'utilisation de ses données aux seules fins de fourniture et d'amélioration du service.</p>
+  <p><strong>Propriété de l'Utilisateur :</strong> Les données métier de l'Utilisateur (informations clients, descriptions de prestations, prix, documents générés) restent la propriété exclusive de l'Utilisateur. Diqto ne revendique aucun droit de propriété sur ces données.</p>
+  <p>L'Utilisateur accorde à Diqto une licence limitée, non exclusive et révocable d'utilisation de ses données aux seules fins de fourniture et d'amélioration du service.</p>
 
   <h2>Article 11 — Données personnelles</h2>
-  <p>Dans le cadre de l'utilisation du service, Diqto est amené à collecter et traiter des données personnelles relatives à l'Artisan et à ses clients.</p>
+  <p>Dans le cadre de l'utilisation du service, Diqto est amené à collecter et traiter des données personnelles relatives à l'Utilisateur et à ses clients.</p>
   <p>Le détail des traitements, des finalités, des droits des personnes et des mesures de protection est décrit dans notre <a href="/confidentialite.html"><strong>Politique de Confidentialité</strong></a>, qui fait partie intégrante des présentes CGU.</p>
-  <p>L'Artisan s'engage à informer ses propres clients de la transmission de leurs données à Diqto pour la génération des devis et à recueillir, le cas échéant, leur consentement.</p>
+  <p>L'Utilisateur s'engage à informer ses propres clients de la transmission de leurs données à Diqto pour la génération des documents et à recueillir, le cas échéant, leur consentement.</p>
 
   <h2>Article 12 — Modification des CGU</h2>
-  <p>Diqto se réserve le droit de modifier les présentes CGU à tout moment. Les modifications seront notifiées aux Utilisateurs par message WhatsApp et/ou par email <strong>au moins 30 jours avant leur entrée en vigueur</strong>.</p>
+  <p>Diqto se réserve le droit de modifier les présentes CGU à tout moment. Les modifications seront notifiées aux Utilisateurs par notification dans l'application et/ou par email <strong>au moins 30 jours avant leur entrée en vigueur</strong>.</p>
   <p>La poursuite de l'utilisation du service après la date d'entrée en vigueur des nouvelles CGU vaut acceptation de celles-ci. En cas de désaccord, l'Utilisateur pourra résilier son abonnement sans pénalité avant la date d'entrée en vigueur des modifications.</p>
 
   <h2>Article 13 — Droit applicable et juridiction</h2>
@@ -252,7 +330,7 @@
   <p>Le médiateur de la consommation compétent est :</p>
   <div class="highlight-box">
     <strong>Médiateur de la consommation</strong><br>
-    Les coordonnées du médiateur seront communiquées sur demande ou lors de la désignation effective d'un médiateur par Diqto. En attendant, toute réclamation peut être adressée à : <a href="mailto:contact@diqto.fr">contact@diqto.fr</a>.
+    Les coordonnées du médiateur seront communiquées sur demande ou lors de la désignation effective d'un médiateur par Diqto. En attendant, toute réclamation peut être adressée à : <a href="mailto:support@diqto.fr">support@diqto.fr</a>.
   </div>
   <p>Avant de saisir le médiateur, l'Utilisateur doit avoir préalablement adressé une réclamation écrite à Diqto. Le médiateur peut être saisi dans un délai d'un an à compter de la réclamation restée sans réponse satisfaisante.</p>
   <p>L'Utilisateur peut également déposer sa réclamation sur la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
@@ -260,7 +338,7 @@
 </div>
 
 <div class="footer">
-  <p>Diqto © 2026 — <a href="/">Accueil</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:contact@diqto.fr">Contact</a></p>
+  <p>Diqto © 2026 — <a href="/">Accueil</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:support@diqto.fr">Contact</a></p>
 </div>
 
 </body>

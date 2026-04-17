@@ -4,3 +4,9 @@ scenarios*.html
 copilot*.html
 *-report*.html
 *-rapport*.html
+
+# Private commercial / concept assets - keep out of public landing repo
+email-*.html
+email-guide-*.html
+logo-concepts.html
+mockups-*.html

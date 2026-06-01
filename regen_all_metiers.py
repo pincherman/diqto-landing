@@ -24,8 +24,8 @@ PROFILE_FEATURES = {
     "devis": [
         ("🎤", "Dictez votre devis", "Dictez en langage naturel, l'IA structure tout : prestations, quantités, prix, TVA."),
         ("📄", "PDF conformes", "Devis et factures professionnels avec mentions légales automatiques."),
-        ("💳", "Paiement CB", "Vos clients paient par carte directement depuis la facture."),
-        ("🔄", "Relances auto", "J+7, J+15, J+30. Vos impayés se règlent automatiquement."),
+        ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
+        ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
         ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap après quelques utilisations."),
         ("🏛️", "URSSAF", "Alertes cotisations, seuils TVA, livre des recettes."),
     ],
@@ -34,15 +34,15 @@ PROFILE_FEATURES = {
         ("🩺", "Fiche conseil patient IA", "Exercices et prévention personnalisés envoyés au patient par email."),
         ("📋", "Briefing pré-séance", "Résumé IA avant chaque patient : historique, progression, points d'attention."),
         ("📄", "Notes d'honoraires", "Conformes, TVA adaptée, mentions légales. En 3 secondes."),
-        ("💳", "Paiement CB", "Vos patients paient par carte depuis leur téléphone."),
+        ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant d'activer un lien de paiement."),
         ("📈", "Suivi longitudinal", "Progression patient séance après séance."),
     ],
     "abonnement": [
         ("🎓", "Gestion élèves", "Formules, inscriptions, suivi. Tout en un endroit."),
         ("💰", "Facturation batch", "Facturez tous vos élèves en 1 tap à la fin du mois."),
-        ("🔄", "Relances auto", "Les retards de paiement se gèrent tout seuls."),
+        ("🔄", "Relances pilotées", "Diqto prépare les relances avec contexte, sans envoi aveugle."),
         ("📊", "Coach IA Business", "Suggestions pricing, rétention, saisonnalité."),
-        ("💳", "Paiement CB", "Vos élèves paient par carte."),
+        ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant activation."),
         ("🏛️", "URSSAF", "Alertes et estimations cotisations."),
     ],
 }
@@ -86,11 +86,11 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </style>
 </head>
 <body>
-<nav><a href="/">← diqto.fr</a><a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}">Demander l'accès</a></nav>
+<nav><a href="/">← diqto.fr</a><a href="../#beta">Diagnostic Diqto</a></nav>
 <section class="hero"><div class="container">
   <h1>{emoji} Diqto pour les <span>{label}</span></h1>
   <p>{desc}</p>
-  <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}" class="cta">Demander l'accès beta →</a>
+  <a href="../#beta" class="cta">Lancer mon diagnostic Diqto →</a>
 </div></section>
 <div class="container">
   <div class="features">
@@ -99,8 +99,8 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </div>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
-  <p>Disponible sur iOS. Gratuit pour commencer.</p>
-  <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}" class="cta">Demander l'accès beta →</a>
+  <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
+  <a href="../#beta" class="cta">Demander mon diagnostic Diqto →</a>
 </div></section>
 <footer><div class="container">
   <p>© 2026 Diqto · <a href="/">diqto.fr</a> · <a href="mailto:support@diqto.fr">support@diqto.fr</a></p>

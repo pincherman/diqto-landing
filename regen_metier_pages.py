@@ -10,10 +10,10 @@ METIERS = [
         "pain": "Vos notes de séance s'accumulent sur papier ? Vos patients n'ont aucun suivi entre deux consultations ? La facturation vous prend plus de temps que les soins ?",
         "features": [
             ("🎤", "Dictée notes de séance", "Dictez en langage naturel après chaque consultation. L'IA structure : motif, techniques, observations, douleur, plan de suivi."),
-            ("🩺", "Fiche conseil patient IA", "Après chaque séance, une fiche personnalisée avec exercices et prévention — envoyée automatiquement au patient par email."),
+            ("🩺", "Fiche conseil patient IA", "Après chaque séance, une fiche personnalisée avec exercices et prévention — prête à partager au patient."),
             ("📋", "Briefing pré-séance", "Avant chaque patient, un résumé IA : historique, dernière séance, progression, points d'attention. Zéro préparation."),
             ("📄", "Notes d'honoraires PDF", "Conformes, avec mentions légales, numérotation, TVA 0%. Générées en 3 secondes après la séance."),
-            ("💳", "Paiement CB sans TPE", "Votre patient paie par carte depuis son téléphone. L'argent arrive sur votre compte."),
+            ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
             ("📈", "Suivi longitudinal", "Évolution de la douleur séance après séance. Tendances et progrès en un coup d'œil."),
         ],
         "example": "Consultation Emma Laurent, douleur lombaire chronique, techniques tissulaires sur le psoas, amélioration mobilité, score douleur 7/10, revoir dans 2 semaines.",
@@ -28,7 +28,7 @@ METIERS = [
             ("🎤", "Dictée bilan & notes", "Dictez vos bilans et notes de séance. L'IA structure automatiquement."),
             ("🩺", "Fiche conseil patient", "Exercices personnalisés envoyés au patient après chaque séance."),
             ("📄", "Facturation conforme", "Notes d'honoraires, tiers payant, TVA adaptée. En 3 secondes."),
-            ("💳", "Paiement CB intégré", "Vos patients paient par carte directement depuis la facture."),
+            ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant d'activer un lien de paiement."),
             ("📈", "Suivi progression", "Évolution fonctionnelle séance après séance."),
             ("🏛️", "URSSAF & comptabilité", "Alertes cotisations, livre des recettes, export FEC."),
         ],
@@ -37,15 +37,15 @@ METIERS = [
     {
         "id": "plombier", "emoji": "🔧", "label": "Plombiers",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour plombiers : dictez votre devis entre deux interventions, l'IA calcule tout. Envoi client + signature + paiement CB.",
-        "keywords": "devis plombier, facture plombier, application plombier, devis gratuit plombier",
+        "desc": "Diqto pour plombiers : dictez votre devis entre deux interventions, l'IA calcule tout. Envoi client, signature et paiement cadré avant activation.",
+        "keywords": "devis plombier, facture plombier, application plombier, diagnostic métier plombier",
         "pain": "Vous faites vos devis sur papier entre deux interventions ? Vous perdez du temps à recopier les mêmes lignes ?",
         "features": [
             ("🎤", "Dictez votre devis", "Entre deux interventions, dictez. L'IA structure : main d'œuvre, fournitures, TVA."),
             ("📸", "Photo → Devis IA", "Photographiez le chantier. L'IA propose un devis avec prestations et prix."),
             ("📄", "PDF pro conformes", "Devis et factures avec mentions légales, numérotation, conditions."),
-            ("💳", "Paiement CB", "Vos clients paient par carte depuis la facture. Pas de TPE."),
-            ("🔄", "Relances auto", "J+7, J+15, J+30. Vos impayés se règlent automatiquement."),
+            ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
+            ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
             ("🏛️", "URSSAF", "Alertes cotisations, seuil TVA, livre des recettes."),
         ],
         "example": "Devis pour Mme Martin, remplacement chauffe-eau 200L, fourniture 450€, pose 250€, dépose ancien 80€.",
@@ -60,8 +60,8 @@ METIERS = [
             ("🎤", "Dictez", "Dictez votre devis en langage naturel. L'IA structure tout."),
             ("📸", "Photo → Devis", "Photographiez le tableau électrique. L'IA propose un chiffrage."),
             ("📄", "PDF conformes", "Devis, factures, mentions légales automatiques."),
-            ("💳", "Paiement CB", "Vos clients paient par carte."),
-            ("🔄", "Relances", "Automatiques à J+7, J+15, J+30."),
+            ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
+            ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap."),
         ],
         "example": "Devis installation tableau électrique 3 rangées, mise aux normes NF C 15-100, 12 points lumineux.",
@@ -75,8 +75,8 @@ METIERS = [
         "features": [
             ("🎤", "Dictez", "Dictez vos devis et factures en langage naturel."),
             ("📄", "PDF pro", "Devis shooting avec prestations détaillées."),
-            ("💳", "Paiement CB", "Acompte et solde par carte."),
-            ("🔄", "Relances", "Automatiques pour les retards de paiement."),
+            ("💳", "Paiement cadré", "Acompte et solde restent qualifiés avant activation du paiement."),
+            ("🔄", "Relances", "Préparées avec contexte pour les retards de paiement."),
             ("🧠", "Catalogue", "Vos formules shooting en 1 tap."),
             ("✍️", "Signature", "Devis signé électroniquement par le client."),
         ],
@@ -91,9 +91,9 @@ METIERS = [
         "features": [
             ("🎓", "Gestion élèves", "Formules, inscriptions, suivi. Tout en un endroit."),
             ("💰", "Facturation batch", "Facturez tous vos élèves en 1 tap à la fin du mois."),
-            ("🔄", "Relances auto", "Les retards de paiement se gèrent tout seuls."),
+            ("🔄", "Relances pilotées", "Diqto prépare les relances avec contexte, sans envoi aveugle."),
             ("📊", "Coach IA Business", "Suggestions pricing, rétention élèves, saisonnalité."),
-            ("💳", "Paiement CB", "Vos élèves paient par carte."),
+            ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant activation."),
             ("🏛️", "URSSAF", "Alertes et estimations cotisations."),
         ],
         "example": "Emma Laurent, formule mensuelle yoga 45€, cours collectif mardi et jeudi.",
@@ -101,14 +101,14 @@ METIERS = [
     {
         "id": "peintre", "emoji": "🎨", "label": "Peintres en bâtiment",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour peintres : devis chantier par la voix, factures conformes, relances automatiques.",
+        "desc": "Diqto pour peintres : devis chantier par la voix, factures conformes, relances pilotées.",
         "keywords": "devis peintre, facture peintre bâtiment, application peintre",
         "pain": "Chiffrer un chantier vous prend plus de temps que le peindre ?",
         "features": [
             ("🎤", "Dictez", "Dictez votre devis sur le chantier."),
             ("📄", "PDF conformes", "Devis détaillés : main d'œuvre + fournitures + TVA."),
-            ("💳", "Paiement CB", "Acompte et solde par carte."),
-            ("🔄", "Relances", "Automatiques à J+7, J+15, J+30."),
+            ("💳", "Paiement cadré", "Acompte et solde restent qualifiés avant activation du paiement."),
+            ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue", "Vos prestations habituelles en 1 tap."),
             ("🏛️", "URSSAF", "Alertes seuils et cotisations."),
         ],
@@ -117,14 +117,14 @@ METIERS = [
     {
         "id": "menuisier", "emoji": "🪵", "label": "Menuisiers",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour menuisiers : devis sur mesure par la voix, PDF conformes, paiement CB.",
+        "desc": "Diqto pour menuisiers : devis sur mesure par la voix, PDF conformes, paiement cadré avant activation.",
         "keywords": "devis menuisier, facture menuisier, application menuisier",
         "pain": "Les devis sur mesure vous prennent des heures ?",
         "features": [
             ("🎤", "Dictez", "Dictez vos devis en langage naturel."),
             ("📄", "PDF pro", "Devis détaillés avec main d'œuvre et fournitures."),
-            ("💳", "Paiement CB", "Vos clients paient par carte."),
-            ("🔄", "Relances", "Automatiques."),
+            ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
+            ("🔄", "Relances", "Préparées avec contexte client."),
             ("🧠", "Catalogue", "Vos réalisations habituelles en 1 tap."),
             ("✍️", "Signature", "Devis signé électroniquement."),
         ],
@@ -139,9 +139,9 @@ METIERS = [
         "features": [
             ("🎓", "Élèves & formules", "Inscriptions, formules mensuel/trimestriel/annuel."),
             ("💰", "Facturation auto", "Facturez tous vos élèves en batch."),
-            ("🔄", "Relances", "Paiements en retard gérés automatiquement."),
+            ("🔄", "Relances", "Paiements en retard préparés avec contexte avant action."),
             ("📊", "Insights IA", "Suggestions pricing et rétention."),
-            ("💳", "Paiement CB", "Vos élèves paient par carte."),
+            ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant activation."),
             ("🏛️", "URSSAF", "Cotisations et seuils."),
         ],
         "example": "Chloé Martin, formule trimestrielle yoga vinyasa, 2 cours par semaine, 120€/trimestre.",
@@ -149,15 +149,15 @@ METIERS = [
     {
         "id": "carreleur", "emoji": "🏗️", "label": "Carreleurs",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour carreleurs : devis chantier par la voix ou la photo, factures conformes, paiement CB intégré.",
+        "desc": "Diqto pour carreleurs : devis chantier par la voix ou la photo, factures conformes, paiement cadré avant activation.",
         "keywords": "devis carreleur, facture carreleur, application carreleur",
         "pain": "Chiffrer un chantier entre deux poses vous ralentit ?",
         "features": [
             ("🎤", "Dictez", "Dictez votre devis sur le chantier."),
             ("📸", "Photo → Devis", "Photographiez la pièce. L'IA propose un chiffrage."),
             ("📄", "PDF conformes", "Main d'œuvre + fournitures + TVA."),
-            ("💳", "Paiement CB", "Vos clients paient par carte."),
-            ("🔄", "Relances", "Automatiques."),
+            ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
+            ("🔄", "Relances", "Préparées avec contexte client."),
             ("🧠", "Catalogue", "Vos prestations en 1 tap."),
         ],
         "example": "Devis pose carrelage 60×60 salle de bain 12m², fourniture joints, préparation sol, dépose ancien.",
@@ -214,13 +214,13 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <body>
 <nav>
   <a href="/">← diqto.fr</a>
-  <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}">Demander l'accès</a>
+  <a href="/#beta">Diagnostic Diqto</a>
 </nav>
 <section class="hero">
   <div class="container">
     <h1>{emoji} Diqto pour les <span>{label}</span></h1>
     <p>{desc}</p>
-    <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}&body=Bonjour%2C%20je%20suis%20{id}%20et%20je%20souhaite%20tester%20Diqto." class="cta">Demander l'accès beta →</a>
+    <a href="/#beta" class="cta">Lancer mon diagnostic Diqto →</a>
   </div>
 </section>
 <div class="container">
@@ -236,8 +236,8 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <section class="final">
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>
-    <p>Disponible sur iOS. Gratuit pour commencer.</p>
-    <a href="mailto:support@diqto.fr?subject=Accès%20beta%20Diqto%20{label}" class="cta">Demander l'accès beta →</a>
+    <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
+    <a href="/#beta" class="cta">Demander mon diagnostic Diqto →</a>
   </div>
 </section>
 <footer>

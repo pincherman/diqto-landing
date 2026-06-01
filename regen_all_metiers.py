@@ -3,6 +3,7 @@
 
 import json, os, glob
 from pathlib import Path
+from urllib.parse import quote
 
 CONFIG_DIR = Path(__file__).parent / ".." / "batiboss" / "config" / "metiers"
 OUTPUT_DIR = Path(__file__).parent / "metiers"
@@ -86,11 +87,11 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </style>
 </head>
 <body>
-<nav><a href="/">← diqto.fr</a><a href="../#beta">Diagnostic Diqto</a></nav>
+<nav><a href="/">← diqto.fr</a><a href="{diagnostic_href}">Diagnostic Diqto</a></nav>
 <section class="hero"><div class="container">
   <h1>{emoji} Diqto pour les <span>{label}</span></h1>
   <p>{desc}</p>
-  <a href="../#beta" class="cta">Lancer mon diagnostic Diqto →</a>
+  <a href="{diagnostic_href}" class="cta">Lancer mon diagnostic Diqto →</a>
 </div></section>
 <div class="container">
   <div class="features">
@@ -100,7 +101,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
   <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
-  <a href="../#beta" class="cta">Demander mon diagnostic Diqto →</a>
+  <a href="{diagnostic_href}" class="cta">Demander mon diagnostic Diqto →</a>
 </div></section>
 <footer><div class="container">
   <p>© 2026 Diqto · <a href="/">diqto.fr</a> · <a href="mailto:support@diqto.fr">support@diqto.fr</a></p>
@@ -134,12 +135,13 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
     features_html = ""
     for icon, title, fdesc in features:
         features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{title}</h3><p>{fdesc}</p></div>\n'
+    diagnostic_href = f"../?source=seo_metier_{trade_id}&metier={quote(label, safe='')}#beta"
     
     html = TEMPLATE.format(
         emoji=emoji, label=label, label_lower=label.lower(),
         doc_type=doc_type, doc_type_lower=doc_type.lower(),
         trade_id=trade_id, desc=desc, keywords=keywords,
-        features_html=features_html,
+        features_html=features_html, diagnostic_href=diagnostic_href,
     )
     
     out_path = OUTPUT_DIR / f"{trade_id}.html"

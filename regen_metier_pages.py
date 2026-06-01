@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Regenerate the 10 metier landing pages with updated messaging (no WhatsApp, app-first)."""
 
+from urllib.parse import quote
+
 METIERS = [
     {
         "id": "osteopathe", "emoji": "🦴", "label": "Ostéopathes",
@@ -214,13 +216,13 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <body>
 <nav>
   <a href="/">← diqto.fr</a>
-  <a href="/#beta">Diagnostic Diqto</a>
+  <a href="{diagnostic_href}">Diagnostic Diqto</a>
 </nav>
 <section class="hero">
   <div class="container">
     <h1>{emoji} Diqto pour les <span>{label}</span></h1>
     <p>{desc}</p>
-    <a href="/#beta" class="cta">Lancer mon diagnostic Diqto →</a>
+    <a href="{diagnostic_href}" class="cta">Lancer mon diagnostic Diqto →</a>
   </div>
 </section>
 <div class="container">
@@ -237,7 +239,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>
     <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
-    <a href="/#beta" class="cta">Demander mon diagnostic Diqto →</a>
+    <a href="{diagnostic_href}" class="cta">Demander mon diagnostic Diqto →</a>
   </div>
 </section>
 <footer>
@@ -264,6 +266,7 @@ for m in METIERS:
         pain=m["pain"],
         features_html=features_html,
         example=m["example"],
+        diagnostic_href=f"/?source=seo_top_{m['id']}&metier={quote(m['label'], safe='')}#beta",
     )
     
     with open(f'{m["id"]}.html', 'w') as f:

@@ -1111,6 +1111,9 @@ footer {
       </div>
     </div>
     <form action="mailto:support@diqto.fr" method="post" enctype="text/plain" style="max-width:760px; margin:0 auto; display:grid; gap:14px; text-align:left;">
+      <input type="hidden" name="intake_version" value="market-intake-2026-06-01">
+      <input type="hidden" name="intake_source" value="diqto_landing_home">
+      <input type="hidden" name="intake_next_action" value="qualification_support_crm">
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
         <label style="display:grid; gap:8px; color:var(--gray-400); font-size:14px;">Métier
           <input name="metier" placeholder="Ostéopathe, électricien, avocat..." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit;">
@@ -1119,6 +1122,17 @@ footer {
           <input name="besoin" placeholder="Devis, factures, notes, relances..." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit;">
         </label>
       </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+        <label style="display:grid; gap:8px; color:var(--gray-400); font-size:14px;">Volume mensuel
+          <input name="volume_mensuel" placeholder="Ex. 15 devis, 40 factures, 80 séances..." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit;">
+        </label>
+        <label style="display:grid; gap:8px; color:var(--gray-400); font-size:14px;">Outil actuel
+          <input name="outil_actuel" placeholder="Excel, Word, logiciel métier, papier..." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit;">
+        </label>
+      </div>
+      <label style="display:grid; gap:8px; color:var(--gray-400); font-size:14px;">Premier cas à débloquer
+        <textarea name="premier_cas" rows="3" placeholder="Ex. transformer mes interventions en devis propres avant vendredi..." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit; resize:vertical;"></textarea>
+      </label>
       <label style="display:grid; gap:8px; color:var(--gray-400); font-size:14px;">Contact
         <input name="contact" placeholder="Email ou téléphone" style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); color:var(--white); font:inherit;">
       </label>
@@ -1187,5 +1201,21 @@ footer {
   </div>
 </footer>
 
+<script>
+  window.diagnosticIntakePrefill = function diagnosticIntakePrefill() {
+    var params = new URLSearchParams(window.location.search);
+    var metier = params.get('metier');
+    var source = params.get('source');
+    var metierInput = document.querySelector('[name="metier"]');
+    var sourceInput = document.querySelector('[name="intake_source"]');
+    if (metier && metierInput && !metierInput.value) {
+      metierInput.value = metier.replace(/[-_]+/g, ' ');
+    }
+    if (source && sourceInput) {
+      sourceInput.value = source;
+    }
+  };
+  window.diagnosticIntakePrefill();
+</script>
 </body>
 </html>

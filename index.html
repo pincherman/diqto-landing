@@ -29,14 +29,12 @@
   "@type": "SoftwareApplication",
   "name": "Diqto",
   "url": "https://diqto.fr",
-  "description": "Assistant vocal IA pour indépendants et professions libérales. Parlez naturellement, Diqto crée vos documents, suit vos clients et gère votre administratif. 71 métiers supportés.",
+  "description": "Assistant vocal IA pour indépendants et professions libérales. Devis et factures illimités, vocal court inclus, vocal long en option Pro. 71 métiers supportés.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "iOS",
   "offers": [
-    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Diagnostic Diqto offert — cadrage métier, documents, clients et démarrage" },
-    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "description": "Solo — Documents illimités + IA vocale" },
-    { "@type": "Offer", "price": "39", "priceCurrency": "EUR", "description": "Pro — Copilote praticien + Business coach" },
-    { "@type": "Offer", "price": "79", "priceCurrency": "EUR", "description": "Business — Multi-praticien + Analytics" }
+    { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "description": "Diqto Essential — Devis et factures illimités, vocal court jusqu'à 5 minutes" },
+    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "description": "Diqto Vocal Pro — Essential plus comptes rendus vocaux longs avec fair use" }
   ]
 }
 </script>
@@ -1026,68 +1024,43 @@ footer {
 <section id="tarifs" style="background: var(--gray-900); border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="container text-center">
     <span class="section-label">Tarifs</span>
-    <h2 class="section-title">Transparent. Sans commission.<br>Votre argent reste le vôtre.</h2>
-    <p class="section-subtitle centered">Zéro commission sur vos paiements. Zéro frais cachés. Jamais.</p>
+    <h2 class="section-title">Deux prix simples.<br>Devis et factures illimités.</h2>
+    <p class="section-subtitle centered">Le quota porte sur ce qui coûte vraiment : le vocal long. Pas sur votre activité.</p>
     <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-name">Diagnostic</div>
-        <div class="price-amount">0€ <span>/ mois</span></div>
-        <p class="price-desc">Cadrage offert avant tout paiement.</p>
-        <ul class="price-features">
-          <li>5 documents/mois</li>
-          <li>PDF conformes + mentions légales</li>
-          <li>Envoi par email</li>
-          <li>71 métiers supportés</li>
-          <li>Saisie texte + formulaire</li>
-        </ul>
-        <a href="#beta" class="price-btn secondary">Démarrer le diagnostic</a>
-      </div>
       <div class="price-card featured">
-        <div class="price-name">Solo</div>
-        <div class="price-amount">19€ <span>/ mois</span></div>
-        <p class="price-desc">L'indispensable pour les indépendants actifs.</p>
+        <div class="price-name">Diqto Essential</div>
+        <div class="price-amount">9€ <span>/ mois HT</span></div>
+        <p class="price-desc">Pour produire sans être bloqué par des quotas absurdes.</p>
         <ul class="price-features">
-          <li>Documents illimités</li>
-          <li>🎤 Dictée vocale IA</li>
-          <li>📸 Photo → Document automatique</li>
+          <li>Devis et factures illimités</li>
+          <li>Clients et produits illimités</li>
+          <li>PDF professionnels à relire</li>
+          <li>Dictée et compte rendu vocal court jusqu'à 5 min</li>
+          <li>Photo → brouillon document à valider</li>
           <li>🧠 Catalogue auto-appris</li>
           <li>💳 Paiement cadré avant activation</li>
-          <li>🔄 Relances pilotées</li>
-          <li>🏛️ Alertes URSSAF &amp; TVA</li>
-          <li>✍️ Signature électronique</li>
+          <li>Essai 14 jours, puis abonnement mensuel</li>
         </ul>
-        <a href="#beta" class="price-btn primary">Qualifier mon besoin →</a>
+        <a href="#beta" class="price-btn primary">Tester Essential →</a>
       </div>
       <div class="price-card">
-        <div class="price-name">Pro</div>
-        <div class="price-amount">39€ <span>/ mois</span></div>
-        <p class="price-desc">Pour praticiens et professionnels exigeants.</p>
+        <div class="price-name">Diqto Vocal Pro</div>
+        <div class="price-amount">19€ <span>/ mois HT</span></div>
+        <p class="price-desc">Pour ceux qui veulent aussi déléguer les longs comptes rendus.</p>
         <ul class="price-features">
-          <li>Tout le plan Solo</li>
-          <li>🩺 Copilote praticien IA</li>
-          <li>🎤 Dictée notes de séance</li>
-          <li>💌 Fiche conseil patient IA</li>
-          <li>📈 Suivi patient longitudinal</li>
-          <li>📊 Business coach IA</li>
+          <li>Tout Diqto Essential</li>
+          <li>Comptes rendus vocaux longs</li>
+          <li>Usage vocal normal non limité</li>
+          <li>Fair use anti-abus sur transcriptions massives</li>
+          <li>Notes de séance, chantier ou rendez-vous</li>
+          <li>Suivi client/patient longitudinal</li>
           <li>Export FEC comptable</li>
-          <li>Support prioritaire</li>
+          <li>Support prioritaire pilote</li>
         </ul>
-        <a href="#beta" class="price-btn primary">Qualifier mon besoin →</a>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Business</div>
-        <div class="price-amount">79€ <span>/ mois</span></div>
-        <p class="price-desc">Cabinet multi-praticien.</p>
-        <ul class="price-features">
-          <li>Tout le plan Pro</li>
-          <li>Multi-profils praticiens</li>
-          <li>Analytics avancés</li>
-          <li>Portail expert-comptable</li>
-          <li>Webhooks &amp; API</li>
-        </ul>
-        <a href="#beta" class="price-btn secondary">Qualifier Business</a>
+        <a href="#beta" class="price-btn secondary">Tester Vocal Pro</a>
       </div>
     </div>
+    <p style="margin-top: 22px; color: var(--gray-400); font-size: 14px;">Offre de lancement : 90€ HT/an Essential ou 190€ HT/an Vocal Pro si paiement annuel. Aucun frais par devis ou facture.</p>
   </div>
 </section>
 

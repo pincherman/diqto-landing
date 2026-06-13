@@ -28,14 +28,14 @@ TVA non applicable, article 293 B du Code général des impôts *(mention à ada
 
 Diqto propose les offres suivantes :
 
-| Plan | Prix | Documents / mois | Fonctionnalités |
-|------|------|-------------------|-----------------|
-| **Gratuit** | 0 € | 5 documents | Création devis, factures, notes d'honoraires. Fonctionnalités de base. |
-| **Solo** | 19 € / mois | Illimité | Toutes les fonctionnalités de base + personnalisation avancée, export PDF, historique complet. |
-| **Pro** | 39 € / mois | Illimité | Solo + multi-modèles, suivi CA avancé, relances automatiques, support prioritaire. |
-| **Business** | 79 € / mois | Illimité | Pro + intégrations comptables, API, tableau de bord avancé, support dédié. |
+| Plan | Prix mensuel | Documents | Fonctionnalités |
+|------|---------------|-----------|-----------------|
+| **Diqto Essential** | 9 € HT / mois | Devis et factures illimités | Clients illimités, PDF professionnels à relire, vocal court jusqu'à 5 minutes, catalogue auto-appris, paiement cadré avant activation. |
+| **Diqto Vocal Pro** | 19 € HT / mois | Devis et factures illimités | Tout Essential + comptes rendus vocaux longs, usage vocal normal non limité avec fair use anti-abus, notes de séance/chantier/rendez-vous, export FEC, support prioritaire pilote. |
 
-Les prix sont indiqués en euros (€) TTC. TVA non applicable (art. 293 B du CGI), sauf mention contraire.
+Une offre annuelle peut être proposée à 90 € HT/an pour Diqto Essential et 190 € HT/an pour Diqto Vocal Pro.
+
+Les prix sont indiqués en euros (€) hors taxes, sauf mention contraire. TVA non applicable (art. 293 B du CGI), sauf changement de régime ou mention contraire.
 
 Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notifiée aux Utilisateurs au moins 30 jours avant son entrée en vigueur. Les tarifs en cours d'un abonnement restent applicables jusqu'à la fin de la période en cours.
 
@@ -45,11 +45,13 @@ Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notif
 
 ### 4.1 Processus
 
-La souscription à un plan payant s'effectue directement depuis le Service. L'Utilisateur choisit son plan et procède au paiement en ligne.
+La souscription à un plan payant s'effectuera depuis le Service lorsque le paiement sera activé. L'Utilisateur choisira son plan et procédera au paiement en ligne via le prestataire configuré.
+
+Tant que la souscription payante n'est pas activée dans le Service, aucun prélèvement automatique n'est déclenché.
 
 ### 4.2 Durée
 
-Les abonnements sont souscrits pour une durée mensuelle, renouvelée automatiquement par tacite reconduction à chaque date anniversaire, sauf résiliation par l'Utilisateur.
+Les abonnements mensuels seront souscrits pour une durée mensuelle, renouvelée automatiquement par tacite reconduction à chaque date anniversaire, sauf résiliation par l'Utilisateur. Les offres annuelles, lorsqu'elles sont proposées, couvrent une période de 12 mois.
 
 ---
 
@@ -57,7 +59,7 @@ Les abonnements sont souscrits pour une durée mensuelle, renouvelée automatiqu
 
 ### 5.1 Moyen de paiement
 
-Les paiements sont traités par **Stripe** (Stripe Payments Europe, Ltd.), prestataire de paiement sécurisé certifié PCI-DSS. Diqto n'a pas accès aux données complètes de carte bancaire de l'Utilisateur.
+Les paiements seront traités par un prestataire de paiement sécurisé certifié PCI-DSS. Diqto n'aura pas accès aux données complètes de carte bancaire de l'Utilisateur.
 
 Moyens de paiement acceptés : carte bancaire (Visa, Mastercard, American Express).
 

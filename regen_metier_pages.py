@@ -7,7 +7,7 @@ METIERS = [
     {
         "id": "osteopathe", "emoji": "🦴", "label": "Ostéopathes",
         "title_doc": "Notes d'honoraires & fiches conseil IA",
-        "desc": "Le copilote IA pour ostéopathes : dictez vos notes de séance, générez vos notes d'honoraires, envoyez des fiches conseil personnalisées à vos patients. Tout depuis votre iPhone.",
+        "desc": "Le copilote IA pour ostéopathes : dictez vos notes de séance, générez vos notes d'honoraires, préparez des fiches conseil personnalisées. Tout depuis votre iPhone.",
         "keywords": "ostéopathe facturation, note honoraires ostéo, application ostéopathe, fiche conseil patient, gestion cabinet ostéo",
         "pain": "Vos notes de séance s'accumulent sur papier ? Vos patients n'ont aucun suivi entre deux consultations ? La facturation vous prend plus de temps que les soins ?",
         "features": [
@@ -39,13 +39,13 @@ METIERS = [
     {
         "id": "plombier", "emoji": "🔧", "label": "Plombiers",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour plombiers : dictez votre devis entre deux interventions, l'IA calcule tout. Envoi client, signature et paiement cadré avant activation.",
+        "desc": "Diqto pour plombiers : dictez le chantier, relisez le brouillon de devis, puis partagez sous contrôle humain. Paiement et relance restent cadrés avant activation.",
         "keywords": "devis plombier, facture plombier, application plombier, diagnostic métier plombier",
         "pain": "Vous faites vos devis sur papier entre deux interventions ? Vous perdez du temps à recopier les mêmes lignes ?",
         "features": [
             ("🎤", "Dictez votre devis", "Entre deux interventions, dictez. L'IA structure : main d'œuvre, fournitures, TVA."),
-            ("📸", "Photo → Devis IA", "Photographiez le chantier. L'IA propose un devis avec prestations et prix."),
-            ("📄", "PDF pro conformes", "Devis et factures avec mentions légales, numérotation, conditions."),
+            ("📸", "Photo → brouillon IA", "Photographiez le chantier. Diqto prépare un brouillon à relire avec prestations, fournitures et TVA."),
+            ("📄", "Brouillons PDF conformes", "Devis et factures prêts à relire avec mentions légales, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
             ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
             ("🏛️", "URSSAF", "Alertes cotisations, seuil TVA, livre des recettes."),
@@ -61,7 +61,7 @@ METIERS = [
         "features": [
             ("🎤", "Dictez", "Dictez votre devis en langage naturel. L'IA structure tout."),
             ("📸", "Photo → Devis", "Photographiez le tableau électrique. L'IA propose un chiffrage."),
-            ("📄", "PDF conformes", "Devis, factures, mentions légales automatiques."),
+            ("📄", "PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap."),

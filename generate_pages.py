@@ -9,6 +9,7 @@ import json
 import os
 import glob
 from pathlib import Path
+from urllib.parse import quote
 
 SCRIPT_DIR = Path(__file__).parent
 METIERS_CONFIG_DIR = SCRIPT_DIR / ".." / "batiboss" / "config" / "metiers"
@@ -35,7 +36,7 @@ PROFILE_DATA = {
         "doc_word_plural": "devis",
         "pain_point": "Vous faites vos devis sur papier entre deux chantiers ? Vous perdez du temps à recopier les mêmes lignes ?",
         "step1": "Dictez votre devis par message vocal ou texte",
-        "step3": "Envoyez-le au client + signature + paiement CB",
+        "step3": "Preparez le partage client, la signature et le paiement sous controle humain",
     },
     "abonnement": {
         "doc_word": "factures",
@@ -49,7 +50,7 @@ PROFILE_DATA = {
         "doc_word_plural": "notes d'honoraires",
         "pain_point": "Vos notes d'honoraires vous prennent plus de temps que vos consultations ? La paperasse administrative vous freine ?",
         "step1": "Dictez votre consultation par message vocal",
-        "step3": "Votre patient/client reçoit la note + paie par CB",
+        "step3": "Vous verifiez la note, puis le partage et le paiement restent sous controle humain",
     },
 }
 
@@ -62,7 +63,7 @@ def get_accroche(metier_data):
     
     # Specific overrides for key métiers
     accroches = {
-        "plombier": "Devis plomberie en 30 secondes depuis votre téléphone",
+        "plombier": "Devis plomberie prêt à relire depuis votre téléphone",
         "electricien": "Devis électricité entre deux chantiers, sans paperasse",
         "peintre": "Devis peinture et ravalement en 30 secondes",
         "macon": "Devis maçonnerie dicté depuis le chantier",
@@ -72,8 +73,8 @@ def get_accroche(metier_data):
         "chauffagiste": "Devis chauffage et climatisation sans paperasse",
         "serrurier": "Devis serrurerie envoyé au client en 30 secondes",
         "paysagiste": "Devis entretien et aménagement paysager en 30 secondes",
-        "photographe": "Devis shooting photo professionnel par WhatsApp",
-        "animateur": "Devis animation et DJ par WhatsApp en 30 secondes",
+        "photographe": "Devis shooting photo professionnel depuis votre iPhone",
+        "animateur": "Devis animation et DJ depuis votre iPhone",
         "coach_sportif": "Gérez vos clients et séances de coaching sans paperasse",
         "prof_karate": "Gérez vos élèves et cotisations sans paperasse",
         "prof_yoga": "Gérez vos élèves et abonnements yoga sans paperasse",
@@ -83,41 +84,41 @@ def get_accroche(metier_data):
         "prof_natation": "Gérez vos élèves et séances de natation sans paperasse",
         "moniteur_ski": "Facturez vos cours de ski en 30 secondes",
         "auto_ecole": "Gérez vos élèves et heures de conduite sans paperasse",
-        "formateur": "Devis et factures formation professionnelle par WhatsApp",
-        "osteopathe": "Notes d'honoraires ostéopathie par WhatsApp en 30 secondes",
-        "kine": "Notes d'honoraires kiné par WhatsApp en 30 secondes",
-        "kinesitherapeute": "Notes d'honoraires kinésithérapie par WhatsApp",
-        "infirmier": "Facturation soins infirmiers par WhatsApp",
-        "podologue": "Notes d'honoraires podologie par WhatsApp",
-        "orthophoniste": "Notes d'honoraires orthophonie par WhatsApp",
-        "psychologue": "Notes d'honoraires psychologue par WhatsApp",
-        "sage_femme": "Facturation sage-femme par WhatsApp en 30 secondes",
-        "dieteticien": "Notes d'honoraires diététique par WhatsApp",
-        "masseur": "Facturation massages et soins par WhatsApp",
-        "sophrologue": "Notes d'honoraires sophrologie par WhatsApp",
-        "veterinaire": "Facturation vétérinaire par WhatsApp en 30 secondes",
-        "avocat": "Notes d'honoraires et conventions par WhatsApp",
-        "expert_comptable": "Lettres de mission et facturation par WhatsApp",
-        "consultant": "Devis et factures consulting par WhatsApp",
-        "architecte": "Devis et honoraires architecture par WhatsApp",
-        "architecte_interieur": "Devis décoration et aménagement par WhatsApp",
-        "coiffeur": "Devis et factures coiffure par WhatsApp",
-        "estheticienne": "Devis et factures esthétique par WhatsApp",
-        "tatoueur": "Devis tatouage par WhatsApp en 30 secondes",
-        "fleuriste": "Devis compositions florales par WhatsApp",
-        "traiteur": "Devis traiteur et événementiel par WhatsApp",
-        "nettoyage": "Devis nettoyage et entretien par WhatsApp",
-        "garagiste": "Devis réparation auto par WhatsApp en 30 secondes",
-        "graphiste": "Devis graphisme et design par WhatsApp",
-        "climatisation": "Devis climatisation et entretien par WhatsApp",
-        "domotique": "Devis domotique et installation par WhatsApp",
-        "ramoneur": "Devis ramonage par WhatsApp en 30 secondes",
-        "diagnostiqueur": "Devis diagnostics immobiliers par WhatsApp",
-        "pisciniste": "Devis piscine et entretien par WhatsApp",
-        "facade": "Devis ravalement de façade par WhatsApp",
-        "platrier": "Devis plâtrerie et isolation par WhatsApp",
-        "charpentier": "Devis charpente et ossature bois par WhatsApp",
-        "terrassier": "Devis terrassement et VRD par WhatsApp",
+        "formateur": "Devis et factures formation professionnelle depuis votre iPhone",
+        "osteopathe": "Notes d'honoraires ostéopathie depuis votre iPhone",
+        "kine": "Notes d'honoraires kiné depuis votre iPhone",
+        "kinesitherapeute": "Notes d'honoraires kinésithérapie depuis votre iPhone",
+        "infirmier": "Facturation soins infirmiers depuis votre iPhone",
+        "podologue": "Notes d'honoraires podologie depuis votre iPhone",
+        "orthophoniste": "Notes d'honoraires orthophonie depuis votre iPhone",
+        "psychologue": "Notes d'honoraires psychologue depuis votre iPhone",
+        "sage_femme": "Facturation sage-femme depuis votre iPhone",
+        "dieteticien": "Notes d'honoraires diététique depuis votre iPhone",
+        "masseur": "Facturation massages et soins depuis votre iPhone",
+        "sophrologue": "Notes d'honoraires sophrologie depuis votre iPhone",
+        "veterinaire": "Facturation vétérinaire depuis votre iPhone",
+        "avocat": "Notes d'honoraires et conventions depuis votre iPhone",
+        "expert_comptable": "Lettres de mission et facturation depuis votre iPhone",
+        "consultant": "Devis et factures consulting depuis votre iPhone",
+        "architecte": "Devis et honoraires architecture depuis votre iPhone",
+        "architecte_interieur": "Devis décoration et aménagement depuis votre iPhone",
+        "coiffeur": "Devis et factures coiffure depuis votre iPhone",
+        "estheticienne": "Devis et factures esthétique depuis votre iPhone",
+        "tatoueur": "Devis tatouage depuis votre iPhone",
+        "fleuriste": "Devis compositions florales depuis votre iPhone",
+        "traiteur": "Devis traiteur et événementiel depuis votre iPhone",
+        "nettoyage": "Devis nettoyage et entretien depuis votre iPhone",
+        "garagiste": "Devis réparation auto depuis votre iPhone",
+        "graphiste": "Devis graphisme et design depuis votre iPhone",
+        "climatisation": "Devis climatisation et entretien depuis votre iPhone",
+        "domotique": "Devis domotique et installation depuis votre iPhone",
+        "ramoneur": "Devis ramonage depuis votre iPhone",
+        "diagnostiqueur": "Devis diagnostics immobiliers depuis votre iPhone",
+        "pisciniste": "Devis piscine et entretien depuis votre iPhone",
+        "facade": "Devis ravalement de façade depuis votre iPhone",
+        "platrier": "Devis plâtrerie et isolation depuis votre iPhone",
+        "charpentier": "Devis charpente et ossature bois depuis votre iPhone",
+        "terrassier": "Devis terrassement et VRD depuis votre iPhone",
     }
     
     metier_id = metier_data.get("metier", "")
@@ -128,7 +129,7 @@ def get_accroche(metier_data):
     if profile == "abonnement":
         return f"Gérez vos élèves et factures de {name.lower()} sans paperasse"
     elif profile == "honoraires":
-        return f"Notes d'honoraires {name.lower()} par WhatsApp en 30 secondes"
+        return f"Notes d'honoraires {name.lower()} depuis votre iPhone"
     else:
         return f"Devis {name.lower()} en 30 secondes depuis votre téléphone"
 
@@ -140,20 +141,20 @@ def get_features_html(metier_data):
     items = []
     
     feature_labels = {
-        "photo_devis": ("📸", "Photo → Devis IA", "Prenez en photo le chantier, Diqto propose un devis automatique"),
+        "photo_devis": ("📸", "Photo → brouillon IA", "Prenez en photo le chantier, Diqto propose un brouillon de devis a valider"),
         "signature": ("✍️", "Signature électronique", "Votre client signe sur son téléphone"),
-        "payment_link": ("💳", "Paiement CB intégré", "Lien de paiement Stripe inclus dans chaque document"),
+        "payment_link": ("💳", "Paiement cadré", "Le mode de règlement est qualifié avant toute activation de lien ou process de paiement"),
         "import_devis": ("📥", "Import devis", "Importez vos devis existants et transformez-les en factures"),
         "import_contacts": ("📇", "Import contacts", "Importez vos clients en photo ou fichier"),
         "export_comptable": ("📊", "Export comptable", "Export CSV + PDF pour votre comptable en 1 clic"),
         "eleves": ("👥", "Gestion des élèves", "Ajoutez, suivez et facturez vos élèves facilement"),
         "batch_facture": ("⚡", "Facturation batch", "Facturez tous vos élèves en 1 clic"),
         "catalogue": ("📋", "Catalogue de prestations", "Vos prestations habituelles mémorisées et réutilisables"),
-        "relances": ("🔔", "Relances automatiques", "Rappels de paiement envoyés automatiquement"),
+        "relances": ("🔔", "Relances préparées", "Rappels préparés avec contexte, sans envoi automatique"),
         "saison": ("📅", "Gestion de saison", "Nouvelle saison, nouveaux tarifs en quelques secondes"),
         "convention_honoraires": ("📝", "Convention d'honoraires", "Générez vos conventions professionnelles"),
         "note_debours": ("💰", "Notes de débours", "Suivez et refacturez vos frais avancés"),
-        "facturation_recurrente": ("🔄", "Facturation récurrente", "Abonnements et forfaits facturés automatiquement"),
+        "facturation_recurrente": ("🔄", "Facturation récurrente cadrée", "Abonnements et forfaits préparés avant validation humaine"),
         "briefing": ("📑", "Briefing chantier", "Résumé du projet pour votre équipe"),
         "lettre_mission": ("📜", "Lettre de mission", "Générez vos lettres de mission conformes"),
     }
@@ -164,13 +165,13 @@ def get_features_html(metier_data):
             items.append(f'<div class="metier-feature"><span class="mf-icon">{emoji}</span><div><strong>{title}</strong><br><span class="mf-desc">{desc}</span></div></div>')
     
     # Always add security
-    items.append('<div class="metier-feature"><span class="mf-icon">🛡️</span><div><strong>Sécurité</strong><br><span class="mf-desc">Documents signés, données chiffrées, emails protégés</span></div></div>')
+    items.append('<div class="metier-feature"><span class="mf-icon">🛡️</span><div><strong>Sécurité</strong><br><span class="mf-desc">Documents contrôlés, données protégées, partage sous validation humaine</span></div></div>')
     
     return "\n        ".join(items)
 
 
-def get_whatsapp_conversation(metier_data):
-    """Generate a WhatsApp conversation mockup from exemples_prestations."""
+def get_preparation_conversation(metier_data):
+    """Generate a preparation mockup from exemples_prestations."""
     prestations = metier_data.get("exemples_prestations", [])
     name = metier_data.get("name", metier_data.get("label", ""))
     profile = metier_data.get("profile", "devis")
@@ -184,18 +185,18 @@ def get_whatsapp_conversation(metier_data):
     unit = presta.get("unit", "forfait")
     
     if profile == "abonnement":
-        user_msg = f'🎤 "Facture pour Marc Durand, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Facture générée !\n{desc} — {price}€\n✅ PDF prêt à envoyer"
+        user_msg = f'🎤 "Prépare une facture pour Marc Durand, {desc.lower()} {price}€"'
+        bot_msg = f"📄 Brouillon de facture préparé\n{desc} — {price}€\n✅ À relire avant partage"
     elif profile == "honoraires":
-        user_msg = f'🎤 "Note d\'honoraires pour M. Dupont, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Note d'honoraires générée !\n{desc} — {price}€\n✅ PDF prêt à envoyer"
+        user_msg = f'🎤 "Prépare une note d\'honoraires pour M. Dupont, {desc.lower()} {price}€"'
+        bot_msg = f"📄 Note d'honoraires préparée\n{desc} — {price}€\n✅ À relire avant partage"
     else:
-        user_msg = f'🎤 "Devis pour Mme Martin, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Devis généré !\n{desc} — {price}€\n✅ PDF prêt à envoyer"
+        user_msg = f'🎤 "Prépare un devis pour Mme Martin, {desc.lower()} {price}€"'
+        bot_msg = f"📄 Brouillon de devis préparé\n{desc} — {price}€\n✅ À relire avant partage"
     
     return f"""<div class="wa-msg wa-user">{user_msg}</div>
         <div class="wa-msg wa-bot">{bot_msg}</div>
-        <div class="wa-msg wa-bot">📤 Envoyer au client · ✍️ Signature · 💳 Paiement CB</div>"""
+        <div class="wa-msg wa-bot">📤 Partage manuel · ✍️ Signature · 💳 Paiement cadré</div>"""
 
 
 def get_related_metiers(metier_id, all_metiers):
@@ -225,11 +226,11 @@ def get_seo_description(metier_data):
     profile = metier_data.get("profile", "devis")
     
     if profile == "abonnement":
-        return f"Diqto pour les {name.lower()}s : gérez vos élèves, cotisations et factures par WhatsApp. Gratuit, sans app à installer. Facturation batch en 1 clic."
+        return f"Diqto pour les {name.lower()}s : préparez élèves, cotisations et factures depuis l'iPhone, avec validation humaine."
     elif profile == "honoraires":
-        return f"Diqto pour les {name.lower()}s : notes d'honoraires et factures par WhatsApp. Dictez, on génère le PDF en 30 secondes. Gratuit."
+        return f"Diqto pour les {name.lower()}s : notes d'honoraires et factures depuis l'iPhone. Dictez, relisez, puis partagez sous contrôle humain."
     else:
-        return f"Diqto pour les {name.lower()}s : devis et factures par WhatsApp. Dictez par vocal, recevez un PDF pro en 30 secondes. Gratuit."
+        return f"Diqto pour les {name.lower()}s : devis et factures depuis l'iPhone. Dictez, relisez, puis partagez sous contrôle humain."
 
 
 def get_narrative_story(metier_data):
@@ -245,7 +246,7 @@ def get_narrative_story(metier_data):
             "dialogue2": "« Je vous envoie ça ce soir. »",
             "consequence": "Ce soir, tu es crevé. Le devis attendra demain.",
             "punchline": "Demain, le client a signé chez un autre.",
-            "resolution": f"Et si ton devis de {name.lower()} était déjà parti ?",
+            "resolution": f"Et si ton brouillon de devis {name.lower()} était déjà prêt à relire ?",
         },
         "abonnement": {
             "scene": "Fin du mois. Les cotisations.",
@@ -289,7 +290,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     accroche = get_accroche(metier_data)
     seo_desc = get_seo_description(metier_data)
     features_html = get_features_html(metier_data)
-    wa_convo = get_whatsapp_conversation(metier_data)
+    prep_convo = get_preparation_conversation(metier_data)
     narrative_html, narrative_resolution = get_narrative_story(metier_data)
     related = get_related_metiers(metier_id, all_metiers)
     
@@ -316,15 +317,15 @@ def generate_page(metier_id, metier_data, all_metiers):
     
     # Keywords
     name_lower = name.lower()
-    keywords = f"devis {name_lower}, facture {name_lower}, {name_lower} WhatsApp, devis gratuit {name_lower}, facturation {name_lower}"
+    keywords = f"devis {name_lower}, facture {name_lower}, application {name_lower}, assistant iPhone {name_lower}, facturation {name_lower}"
     
     # Title based on profile
     if profile == "honoraires":
-        title = f"{emoji} Diqto pour les {name}s — Notes d'honoraires par WhatsApp"
+        title = f"{emoji} Diqto pour les {name}s — Notes d'honoraires sur iPhone"
     elif profile == "abonnement":
-        title = f"{emoji} Diqto pour les {name}s — Gestion élèves et facturation WhatsApp"
+        title = f"{emoji} Diqto pour les {name}s — Gestion élèves et facturation sur iPhone"
     else:
-        title = f"{emoji} Diqto pour les {name}s — Devis et factures par WhatsApp"
+        title = f"{emoji} Diqto pour les {name}s — Devis et factures sur iPhone"
     
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -364,12 +365,12 @@ def generate_page(metier_id, metier_data, all_metiers):
   "url": "https://diqto.fr/metiers/{metier_id}.html",
   "description": "{seo_desc}",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "WhatsApp",
+  "operatingSystem": "iOS",
   "offers": {{
     "@type": "Offer",
-    "price": "0",
+    "price": "",
     "priceCurrency": "EUR",
-    "description": "Gratuit — 5 documents/mois"
+    "description": "Diagnostic avant offre commerciale"
   }}
 }}
 </script>
@@ -479,8 +480,8 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
     <span class="bubble"><i></i><i></i><i></i></span>
     <span class="text">diq<em>to</em></span>
   </a>
-  <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="nav-cta">
-    💬 Essayer gratuit
+  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="nav-cta">
+    Diagnostic Diqto
   </a>
 </nav>
 
@@ -488,8 +489,8 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <section class="hero">
   <h1><span class="emoji">{emoji}</span> {accroche}</h1>
   <p class="subtitle">Tu t'es mis à ton compte pour faire ce que tu aimes.<br><strong>Pas pour faire de l'administratif.</strong></p>
-  <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa">
-    💬 Essayer sur WhatsApp — Gratuit
+  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa">
+    Lancer mon diagnostic Diqto
   </a>
 </section>
 
@@ -506,7 +507,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <!-- SOLUTION -->
 <section class="section section-alt" style="max-width:100%;padding:80px 24px">
   <div style="max-width:800px;margin:0 auto">
-    <h2>En 2026, l'IA fait tes {doc_word} en 30 secondes.</h2>
+    <h2>En 2026, l'IA prépare tes {doc_word} avant validation.</h2>
     <div class="steps-grid">
       <div class="step">
         <span class="num">1</span>
@@ -514,7 +515,7 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
       </div>
       <div class="step">
         <span class="num">2</span>
-        <p>Diqto génère un PDF professionnel en 30 secondes</p>
+        <p>Diqto prépare un brouillon PDF professionnel à relire</p>
       </div>
       <div class="step">
         <span class="num">3</span>
@@ -524,11 +525,11 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
   </div>
 </section>
 
-<!-- EXEMPLE WhatsApp -->
+<!-- EXEMPLE PREPARATION -->
 <section class="section" style="text-align:center">
   <h2>Exemple : {exemple_title}</h2>
   <div class="wa-mockup">
-    {wa_convo}
+    {prep_convo}
   </div>
 </section>
 
@@ -545,11 +546,11 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 
 <!-- CTA FINAL -->
 <section class="cta-section">
-  <h2>Ton prochain {profile_data['doc_word']} prend 30 secondes.<br>Pas 30 minutes.</h2>
-  <a href="https://wa.me/33745275486?text=Salut" target="_blank" class="btn-wa" style="margin:24px 0">
-    💬 Essayer sur WhatsApp — Gratuit
+  <h2>Ton prochain {profile_data['doc_word']} part d'un brouillon clair.<br>Pas d'une page blanche.</h2>
+  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa" style="margin:24px 0">
+    Demander mon diagnostic Diqto
   </a>
-  <p class="cta-sub">Pas d'app. Pas de compte. Juste WhatsApp.<br>2 minutes pour s'inscrire. Ton premier document dans la foulée.</p>
+  <p class="cta-sub">Diagnostic court avant tout paiement.<br>Premier parcours pilote uniquement après validation humaine.</p>
 </section>
 
 <!-- AUTRES MÉTIERS -->

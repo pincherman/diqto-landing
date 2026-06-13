@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Regenerate the 10 metier landing pages with updated messaging (no WhatsApp, app-first)."""
 
+import json
+from html import escape
 from urllib.parse import quote
 
 METIERS = [
@@ -14,7 +16,7 @@ METIERS = [
             ("🎤", "Dictée notes de séance", "Dictez en langage naturel après chaque consultation. L'IA structure : motif, techniques, observations, douleur, plan de suivi."),
             ("🩺", "Fiche conseil patient IA", "Après chaque séance, une fiche personnalisée avec exercices et prévention — prête à partager au patient."),
             ("📋", "Briefing pré-séance", "Avant chaque patient, un résumé IA : historique, dernière séance, progression, points d'attention. Zéro préparation."),
-            ("📄", "Notes d'honoraires PDF", "Conformes, avec mentions légales, numérotation, TVA 0%. Générées en 3 secondes après la séance."),
+            ("📄", "Notes d'honoraires PDF", "Prêtes à relire avec mentions, numérotation et TVA adaptée."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
             ("📈", "Suivi longitudinal", "Évolution de la douleur séance après séance. Tendances et progrès en un coup d'œil."),
         ],
@@ -23,13 +25,13 @@ METIERS = [
     {
         "id": "kinesitherapeute", "emoji": "💆", "label": "Kinésithérapeutes",
         "title_doc": "Facturation & suivi patient IA",
-        "desc": "Diqto pour kinés : dictez vos bilans, facturez en 3 secondes, suivez la progression de vos patients avec l'IA.",
+        "desc": "Diqto pour kinés : dictez vos bilans, préparez vos notes d'honoraires, suivez la progression de vos patients avec l'IA.",
         "keywords": "kiné facturation, application kinésithérapeute, bilan kiné IA, suivi patient kiné",
         "pain": "Entre les bilans, les factures et le suivi des patients, vous passez plus de temps en administratif qu'en rééducation ?",
         "features": [
-            ("🎤", "Dictée bilan & notes", "Dictez vos bilans et notes de séance. L'IA structure automatiquement."),
+            ("🎤", "Dictée bilan & notes", "Dictez vos bilans et notes de séance. Diqto prépare un brouillon structuré."),
             ("🩺", "Fiche conseil patient", "Exercices personnalisés envoyés au patient après chaque séance."),
-            ("📄", "Facturation conforme", "Notes d'honoraires, tiers payant, TVA adaptée. En 3 secondes."),
+            ("📄", "Facturation prête à relire", "Notes d'honoraires, tiers payant et TVA adaptée sous validation humaine."),
             ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant d'activer un lien de paiement."),
             ("📈", "Suivi progression", "Évolution fonctionnelle séance après séance."),
             ("🏛️", "URSSAF & comptabilité", "Alertes cotisations, livre des recettes, export FEC."),
@@ -55,12 +57,12 @@ METIERS = [
     {
         "id": "electricien", "emoji": "⚡", "label": "Électriciens",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour électriciens : devis et factures par la voix ou la photo. Conforme, rapide, professionnel.",
+        "desc": "Diqto pour électriciens : devis et factures depuis l'iPhone. Dictez, relisez, puis partagez sous contrôle humain.",
         "keywords": "devis électricien, facture électricien, application électricien",
         "pain": "Les devis prennent plus de temps que les interventions ?",
         "features": [
             ("🎤", "Dictez", "Dictez votre devis en langage naturel. L'IA structure tout."),
-            ("📸", "Photo → Devis", "Photographiez le tableau électrique. L'IA propose un chiffrage."),
+            ("📸", "Photo → brouillon", "Photographiez le tableau électrique. Diqto prépare un brouillon à relire."),
             ("📄", "PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
@@ -71,7 +73,7 @@ METIERS = [
     {
         "id": "photographe", "emoji": "📸", "label": "Photographes",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour photographes : devis shooting, factures, relances. Tout par la voix.",
+        "desc": "Diqto pour photographes : devis shooting, factures et relances préparés à relire depuis l'iPhone.",
         "keywords": "devis photographe, facture photographe, application photographe freelance",
         "pain": "Vos devis de shooting prennent autant de temps que le shooting lui-même ?",
         "features": [
@@ -80,19 +82,19 @@ METIERS = [
             ("💳", "Paiement cadré", "Acompte et solde restent qualifiés avant activation du paiement."),
             ("🔄", "Relances", "Préparées avec contexte pour les retards de paiement."),
             ("🧠", "Catalogue", "Vos formules shooting en 1 tap."),
-            ("✍️", "Signature", "Devis signé électroniquement par le client."),
+            ("✍️", "Signature cadrée", "Devis préparé pour signature après validation humaine."),
         ],
         "example": "Devis shooting mariage 8h, prestation 1200€, album 30 pages 350€, tirages 150€.",
     },
     {
         "id": "coach-sportif", "emoji": "🥋", "label": "Coachs sportifs",
         "title_doc": "Abonnements & facturation IA",
-        "desc": "Diqto pour coachs : gérez vos élèves, formules d'abonnement, facturation batch automatique.",
+        "desc": "Diqto pour coachs : gérez vos élèves, formules d'abonnement et facturation batch préparée sous contrôle humain.",
         "keywords": "facturation coach sportif, gestion élèves coach, abonnement cours sport",
         "pain": "Vous courez après les cotisations de vos élèves ? La gestion administrative freine votre activité ?",
         "features": [
             ("🎓", "Gestion élèves", "Formules, inscriptions, suivi. Tout en un endroit."),
-            ("💰", "Facturation batch", "Facturez tous vos élèves en 1 tap à la fin du mois."),
+            ("💰", "Facturation batch", "Préparez vos factures élèves en lot à la fin du mois."),
             ("🔄", "Relances pilotées", "Diqto prépare les relances avec contexte, sans envoi aveugle."),
             ("📊", "Coach IA Business", "Suggestions pricing, rétention élèves, saisonnalité."),
             ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant activation."),
@@ -103,7 +105,7 @@ METIERS = [
     {
         "id": "peintre", "emoji": "🎨", "label": "Peintres en bâtiment",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour peintres : devis chantier par la voix, factures conformes, relances pilotées.",
+        "desc": "Diqto pour peintres : devis chantier par la voix, factures prêtes à relire, relances pilotées.",
         "keywords": "devis peintre, facture peintre bâtiment, application peintre",
         "pain": "Chiffrer un chantier vous prend plus de temps que le peindre ?",
         "features": [
@@ -119,7 +121,7 @@ METIERS = [
     {
         "id": "menuisier", "emoji": "🪵", "label": "Menuisiers",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour menuisiers : devis sur mesure par la voix, PDF conformes, paiement cadré avant activation.",
+        "desc": "Diqto pour menuisiers : devis sur mesure par la voix, PDF prêts à relire, paiement cadré avant activation.",
         "keywords": "devis menuisier, facture menuisier, application menuisier",
         "pain": "Les devis sur mesure vous prennent des heures ?",
         "features": [
@@ -128,19 +130,19 @@ METIERS = [
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées avec contexte client."),
             ("🧠", "Catalogue", "Vos réalisations habituelles en 1 tap."),
-            ("✍️", "Signature", "Devis signé électroniquement."),
+            ("✍️", "Signature cadrée", "Devis préparé pour signature après validation humaine."),
         ],
         "example": "Devis bibliothèque sur mesure chêne massif, 2m40 × 3m, 6 étagères, finition vernis mat.",
     },
     {
         "id": "professeur-yoga", "emoji": "🧘", "label": "Professeurs de yoga",
         "title_doc": "Abonnements & facturation IA",
-        "desc": "Diqto pour profs de yoga : gérez vos élèves, abonnements, facturation automatique. Concentrez-vous sur l'enseignement.",
+        "desc": "Diqto pour profs de yoga : gérez vos élèves, abonnements et facturation préparée. Concentrez-vous sur l'enseignement.",
         "keywords": "facturation yoga, gestion élèves yoga, abonnement cours yoga",
         "pain": "La gestion de vos élèves et abonnements vous prend plus de temps que vos cours ?",
         "features": [
             ("🎓", "Élèves & formules", "Inscriptions, formules mensuel/trimestriel/annuel."),
-            ("💰", "Facturation auto", "Facturez tous vos élèves en batch."),
+            ("💰", "Facturation batch", "Préparez les factures élèves en lot sous contrôle humain."),
             ("🔄", "Relances", "Paiements en retard préparés avec contexte avant action."),
             ("📊", "Insights IA", "Suggestions pricing et rétention."),
             ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant activation."),
@@ -151,12 +153,12 @@ METIERS = [
     {
         "id": "carreleur", "emoji": "🏗️", "label": "Carreleurs",
         "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour carreleurs : devis chantier par la voix ou la photo, factures conformes, paiement cadré avant activation.",
+        "desc": "Diqto pour carreleurs : devis chantier par la voix ou la photo, factures prêtes à relire, paiement cadré avant activation.",
         "keywords": "devis carreleur, facture carreleur, application carreleur",
         "pain": "Chiffrer un chantier entre deux poses vous ralentit ?",
         "features": [
             ("🎤", "Dictez", "Dictez votre devis sur le chantier."),
-            ("📸", "Photo → Devis", "Photographiez la pièce. L'IA propose un chiffrage."),
+            ("📸", "Photo → brouillon", "Photographiez la pièce. Diqto prépare un brouillon à relire."),
             ("📄", "PDF conformes", "Main d'œuvre + fournitures + TVA."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées avec contexte client."),
@@ -171,19 +173,27 @@ TEMPLATE = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{emoji} Diqto pour les {label} — {title_doc}</title>
+<title>{title_attr}</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%236366f1'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<meta name="description" content="{desc}">
-<meta name="keywords" content="{keywords}">
-<link rel="canonical" href="https://diqto.fr/{id}.html">
+<meta name="description" content="{desc_attr}">
+<meta name="keywords" content="{keywords_attr}">
+<link rel="canonical" href="{canonical_url}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://diqto.fr/{id}.html">
-<meta property="og:title" content="{emoji} Diqto pour les {label}">
-<meta property="og:description" content="{desc}">
-<meta property="og:image" content="https://diqto.fr/og-image.png">
+<meta property="og:url" content="{canonical_url}">
+<meta property="og:title" content="{og_title_attr}">
+<meta property="og:description" content="{desc_attr}">
+<meta property="og:image" content="{og_image}">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Diqto">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{og_title_attr}">
+<meta name="twitter:description" content="{desc_attr}">
+<meta name="twitter:image" content="{og_image}">
+<script type="application/ld+json">
+{schema_json}
+</script>
 <style>
 :root {{ --bg:#0C0C0C; --primary:#6366F1; --green:#22C55E; --text:#fff; --dim:#9CA3AF; --card:#1A1A2E; --border:#2A2A3E; }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -253,19 +263,51 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 
 for m in METIERS:
     features_html = ""
-    for icon, title, desc in m["features"]:
-        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{title}</h3><p>{desc}</p></div>\n'
+    for icon, feature_title, feature_desc in m["features"]:
+        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{feature_title}</h3><p>{feature_desc}</p></div>\n'
+
+    canonical_url = f"https://diqto.fr/{m['id']}.html"
+    og_image = "https://diqto.fr/og-image.png"
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": f"Diqto pour {m['label']}",
+        "url": canonical_url,
+        "description": m["desc"],
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS",
+        "image": og_image,
+        "inLanguage": "fr-FR",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Diqto",
+            "url": "https://diqto.fr/",
+        },
+        "offers": {
+            "@type": "Offer",
+            "description": "Diagnostic avant offre commerciale",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder",
+        },
+    }
     
     html = TEMPLATE.format(
-        emoji=m["emoji"],
-        label=m["label"],
-        title_doc=m["title_doc"],
-        desc=m["desc"],
+        emoji=escape(m["emoji"]),
+        label=escape(m["label"]),
+        title_doc=escape(m["title_doc"]),
+        title_attr=escape(f"{m['emoji']} Diqto pour les {m['label']} — {m['title_doc']}", quote=True),
+        desc=escape(m["desc"]),
+        desc_attr=escape(m["desc"], quote=True),
+        keywords_attr=escape(m["keywords"], quote=True),
         keywords=m["keywords"],
         id=m["id"],
-        pain=m["pain"],
+        canonical_url=canonical_url,
+        og_title_attr=escape(f"{m['emoji']} Diqto pour les {m['label']}", quote=True),
+        og_image=og_image,
+        schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
+        pain=escape(m["pain"]),
         features_html=features_html,
-        example=m["example"],
+        example=escape(m["example"]),
         diagnostic_href=f"/?source=seo_top_{m['id']}&metier={quote(m['label'], safe='')}#beta",
     )
     

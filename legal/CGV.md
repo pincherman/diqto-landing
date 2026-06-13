@@ -30,10 +30,13 @@ Diqto propose les offres suivantes :
 
 | Plan | Prix mensuel | Documents | Fonctionnalités |
 |------|---------------|-----------|-----------------|
+| **Diqto Free** | 0 € / mois | Brouillons illimités, 3 documents finalisés/exportés/envoyés par mois | 1 entreprise, 1 utilisateur, clients illimités, PDF avec footer Diqto, 3 vocaux courts par mois jusqu'à 1 minute, tableau de bord simple, aucun checkout ni prélèvement automatique. |
 | **Diqto Essential** | 9 € HT / mois | Devis et factures illimités | Clients illimités, PDF professionnels à relire, vocal court jusqu'à 5 minutes, catalogue auto-appris, paiement cadré avant activation. |
 | **Diqto Vocal Pro** | 19 € HT / mois | Devis et factures illimités | Tout Essential + comptes rendus vocaux longs, usage vocal normal non limité avec fair use anti-abus, notes de séance/chantier/rendez-vous, export FEC, support prioritaire pilote. |
 
 Une offre annuelle peut être proposée à 90 € HT/an pour Diqto Essential et 190 € HT/an pour Diqto Vocal Pro.
+
+Le plan Diqto Free permet une découverte durable du Service sans carte bancaire. Il ne constitue pas une offre de production illimitée : les documents finalisés, exportés ou envoyés sont limités à 3 par mois et les PDF conservent un footer Diqto.
 
 Les prix sont indiqués en euros (€) hors taxes, sauf mention contraire. TVA non applicable (art. 293 B du CGI), sauf changement de régime ou mention contraire.
 

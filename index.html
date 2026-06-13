@@ -29,10 +29,11 @@
   "@type": "SoftwareApplication",
   "name": "Diqto",
   "url": "https://diqto.fr",
-  "description": "Assistant vocal IA pour indépendants et professions libérales. Devis et factures illimités, vocal court inclus, vocal long en option Pro. 71 métiers supportés.",
+  "description": "Assistant vocal IA pour indépendants et professions libérales. Plan gratuit limité, devis et factures illimités en Essential, vocal long en option Pro. 71 métiers supportés.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "iOS",
   "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Diqto Free — Brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, footer Diqto" },
     { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "description": "Diqto Essential — Devis et factures illimités, vocal court jusqu'à 5 minutes" },
     { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "description": "Diqto Vocal Pro — Essential plus comptes rendus vocaux longs avec fair use" }
   ]
@@ -1024,9 +1025,24 @@ footer {
 <section id="tarifs" style="background: var(--gray-900); border-top: 1px solid rgba(255,255,255,0.05);">
   <div class="container text-center">
     <span class="section-label">Tarifs</span>
-    <h2 class="section-title">Deux prix simples.<br>Devis et factures illimités.</h2>
-    <p class="section-subtitle centered">Le quota porte sur ce qui coûte vraiment : le vocal long. Pas sur votre activité.</p>
+    <h2 class="section-title">Commencez gratuit.<br>Passez en illimité quand Diqto travaille vraiment.</h2>
+    <p class="section-subtitle centered">Le gratuit sert à essayer. Les plans payants libèrent la production : devis et factures illimités, sans frais par document.</p>
     <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Diqto Free</div>
+        <div class="price-amount">0€ <span>/ mois</span></div>
+        <p class="price-desc">Pour découvrir Diqto sans carte bancaire.</p>
+        <ul class="price-features">
+          <li>1 entreprise et 1 utilisateur</li>
+          <li>Clients et brouillons illimités</li>
+          <li>3 documents finalisés, exportés ou envoyés par mois</li>
+          <li>PDF avec footer Diqto</li>
+          <li>3 vocaux courts par mois jusqu'à 1 min</li>
+          <li>Tableau de bord simple</li>
+          <li>Aucun checkout ni prélèvement automatique</li>
+        </ul>
+        <a href="#beta" class="price-btn secondary">Commencer gratuit</a>
+      </div>
       <div class="price-card featured">
         <div class="price-name">Diqto Essential</div>
         <div class="price-amount">9€ <span>/ mois HT</span></div>
@@ -1039,7 +1055,7 @@ footer {
           <li>Photo → brouillon document à valider</li>
           <li>🧠 Catalogue auto-appris</li>
           <li>💳 Paiement cadré avant activation</li>
-          <li>Essai 14 jours, puis abonnement mensuel</li>
+          <li>Footer supprimé</li>
         </ul>
         <a href="#beta" class="price-btn primary">Tester Essential →</a>
       </div>
@@ -1060,7 +1076,7 @@ footer {
         <a href="#beta" class="price-btn secondary">Tester Vocal Pro</a>
       </div>
     </div>
-    <p style="margin-top: 22px; color: var(--gray-400); font-size: 14px;">Offre de lancement : 90€ HT/an Essential ou 190€ HT/an Vocal Pro si paiement annuel. Aucun frais par devis ou facture.</p>
+    <p style="margin-top: 22px; color: var(--gray-400); font-size: 14px;">Offre de lancement : 90€ HT/an Essential ou 190€ HT/an Vocal Pro si paiement annuel. Aucun frais par devis ou facture sur les plans payants.</p>
   </div>
 </section>
 

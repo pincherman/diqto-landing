@@ -118,6 +118,9 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         continue
     
     trade_id = Path(config_file).stem
+    if trade_id.startswith("_"):
+        continue
+
     label = cfg.get("label", trade_id.replace("_", " ").title())
     emoji = cfg.get("emoji", "💼")
     profile = cfg.get("profile", "devis")

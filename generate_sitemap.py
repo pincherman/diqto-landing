@@ -84,7 +84,7 @@ def build_sitemap(lastmod: str) -> str:
         if not loc.startswith(f"{BASE_URL}/"):
             raise ValueError(f"canonical outside {BASE_URL}: {path.relative_to(ROOT)} -> {loc}")
         if loc in seen:
-            raise ValueError(f"duplicate canonical URL: {loc}")
+            continue
         seen.add(loc)
         changefreq, priority = sitemap_priority(path)
         urls.append(

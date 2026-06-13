@@ -9,6 +9,18 @@ from urllib.parse import quote
 CONFIG_DIR = Path(__file__).parent / ".." / "batiboss" / "config" / "metiers"
 OUTPUT_DIR = Path(__file__).parent / "metiers"
 
+TOP_LEVEL_CANONICALS = {
+    "carreleur": "carreleur.html",
+    "coach_sportif": "coach-sportif.html",
+    "electricien": "electricien.html",
+    "kinesitherapeute": "kinesitherapeute.html",
+    "menuisier": "menuisier.html",
+    "osteopathe": "osteopathe.html",
+    "peintre": "peintre.html",
+    "photographe": "photographe.html",
+    "plombier": "plombier.html",
+}
+
 CATEGORY_LABELS = {
     "batiment": "Bâtiment & Travaux",
     "sante": "Santé & Bien-être", 
@@ -81,6 +93,8 @@ body {{ font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--te
 .container {{ max-width:800px; margin:0 auto; padding:0 24px; }}
 nav {{ padding:20px 24px; max-width:800px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }}
 nav a {{ color:var(--primary); text-decoration:none; font-weight:600; font-size:14px; }}
+.canonical-note {{ max-width:800px; margin:0 auto; padding:0 24px; color:var(--dim); font-size:13px; text-align:center; }}
+.canonical-note a {{ color:var(--primary); text-decoration:none; font-weight:700; }}
 .hero {{ padding:80px 0 40px; text-align:center; }}
 .hero h1 {{ font-size:clamp(26px,5vw,38px); font-weight:800; line-height:1.2; margin-bottom:16px; }}
 .hero h1 span {{ color:var(--primary); }}
@@ -100,6 +114,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </head>
 <body>
 <nav><a href="/">← diqto.fr</a><a href="{diagnostic_href}">Diagnostic Diqto</a></nav>
+{canonical_note}
 <section class="hero"><div class="container">
   <h1>{emoji} Diqto pour les <span>{label}</span></h1>
   <p>{desc}</p>
@@ -149,7 +164,14 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         "Dictez, relisez, puis partagez sous contrôle humain."
     )
     desc = seo_desc
-    canonical_url = f"https://diqto.fr/metiers/{trade_id}.html"
+    canonical_path = TOP_LEVEL_CANONICALS.get(trade_id, f"metiers/{trade_id}.html")
+    canonical_url = f"https://diqto.fr/{canonical_path}"
+    canonical_note = ""
+    if trade_id in TOP_LEVEL_CANONICALS:
+        canonical_note = (
+            f'<p class="canonical-note">Page principale : '
+            f'<a href="/{canonical_path}">Diqto pour les {escape(label)}</a></p>'
+        )
     og_image = "https://diqto.fr/og-image.png"
     schema = {
         "@context": "https://schema.org",
@@ -193,6 +215,7 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
         features_html=features_html, diagnostic_href=diagnostic_href,
+        canonical_note=canonical_note,
     )
     
     out_path = OUTPUT_DIR / f"{trade_id}.html"

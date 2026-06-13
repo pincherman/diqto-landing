@@ -17,16 +17,16 @@ OUTPUT_DIR = SCRIPT_DIR / "metiers"
 
 # ── Category metadata ──────────────────────────────────────────────
 CATEGORIES = {
-    "batiment": {"label": "🏗️ Bâtiment & Travaux", "order": 1},
-    "sante": {"label": "🏥 Santé & Bien-être", "order": 2},
-    "enseignement": {"label": "🥋 Enseignement & Coaching", "order": 3},
-    "juridique_finance": {"label": "⚖️ Juridique & Finance", "order": 4},
-    "services": {"label": "🎨 Services & Créatifs", "order": 5},
-    "beaute": {"label": "💅 Beauté", "order": 5},
-    "automobile": {"label": "🚗 Automobile", "order": 5},
-    "evenementiel": {"label": "🎧 Événementiel", "order": 5},
-    "restauration": {"label": "🍽️ Restauration", "order": 5},
-    "autre": {"label": "📋 Autres métiers", "order": 6},
+    "batiment": {"label": "Bâtiment & Travaux", "order": 1},
+    "sante": {"label": "Santé & Bien-être", "order": 2},
+    "enseignement": {"label": "Enseignement & Coaching", "order": 3},
+    "juridique_finance": {"label": "Juridique & Finance", "order": 4},
+    "services": {"label": "Services & Créatifs", "order": 5},
+    "beaute": {"label": "Beauté", "order": 5},
+    "automobile": {"label": "Automobile", "order": 5},
+    "evenementiel": {"label": "Événementiel", "order": 5},
+    "restauration": {"label": "Restauration", "order": 5},
+    "autre": {"label": "Autres métiers", "order": 6},
 }
 
 # ── Profile-specific content ───────────────────────────────────────
@@ -65,14 +65,14 @@ def get_accroche(metier_data):
     accroches = {
         "plombier": "Devis plomberie prêt à relire depuis votre téléphone",
         "electricien": "Devis électricité entre deux chantiers, sans paperasse",
-        "peintre": "Devis peinture et ravalement en 30 secondes",
+        "peintre": "Devis peinture et ravalement prêt à relire",
         "macon": "Devis maçonnerie dicté depuis le chantier",
-        "carreleur": "Devis carrelage et pose en 30 secondes",
+        "carreleur": "Devis carrelage et pose prêt à relire",
         "menuisier": "Devis menuiserie sur mesure depuis votre atelier",
-        "couvreur": "Devis toiture en 30 secondes depuis votre camionnette",
+        "couvreur": "Devis toiture prêt à relire depuis votre camionnette",
         "chauffagiste": "Devis chauffage et climatisation sans paperasse",
-        "serrurier": "Devis serrurerie envoyé au client en 30 secondes",
-        "paysagiste": "Devis entretien et aménagement paysager en 30 secondes",
+        "serrurier": "Devis serrurerie prêt à valider depuis votre téléphone",
+        "paysagiste": "Devis entretien et aménagement paysager prêt à relire",
         "photographe": "Devis shooting photo professionnel depuis votre iPhone",
         "animateur": "Devis animation et DJ depuis votre iPhone",
         "coach_sportif": "Gérez vos clients et séances de coaching sans paperasse",
@@ -82,7 +82,7 @@ def get_accroche(metier_data):
         "prof_musique": "Gérez vos élèves et cours de musique sans paperasse",
         "prof_langue": "Gérez vos élèves et facturation de cours sans paperasse",
         "prof_natation": "Gérez vos élèves et séances de natation sans paperasse",
-        "moniteur_ski": "Facturez vos cours de ski en 30 secondes",
+        "moniteur_ski": "Préparez vos factures de cours de ski sans paperasse",
         "auto_ecole": "Gérez vos élèves et heures de conduite sans paperasse",
         "formateur": "Devis et factures formation professionnelle depuis votre iPhone",
         "osteopathe": "Notes d'honoraires ostéopathie depuis votre iPhone",
@@ -131,7 +131,7 @@ def get_accroche(metier_data):
     elif profile == "honoraires":
         return f"Notes d'honoraires {name.lower()} depuis votre iPhone"
     else:
-        return f"Devis {name.lower()} en 30 secondes depuis votre téléphone"
+        return f"Devis {name.lower()} prêt à relire depuis votre téléphone"
 
 
 def get_features_html(metier_data):
@@ -141,22 +141,22 @@ def get_features_html(metier_data):
     items = []
     
     feature_labels = {
-        "photo_devis": ("📸", "Photo → brouillon IA", "Prenez en photo le chantier, Diqto propose un brouillon de devis a valider"),
-        "signature": ("✍️", "Signature électronique", "Votre client signe sur son téléphone"),
-        "payment_link": ("💳", "Paiement cadré", "Le mode de règlement est qualifié avant toute activation de lien ou process de paiement"),
-        "import_devis": ("📥", "Import devis", "Importez vos devis existants et transformez-les en factures"),
-        "import_contacts": ("📇", "Import contacts", "Importez vos clients en photo ou fichier"),
-        "export_comptable": ("📊", "Export comptable", "Export CSV + PDF pour votre comptable en 1 clic"),
-        "eleves": ("👥", "Gestion des élèves", "Ajoutez, suivez et facturez vos élèves facilement"),
-        "batch_facture": ("⚡", "Facturation batch", "Facturez tous vos élèves en 1 clic"),
-        "catalogue": ("📋", "Catalogue de prestations", "Vos prestations habituelles mémorisées et réutilisables"),
-        "relances": ("🔔", "Relances préparées", "Rappels préparés avec contexte, sans envoi automatique"),
-        "saison": ("📅", "Gestion de saison", "Nouvelle saison, nouveaux tarifs en quelques secondes"),
-        "convention_honoraires": ("📝", "Convention d'honoraires", "Générez vos conventions professionnelles"),
-        "note_debours": ("💰", "Notes de débours", "Suivez et refacturez vos frais avancés"),
-        "facturation_recurrente": ("🔄", "Facturation récurrente cadrée", "Abonnements et forfaits préparés avant validation humaine"),
-        "briefing": ("📑", "Briefing chantier", "Résumé du projet pour votre équipe"),
-        "lettre_mission": ("📜", "Lettre de mission", "Générez vos lettres de mission conformes"),
+        "photo_devis": ("PHOTO", "Photo → brouillon IA", "Prenez en photo le chantier, Diqto propose un brouillon de devis a valider"),
+        "signature": ("SIGN", "Signature électronique", "Votre client signe sur son téléphone"),
+        "payment_link": ("PAY", "Paiement cadré", "Le mode de règlement est qualifié avant toute activation de lien ou process de paiement"),
+        "import_devis": ("IMP", "Import devis", "Importez vos devis existants et transformez-les en factures"),
+        "import_contacts": ("CRM", "Import contacts", "Importez vos clients en photo ou fichier"),
+        "export_comptable": ("CSV", "Export comptable", "Export CSV + PDF pour votre comptable en 1 clic"),
+        "eleves": ("ELEVE", "Gestion des élèves", "Ajoutez, suivez et facturez vos élèves facilement"),
+        "batch_facture": ("BATCH", "Facturation batch", "Facturez tous vos élèves en 1 clic"),
+        "catalogue": ("CAT", "Catalogue de prestations", "Vos prestations habituelles mémorisées et réutilisables"),
+        "relances": ("REL", "Relances préparées", "Rappels préparés avec contexte, sans envoi automatique"),
+        "saison": ("SAISON", "Gestion de saison", "Nouvelle saison, nouveaux tarifs en quelques secondes"),
+        "convention_honoraires": ("CONV", "Convention d'honoraires", "Générez vos conventions professionnelles"),
+        "note_debours": ("FRAIS", "Notes de débours", "Suivez et refacturez vos frais avancés"),
+        "facturation_recurrente": ("RECUR", "Facturation récurrente cadrée", "Abonnements et forfaits préparés avant validation humaine"),
+        "briefing": ("BRIEF", "Briefing chantier", "Résumé du projet pour votre équipe"),
+        "lettre_mission": ("MISSION", "Lettre de mission", "Générez vos lettres de mission conformes"),
     }
     
     for feat_key, feat_info in feature_labels.items():
@@ -165,7 +165,7 @@ def get_features_html(metier_data):
             items.append(f'<div class="metier-feature"><span class="mf-icon">{emoji}</span><div><strong>{title}</strong><br><span class="mf-desc">{desc}</span></div></div>')
     
     # Always add security
-    items.append('<div class="metier-feature"><span class="mf-icon">🛡️</span><div><strong>Sécurité</strong><br><span class="mf-desc">Documents contrôlés, données protégées, partage sous validation humaine</span></div></div>')
+    items.append('<div class="metier-feature"><span class="mf-icon">SEC</span><div><strong>Sécurité</strong><br><span class="mf-desc">Documents contrôlés, données protégées, partage sous validation humaine</span></div></div>')
     
     return "\n        ".join(items)
 
@@ -185,18 +185,18 @@ def get_preparation_conversation(metier_data):
     unit = presta.get("unit", "forfait")
     
     if profile == "abonnement":
-        user_msg = f'🎤 "Prépare une facture pour Marc Durand, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Brouillon de facture préparé\n{desc} — {price}€\n✅ À relire avant partage"
+        user_msg = f'"Prépare une facture pour Marc Durand, {desc.lower()} {price}€"'
+        bot_msg = f"Brouillon de facture préparé\n{desc} — {price}€\nÀ relire avant partage"
     elif profile == "honoraires":
-        user_msg = f'🎤 "Prépare une note d\'honoraires pour M. Dupont, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Note d'honoraires préparée\n{desc} — {price}€\n✅ À relire avant partage"
+        user_msg = f'"Prépare une note d\'honoraires pour M. Dupont, {desc.lower()} {price}€"'
+        bot_msg = f"Note d'honoraires préparée\n{desc} — {price}€\nÀ relire avant partage"
     else:
-        user_msg = f'🎤 "Prépare un devis pour Mme Martin, {desc.lower()} {price}€"'
-        bot_msg = f"📄 Brouillon de devis préparé\n{desc} — {price}€\n✅ À relire avant partage"
+        user_msg = f'"Prépare un devis pour Mme Martin, {desc.lower()} {price}€"'
+        bot_msg = f"Brouillon de devis préparé\n{desc} — {price}€\nÀ relire avant partage"
     
     return f"""<div class="wa-msg wa-user">{user_msg}</div>
         <div class="wa-msg wa-bot">{bot_msg}</div>
-        <div class="wa-msg wa-bot">📤 Partage manuel · ✍️ Signature · 💳 Paiement cadré</div>"""
+        <div class="wa-msg wa-bot">Partage manuel · Signature · Paiement cadré</div>"""
 
 
 def get_related_metiers(metier_id, all_metiers):
@@ -264,7 +264,7 @@ def get_narrative_story(metier_data):
             "dialogue2": "« Je ferai ça ce soir. »",
             "consequence": "Ce soir, tu as 3 autres notes en retard.",
             "punchline": "Et ton comptable qui relance.",
-            "resolution": "Et si ta note était générée en 30 secondes ?",
+            "resolution": "Et si ta note était prête à relire sans repartir de zéro ?",
         },
     }
     
@@ -283,7 +283,6 @@ def get_narrative_story(metier_data):
 def generate_page(metier_id, metier_data, all_metiers):
     """Generate a full narrative HTML page for a métier."""
     name = metier_data.get("name", metier_data.get("label", metier_id))
-    emoji = metier_data.get("emoji", "📋")
     profile = metier_data.get("profile", "devis")
     profile_data = PROFILE_DATA.get(profile, PROFILE_DATA["devis"])
     doc_word = profile_data["doc_word"]
@@ -299,8 +298,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     for rid in related:
         rdata = all_metiers.get(rid, {})
         rname = rdata.get("name", rdata.get("label", rid))
-        remoji = rdata.get("emoji", "📋")
-        related_links.append(f'<a href="{rid}.html" class="metier-tag">{remoji} {rname}</a>')
+        related_links.append(f'<a href="{rid}.html" class="metier-tag">{rname}</a>')
     related_html = "\n          ".join(related_links)
     
     # Example prestation for the example section
@@ -313,7 +311,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     if mentions:
         clean_mentions = [m for m in mentions if "{" not in m]
         if clean_mentions:
-            mentions_html = '<div class="legal-mentions"><strong>📜 Mentions légales auto-intégrées :</strong> ' + " · ".join(clean_mentions) + '</div>'
+            mentions_html = '<div class="legal-mentions"><strong>Mentions légales auto-intégrées :</strong> ' + " · ".join(clean_mentions) + '</div>'
     
     # Keywords
     name_lower = name.lower()
@@ -321,11 +319,11 @@ def generate_page(metier_id, metier_data, all_metiers):
     
     # Title based on profile
     if profile == "honoraires":
-        title = f"{emoji} Diqto pour les {name}s — Notes d'honoraires sur iPhone"
+        title = f"Diqto pour les {name}s — Notes d'honoraires sur iPhone"
     elif profile == "abonnement":
-        title = f"{emoji} Diqto pour les {name}s — Gestion élèves et facturation sur iPhone"
+        title = f"Diqto pour les {name}s — Gestion élèves et facturation sur iPhone"
     else:
-        title = f"{emoji} Diqto pour les {name}s — Devis et factures sur iPhone"
+        title = f"Diqto pour les {name}s — Devis et factures sur iPhone"
     
     html = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -345,7 +343,7 @@ def generate_page(metier_id, metier_data, all_metiers):
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://diqto.fr/metiers/{metier_id}.html">
-<meta property="og:title" content="{emoji} Diqto — L'assistant devis pour les {name}s">
+<meta property="og:title" content="Diqto — L'assistant devis pour les {name}s">
 <meta property="og:description" content="{seo_desc}">
 <meta property="og:image" content="https://diqto.fr/og-image.png">
 <meta property="og:locale" content="fr_FR">
@@ -353,7 +351,7 @@ def generate_page(metier_id, metier_data, all_metiers):
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{emoji} Diqto pour les {name}s">
+<meta name="twitter:title" content="Diqto pour les {name}s">
 <meta name="twitter:description" content="{seo_desc}">
 
 <!-- Schema.org -->
@@ -370,7 +368,7 @@ def generate_page(metier_id, metier_data, all_metiers):
     "@type": "Offer",
     "price": "",
     "priceCurrency": "EUR",
-    "description": "Diagnostic avant offre commerciale"
+    "description": "Essai gratuit avant offre payante"
   }}
 }}
 </script>
@@ -402,7 +400,6 @@ nav a.nav-cta:hover{{transform:translateY(-1px);box-shadow:0 4px 20px rgba(37,21
 /* HERO */
 .hero{{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 24px 80px;text-align:center;background:var(--white)}}
 .hero h1{{font-family:'Work Sans',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.15;margin-bottom:20px}}
-.hero h1 .emoji{{font-size:1.1em}}
 .hero .subtitle{{font-size:clamp(1em,2.5vw,1.2em);color:var(--text-light);max-width:560px;margin:0 auto 40px;line-height:1.6}}
 .btn-wa{{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15em;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(37,211,102,.3)}}
 .btn-wa:hover{{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}}
@@ -434,7 +431,7 @@ h2{{font-family:'Work Sans',sans-serif;font-size:clamp(1.4em,3vw,1.8em);font-wei
 .metier-features{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px}}
 .metier-feature{{display:flex;gap:12px;align-items:flex-start;background:var(--white);padding:16px;border-radius:12px}}
 .section-alt .metier-feature{{background:var(--gray);border:1px solid #e2e8f0}}
-.mf-icon{{font-size:1.6em;flex-shrink:0}}
+.mf-icon{{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:24px;padding:0 8px;border-radius:999px;background:rgba(37,211,102,.12);color:#15803d;font-size:11px;font-weight:800;letter-spacing:.7px;flex-shrink:0}}
 .mf-desc{{color:var(--text-light);font-size:.85em}}
 
 /* WHATSAPP MOCKUP */
@@ -481,16 +478,16 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
     <span class="text">diq<em>to</em></span>
   </a>
   <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="nav-cta">
-    Diagnostic Diqto
+    Commencer gratuit
   </a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <h1><span class="emoji">{emoji}</span> {accroche}</h1>
+  <h1>{accroche}</h1>
   <p class="subtitle">Tu t'es mis à ton compte pour faire ce que tu aimes.<br><strong>Pas pour faire de l'administratif.</strong></p>
   <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa">
-    Lancer mon diagnostic Diqto
+    Créer mon premier brouillon gratuit
   </a>
 </section>
 
@@ -548,9 +545,9 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <section class="cta-section">
   <h2>Ton prochain {profile_data['doc_word']} part d'un brouillon clair.<br>Pas d'une page blanche.</h2>
   <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa" style="margin:24px 0">
-    Demander mon diagnostic Diqto
+    Commencer gratuit
   </a>
-  <p class="cta-sub">Diagnostic court avant tout paiement.<br>Premier parcours pilote uniquement après validation humaine.</p>
+  <p class="cta-sub">Essai gratuit avant tout paiement.<br>Premier brouillon uniquement après validation humaine.</p>
 </section>
 
 <!-- AUTRES MÉTIERS -->
@@ -591,19 +588,19 @@ def load_all_metiers():
             data["metier"] = metier_id
             metiers[metier_id] = data
         except Exception as e:
-            print(f"  ⚠️  Erreur {filename}: {e}")
+            print(f"  WARN Erreur {filename}: {e}")
     return metiers
 
 
 def main():
-    print("🚀 Génération des pages métier SEO...")
+    print("Génération des pages métier SEO...")
     
     # Create output dir
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
     # Load all métiers
     metiers = load_all_metiers()
-    print(f"📦 {len(metiers)} métiers chargés")
+    print(f"{len(metiers)} métiers chargés")
     
     # Generate pages
     count = 0
@@ -613,12 +610,11 @@ def main():
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(html)
         name = metier_data.get("name", metier_data.get("label", metier_id))
-        emoji = metier_data.get("emoji", "📋")
-        print(f"  ✅ {emoji} {name} → metiers/{metier_id}.html")
+        print(f"  OK {name} -> metiers/{metier_id}.html")
         count += 1
     
-    print(f"\n🎉 {count} pages générées dans {OUTPUT_DIR}/")
-    print("💡 Relancez ce script à tout moment pour régénérer toutes les pages.")
+    print(f"\nOK {count} pages générées dans {OUTPUT_DIR}/")
+    print("Relancez ce script à tout moment pour régénérer toutes les pages.")
 
 
 if __name__ == "__main__":

@@ -5,6 +5,27 @@ import json
 from html import escape
 from urllib.parse import quote
 
+ICON_LABELS = {
+    "🎤": "VOIX",
+    "🩺": "SOIN",
+    "📋": "PREP",
+    "📄": "PDF",
+    "💳": "PAY",
+    "📈": "SUIVI",
+    "🏛️": "TAX",
+    "📸": "PHOTO",
+    "🔄": "REL",
+    "🧠": "CAT",
+    "✍️": "SIGN",
+    "🎓": "ELEVE",
+    "💰": "FACT",
+    "📊": "BIZ",
+}
+
+
+def icon_label(icon):
+    return ICON_LABELS.get(icon, "DIQ")
+
 METIERS = [
     {
         "id": "osteopathe", "emoji": "🦴", "label": "Ostéopathes",
@@ -30,7 +51,7 @@ METIERS = [
         "pain": "Entre les bilans, les factures et le suivi des patients, vous passez plus de temps en administratif qu'en rééducation ?",
         "features": [
             ("🎤", "Dictée bilan & notes", "Dictez vos bilans et notes de séance. Diqto prépare un brouillon structuré."),
-            ("🩺", "Fiche conseil patient", "Exercices personnalisés envoyés au patient après chaque séance."),
+            ("🩺", "Fiche conseil patient", "Exercices personnalisés prêts à partager après validation humaine."),
             ("📄", "Facturation prête à relire", "Notes d'honoraires, tiers payant et TVA adaptée sous validation humaine."),
             ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant d'activer un lien de paiement."),
             ("📈", "Suivi progression", "Évolution fonctionnelle séance après séance."),
@@ -42,7 +63,7 @@ METIERS = [
         "id": "plombier", "emoji": "🔧", "label": "Plombiers",
         "title_doc": "Devis & factures IA",
         "desc": "Diqto pour plombiers : dictez le chantier, relisez le brouillon de devis, puis partagez sous contrôle humain. Paiement et relance restent cadrés avant activation.",
-        "keywords": "devis plombier, facture plombier, application plombier, diagnostic métier plombier",
+        "keywords": "devis plombier, facture plombier, application plombier, essai gratuit Diqto plombier",
         "pain": "Vous faites vos devis sur papier entre deux interventions ? Vous perdez du temps à recopier les mêmes lignes ?",
         "features": [
             ("🎤", "Dictez votre devis", "Entre deux interventions, dictez. L'IA structure : main d'œuvre, fournitures, TVA."),
@@ -210,7 +231,7 @@ nav a {{ color:var(--primary); text-decoration:none; font-weight:600; }}
 .pain {{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; margin:40px 0; text-align:center; font-size:18px; color:var(--dim); line-height:1.6; }}
 .features {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:40px 0; }}
 .feat {{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }}
-.feat .icon {{ font-size:28px; margin-bottom:8px; }}
+.feat .icon {{ display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:26px;padding:0 8px;border-radius:999px;background:rgba(99,102,241,.14);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:10px; }}
 .feat h3 {{ font-size:16px; font-weight:700; margin-bottom:6px; }}
 .feat p {{ font-size:14px; color:var(--dim); line-height:1.5; }}
 .example {{ background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(139,92,246,0.1)); border:1px solid rgba(99,102,241,0.3); border-radius:12px; padding:24px; margin:40px 0; }}
@@ -225,14 +246,14 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </head>
 <body>
 <nav>
-  <a href="/">← diqto.fr</a>
-  <a href="{diagnostic_href}">Diagnostic Diqto</a>
+  <a href="/">diqto.fr</a>
+  <a href="{diagnostic_href}">Commencer gratuit</a>
 </nav>
 <section class="hero">
   <div class="container">
-    <h1>{emoji} Diqto pour les <span>{label}</span></h1>
+    <h1>Diqto pour les <span>{label}</span></h1>
     <p>{desc}</p>
-    <a href="{diagnostic_href}" class="cta">Lancer mon diagnostic Diqto →</a>
+    <a href="{diagnostic_href}" class="cta">Créer mon premier brouillon gratuit →</a>
   </div>
 </section>
 <div class="container">
@@ -241,15 +262,15 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 {features_html}
   </div>
   <div class="example">
-    <h3>🎤 Exemple de dictée</h3>
+    <h3>Exemple de dictée</h3>
     <p>"{example}"</p>
   </div>
 </div>
 <section class="final">
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>
-    <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
-    <a href="{diagnostic_href}" class="cta">Demander mon diagnostic Diqto →</a>
+    <p>Essai gratuit avant tout paiement : choisissez votre métier, créez un brouillon, relisez avant partage.</p>
+    <a href="{diagnostic_href}" class="cta">Commencer gratuit →</a>
   </div>
 </section>
 <footer>
@@ -264,7 +285,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 for m in METIERS:
     features_html = ""
     for icon, feature_title, feature_desc in m["features"]:
-        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{feature_title}</h3><p>{feature_desc}</p></div>\n'
+        features_html += f'    <div class="feat"><div class="icon">{icon_label(icon)}</div><h3>{feature_title}</h3><p>{feature_desc}</p></div>\n'
 
     canonical_url = f"https://diqto.fr/{m['id']}.html"
     og_image = "https://diqto.fr/og-image.png"
@@ -285,7 +306,7 @@ for m in METIERS:
         },
         "offers": {
             "@type": "Offer",
-            "description": "Diagnostic avant offre commerciale",
+            "description": "Essai gratuit avant offre payante",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/PreOrder",
         },
@@ -295,14 +316,14 @@ for m in METIERS:
         emoji=escape(m["emoji"]),
         label=escape(m["label"]),
         title_doc=escape(m["title_doc"]),
-        title_attr=escape(f"{m['emoji']} Diqto pour les {m['label']} — {m['title_doc']}", quote=True),
+        title_attr=escape(f"Diqto pour les {m['label']} — {m['title_doc']}", quote=True),
         desc=escape(m["desc"]),
         desc_attr=escape(m["desc"], quote=True),
         keywords_attr=escape(m["keywords"], quote=True),
         keywords=m["keywords"],
         id=m["id"],
         canonical_url=canonical_url,
-        og_title_attr=escape(f"{m['emoji']} Diqto pour les {m['label']}", quote=True),
+        og_title_attr=escape(f"Diqto pour les {m['label']}", quote=True),
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
         pain=escape(m["pain"]),
@@ -313,6 +334,6 @@ for m in METIERS:
     
     with open(f'{m["id"]}.html', 'w') as f:
         f.write(html)
-    print(f'✅ {m["id"]}.html')
+    print(f'OK {m["id"]}.html')
 
-print(f'\n✅ {len(METIERS)} pages régénérées')
+print(f'\nOK {len(METIERS)} pages régénérées')

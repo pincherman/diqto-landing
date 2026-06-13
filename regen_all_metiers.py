@@ -37,7 +37,7 @@ CATEGORY_LABELS = {
 PROFILE_FEATURES = {
     "devis": [
         ("🎤", "Dictez votre devis", "Dictez en langage naturel, l'IA structure tout : prestations, quantités, prix, TVA."),
-        ("📄", "PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
+        ("📄", "Brouillons PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
         ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
         ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
         ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap après quelques utilisations."),
@@ -45,9 +45,9 @@ PROFILE_FEATURES = {
     ],
     "honoraires": [
         ("🎤", "Dictée notes de séance", "Dictez après chaque consultation. L'IA structure : motif, observations, plan de suivi."),
-        ("🩺", "Fiche conseil patient IA", "Exercices et prévention personnalisés envoyés au patient par email."),
+        ("🩺", "Fiche conseil patient IA", "Exercices et prévention personnalisés prêts à partager après validation humaine."),
         ("📋", "Briefing pré-séance", "Résumé IA avant chaque patient : historique, progression, points d'attention."),
-        ("📄", "Notes d'honoraires", "Conformes, TVA adaptée, mentions légales. En 3 secondes."),
+        ("📄", "Notes d'honoraires", "Prêtes à relire avec TVA adaptée, mentions légales et numérotation."),
         ("💳", "Paiement cadré", "On qualifie le mode de règlement adapté avant d'activer un lien de paiement."),
         ("📈", "Suivi longitudinal", "Progression patient séance après séance."),
     ],
@@ -60,6 +60,35 @@ PROFILE_FEATURES = {
         ("🏛️", "URSSAF", "Alertes et estimations cotisations."),
     ],
 }
+
+ICON_LABELS = {
+    "🎤": "VOIX",
+    "📄": "PDF",
+    "💳": "PAY",
+    "🔄": "REL",
+    "🧠": "CAT",
+    "🏛️": "TAX",
+    "🩺": "SOIN",
+    "📋": "PREP",
+    "📈": "SUIVI",
+    "🎓": "ELEVE",
+    "💰": "FACT",
+    "📊": "BIZ",
+}
+
+
+def icon_label(icon):
+    return ICON_LABELS.get(icon, "DIQ")
+
+
+def display_plural(label):
+    clean = label.strip()
+    lower = clean.lower()
+    if lower in {"nettoyage"}:
+        return "entreprises de nettoyage"
+    if lower.endswith(("s", "x")):
+        return clean
+    return f"{clean}s"
 
 TEMPLATE = '''<!DOCTYPE html>
 <html lang="fr">
@@ -102,7 +131,7 @@ nav a {{ color:var(--primary); text-decoration:none; font-weight:600; font-size:
 .cta {{ display:inline-block; background:var(--primary); color:#fff; padding:14px 32px; border-radius:12px; text-decoration:none; font-weight:700; }}
 .features {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin:40px 0; }}
 .feat {{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; }}
-.feat .icon {{ font-size:24px; margin-bottom:6px; }}
+.feat .icon {{ display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:24px;padding:0 8px;border-radius:999px;background:rgba(99,102,241,.14);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:8px; }}
 .feat h3 {{ font-size:15px; font-weight:700; margin-bottom:4px; }}
 .feat p {{ font-size:13px; color:var(--dim); line-height:1.5; }}
 .final {{ text-align:center; padding:60px 0; }}
@@ -113,12 +142,12 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </style>
 </head>
 <body>
-<nav><a href="/">← diqto.fr</a><a href="{diagnostic_href}">Diagnostic Diqto</a></nav>
+<nav><a href="/">diqto.fr</a><a href="{diagnostic_href}">Commencer gratuit</a></nav>
 {canonical_note}
 <section class="hero"><div class="container">
-  <h1>{emoji} Diqto pour les <span>{label}</span></h1>
+  <h1>Diqto pour les <span>{label}</span></h1>
   <p>{desc}</p>
-  <a href="{diagnostic_href}" class="cta">Lancer mon diagnostic Diqto →</a>
+  <a href="{diagnostic_href}" class="cta">Créer mon premier brouillon gratuit →</a>
 </div></section>
 <div class="container">
   <div class="features">
@@ -127,8 +156,8 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </div>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
-  <p>Diagnostic court avant tout paiement : métier, documents, clients, contraintes légales.</p>
-  <a href="{diagnostic_href}" class="cta">Demander mon diagnostic Diqto →</a>
+  <p>Essai gratuit avant tout paiement : choisissez votre métier, créez un brouillon, relisez avant partage.</p>
+  <a href="{diagnostic_href}" class="cta">Commencer gratuit →</a>
 </div></section>
 <footer><div class="container">
   <p>© 2026 Diqto · <a href="/">diqto.fr</a> · <a href="mailto:support@diqto.fr">support@diqto.fr</a></p>
@@ -149,18 +178,19 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         continue
 
     label = cfg.get("label", trade_id.replace("_", " ").title())
+    display_label = display_plural(label)
     emoji = cfg.get("emoji", "💼")
     profile = cfg.get("profile", "devis")
     category = cfg.get("category", "autre")
     
     features = PROFILE_FEATURES.get(profile, PROFILE_FEATURES["devis"])
     
-    doc_types = {"devis": "Devis & factures", "honoraires": "Notes d'honoraires & suivi", "abonnement": "Abonnements & facturation"}
+    doc_types = {"devis": "Devis et factures", "honoraires": "Notes d'honoraires et suivi", "abonnement": "Abonnements et facturation"}
     doc_type = doc_types.get(profile, "Devis & factures")
     
-    title = f"{emoji} Diqto pour les {label} — {doc_type} IA"
+    title = f"Diqto pour les {display_label} — {doc_type} IA"
     seo_desc = (
-        f"Diqto pour les {label.lower()} : {doc_type.lower()} depuis l'iPhone. "
+        f"Diqto pour les {display_label.lower()} : {doc_type.lower()} depuis l'iPhone. "
         "Dictez, relisez, puis partagez sous contrôle humain."
     )
     desc = seo_desc
@@ -170,13 +200,13 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
     if trade_id in TOP_LEVEL_CANONICALS:
         canonical_note = (
             f'<p class="canonical-note">Page principale : '
-            f'<a href="/{canonical_path}">Diqto pour les {escape(label)}</a></p>'
+            f'<a href="/{canonical_path}">Diqto pour les {escape(display_label)}</a></p>'
         )
     og_image = "https://diqto.fr/og-image.png"
     schema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": f"Diqto pour {label}",
+        "name": f"Diqto pour {display_label}",
         "url": canonical_url,
         "description": seo_desc,
         "applicationCategory": "BusinessApplication",
@@ -190,7 +220,7 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         },
         "offers": {
             "@type": "Offer",
-            "description": "Diagnostic avant offre commerciale",
+            "description": "Essai gratuit avant offre payante",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/PreOrder",
         },
@@ -200,18 +230,18 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
     
     features_html = ""
     for icon, feature_title, fdesc in features:
-        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{feature_title}</h3><p>{fdesc}</p></div>\n'
+        features_html += f'    <div class="feat"><div class="icon">{icon_label(icon)}</div><h3>{feature_title}</h3><p>{fdesc}</p></div>\n'
     diagnostic_href = f"../?source=seo_metier_{trade_id}&metier={quote(label, safe='')}#beta"
     
     html = TEMPLATE.format(
-        emoji=escape(emoji), label=escape(label), label_lower=escape(label.lower()),
+        emoji=escape(emoji), label=escape(display_label), label_lower=escape(display_label.lower()),
         doc_type=doc_type, doc_type_lower=doc_type.lower(),
         trade_id=trade_id, desc=escape(desc), keywords=keywords,
         title_attr=escape(title, quote=True),
         seo_desc_attr=escape(seo_desc, quote=True),
         keywords_attr=escape(keywords, quote=True),
         canonical_url=canonical_url,
-        og_title_attr=escape(f"{emoji} Diqto pour les {label}", quote=True),
+        og_title_attr=escape(f"Diqto pour les {display_label}", quote=True),
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
         features_html=features_html, diagnostic_href=diagnostic_href,
@@ -223,4 +253,4 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         f.write(html)
     count += 1
 
-print(f"✅ {count} pages métier régénérées dans metiers/")
+print(f"OK {count} pages métier régénérées dans metiers/")

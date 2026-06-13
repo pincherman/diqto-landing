@@ -2,6 +2,7 @@
 """Regenerate ALL metier pages (metiers/ folder) — no WhatsApp, app-first."""
 
 import json, os, glob
+from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
@@ -24,7 +25,7 @@ CATEGORY_LABELS = {
 PROFILE_FEATURES = {
     "devis": [
         ("🎤", "Dictez votre devis", "Dictez en langage naturel, l'IA structure tout : prestations, quantités, prix, TVA."),
-        ("📄", "PDF conformes", "Devis et factures professionnels avec mentions légales automatiques."),
+        ("📄", "PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
         ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
         ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
         ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap après quelques utilisations."),
@@ -53,15 +54,26 @@ TEMPLATE = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{emoji} Diqto pour les {label} — {doc_type} IA</title>
+<title>{title_attr}</title>
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<meta name="description" content="Diqto pour les {label_lower} : {doc_type_lower} par la voix et l'IA. Dictez, l'IA comprend votre métier. Disponible sur iOS.">
-<meta name="keywords" content="{keywords}">
-<link rel="canonical" href="https://diqto.fr/metiers/{trade_id}.html">
-<meta property="og:title" content="{emoji} Diqto pour les {label}">
-<meta property="og:description" content="Diqto pour les {label_lower} : {doc_type_lower} par la voix et l'IA.">
-<meta property="og:url" content="https://diqto.fr/metiers/{trade_id}.html">
+<meta name="description" content="{seo_desc_attr}">
+<meta name="keywords" content="{keywords_attr}">
+<link rel="canonical" href="{canonical_url}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{canonical_url}">
+<meta property="og:title" content="{og_title_attr}">
+<meta property="og:description" content="{seo_desc_attr}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Diqto">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{og_title_attr}">
+<meta name="twitter:description" content="{seo_desc_attr}">
+<meta name="twitter:image" content="{og_image}">
+<script type="application/ld+json">
+{schema_json}
+</script>
 <style>
 :root {{ --bg:#0C0C0C; --primary:#6366F1; --green:#22C55E; --text:#fff; --dim:#9CA3AF; --card:#1A1A2E; --border:#2A2A3E; }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -131,19 +143,55 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
     doc_types = {"devis": "Devis & factures", "honoraires": "Notes d'honoraires & suivi", "abonnement": "Abonnements & facturation"}
     doc_type = doc_types.get(profile, "Devis & factures")
     
-    desc = f"Diqto pour les {label.lower()} : {doc_type.lower()} par la voix et l'IA. Dictez, l'IA comprend votre métier et génère vos documents en quelques secondes."
+    title = f"{emoji} Diqto pour les {label} — {doc_type} IA"
+    seo_desc = (
+        f"Diqto pour les {label.lower()} : {doc_type.lower()} depuis l'iPhone. "
+        "Dictez, relisez, puis partagez sous contrôle humain."
+    )
+    desc = seo_desc
+    canonical_url = f"https://diqto.fr/metiers/{trade_id}.html"
+    og_image = "https://diqto.fr/og-image.png"
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": f"Diqto pour {label}",
+        "url": canonical_url,
+        "description": seo_desc,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS",
+        "image": og_image,
+        "inLanguage": "fr-FR",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Diqto",
+            "url": "https://diqto.fr/",
+        },
+        "offers": {
+            "@type": "Offer",
+            "description": "Diagnostic avant offre commerciale",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder",
+        },
+    }
     
     keywords = f"devis {label.lower()}, facture {label.lower()}, application {label.lower()}, {label.lower()} IA"
     
     features_html = ""
-    for icon, title, fdesc in features:
-        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{title}</h3><p>{fdesc}</p></div>\n'
+    for icon, feature_title, fdesc in features:
+        features_html += f'    <div class="feat"><div class="icon">{icon}</div><h3>{feature_title}</h3><p>{fdesc}</p></div>\n'
     diagnostic_href = f"../?source=seo_metier_{trade_id}&metier={quote(label, safe='')}#beta"
     
     html = TEMPLATE.format(
-        emoji=emoji, label=label, label_lower=label.lower(),
+        emoji=escape(emoji), label=escape(label), label_lower=escape(label.lower()),
         doc_type=doc_type, doc_type_lower=doc_type.lower(),
-        trade_id=trade_id, desc=desc, keywords=keywords,
+        trade_id=trade_id, desc=escape(desc), keywords=keywords,
+        title_attr=escape(title, quote=True),
+        seo_desc_attr=escape(seo_desc, quote=True),
+        keywords_attr=escape(keywords, quote=True),
+        canonical_url=canonical_url,
+        og_title_attr=escape(f"{emoji} Diqto pour les {label}", quote=True),
+        og_image=og_image,
+        schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
         features_html=features_html, diagnostic_href=diagnostic_href,
     )
     

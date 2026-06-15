@@ -1212,9 +1212,11 @@ footer {
   window.starterIntakePrefill = function starterIntakePrefill() {
     var params = new URLSearchParams(window.location.search);
     var metier = params.get('metier');
+    var source = params.get('source');
     var accessLink = document.querySelector('.final-cta .btn-primary');
     if (metier && accessLink) {
       var body = 'Bonjour,\\nJe veux tester Diqto Free.\\nMetier : ' + metier.replace(/[-_]+/g, ' ') + '\\nPremier brouillon a creer :\\n';
+      if (source) body += 'Source : ' + source + '\\n';
       accessLink.href = 'mailto:support@diqto.fr?subject=Acces%20Diqto%20Free&body=' + encodeURIComponent(body);
     }
   };

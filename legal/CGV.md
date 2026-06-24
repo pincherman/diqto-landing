@@ -1,8 +1,8 @@
 # Conditions Générales de Vente (CGV)
 
-**Diqto — Application de facturation pour micro-entrepreneurs**
+**Diqto — Application de facturation pour indépendants**
 
-*Dernière mise à jour : 22 mars 2026*
+*Dernière mise à jour : 24 juin 2026*
 
 ---
 
@@ -14,13 +14,15 @@ Les présentes Conditions Générales de Vente (ci-après « CGV ») définissen
 
 ## 2. Vendeur
 
-**Diqto**
-Philippe Incherman — Micro-entrepreneur *(ou société en cours d'immatriculation)*
-SIRET : *[À compléter]*
-Adresse : *[À compléter]*
+**DIQTO**
+Société par actions simplifiée à associé unique (SASU)
+Capital social : 1 000 euros
+SIREN : 106 569 619
+RCS Marseille : 106 569 619
+Siège social : 498 Rue Paradis, 13008 Marseille
 Email : support@diqto.fr
 
-TVA non applicable, article 293 B du Code général des impôts *(mention à adapter si dépassement du seuil de franchise ou immatriculation en société)*.
+Les offres payantes ne déclenchent aucun paiement réel tant que le checkout n'est pas activé. La TVA applicable et, le cas échéant, le numéro de TVA intracommunautaire seront précisés avant toute facturation.
 
 ---
 
@@ -38,7 +40,7 @@ Une offre annuelle peut être proposée à 90 € HT/an pour Diqto Essential et 
 
 Le plan Diqto Free permet une découverte durable du Service sans carte bancaire. Il ne constitue pas une offre de production illimitée : les documents finalisés, exportés ou envoyés sont limités à 3 par mois et les PDF conservent un footer Diqto.
 
-Les prix sont indiqués en euros (€) hors taxes, sauf mention contraire. TVA non applicable (art. 293 B du CGI), sauf changement de régime ou mention contraire.
+Les prix sont indiqués en euros (€) hors taxes, sauf mention contraire. La TVA applicable sera précisée au moment de l'activation du paiement et de l'émission des factures d'abonnement.
 
 Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notifiée aux Utilisateurs au moins 30 jours avant son entrée en vigueur. Les tarifs en cours d'un abonnement restent applicables jusqu'à la fin de la période en cours.
 
@@ -147,14 +149,11 @@ Diqto ne saurait être tenu responsable des conséquences fiscales, comptables o
 
 ---
 
-## 10. Mentions spécifiques micro-entrepreneur
+## 10. Mentions spécifiques société
 
-Diqto est édité par un micro-entrepreneur au sens de l'article L.613-7 du Code de la sécurité sociale. En conséquence :
+Diqto est édité par DIQTO, SASU immatriculée au RCS de Marseille. Les abonnements payants restent en préparation : aucun achat intégré, checkout Stripe ou prélèvement automatique n'est actif tant que le paiement n'a pas été explicitement activé dans le Service.
 
-- **TVA non applicable** (art. 293 B du CGI), sauf dépassement du seuil de franchise en base. Les prix indiqués sont des prix nets.
-- En cas d'assujettissement à la TVA, les prix seront mis à jour et les Utilisateurs en seront informés dans un délai raisonnable.
-
-*Cette mention sera mise à jour en cas de changement de statut juridique (création de société).*
+Avant toute facturation, Diqto précisera les informations fiscales applicables aux factures d'abonnement, notamment la TVA le cas échéant.
 
 ---
 
@@ -166,7 +165,7 @@ En cas de litige, les parties privilégieront une résolution amiable. L'Utilisa
 
 L'Utilisateur peut également recourir à la plateforme de résolution des litiges en ligne de la Commission européenne : [https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr).
 
-À défaut de résolution amiable, le litige sera porté devant les tribunaux compétents de Paris, sous réserve des règles de compétence applicables aux consommateurs.
+À défaut de résolution amiable, le litige sera porté devant les tribunaux compétents selon les règles de droit commun, sous réserve des règles de compétence applicables aux consommateurs.
 
 ---
 

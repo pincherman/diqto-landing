@@ -2,22 +2,24 @@
 
 **Site : [diqto.fr](https://diqto.fr)**
 
-*Dernière mise à jour : 22 mars 2026*
+*Dernière mise à jour : 24 juin 2026*
 
 ---
 
 ## 1. Éditeur du site
 
-**Diqto**
-Philippe Incherman — Micro-entrepreneur *(ou société en cours d'immatriculation)*
+**DIQTO**
 
-- **SIRET** : *[À compléter lors de l'immatriculation]*
-- **Adresse** : *[À compléter]*
+- **Forme juridique** : Société par actions simplifiée à associé unique (SASU)
+- **Capital social** : 1 000 euros
+- **SIREN** : 106 569 619
+- **RCS Marseille** : 106 569 619
+- **Siège social** : 498 Rue Paradis, 13008 Marseille
 - **Email** : support@diqto.fr
-- **Téléphone** : *[À compléter]*
+- **Contact téléphonique** : communiqué sur demande via l'adresse support
 - **Directeur de la publication** : Philippe Incherman
 
-TVA non applicable, article 293 B du Code général des impôts *(mention à adapter en cas d'assujettissement à la TVA ou de création de société)*.
+Les offres payantes ne déclenchent aucun paiement réel tant que le checkout n'est pas activé. La TVA applicable et, le cas échéant, le numéro de TVA intracommunautaire seront précisés avant toute facturation.
 
 ---
 
@@ -44,13 +46,13 @@ Site : [neon.tech](https://neon.tech)
 
 ## 3. Activité
 
-Diqto est une application de création et gestion de documents commerciaux (devis, factures, notes d'honoraires) destinée aux micro-entrepreneurs et travailleurs indépendants exerçant en France.
+Diqto est une application de création et gestion de documents commerciaux (devis, factures, notes d'honoraires) destinée aux indépendants, artisans, professions libérales et petites entreprises exerçant en France.
 
 ---
 
 ## 4. Propriété intellectuelle
 
-L'ensemble des éléments composant le site diqto.fr et le Service Diqto (textes, images, logos, marques, logiciel, design, code source) sont protégés par le droit de la propriété intellectuelle et sont la propriété exclusive de Diqto / Philippe Incherman, sauf mention contraire.
+L'ensemble des éléments composant le site diqto.fr et le Service Diqto (textes, images, logos, marques, logiciel, design, code source) sont protégés par le droit de la propriété intellectuelle et sont la propriété exclusive de DIQTO, sauf mention contraire.
 
 Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie de ces éléments, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de Diqto.
 
@@ -84,4 +86,4 @@ Le site diqto.fr et les présentes mentions légales sont régis par le droit fr
 
 ---
 
-*Mentions légales conformes à la loi n°2004-575 du 21 juin 2004 (LCEN) et au décret n°2007-750 du 9 mai 2007.*
+*Mentions légales établies au regard des informations publiques d'immatriculation disponibles au 24 juin 2026 et des obligations LCEN applicables aux sites professionnels.*

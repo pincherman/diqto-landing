@@ -1,8 +1,8 @@
 # Politique de Confidentialité
 
-**Diqto — Application de facturation pour micro-entrepreneurs**
+**Diqto — Application de facturation pour indépendants**
 
-*Dernière mise à jour : 22 mars 2026*
+*Dernière mise à jour : 24 juin 2026*
 
 La présente Politique de Confidentialité décrit la manière dont Diqto collecte, utilise, stocke et protège les données personnelles de ses Utilisateurs, conformément au Règlement (UE) 2016/679 (« RGPD ») et à la loi n°78-17 du 6 janvier 1978 modifiée (« Informatique et Libertés »).
 
@@ -10,10 +10,12 @@ La présente Politique de Confidentialité décrit la manière dont Diqto collec
 
 ## 1. Responsable de traitement
 
-**Diqto**
-Philippe Incherman
-SIRET : *[À compléter]*
-Adresse : *[À compléter]*
+**DIQTO**
+Société par actions simplifiée à associé unique (SASU)
+Capital social : 1 000 euros
+SIREN : 106 569 619
+RCS Marseille : 106 569 619
+Siège social : 498 Rue Paradis, 13008 Marseille
 Email : support@diqto.fr
 
 Contact délégué à la protection des données (DPO) : **support@diqto.fr**

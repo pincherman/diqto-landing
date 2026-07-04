@@ -37,7 +37,7 @@ CATEGORY_LABELS = {
 PROFILE_FEATURES = {
     "devis": [
         ("🎤", "Dictez votre devis", "Dictez en langage naturel, l'IA structure tout : prestations, quantités, prix, TVA."),
-        ("📄", "Brouillons PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
+        ("📄", "Brouillons PDF à relire", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
         ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
         ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
         ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap après quelques utilisations."),

@@ -156,7 +156,7 @@ def get_features_html(metier_data):
         "note_debours": ("FRAIS", "Notes de débours", "Suivez et refacturez vos frais avancés"),
         "facturation_recurrente": ("RECUR", "Facturation récurrente cadrée", "Abonnements et forfaits préparés avant validation humaine"),
         "briefing": ("BRIEF", "Briefing chantier", "Résumé du projet pour votre équipe"),
-        "lettre_mission": ("MISSION", "Lettre de mission", "Générez vos lettres de mission conformes"),
+        "lettre_mission": ("MISSION", "Lettre de mission", "Préparez vos lettres de mission à relire"),
     }
     
     for feat_key, feat_info in feature_labels.items():

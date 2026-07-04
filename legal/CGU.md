@@ -47,7 +47,7 @@ Chaque numéro de téléphone ne peut être associé qu'à un seul compte. La cr
 
 Diqto permet aux Utilisateurs de :
 
-- Créer des devis, factures et notes d'honoraires conformes à la réglementation française ;
+- Préparer des devis, factures et notes d'honoraires avec les mentions disponibles dans Diqto, à vérifier par l'Utilisateur avant envoi ;
 - Personnaliser leurs documents avec leurs informations professionnelles ;
 - Exporter et partager leurs documents (PDF) ;
 - Suivre leur activité commerciale (historique, chiffre d'affaires) ;

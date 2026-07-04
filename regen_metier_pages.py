@@ -68,7 +68,7 @@ METIERS = [
         "features": [
             ("🎤", "Dictez votre devis", "Entre deux interventions, dictez. L'IA structure : main d'œuvre, fournitures, TVA."),
             ("📸", "Photo → brouillon IA", "Photographiez le chantier. Diqto prépare un brouillon à relire avec prestations, fournitures et TVA."),
-            ("📄", "Brouillons PDF conformes", "Devis et factures prêts à relire avec mentions légales, numérotation et conditions."),
+            ("📄", "Brouillons PDF à relire", "Devis et factures prêts à relire avec mentions légales, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant d'activer un lien ou un process de paiement."),
             ("🔄", "Relances pilotées", "Diqto prépare les prochaines relances et garde le contexte client, sans envoi aveugle."),
             ("🏛️", "URSSAF", "Alertes cotisations, seuil TVA, livre des recettes."),
@@ -84,7 +84,7 @@ METIERS = [
         "features": [
             ("🎤", "Dictez", "Dictez votre devis en langage naturel. L'IA structure tout."),
             ("📸", "Photo → brouillon", "Photographiez le tableau électrique. Diqto prépare un brouillon à relire."),
-            ("📄", "PDF conformes", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
+            ("📄", "PDF prêts à relire", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap."),
@@ -131,7 +131,7 @@ METIERS = [
         "pain": "Chiffrer un chantier vous prend plus de temps que le peindre ?",
         "features": [
             ("🎤", "Dictez", "Dictez votre devis sur le chantier."),
-            ("📄", "PDF conformes", "Devis détaillés : main d'œuvre + fournitures + TVA."),
+            ("📄", "PDF prêts à relire", "Devis détaillés : main d'œuvre + fournitures + TVA."),
             ("💳", "Paiement cadré", "Acompte et solde restent qualifiés avant activation du paiement."),
             ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue", "Vos prestations habituelles en 1 tap."),
@@ -180,7 +180,7 @@ METIERS = [
         "features": [
             ("🎤", "Dictez", "Dictez votre devis sur le chantier."),
             ("📸", "Photo → brouillon", "Photographiez la pièce. Diqto prépare un brouillon à relire."),
-            ("📄", "PDF conformes", "Main d'œuvre + fournitures + TVA."),
+            ("📄", "PDF prêts à relire", "Main d'œuvre + fournitures + TVA."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées avec contexte client."),
             ("🧠", "Catalogue", "Vos prestations en 1 tap."),

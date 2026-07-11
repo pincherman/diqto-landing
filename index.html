@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0c0c0c">
 <title>Diqto — Moins d'administratif, plus de métier</title>
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -41,21 +42,21 @@
 </script>
 <style>
 :root {
-  --ink: #101510;
-  --ink-soft: #263126;
-  --paper: #f5f3ea;
-  --paper-light: #fbfaf6;
-  --white: #fff;
-  --green: #20c963;
-  --green-dark: #0c6f38;
-  --green-soft: #d9f8e4;
-  --line: #d9ddd4;
-  --muted: #5f695f;
+  --ink: #f5f5f2;
+  --ink-soft: #d6ddd6;
+  --paper: #121712;
+  --paper-light: #0c0c0c;
+  --white: #171b17;
+  --green: #25d366;
+  --green-dark: #25d366;
+  --green-soft: rgba(37, 211, 102, 0.12);
+  --line: rgba(255, 255, 255, 0.11);
+  --muted: #a3aaa3;
   --warm: #f0b768;
   --radius-sm: 12px;
   --radius: 20px;
   --radius-lg: 32px;
-  --shadow: 0 24px 70px rgba(24, 34, 24, 0.12);
+  --shadow: 0 28px 90px rgba(0, 0, 0, 0.46);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -108,8 +109,8 @@ button, input, textarea { font: inherit; }
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(16, 21, 16, 0.08);
-  background: rgba(251, 250, 246, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.88);
   backdrop-filter: blur(18px);
 }
 .nav-shell {
@@ -142,7 +143,7 @@ button, input, textarea { font: inherit; }
 .brand-mark i {
   width: 3px;
   border-radius: 3px;
-  background: var(--white);
+  background: #fff;
   transform-origin: center;
   animation: brandWave 1.15s ease-in-out infinite;
 }
@@ -164,13 +165,19 @@ button, input, textarea { font: inherit; }
 }
 .nav-links a:hover { color: var(--green-dark); }
 .nav-cta, .button-primary, .price-btn.primary {
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--white) !important;
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #0c0c0c !important;
 }
 .nav-cta { padding: 10px 18px; border-radius: 999px; }
 
-.hero { padding: 80px 0 68px; overflow: hidden; }
+.hero {
+  padding: 80px 0 68px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 34%, rgba(37, 211, 102, 0.14), transparent 30%),
+    var(--paper-light);
+}
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
@@ -210,7 +217,7 @@ button, input, textarea { font: inherit; }
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(16, 21, 16, 0.12);
 }
-.button-secondary { border: 1px solid var(--line); background: var(--white); }
+.button-secondary { border: 1px solid var(--line); background: rgba(255, 255, 255, 0.035); }
 .hero-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
 
 .day-card {
@@ -239,8 +246,8 @@ button, input, textarea { font: inherit; }
   margin-top: 24px;
   padding: 18px;
   border-radius: var(--radius);
-  background: var(--ink);
-  color: var(--white);
+  background: #0c0c0c;
+  color: #fff;
 }
 .voice-note small { color: #b8c1b8; }
 .voice-wave { height: 36px; display: flex; align-items: center; gap: 4px; margin: 14px 0; }
@@ -273,9 +280,9 @@ button, input, textarea { font: inherit; }
   font-weight: 600;
 }
 
-.intent-section { padding: 92px 0; background: var(--ink); color: var(--white); }
+.intent-section { padding: 92px 0; background: #090b09; color: #fff; }
 .intent-section .eyebrow { color: var(--green); }
-.intent-section .section-intro { color: #b9c2b9; }
+.intent-section .section-intro { color: var(--muted); }
 .intent-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -294,7 +301,7 @@ button, input, textarea { font: inherit; }
 .intent-card:hover { border-color: var(--green); transform: translateY(-3px); }
 .intent-card small { color: var(--green); font-weight: 700; }
 .intent-card h3 { margin-top: 28px; font-size: 22px; line-height: 1.16; }
-.intent-card p { margin-top: 12px; color: #b9c2b9; font-size: 15px; }
+.intent-card p { margin-top: 12px; color: var(--muted); font-size: 15px; }
 
 .day-section { padding: 110px 0; }
 .day-layout {
@@ -361,10 +368,10 @@ button, input, textarea { font: inherit; }
   margin-top: 18px;
   padding: 24px 28px;
   border-radius: var(--radius);
-  background: var(--ink);
-  color: var(--white);
+  background: #090b09;
+  color: #fff;
 }
-.photo-note p { margin-top: 6px; color: #b9c2b9; }
+.photo-note p { margin-top: 6px; color: var(--muted); }
 
 .trades { padding: 90px 0; border-block: 1px solid var(--line); background: var(--paper); }
 .trade-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -398,7 +405,7 @@ button, input, textarea { font: inherit; }
   padding: 6px 12px;
   border-radius: 999px;
   background: var(--green);
-  color: var(--ink);
+  color: #0c0c0c;
   font-size: 12px;
   font-weight: 800;
 }
@@ -416,13 +423,16 @@ button, input, textarea { font: inherit; }
 .final-panel {
   padding: clamp(34px, 7vw, 80px);
   border-radius: var(--radius-lg);
-  background: var(--ink);
-  color: var(--white);
+  border: 1px solid rgba(37, 211, 102, 0.28);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(37, 211, 102, 0.2), transparent 34%),
+    #090b09;
+  color: #fff;
 }
 .final-panel h2 { max-width: 840px; font-size: clamp(38px, 6vw, 68px); line-height: 1.02; letter-spacing: -0.05em; }
-.final-panel > p { max-width: 650px; margin-top: 20px; color: #b9c2b9; font-size: 18px; }
-.final-panel .button-primary { background: var(--green); border-color: var(--green); color: var(--ink) !important; }
-.final-panel .button-secondary { background: transparent; color: var(--white); border-color: #4b594b; }
+.final-panel > p { max-width: 650px; margin-top: 20px; color: var(--muted); font-size: 18px; }
+.final-panel .button-primary { background: var(--green); border-color: var(--green); color: #0c0c0c !important; }
+.final-panel .button-secondary { background: transparent; color: #fff; border-color: #4b594b; }
 .final-small { margin-top: 16px !important; font-size: 13px !important; }
 
 footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }

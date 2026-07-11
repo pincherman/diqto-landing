@@ -42,6 +42,28 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://diqto.fr/#organization",
+      "name": "Diqto",
+      "url": "https://diqto.fr/",
+      "logo": "https://diqto.fr/apple-touch-icon.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://diqto.fr/#website",
+      "name": "Diqto",
+      "url": "https://diqto.fr/",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://diqto.fr/#organization" }
+    }
+  ]
+}
+</script>
 <style>
 :root {
   --ink: #f5f5f2;
@@ -374,6 +396,27 @@ button, input, textarea { font: inherit; }
   color: #fff;
 }
 .photo-note p { margin-top: 6px; color: var(--muted); }
+.guide-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.guide-links a {
+  display: flex;
+  min-height: 132px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.guide-links a:hover { border-color: var(--green); transform: translateY(-2px); }
+.guide-links strong { color: var(--green); }
+.guide-links span { margin-top: 16px; color: var(--muted); font-size: 14px; }
 
 .trades { padding: 90px 0; border-block: 1px solid var(--line); background: var(--paper); }
 .trade-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -473,6 +516,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .button-primary, .button-secondary { width: 100%; }
   .intent-section, .day-section, .how-section, .benefits, .trades, .pricing { padding: 76px 0; }
   .intent-grid { grid-template-columns: 1fr; }
+  .guide-links { grid-template-columns: 1fr; }
   .intent-card { min-height: 0; }
   .intent-card h3 { margin-top: 18px; }
   .timeline-item { grid-template-columns: 62px 1fr; gap: 12px; }
@@ -498,7 +542,8 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
     <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">
       <a href="/" aria-current="page">Accueil</a>
       <a href="/fonctionnalites.html">Fonctionnalités</a>
-      <a href="/docs.html">Bien démarrer</a>
+      <a href="/metiers.html">Métiers</a>
+      <a href="/guides.html">Guides</a>
       <a href="#tarifs">Tarifs</a>
       <a class="global-cta" href="#beta">Commencer gratuit</a>
     </nav>
@@ -664,6 +709,11 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
         <strong>Sur chantier, une photo peut aussi faire gagner du temps.</strong>
         <p>Pour les métiers actuellement pris en charge — plombier, électricien, peintre, maçon, menuisier, carreleur et chauffagiste — Diqto peut analyser une photo et préparer une estimation modifiable. Aucun prix ni devis n'est envoyé automatiquement.</p>
       </div>
+      <div class="guide-links" aria-label="Guides pour choisir et préparer sa facturation">
+        <a href="/guides/logiciel-devis-facture-artisan.html"><strong>Artisans</strong><span>Choisir un logiciel de devis et facture utile sur le terrain</span></a>
+        <a href="/guides/logiciel-facturation-micro-entrepreneur.html"><strong>Micro-entreprise</strong><span>Les critères simples pour mieux facturer sans s'alourdir</span></a>
+        <a href="/guides/facturation-electronique-micro-entreprise.html"><strong>Réforme 2026–2027</strong><span>Comprendre la facturation électronique avec les sources officielles</span></a>
+      </div>
     </div>
   </section>
 
@@ -683,7 +733,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
         <a href="/coach-sportif.html">Coach sportif</a>
         <a href="/photographe.html">Photographe</a>
         <a href="/metiers/consultant.html">Consultant</a>
-        <span>et beaucoup d'autres</span>
+        <a href="/metiers.html">Voir tous les métiers accompagnés</a>
       </div>
       <p class="trade-footnote">Micro-entreprise, EI, EURL, SASU, association ou SCI : le cadre de votre activité est pris en compte.</p>
     </div>
@@ -775,7 +825,8 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       <div class="footer-column">
         <h3>Découvrir</h3>
         <a href="/fonctionnalites.html">Fonctionnalités</a>
-        <a href="#metiers">Métiers</a>
+        <a href="/metiers.html">Métiers</a>
+        <a href="/guides.html">Guides</a>
         <a href="#tarifs">Tarifs</a>
       </div>
       <div class="footer-column">

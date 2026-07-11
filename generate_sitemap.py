@@ -55,6 +55,10 @@ def sitemap_priority(path: Path) -> tuple[str, str]:
         return "weekly", "0.8"
     if rel == "docs.html":
         return "weekly", "0.7"
+    if rel in {"metiers.html", "guides.html"}:
+        return "weekly", "0.8"
+    if rel.startswith("guides/"):
+        return "weekly", "0.8"
     if rel in {"cgu.html", "confidentialite.html", "mentions-legales.html"}:
         return "weekly", "0.3"
     if rel.startswith("metiers/"):

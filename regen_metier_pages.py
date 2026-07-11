@@ -243,6 +243,10 @@ body {{ font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--te
 .final p {{ color:var(--dim); margin-bottom:24px; }}
 footer {{ text-align:center; padding:40px 0; color:var(--dim); font-size:13px; border-top:1px solid var(--border); }}
 footer a {{ color:var(--primary); text-decoration:none; }}
+.seo-next {{ max-width:800px; margin:0 auto 52px; padding:22px 24px; border:1px solid var(--border); border-radius:18px; background:#121712; }}
+.seo-next strong {{ display:block; margin-bottom:8px; }}
+.seo-next a {{ color:var(--primary); font-weight:700; text-decoration:none; }}
+.seo-next a + a {{ margin-left:18px; }}
 @media (max-width:600px) {{ .hero {{ padding:58px 0 40px; }} .features {{ grid-template-columns:1fr; }} .cta {{ width:100%; }} }}
 </style>
 </head>
@@ -251,7 +255,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
-  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/docs.html">Bien démarrer</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="{diagnostic_href}">Commencer gratuit</a></nav>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="{diagnostic_href}">Commencer gratuit</a></nav>
 </div></header>
 <main id="contenu">
 <section class="hero">
@@ -271,6 +275,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
     <p>"{example}"</p>
   </div>
 </div>
+<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
 <section class="final">
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>
@@ -281,7 +286,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </main>
 <footer>
   <div class="container">
-    <p>© 2026 Diqto · <a href="/">Accueil</a> · <a href="/fonctionnalites.html">Fonctionnalités</a> · <a href="/docs.html">Bien démarrer</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:support@diqto.fr">Support</a></p>
+    <p>© 2026 Diqto · <a href="/">Accueil</a> · <a href="/fonctionnalites.html">Fonctionnalités</a> · <a href="/metiers.html">Métiers</a> · <a href="/guides.html">Guides</a> · <a href="/docs.html">Bien démarrer</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:support@diqto.fr">Support</a></p>
     <p style="margin-top:8px;">Marque déposée INPI N° 5234942</p>
   </div>
 </footer>
@@ -289,6 +294,12 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 </html>'''
 
 for m in METIERS:
+    if m["id"] in {"plombier", "electricien", "peintre", "menuisier", "carreleur"}:
+        guide_href = "/guides/logiciel-devis-facture-artisan.html"
+        guide_label = "Choisir un logiciel de devis artisan"
+    else:
+        guide_href = "/guides/logiciel-facturation-micro-entrepreneur.html"
+        guide_label = "Choisir un logiciel de facturation micro-entrepreneur"
     features_html = ""
     for icon, feature_title, feature_desc in m["features"]:
         features_html += f'    <div class="feat"><div class="icon">{icon_label(icon)}</div><h3>{feature_title}</h3><p>{feature_desc}</p></div>\n'
@@ -335,6 +346,8 @@ for m in METIERS:
         pain=escape(m["pain"]),
         features_html=features_html,
         example=escape(m["example"]),
+        guide_href=guide_href,
+        guide_label=guide_label,
         diagnostic_href=f"/?source=seo_top_{m['id']}&metier={quote(m['label'], safe='')}#beta",
     )
     

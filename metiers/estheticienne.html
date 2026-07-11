@@ -73,6 +73,10 @@ footer { text-align:center; padding:32px 0; color:var(--dim); font-size:12px; bo
 footer p { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
 footer a { color:var(--dim); text-decoration:none; }
 footer a:hover { color:var(--primary); }
+.seo-next { max-width:800px; margin:0 auto 52px; padding:22px 24px; border:1px solid var(--border); border-radius:18px; background:#121712; }
+.seo-next strong { display:block; margin-bottom:8px; }
+.seo-next a { color:var(--primary); font-weight:700; text-decoration:none; }
+.seo-next a + a { margin-left:18px; }
 @media (max-width:600px) { .hero { padding:58px 0 38px; } .features { grid-template-columns:1fr; } .cta { width:100%; } }
 </style>
 </head>
@@ -82,7 +86,7 @@ footer a:hover { color:var(--primary); }
   <div class="global-nav">
     <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
     <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
-    <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/docs.html">Bien démarrer</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="../?source=seo_metier_estheticienne&metier=Esth%C3%A9ticienne#beta">Commencer gratuit</a></nav>
+    <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="../?source=seo_metier_estheticienne&metier=Esth%C3%A9ticienne#beta">Commencer gratuit</a></nav>
   </div>
 </header>
 <main id="contenu">
@@ -101,6 +105,7 @@ footer a:hover { color:var(--primary); }
     <div class="feat"><div class="icon">TAX</div><h3>URSSAF</h3><p>Alertes cotisations, seuils TVA, livre des recettes.</p></div>
 
 </div></div>
+<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="/guides/logiciel-devis-facture-artisan.html">Choisir un logiciel de devis artisan</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
   <p>Essai gratuit avant tout paiement : choisissez votre métier, créez un brouillon, relisez avant partage.</p>
@@ -108,7 +113,7 @@ footer a:hover { color:var(--primary); }
 </div></section>
 </main>
 <footer><div class="container">
-  <p><span>© 2026 Diqto</span><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/docs.html">Bien démarrer</a><a href="/cgu.html">CGU</a><a href="/confidentialite.html">Confidentialité</a><a href="mailto:support@diqto.fr">Support</a></p>
+  <p><span>© 2026 Diqto</span><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/docs.html">Bien démarrer</a><a href="/cgu.html">CGU</a><a href="/confidentialite.html">Confidentialité</a><a href="mailto:support@diqto.fr">Support</a></p>
 </div></footer>
 </body>
 </html>

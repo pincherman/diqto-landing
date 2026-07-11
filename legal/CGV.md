@@ -33,14 +33,14 @@ Diqto propose les offres suivantes :
 | Plan | Prix mensuel | Documents | Fonctionnalités |
 |------|---------------|-----------|-----------------|
 | **Diqto Free** | 0 € / mois | Brouillons illimités, 3 documents finalisés/exportés/envoyés par mois | 1 entreprise, 1 utilisateur, clients illimités, PDF avec footer Diqto, 3 vocaux courts par mois jusqu'à 1 minute, tableau de bord simple, aucun checkout ni prélèvement automatique. |
-| **Diqto Essential** | 9 € HT / mois | Devis et factures illimités | Clients illimités, PDF professionnels à relire, vocal court jusqu'à 5 minutes, catalogue auto-appris, paiement cadré avant activation. |
-| **Diqto Vocal Pro** | 19 € HT / mois | Devis et factures illimités | Tout Essential + comptes rendus vocaux longs, usage vocal normal non limité avec fair use anti-abus, notes de séance/chantier/rendez-vous, export FEC, support prioritaire pilote. |
+| **Diqto Essential** | 9 € TTC / mois (France) | Devis et factures illimités | Clients illimités, PDF professionnels à relire, vocal court jusqu'à 5 minutes, catalogue auto-appris, paiement cadré avant activation. |
+| **Diqto Vocal Pro** | 19 € TTC / mois (France) | Devis et factures illimités | Tout Essential + comptes rendus vocaux longs, usage vocal normal non limité avec fair use anti-abus, notes de séance/chantier/rendez-vous, export FEC, support prioritaire pilote. |
 
-Une offre annuelle peut être proposée à 90 € HT/an pour Diqto Essential et 190 € HT/an pour Diqto Vocal Pro.
+Aucune offre annuelle n'est proposée tant qu'elle n'est pas configurée dans l'App Store.
 
 Le plan Diqto Free permet une découverte durable du Service sans carte bancaire. Il ne constitue pas une offre de production illimitée : les documents finalisés, exportés ou envoyés sont limités à 3 par mois et les PDF conservent un footer Diqto.
 
-Les prix sont indiqués en euros (€) hors taxes, sauf mention contraire. La TVA applicable sera précisée au moment de l'activation du paiement et de l'émission des factures d'abonnement.
+Les prix Essential (9 €) et Vocal Pro (19 €) sont les prix TTC de référence pour l'App Store France. Apple affiche avant l'achat le prix local définitif, taxes applicables incluses selon le pays du compte Apple. Ce prix affiché par Apple fait foi.
 
 Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notifiée aux Utilisateurs au moins 30 jours avant son entrée en vigueur. Les tarifs en cours d'un abonnement restent applicables jusqu'à la fin de la période en cours.
 
@@ -50,7 +50,7 @@ Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notif
 
 ### 4.1 Processus
 
-La souscription à un plan payant s'effectuera depuis le Service lorsque le paiement sera activé. L'Utilisateur choisira son plan et procédera au paiement en ligne via le prestataire configuré.
+La souscription à un plan payant s'effectue dans l'application iOS lorsqu'elle est disponible. L'Utilisateur choisit son plan puis Apple affiche le prix local final avant confirmation.
 
 Tant que la souscription payante n'est pas activée dans le Service, aucun prélèvement automatique n'est déclenché.
 

@@ -8,6 +8,7 @@ Lit les configs depuis ../batiboss/config/metiers/*.json
 import json
 import os
 import glob
+import runpy
 from pathlib import Path
 from urllib.parse import quote
 
@@ -593,28 +594,9 @@ def load_all_metiers():
 
 
 def main():
-    print("Génération des pages métier SEO...")
-    
-    # Create output dir
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    
-    # Load all métiers
-    metiers = load_all_metiers()
-    print(f"{len(metiers)} métiers chargés")
-    
-    # Generate pages
-    count = 0
-    for metier_id, metier_data in metiers.items():
-        html = generate_page(metier_id, metier_data, metiers)
-        output_path = OUTPUT_DIR / f"{metier_id}.html"
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(html)
-        name = metier_data.get("name", metier_data.get("label", metier_id))
-        print(f"  OK {name} -> metiers/{metier_id}.html")
-        count += 1
-    
-    print(f"\nOK {count} pages générées dans {OUTPUT_DIR}/")
-    print("Relancez ce script à tout moment pour régénérer toutes les pages.")
+    # Compatibility entry point. The canonical generator owns the shared
+    # navigation, brand theme and mobile behaviour for every trade page.
+    runpy.run_path(str(SCRIPT_DIR / "regen_all_metiers.py"), run_name="__main__")
 
 
 if __name__ == "__main__":

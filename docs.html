@@ -23,6 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-shell.css">
+<script defer src="site-shell.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,17 +102,14 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="nav">
-    <a class="brand" href="/" aria-label="Diqto, accueil">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-      <span class="brand-name">diq<em>to</em></span>
-    </a>
-    <a class="back" href="/">Retour à l'accueil</a>
-  </div>
-</header>
+<a class="global-skip-link" href="#contenu">Aller au contenu</a>
+<header class="global-header" data-menu-open="false"><div class="global-nav">
+  <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
+  <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/docs.html" aria-current="page">Bien démarrer</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="/#beta">Commencer gratuit</a></nav>
+</div></header>
 
-<main>
+<main id="contenu">
   <section class="hero">
     <div class="container">
       <p class="eyebrow">Bien démarrer</p>
@@ -170,9 +169,10 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
       <p>Commencez sans carte bancaire. Changez de plan seulement quand l'usage devient régulier.</p>
       <div class="plan-list">
         <div class="plan"><strong>Free · 0€</strong><p>Clients et brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, et 3 vocaux courts jusqu'à 1 minute.</p></div>
-        <div class="plan"><strong>Essential · 9€ HT</strong><p>Devis et factures illimités, footer supprimé et vocal court jusqu'à 5 minutes.</p></div>
-        <div class="plan"><strong>Vocal Pro · 19€ HT</strong><p>Tout Essential, avec les comptes rendus vocaux longs soumis à fair use.</p></div>
+        <div class="plan"><strong>Essential · 9€ TTC</strong><p>Devis et factures illimités, footer supprimé et vocal court jusqu'à 5 minutes.</p></div>
+        <div class="plan"><strong>Vocal Pro · 19€ TTC</strong><p>Tout Essential, avec les comptes rendus vocaux longs soumis à fair use.</p></div>
       </div>
+      <p>Prix TTC pour l’App Store France. Apple affiche le prix local définitif avant l’achat selon votre pays.</p>
     </div>
   </section>
 

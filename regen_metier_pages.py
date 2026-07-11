@@ -194,10 +194,13 @@ TEMPLATE = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0c0c0c">
 <title>{title_attr}</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 38'><rect width='48' height='38' rx='19' ry='19' fill='%236366f1'/><rect x='8' y='13' width='4' height='12' rx='2' fill='white' opacity='.8'/><rect x='15' y='8' width='4' height='22' rx='2' fill='white' opacity='.8'/><rect x='22' y='5' width='4' height='28' rx='2' fill='white' opacity='.8'/><rect x='29' y='10' width='4' height='18' rx='2' fill='white' opacity='.8'/><rect x='36' y='14' width='4' height='10' rx='2' fill='white' opacity='.8'/></svg>">
+<link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-shell.css">
+<script defer src="site-shell.js"></script>
 <meta name="description" content="{desc_attr}">
 <meta name="keywords" content="{keywords_attr}">
 <link rel="canonical" href="{canonical_url}">
@@ -216,25 +219,23 @@ TEMPLATE = '''<!DOCTYPE html>
 {schema_json}
 </script>
 <style>
-:root {{ --bg:#0C0C0C; --primary:#6366F1; --green:#22C55E; --text:#fff; --dim:#9CA3AF; --card:#1A1A2E; --border:#2A2A3E; }}
+:root {{ --bg:#0c0c0c; --primary:#25d366; --green:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
-body {{ font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--text); }}
+body {{ font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.55; -webkit-font-smoothing:antialiased; }}
 .container {{ max-width:800px; margin:0 auto; padding:0 24px; }}
-nav {{ padding:20px 0; display:flex; align-items:center; justify-content:space-between; max-width:800px; margin:0 auto; padding:20px 24px; }}
-nav a {{ color:var(--primary); text-decoration:none; font-weight:600; }}
-.hero {{ padding:80px 0 60px; text-align:center; }}
-.hero h1 {{ font-size:clamp(28px,5vw,42px); font-weight:800; line-height:1.2; margin-bottom:16px; }}
+.hero {{ padding:88px 0 60px; text-align:center; background:radial-gradient(circle at 78% 28%,rgba(37,211,102,.14),transparent 30%); }}
+.hero h1 {{ font-size:clamp(38px,7vw,66px); font-weight:800; line-height:1.02; letter-spacing:-.05em; margin-bottom:20px; }}
 .hero h1 span {{ color:var(--primary); }}
 .hero p {{ color:var(--dim); font-size:17px; line-height:1.6; max-width:600px; margin:0 auto 32px; }}
-.cta {{ display:inline-block; background:var(--primary); color:#fff; padding:14px 32px; border-radius:12px; text-decoration:none; font-weight:700; font-size:16px; }}
+.cta {{ display:inline-flex; align-items:center; justify-content:center; min-height:52px; background:var(--primary); color:#0c0c0c; padding:14px 24px; border-radius:999px; text-decoration:none; font-weight:700; font-size:16px; }}
 .cta:hover {{ opacity:.9; }}
 .pain {{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; margin:40px 0; text-align:center; font-size:18px; color:var(--dim); line-height:1.6; }}
 .features {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:40px 0; }}
-.feat {{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }}
-.feat .icon {{ display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:26px;padding:0 8px;border-radius:999px;background:rgba(99,102,241,.14);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:10px; }}
+.feat {{ background:var(--card); border:1px solid var(--border); border-radius:18px; padding:20px; }}
+.feat .icon {{ display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:26px;padding:0 8px;border-radius:999px;background:rgba(37,211,102,.12);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:10px; }}
 .feat h3 {{ font-size:16px; font-weight:700; margin-bottom:6px; }}
 .feat p {{ font-size:14px; color:var(--dim); line-height:1.5; }}
-.example {{ background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(139,92,246,0.1)); border:1px solid rgba(99,102,241,0.3); border-radius:12px; padding:24px; margin:40px 0; }}
+.example {{ background:rgba(37,211,102,.08); border:1px solid rgba(37,211,102,.26); border-radius:18px; padding:24px; margin:40px 0; }}
 .example h3 {{ font-size:14px; color:var(--primary); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }}
 .example p {{ font-size:15px; color:var(--dim); line-height:1.6; font-style:italic; }}
 .final {{ text-align:center; padding:60px 0; }}
@@ -242,13 +243,17 @@ nav a {{ color:var(--primary); text-decoration:none; font-weight:600; }}
 .final p {{ color:var(--dim); margin-bottom:24px; }}
 footer {{ text-align:center; padding:40px 0; color:var(--dim); font-size:13px; border-top:1px solid var(--border); }}
 footer a {{ color:var(--primary); text-decoration:none; }}
+@media (max-width:600px) {{ .hero {{ padding:58px 0 40px; }} .features {{ grid-template-columns:1fr; }} .cta {{ width:100%; }} }}
 </style>
 </head>
 <body>
-<nav>
-  <a href="/">diqto.fr</a>
-  <a href="{diagnostic_href}">Commencer gratuit</a>
-</nav>
+<a class="global-skip-link" href="#contenu">Aller au contenu</a>
+<header class="global-header" data-menu-open="false"><div class="global-nav">
+  <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
+  <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/docs.html">Bien démarrer</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="{diagnostic_href}">Commencer gratuit</a></nav>
+</div></header>
+<main id="contenu">
 <section class="hero">
   <div class="container">
     <h1>Diqto pour les <span>{label}</span></h1>
@@ -273,9 +278,10 @@ footer a {{ color:var(--primary); text-decoration:none; }}
     <a href="{diagnostic_href}" class="cta">Commencer gratuit →</a>
   </div>
 </section>
+</main>
 <footer>
   <div class="container">
-    <p>© 2026 Diqto · <a href="/">diqto.fr</a> · <a href="mailto:support@diqto.fr">support@diqto.fr</a></p>
+    <p>© 2026 Diqto · <a href="/">Accueil</a> · <a href="/fonctionnalites.html">Fonctionnalités</a> · <a href="/docs.html">Bien démarrer</a> · <a href="/cgu.html">CGU</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="mailto:support@diqto.fr">Support</a></p>
     <p style="margin-top:8px;">Marque déposée INPI N° 5234942</p>
   </div>
 </footer>

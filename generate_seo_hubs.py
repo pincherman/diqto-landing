@@ -107,7 +107,7 @@ GUIDES = [
             ("/guides/facturation-electronique-micro-entreprise.html", "Comprendre la facture électronique"),
         ],
         "sources": [
-            ("https://www.service-public.fr/entreprendre/vosdroits/F31808", "Entreprendre.Service-Public.fr — mentions obligatoires sur une facture"),
+            ("https://entreprendre.service-public.fr/vosdroits/F31808", "Entreprendre.Service-Public.fr — mentions obligatoires sur une facture"),
         ],
     },
     {
@@ -143,6 +143,83 @@ GUIDES = [
             ("https://www.economie.gouv.fr/tout-savoir-sur-la-facturation-electronique-pour-les-entreprises", "Ministère de l'Économie — calendrier et définition"),
             ("https://www.impots.gouv.fr/professionnel/questions/partir-de-quand-suis-je-concerne-par-la-reforme-de-la-facturation", "impots.gouv.fr — dates selon la taille de l'entreprise"),
             ("https://www.impots.gouv.fr/facturation-electronique-et-plateformes-agreees", "impots.gouv.fr — rôle des plateformes agréées"),
+        ],
+    },
+    {
+        "slug": "mentions-obligatoires-facture-micro-entrepreneur",
+        "title": "Mentions obligatoires sur une facture de micro-entrepreneur : la checklist 2026",
+        "description": "La checklist vérifiée des mentions d'une facture de micro-entrepreneur en 2026 : identité, numérotation, TVA, paiement et cas particuliers.",
+        "eyebrow": "Guide vérifié · Factures",
+        "lead": "Une facture correcte ne se résume pas à un nom, un prix et un total. Voici les champs à contrôler avant de finaliser votre document.",
+        "body": """
+<section class="seo-section"><h2>Les informations de base à vérifier</h2>
+<p>La liste exacte dépend de votre activité, de votre régime de TVA, du client et de l'opération. Le socle comprend généralement la date d'émission, un numéro unique suivant une séquence chronologique continue, l'identité du vendeur et celle du client, la date de la vente ou de la prestation, ainsi que le détail des produits ou services.</p>
+<div class="seo-table-wrap"><table class="seo-table"><thead><tr><th>Bloc</th><th>Points à contrôler</th></tr></thead><tbody>
+<tr><td>Émetteur</td><td>Nom ou dénomination, adresse, numéro Siren, forme juridique si elle s'applique et coordonnées d'immatriculation utiles.</td></tr>
+<tr><td>Client</td><td>Nom ou dénomination et adresse de facturation ; adresse de livraison si elle est différente et requise.</td></tr>
+<tr><td>Document</td><td>Date, numéro unique, date de prestation ou de livraison et numéro de bon de commande s'il a été établi par l'acheteur.</td></tr>
+<tr><td>Détail</td><td>Désignation, quantité, prix unitaire hors taxe, taux de TVA applicable ou mention d'exonération, réductions et totaux.</td></tr>
+<tr><td>Paiement</td><td>Date ou délai de règlement, conditions d'escompte, pénalités de retard et indemnité forfaitaire de 40&nbsp;€ lorsqu'elle s'applique entre professionnels.</td></tr>
+</tbody></table></div></section>
+<section class="seo-section"><h2>Micro-entreprise sans TVA : la mention ne se devine pas</h2>
+<p>Si vous bénéficiez de la franchise en base de TVA, la facture doit porter la mention prévue par le code général des impôts&nbsp;: «&nbsp;TVA non applicable, art. 293 B du CGI&nbsp;». Si votre situation change ou si une opération suit un régime particulier, ne réutilisez pas automatiquement une ancienne facture sans vérifier le traitement.</p>
+<div class="seo-note"><p><strong>À retenir :</strong> «&nbsp;micro-entrepreneur&nbsp;» ne signifie pas toujours «&nbsp;sans TVA&nbsp;». C'est votre régime applicable à la date de l'opération qui commande la facture.</p></div></section>
+<section class="seo-section"><h2>Ce que la réforme ajoute progressivement</h2>
+<p>Le ministère de l'Économie indique que la réforme de la facturation électronique ajoute notamment le Siren du client, l'adresse de livraison quand elle diffère de l'adresse de facturation, la nature des opérations — biens, services ou les deux — et, le cas échéant, la mention de l'option pour le paiement de la TVA d'après les débits.</p>
+<p>Ces champs ne transforment pas un PDF envoyé par email en facture électronique réglementaire. La transmission concernée devra passer par une plateforme agréée selon le calendrier officiel.</p></section>
+<section class="seo-section"><h2>Le contrôle simple avant de finaliser</h2><ol>
+<li>Vérifiez le client et la date de l'opération.</li>
+<li>Contrôlez la continuité de la numérotation.</li>
+<li>Relisez chaque quantité, prix, taux ou mention de TVA.</li>
+<li>Vérifiez les conditions de règlement adaptées au client.</li>
+<li>Conservez la facture selon vos obligations comptables et fiscales.</li>
+</ol>
+<p>Diqto prépare un brouillon éditable et garde le contexte client. La finalisation reste une action humaine&nbsp;: aucun guide générique ne remplace la vérification de votre situation ou le conseil d'un professionnel.</p></section>
+""",
+        "related": [
+            ("/guides/logiciel-facturation-micro-entrepreneur.html", "Choisir son logiciel de facturation"),
+            ("/guides/facturation-electronique-micro-entreprise.html", "Comprendre la réforme 2026–2027"),
+            ("/fonctionnalites.html", "Voir les fonctions de préparation Diqto"),
+        ],
+        "sources": [
+            ("https://www.economie.gouv.fr/entreprises/gerer-son-entreprise-au-quotidien/gerer-sa-comptabilite-et-ses-demarches/mentions-obligatoires-dune-facture-tout-savoir", "Ministère de l'Économie — mentions obligatoires d'une facture"),
+            ("https://entreprendre.service-public.fr/vosdroits/F31808", "Entreprendre.Service-Public.fr — facturation et cas particuliers"),
+        ],
+    },
+    {
+        "slug": "devis-artisan-mentions-obligatoires",
+        "title": "Devis artisan : mentions obligatoires et points à vérifier avant signature",
+        "description": "Ce qu'un artisan doit vérifier sur un devis : identité, détail des travaux, prix, déplacement, durée de validité, signature et cas obligatoires.",
+        "eyebrow": "Guide vérifié · Devis artisan",
+        "lead": "Un devis protège le client et l'artisan seulement s'il décrit clairement ce qui sera fait, à quel prix et dans quelles conditions.",
+        "body": """
+<section class="seo-section"><h2>Quand le devis devient obligatoire</h2>
+<p>La règle dépend de la prestation. La DGCCRF rappelle qu'un professionnel doit informer le consommateur sur le prix avant la conclusion du contrat et qu'un devis détaillé est obligatoire pour plusieurs activités, notamment de nombreux travaux de dépannage, réparation et entretien dans le bâtiment.</p>
+<p>Plomberie, électricité, maçonnerie, menuiserie, serrurerie, couverture, peinture, plâtrerie, revêtements de sols ou génie climatique font partie des activités explicitement citées. D'autres règles particulières existent pour les services à la personne, le déménagement, l'optique, les prestations funéraires et d'autres secteurs.</p></section>
+<section class="seo-section"><h2>La checklist d'un devis lisible</h2><ul>
+<li><strong>Les parties :</strong> identité et coordonnées du professionnel et du client.</li>
+<li><strong>Le document :</strong> date d'établissement et durée de validité de l'offre.</li>
+<li><strong>La prestation :</strong> description précise, quantités et prix unitaires.</li>
+<li><strong>Le chantier :</strong> taux horaire de main-d'œuvre et frais de déplacement lorsqu'ils existent.</li>
+<li><strong>Les montants :</strong> total hors taxe, taux et montant de TVA, total TTC ou mention adaptée au régime.</li>
+<li><strong>Le prix du devis :</strong> caractère gratuit ou payant lorsque cette information est pertinente.</li>
+<li><strong>L'engagement :</strong> signature du professionnel et espace d'acceptation du client selon le parcours.</li>
+</ul>
+<div class="seo-note"><p><strong>Attention :</strong> le contenu varie selon la prestation et les textes qui l'encadrent. Cette checklist est un socle de contrôle, pas une liste universelle suffisante pour tous les métiers.</p></div></section>
+<section class="seo-section"><h2>Un devis accepté engage</h2>
+<p>La DGCCRF décrit le devis comme une offre de contrat. Une fois accepté, il engage les parties sur le périmètre et le prix prévus. Une description vague, une option non distinguée ou un déplacement oublié peut donc devenir un désaccord concret.</p>
+<p>Avant signature, relisez les exclusions, les délais, les conditions de paiement, l'acompte éventuel et les règles applicables si le contrat est conclu à distance ou hors établissement.</p></section>
+<section class="seo-section"><h2>Préparer vite sans envoyer trop vite</h2>
+<p>Sur le terrain, le bon réflexe est de capturer les informations pendant qu'elles sont fraîches&nbsp;: travaux observés, quantités, accès, matériel et réserves. Diqto peut en faire un brouillon modifiable depuis la voix, le texte et, pour sept métiers chantier, une photo.</p>
+<p>Le brouillon n'est ni un prix ferme ni un devis accepté. Vous corrigez les lignes, contrôlez les montants et choisissez vous-même quand finaliser ou partager le document.</p></section>
+""",
+        "related": [
+            ("/guides/logiciel-devis-facture-artisan.html", "Choisir un logiciel utile sur chantier"),
+            ("/metiers.html", "Trouver votre parcours métier"),
+            ("/fonctionnalites.html", "Voir ce que Diqto prépare"),
+        ],
+        "sources": [
+            ("https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/devis", "DGCCRF — obligations, cas et contenu d'un devis"),
         ],
     },
 ]

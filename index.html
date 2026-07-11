@@ -125,6 +125,10 @@ button, input, textarea { font: inherit; }
   gap: 10px;
   text-decoration: none;
 }
+@keyframes brandWave {
+  0%, 100% { transform: scaleY(0.58); opacity: 0.72; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
 .brand-mark {
   width: 42px;
   height: 34px;
@@ -135,10 +139,20 @@ button, input, textarea { font: inherit; }
   justify-content: center;
   gap: 2px;
 }
-.brand-mark i { width: 3px; border-radius: 3px; background: var(--white); }
+.brand-mark i {
+  width: 3px;
+  border-radius: 3px;
+  background: var(--white);
+  transform-origin: center;
+  animation: brandWave 1.15s ease-in-out infinite;
+}
 .brand-mark i:nth-child(1), .brand-mark i:nth-child(5) { height: 8px; }
 .brand-mark i:nth-child(2), .brand-mark i:nth-child(4) { height: 14px; }
 .brand-mark i:nth-child(3) { height: 20px; }
+.brand-mark i:nth-child(2) { animation-delay: 0.12s; }
+.brand-mark i:nth-child(3) { animation-delay: 0.24s; }
+.brand-mark i:nth-child(4) { animation-delay: 0.36s; }
+.brand-mark i:nth-child(5) { animation-delay: 0.48s; }
 .brand-name { font-size: 25px; font-weight: 800; letter-spacing: -0.06em; }
 .brand-name em { color: var(--green-dark); font-style: normal; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
@@ -459,6 +473,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .brand-mark i { animation: none; }
 }
 </style>
 </head>
@@ -484,7 +499,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Pour celles et ceux qui travaillent à leur compte</p>
+        <p class="eyebrow">Pour les indépendants qui veulent souffler</p>
         <h1>Le travail est fini.<br><span>Pas votre journée ?</span></h1>
         <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous récupérez du temps.</p>
         <div class="hero-actions">

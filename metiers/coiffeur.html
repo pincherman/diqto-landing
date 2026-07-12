@@ -48,6 +48,38 @@
   }
 }
 </script>
+<script type="application/ld+json" data-schema="metier-faq">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quels documents préparer pour une activité de coiffeurs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diqto peut structurer des brouillons de devis et factures à partir de votre dictée. Vous relisez toujours les montants, mentions et coordonnées avant partage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on partir d'une prestation comme « Coupe femme » ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Dictez le client, la prestation « Coupe femme », les quantités et les conditions utiles : Diqto les transforme en brouillon modifiable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Diqto connaît-il aussi « Coupe homme » et « Brushing » ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ces prestations peuvent rejoindre votre catalogue métier : « Coupe homme » et « Brushing ». Vous gardez vos propres libellés, unités et tarifs."
+      }
+    }
+  ]
+}
+</script>
 <style>
 :root { --bg:#0c0c0c; --primary:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -66,6 +98,20 @@ body { font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--tex
 .feat .icon { display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:24px;padding:0 8px;border-radius:999px;background:rgba(37,211,102,.12);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:10px; }
 .feat h3 { font-size:16px; font-weight:700; margin-bottom:6px; }
 .feat p { font-size:14px; color:var(--dim); line-height:1.55; }
+.metier-proof { margin:0 auto 52px; padding:30px; background:var(--card); border:1px solid var(--border); border-radius:22px; }
+.metier-proof h2,.faq h2 { font-size:clamp(25px,4vw,34px); line-height:1.15; letter-spacing:-.03em; margin-bottom:14px; }
+.metier-proof > p { color:var(--dim); margin-bottom:20px; }
+.metier-proof blockquote { margin:0 0 24px; padding:18px 20px; border-left:3px solid var(--primary); background:#101410; color:var(--text); border-radius:0 12px 12px 0; }
+.proof-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.proof-card { padding:18px; background:#101410; border-radius:14px; }
+.proof-card h3 { font-size:15px; margin-bottom:8px; }
+.proof-card ul { padding-left:19px; color:var(--dim); font-size:14px; }
+.proof-card li + li { margin-top:6px; }
+.faq { margin:0 auto 52px; }
+.faq details { border-top:1px solid var(--border); padding:17px 0; }
+.faq details:last-child { border-bottom:1px solid var(--border); }
+.faq summary { cursor:pointer; font-weight:700; }
+.faq details p { color:var(--dim); padding-top:10px; max-width:690px; }
 .final { text-align:center; padding:72px 0; border-top:1px solid var(--border); background:#121712; }
 .final h2 { font-size:clamp(28px,5vw,46px); font-weight:800; letter-spacing:-.04em; margin-bottom:12px; }
 .final p { color:var(--dim); margin-bottom:24px; font-size:15px; }
@@ -105,6 +151,22 @@ footer a:hover { color:var(--primary); }
     <div class="feat"><div class="icon">TAX</div><h3>URSSAF</h3><p>Alertes cotisations, seuils TVA, livre des recettes.</p></div>
 
 </div></div>
+<section class="container metier-proof" data-metier-proof="coiffeur">
+  <h2>Un premier brouillon avec le vocabulaire de votre métier</h2>
+  <p>Exemple de demande que vous pouvez dicter puis corriger dans Diqto&nbsp;:</p>
+  <blockquote>Facture pour Mme Dupont, forfait couleur + coupe + brushing à domicile</blockquote>
+  <div class="proof-grid">
+    <div class="proof-card"><h3>Prestations déjà reconnues</h3><ul><li>Coupe femme</li><li>Coupe homme</li><li>Brushing</li><li>Coloration complète</li><li>Mèches / balayage</li><li>Soin kératine</li></ul></div>
+    <div class="proof-card"><h3>Documents à préparer</h3><ul><li>Devis</li><li>Factures</li></ul></div>
+    <div class="proof-card"><h3>Points à contrôler</h3><ul><li>Coordonnées du client et de l&#x27;entreprise</li><li>Montants, taxes et conditions applicables</li><li>Validation humaine avant tout partage</li></ul></div>
+  </div>
+</section>
+<section class="container faq" aria-labelledby="faq-title-coiffeur">
+  <h2 id="faq-title-coiffeur">Questions fréquentes des coiffeurs</h2>
+  <details><summary>Quels documents préparer pour une activité de coiffeurs ?</summary><p>Diqto peut structurer des brouillons de devis et factures à partir de votre dictée. Vous relisez toujours les montants, mentions et coordonnées avant partage.</p></details>
+  <details><summary>Peut-on partir d&#x27;une prestation comme « Coupe femme » ?</summary><p>Oui. Dictez le client, la prestation « Coupe femme », les quantités et les conditions utiles : Diqto les transforme en brouillon modifiable.</p></details>
+  <details><summary>Diqto connaît-il aussi « Coupe homme » et « Brushing » ?</summary><p>Ces prestations peuvent rejoindre votre catalogue métier : « Coupe homme » et « Brushing ». Vous gardez vos propres libellés, unités et tarifs.</p></details>
+</section>
 <aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="/guides/logiciel-devis-facture-artisan.html">Choisir un logiciel de devis artisan</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>

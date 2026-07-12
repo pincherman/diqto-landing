@@ -61,6 +61,15 @@ PROFILE_FEATURES = {
     ],
 }
 
+JURIDIQUE_FINANCE_FEATURES = [
+    ("🎤", "Dictez une mission ou un dossier", "Décrivez le client, la mission et les éléments utiles. Diqto prépare une structure à relire."),
+    ("📄", "Honoraires et cadre de mission", "Notes d'honoraires, factures et documents de mission restent modifiables avant partage."),
+    ("📋", "Briefing client", "Retrouvez le contexte utile du client et les prochaines pièces ou actions à vérifier."),
+    ("🔄", "Relances pilotées", "Diqto prépare les relances avec leur contexte, sans envoi aveugle."),
+    ("🧠", "Catalogue de missions", "Réutilisez vos libellés, unités et conditions habituels sans ressaisie complète."),
+    ("📈", "Suivi des dossiers", "Gardez les brouillons, échéances et actions à relire au même endroit."),
+]
+
 ICON_LABELS = {
     "🎤": "VOIX",
     "📄": "PDF",
@@ -76,19 +85,123 @@ ICON_LABELS = {
     "📊": "BIZ",
 }
 
+DISPLAY_PLURALS = {
+    "animateur / dj": "Animateurs / DJ",
+    "architecte d'intérieur": "Architectes d'intérieur",
+    "coach sportif": "Coachs sportifs",
+    "diagnostiqueur immobilier": "Diagnostiqueurs immobiliers",
+    "expert-comptable": "Experts-comptables",
+    "graphiste / designer": "Graphistes / Designers",
+    "infirmier(e)": "Infirmiers et infirmières",
+    "installateur domotique": "Installateurs domotiques",
+    "masseur bien-être": "Masseurs bien-être",
+    "moniteur de ski": "Moniteurs de ski",
+    "pédicure-podologue": "Pédicures-podologues",
+    "pet-sitter / garde d'animaux": "Pet-sitters / Gardes d'animaux",
+    "praticien en médecine chinoise": "Praticiens en médecine chinoise",
+    "professeur de danse": "Professeurs de danse",
+    "professeur de karaté": "Professeurs de karaté",
+    "professeur de langues": "Professeurs de langues",
+    "professeur de musique": "Professeurs de musique",
+    "professeur de natation": "Professeurs de natation",
+    "professeur de yoga": "Professeurs de yoga",
+    "sage-femme": "Sages-femmes",
+    "toiletteur animalier": "Toiletteurs animaliers",
+}
+
 
 def icon_label(icon):
     return ICON_LABELS.get(icon, "DIQ")
 
 
+def feature_cards(profile, category):
+    if category == "juridique_finance":
+        return JURIDIQUE_FINANCE_FEATURES
+    return PROFILE_FEATURES.get(profile, PROFILE_FEATURES["devis"])
+
+
 def display_plural(label):
     clean = label.strip()
     lower = clean.lower()
+    if lower in DISPLAY_PLURALS:
+        return DISPLAY_PLURALS[lower]
     if lower in {"nettoyage"}:
         return "entreprises de nettoyage"
     if lower.endswith(("s", "x")):
         return clean
     return f"{clean}s"
+
+
+def unique_services(config):
+    services = []
+    for item in config.get("prestations_suggerees", []):
+        if isinstance(item, str):
+            description = item
+        elif isinstance(item, dict):
+            description = item.get("description", "")
+        else:
+            description = ""
+        if description and description not in services:
+            services.append(description)
+    for item in config.get("exemples_prestations", []):
+        if not isinstance(item, dict):
+            continue
+        description = item.get("description", "")
+        if description and description not in services:
+            services.append(description)
+    return services[:6]
+
+
+def document_labels(config, fallback):
+    labels = {
+        "attestation": "attestations",
+        "cotisation": "appels de cotisation",
+        "devis": "devis",
+        "facture": "factures",
+        "lettre_mission": "lettres de mission",
+        "note_honoraires": "notes d'honoraires",
+        "recu": "reçus",
+    }
+    documents = []
+    for item in config.get("doc_types", config.get("document_types", [])):
+        label = labels.get(item, item.replace("_", " "))
+        if label and label not in documents:
+            documents.append(label)
+    return documents or [fallback.lower()]
+
+
+def build_faq(display_label, services, documents):
+    service_examples = services[:3]
+    joined_documents = ", ".join(documents[:-1])
+    if len(documents) > 1:
+        joined_documents += f" et {documents[-1]}"
+    else:
+        joined_documents = documents[0]
+
+    faq = [
+        {
+            "question": f"Quels documents préparer pour une activité de {display_label.lower()} ?",
+            "answer": (
+                f"Diqto peut structurer des brouillons de {joined_documents} à partir "
+                "de votre dictée. Vous relisez toujours les montants, mentions et coordonnées avant partage."
+            ),
+        },
+        {
+            "question": f"Peut-on partir d'une prestation comme « {service_examples[0]} » ?",
+            "answer": (
+                f"Oui. Dictez le client, la prestation « {service_examples[0]} », les quantités "
+                "et les conditions utiles : Diqto les transforme en brouillon modifiable."
+            ),
+        },
+        {
+            "question": f"Diqto connaît-il aussi « {service_examples[1]} » et « {service_examples[2]} » ?",
+            "answer": (
+                f"Ces prestations peuvent rejoindre votre catalogue métier : « {service_examples[1]} » "
+                f"et « {service_examples[2]} ». Vous gardez vos propres libellés, unités et tarifs."
+            ),
+        },
+    ]
+    return faq
 
 TEMPLATE = '''<!DOCTYPE html>
 <html lang="fr">
@@ -119,6 +232,9 @@ TEMPLATE = '''<!DOCTYPE html>
 <script type="application/ld+json">
 {schema_json}
 </script>
+<script type="application/ld+json" data-schema="metier-faq">
+{faq_schema_json}
+</script>
 <style>
 :root {{ --bg:#0c0c0c; --primary:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -137,6 +253,20 @@ body {{ font-family:'Work Sans',sans-serif; background:var(--bg); color:var(--te
 .feat .icon {{ display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:24px;padding:0 8px;border-radius:999px;background:rgba(37,211,102,.12);color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.8px;margin-bottom:10px; }}
 .feat h3 {{ font-size:16px; font-weight:700; margin-bottom:6px; }}
 .feat p {{ font-size:14px; color:var(--dim); line-height:1.55; }}
+.metier-proof {{ margin:0 auto 52px; padding:30px; background:var(--card); border:1px solid var(--border); border-radius:22px; }}
+.metier-proof h2,.faq h2 {{ font-size:clamp(25px,4vw,34px); line-height:1.15; letter-spacing:-.03em; margin-bottom:14px; }}
+.metier-proof > p {{ color:var(--dim); margin-bottom:20px; }}
+.metier-proof blockquote {{ margin:0 0 24px; padding:18px 20px; border-left:3px solid var(--primary); background:#101410; color:var(--text); border-radius:0 12px 12px 0; }}
+.proof-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }}
+.proof-card {{ padding:18px; background:#101410; border-radius:14px; }}
+.proof-card h3 {{ font-size:15px; margin-bottom:8px; }}
+.proof-card ul {{ padding-left:19px; color:var(--dim); font-size:14px; }}
+.proof-card li + li {{ margin-top:6px; }}
+.faq {{ margin:0 auto 52px; }}
+.faq details {{ border-top:1px solid var(--border); padding:17px 0; }}
+.faq details:last-child {{ border-bottom:1px solid var(--border); }}
+.faq summary {{ cursor:pointer; font-weight:700; }}
+.faq details p {{ color:var(--dim); padding-top:10px; max-width:690px; }}
 .final {{ text-align:center; padding:72px 0; border-top:1px solid var(--border); background:#121712; }}
 .final h2 {{ font-size:clamp(28px,5vw,46px); font-weight:800; letter-spacing:-.04em; margin-bottom:12px; }}
 .final p {{ color:var(--dim); margin-bottom:24px; font-size:15px; }}
@@ -170,6 +300,20 @@ footer a:hover {{ color:var(--primary); }}
 <div class="container"><div class="features">
 {features_html}
 </div></div>
+<section class="container metier-proof" data-metier-proof="{trade_id}">
+  <h2>Un premier brouillon avec le vocabulaire de votre métier</h2>
+  <p>Exemple de demande que vous pouvez dicter puis corriger dans Diqto&nbsp;:</p>
+  <blockquote>{example_request}</blockquote>
+  <div class="proof-grid">
+    <div class="proof-card"><h3>Prestations déjà reconnues</h3><ul>{services_html}</ul></div>
+    <div class="proof-card"><h3>Documents à préparer</h3><ul>{documents_html}</ul></div>
+    <div class="proof-card"><h3>Points à contrôler</h3><ul>{checks_html}</ul></div>
+  </div>
+</section>
+<section class="container faq" aria-labelledby="faq-title-{trade_id}">
+  <h2 id="faq-title-{trade_id}">Questions fréquentes des {label_lower}</h2>
+{faq_html}
+</section>
 <aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
@@ -201,7 +345,7 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
     profile = cfg.get("profile", "devis")
     category = cfg.get("category", "autre")
     
-    features = PROFILE_FEATURES.get(profile, PROFILE_FEATURES["devis"])
+    features = feature_cards(profile, category)
     if profile == "devis":
         guide_href = "/guides/logiciel-devis-facture-artisan.html"
         guide_label = "Choisir un logiciel de devis artisan"
@@ -249,12 +393,48 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
             "availability": "https://schema.org/PreOrder",
         },
     }
+
+    services = unique_services(cfg)
+    documents = document_labels(cfg, doc_type)
+    mentions = cfg.get("mentions_legales", [])
+    checks = mentions[:3] or [
+        "Coordonnées du client et de l'entreprise",
+        "Montants, taxes et conditions applicables",
+    ]
+    checks.append("Validation humaine avant tout partage")
+    example_request = cfg.get("exemple_devis") or (
+        f"Préparer un brouillon pour {services[0].lower()}"
+    )
+    faq = build_faq(display_label, services, documents)
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": item["question"],
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item["answer"],
+                },
+            }
+            for item in faq
+        ],
+    }
     
     keywords = f"devis {label.lower()}, facture {label.lower()}, application {label.lower()}, {label.lower()} IA"
     
     features_html = ""
     for icon, feature_title, fdesc in features:
         features_html += f'    <div class="feat"><div class="icon">{icon_label(icon)}</div><h3>{feature_title}</h3><p>{fdesc}</p></div>\n'
+    services_html = "".join(f"<li>{escape(item)}</li>" for item in services)
+    documents_html = "".join(f"<li>{escape(item.capitalize())}</li>" for item in documents)
+    checks_html = "".join(f"<li>{escape(item)}</li>" for item in checks)
+    faq_html = "\n".join(
+        "  <details><summary>"
+        f"{escape(item['question'])}</summary><p>{escape(item['answer'])}</p></details>"
+        for item in faq
+    )
     diagnostic_href = f"../?source=seo_metier_{trade_id}&metier={quote(label, safe='')}#beta"
     
     html = TEMPLATE.format(
@@ -268,9 +448,15 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         og_title_attr=escape(f"Diqto pour les {display_label}", quote=True),
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
+        faq_schema_json=json.dumps(faq_schema, ensure_ascii=False, indent=2),
         features_html=features_html, diagnostic_href=diagnostic_href,
         guide_href=guide_href, guide_label=guide_label,
         canonical_note=canonical_note,
+        example_request=escape(example_request),
+        services_html=services_html,
+        documents_html=documents_html,
+        checks_html=checks_html,
+        faq_html=faq_html,
     )
     
     out_path = OUTPUT_DIR / f"{trade_id}.html"

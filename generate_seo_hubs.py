@@ -238,6 +238,7 @@ def shell(active: str = "") -> str:
         for href, label, key in items
     )
     return f'''<a class="global-skip-link" href="#contenu">Aller au contenu</a>
+<a class="global-announcement" href="/guides/facturation-electronique-micro-entreprise.html"><strong>Facturation électronique</strong><span>Ce qui change en 2026 et 2027 <span aria-hidden="true">→</span></span></a>
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
@@ -280,7 +281,7 @@ def page_head(title: str, description: str, url: str, schema: str, og_type: str 
     return f'''<!DOCTYPE html><html lang="fr"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0c0c0c">
 <title>{escaped_title} — Diqto</title><meta name="description" content="{escaped_description}"><meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="{url}"><link rel="icon" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="{url}"><link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{asset_prefix}site-shell.css"><link rel="stylesheet" href="{asset_prefix}seo-pages.css"><script defer src="{asset_prefix}site-shell.js"></script>
 <meta property="og:type" content="{og_type}"><meta property="og:url" content="{url}"><meta property="og:title" content="{escaped_title}"><meta property="og:site_name" content="Diqto"><meta property="og:description" content="{escaped_description}"><meta property="og:image" content="{BASE_URL}/og-image.png"><meta property="og:locale" content="fr_FR">
@@ -357,7 +358,7 @@ def generate_guides_hub() -> None:
     schema = schemas("CollectionPage", title, description, url, "Guides", items=items)
     cards = "".join(f'''<article class="seo-card"><h2>{guide['title']}</h2><p>{guide['description']}</p><p><a href="/guides/{guide['slug']}.html">Lire le guide</a></p></article>''' for guide in GUIDES)
     content = page_head(title, description, url, schema) + shell("guides")
-    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des réponses utiles, pas du remplissage SEO.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
+    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "guides.html").write_text(content, encoding="utf-8")
 

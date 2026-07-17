@@ -23,6 +23,29 @@
 
 .global-skip-link:focus { top: 16px; }
 
+.global-announcement {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(37, 211, 102, 0.25);
+  background: #14251a;
+  color: #d6ddd6;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+}
+
+.global-announcement strong { color: var(--site-shell-green); }
+.global-announcement:hover span:not([aria-hidden]) { text-decoration: underline; }
+.global-announcement:focus-visible {
+  outline: 3px solid var(--site-shell-green);
+  outline-offset: -3px;
+}
+
 .global-header {
   position: sticky;
   top: 0;
@@ -154,6 +177,13 @@
 }
 
 @media (max-width: 760px) {
+  .global-announcement {
+    flex-wrap: wrap;
+    gap: 3px 6px;
+    padding-inline: 8px;
+    font-size: 12px;
+  }
+
   .global-nav {
     width: min(100% - 28px, 1180px);
     min-height: 68px;

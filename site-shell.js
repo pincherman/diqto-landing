@@ -5,6 +5,20 @@
 
   if (!header || !toggle || !menu) return;
 
+  function ensureEInvoicingAnnouncement() {
+    if (document.querySelector('.global-announcement')) return;
+
+    var announcement = document.createElement('a');
+    announcement.className = 'global-announcement';
+    announcement.href = '/guides/facturation-electronique-micro-entreprise.html';
+    announcement.innerHTML = '<strong>Facturation électronique</strong>'
+      + '<span>Ce qui change en 2026 et 2027 '
+      + '<span aria-hidden="true">→</span></span>';
+    header.insertAdjacentElement('beforebegin', announcement);
+  }
+
+  ensureEInvoicingAnnouncement();
+
   function ensureStoriesLink() {
     if (menu.querySelector('a[href="/histoires.html"]')) return;
 

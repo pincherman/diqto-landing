@@ -39,6 +39,45 @@
 
   ensureStoriesLink();
 
+  function setBetaSource(link, source) {
+    if (!link || link.getAttribute('href') !== '/#beta') return;
+    link.setAttribute('href', '/?source=' + encodeURIComponent(source) + '#beta');
+  }
+
+  function tagConsentlessConversionPaths() {
+    var path = window.location.pathname;
+
+    if (path === '/guides.html') {
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a[href="/#beta"]'),
+        function tagGuideCta(link) {
+          setBetaSource(link, 'seo_guides_hub_cta');
+        }
+      );
+      return;
+    }
+
+    if (path !== '/histoires.html') return;
+
+    setBetaSource(menu.querySelector('.global-cta'), 'seo_stories_nav');
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.story-card a[href="/#beta"]'),
+      function tagStoryCta(link) {
+        var storyCard = link.closest('.story-card');
+        if (!storyCard || !storyCard.id) return;
+        setBetaSource(link, 'seo_story_' + storyCard.id.replace(/-/g, '_'));
+      }
+    );
+
+    setBetaSource(
+      document.querySelector('.story-final a[href="/#beta"]'),
+      'seo_stories_final_cta'
+    );
+  }
+
+  tagConsentlessConversionPaths();
+
   function setMenu(open) {
     header.dataset.menuOpen = String(open);
     toggle.setAttribute('aria-expanded', String(open));

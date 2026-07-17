@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0c0c0c">
+<title>Histoires d'indépendants — Diqto dans la vraie vie</title>
+<meta name="description" content="Quatre histoires courtes montrent comment un artisan, une ostéopathe, une avocate et un professeur de karaté utilisent Diqto dans leur quotidien.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
+<link rel="canonical" href="https://diqto.fr/histoires.html">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-shell.css">
+<script defer src="site-shell.js"></script>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diqto.fr/histoires.html">
+<meta property="og:title" content="Histoires d'indépendants — Diqto dans la vraie vie">
+<meta property="og:description" content="Du chantier au cabinet : quatre histoires courtes pour voir où Diqto trouve sa place.">
+<meta property="og:image" content="https://diqto.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Histoires d'indépendants — Diqto dans la vraie vie">
+<meta name="twitter:description" content="Du chantier au cabinet : quatre histoires courtes pour voir où Diqto trouve sa place.">
+<meta name="twitter:image" content="https://diqto.fr/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Histoires d'indépendants",
+  "description": "Quatre histoires fictives inspirées du quotidien d'indépendants et illustrées avec les parcours Diqto.",
+  "url": "https://diqto.fr/histoires.html",
+  "inLanguage": "fr-FR",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Marc, artisan sur chantier", "url": "https://diqto.fr/histoires.html#marc-artisan"},
+      {"@type": "ListItem", "position": 2, "name": "Claire, ostéopathe", "url": "https://diqto.fr/histoires.html#claire-osteopathe"},
+      {"@type": "ListItem", "position": 3, "name": "Sarah, avocate", "url": "https://diqto.fr/histoires.html#sarah-avocate"},
+      {"@type": "ListItem", "position": 4, "name": "Jean-Luc, professeur de karaté", "url": "https://diqto.fr/histoires.html#jean-luc-karate"}
+    ]
+  }
+}
+</script>
+<style>
+:root {
+  --page-bg: #0c0c0c;
+  --page-panel: #151a15;
+  --page-panel-soft: #101410;
+  --page-text: #f5f5f2;
+  --page-muted: #aeb6ae;
+  --page-line: rgba(255, 255, 255, 0.12);
+  --page-green: #25d366;
+  --page-radius: 28px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.story-container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+.story-hero {
+  padding: 104px 0 76px;
+  background: radial-gradient(circle at 76% 20%, rgba(37, 211, 102, 0.16), transparent 34%);
+}
+.story-eyebrow {
+  margin: 0;
+  color: var(--page-green);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.story-hero h1 {
+  max-width: 960px;
+  margin: 18px 0 0;
+  font-size: clamp(48px, 8vw, 90px);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+.story-hero > .story-container > p:not(.story-eyebrow) {
+  max-width: 760px;
+  margin: 26px 0 0;
+  color: #cbd2cb;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+.story-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+.story-jump a {
+  padding: 10px 15px;
+  border: 1px solid var(--page-line);
+  border-radius: 999px;
+  background: var(--page-panel);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.story-jump a:hover { border-color: var(--page-green); color: var(--page-green); }
+.story-disclosure {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--page-green);
+  border-radius: 0 14px 14px 0;
+  background: var(--page-panel-soft);
+  color: var(--page-muted);
+  font-size: 14px;
+}
+.story-list { padding: 30px 0 96px; }
+.story-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.13fr) minmax(330px, 0.87fr);
+  gap: clamp(34px, 6vw, 72px);
+  align-items: center;
+  padding: 72px 0;
+  border-top: 1px solid var(--page-line);
+  scroll-margin-top: 92px;
+}
+.story-card:nth-child(even) .story-media { order: 2; }
+.story-media {
+  overflow: hidden;
+  border: 1px solid var(--page-line);
+  border-radius: var(--page-radius);
+  background: #050605;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+.story-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #050605;
+}
+.story-copy h2 {
+  margin: 12px 0 0;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.story-copy > p { margin: 18px 0 0; color: #c5cdc5; font-size: 17px; }
+.story-moment {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--page-panel);
+}
+.story-moment strong { display: block; color: var(--page-green); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }
+.story-moment span { display: block; margin-top: 7px; color: #dce2dc; }
+.story-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.story-button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid var(--page-green);
+  border-radius: 999px;
+  background: var(--page-green);
+  color: #0c0c0c;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.story-button.secondary { border-color: var(--page-line); background: transparent; color: var(--page-text); }
+.story-button:hover { transform: translateY(-1px); }
+.story-trust {
+  margin-top: 16px;
+  color: var(--page-muted);
+  font-size: 13px;
+}
+.story-final {
+  padding: clamp(34px, 7vw, 74px);
+  border: 1px solid rgba(37, 211, 102, 0.28);
+  border-radius: var(--page-radius);
+  background: radial-gradient(circle at 90% 10%, rgba(37, 211, 102, 0.18), transparent 36%), var(--page-panel-soft);
+}
+.story-final h2 { max-width: 780px; margin: 0; font-size: clamp(36px, 5vw, 60px); line-height: 1.02; letter-spacing: -0.045em; }
+.story-final p { max-width: 680px; color: #c5cdc5; }
+.story-footer { padding: 34px 0; border-top: 1px solid var(--page-line); color: var(--page-muted); font-size: 13px; }
+.story-footer nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.story-footer a { text-decoration: none; }
+:focus-visible { outline: 3px solid var(--page-green); outline-offset: 4px; }
+@media (max-width: 860px) {
+  .story-card { grid-template-columns: 1fr; }
+  .story-card:nth-child(even) .story-media { order: initial; }
+}
+@media (max-width: 560px) {
+  .story-container { width: min(100% - 28px, 1120px); }
+  .story-hero { padding: 62px 0 48px; }
+  .story-card { padding: 52px 0; }
+  .story-actions { flex-direction: column; }
+  .story-button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .story-button:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="global-skip-link" href="#contenu">Aller au contenu</a>
+<header class="global-header" data-menu-open="false">
+  <div class="global-nav">
+    <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
+    <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
+    <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/fonctionnalites.html">Fonctionnalités</a>
+      <a href="/histoires.html" aria-current="page">Histoires</a>
+      <a href="/metiers.html">Métiers</a>
+      <a href="/guides.html">Guides</a>
+      <a href="/#tarifs">Tarifs</a>
+      <a class="global-cta" href="/#beta">Commencer gratuit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <header class="story-hero">
+    <div class="story-container">
+      <p class="story-eyebrow">Histoires inspirées du quotidien</p>
+      <h1>Reconnaissez votre journée avant de découvrir l'outil.</h1>
+      <p>Diqto ne remplace ni le geste, ni l'écoute, ni le jugement. Il aide à finir ce qui s'accumule autour : les brouillons, les suivis et les documents à relire.</p>
+      <nav class="story-jump" aria-label="Choisir une histoire">
+        <a href="#marc-artisan">Je travaille sur le terrain</a>
+        <a href="#claire-osteopathe">Je reçois des patients</a>
+        <a href="#sarah-avocate">Je facture mon expertise</a>
+        <a href="#jean-luc-karate">Je gère des abonnements</a>
+      </nav>
+      <p class="story-disclosure">Les personnages et situations sont fictifs. Les histoires s'inspirent de contraintes métier courantes ; les écrans montrent Diqto sur des données de démonstration. Ce ne sont pas des témoignages ou des résultats clients.</p>
+    </div>
+  </header>
+
+  <div class="story-container story-list">
+    <article class="story-card" id="marc-artisan">
+      <div class="story-media">
+        <video controls preload="none" playsinline poster="/assets/stories/marc-artisan-poster.jpg" src="/assets/stories/marc-artisan.mp4" aria-label="Film de 30 secondes : Marc, artisan sur chantier"></video>
+      </div>
+      <div class="story-copy">
+        <p class="story-eyebrow">Artisan · chantier · devis</p>
+        <h2>Marc veut rentrer sans emporter le chantier dans sa tête.</h2>
+        <p>Il vient de terminer la pose. Avant de partir, il dicte ce qu'il a réalisé. Le devis prend forme, il le relit, puis pourra le transformer en facture sans tout ressaisir.</p>
+        <div class="story-moment"><strong>Le moment Diqto</strong><span>Quand les mesures, les matériaux et les détails sont encore frais.</span></div>
+        <div class="story-actions"><a class="story-button" href="/plombier.html">Voir le parcours artisan</a><a class="story-button secondary" href="/#beta">Essayer gratuitement</a></div>
+        <p class="story-trust">Rien ne part sans votre validation.</p>
+      </div>
+    </article>
+
+    <article class="story-card" id="claire-osteopathe">
+      <div class="story-media">
+        <video controls preload="none" playsinline poster="/assets/stories/claire-osteopathe-poster.jpg" src="/assets/stories/claire-osteopathe.mp4" aria-label="Film de 30 secondes : Claire, ostéopathe"></video>
+      </div>
+      <div class="story-copy">
+        <p class="story-eyebrow">Santé libérale · séance · honoraires</p>
+        <h2>Claire préfère écouter son patient que penser à son administratif.</h2>
+        <p>Après la séance, elle dicte l'essentiel avec ses mots. Diqto prépare un compte rendu et les éléments de sa note d'honoraires, toujours à relire.</p>
+        <div class="story-moment"><strong>Le moment Diqto</strong><span>Juste après la séance, avant que le patient suivant n'arrive.</span></div>
+        <div class="story-actions"><a class="story-button" href="/osteopathe.html">Voir le parcours ostéopathe</a><a class="story-button secondary" href="/#beta">Essayer gratuitement</a></div>
+        <p class="story-trust">Les notes sensibles restent sous votre contrôle.</p>
+      </div>
+    </article>
+
+    <article class="story-card" id="sarah-avocate">
+      <div class="story-media">
+        <video controls preload="none" playsinline poster="/assets/stories/sarah-avocate-poster.jpg" src="/assets/stories/sarah-avocate.mp4" aria-label="Film de 30 secondes : Sarah, avocate"></video>
+      </div>
+      <div class="story-copy">
+        <p class="story-eyebrow">Droit · rendez-vous · temps passé</p>
+        <h2>Sarah garde son attention sur les faits, pas sur le chronomètre.</h2>
+        <p>Après l'échange, elle raconte les faits, les diligences et la prochaine étape. Le compte rendu et le temps passé restent reliés au dossier avant la note d'honoraires.</p>
+        <div class="story-moment"><strong>Le moment Diqto</strong><span>À la sortie du rendez-vous, quand le raisonnement est encore clair.</span></div>
+        <div class="story-actions"><a class="story-button" href="/metiers/avocat.html">Voir le parcours avocat</a><a class="story-button secondary" href="/#beta">Essayer gratuitement</a></div>
+        <p class="story-trust">Vous relisez, corrigez et validez chaque étape.</p>
+      </div>
+    </article>
+
+    <article class="story-card" id="jean-luc-karate">
+      <div class="story-media">
+        <video controls preload="none" playsinline poster="/assets/stories/jean-luc-karate-poster.jpg" src="/assets/stories/jean-luc-karate.mp4" aria-label="Film de 30 secondes : Jean-Luc, professeur de karaté"></video>
+      </div>
+      <div class="story-copy">
+        <p class="story-eyebrow">Enseignement · abonnements · règlements</p>
+        <h2>Jean-Luc veut transmettre un geste juste, pas tenir quatre tableaux.</h2>
+        <p>Enfants, adolescents et adultes n'ont pas les mêmes formules. Diqto relie les pratiquants, leurs abonnements et les règlements à suivre, en laissant les exceptions au professeur.</p>
+        <div class="story-moment"><strong>Le moment Diqto</strong><span>Avant et après le cours, pas pendant qu'il corrige un mouvement.</span></div>
+        <div class="story-actions"><a class="story-button" href="/metiers/prof_karate.html">Voir le parcours enseignement</a><a class="story-button secondary" href="/#beta">Essayer gratuitement</a></div>
+        <p class="story-trust">Les règlements sont suivis ; aucune action ne se cache derrière le décor.</p>
+      </div>
+    </article>
+
+    <section class="story-final" aria-labelledby="story-final-title">
+      <h2 id="story-final-title">Ton métier n'est pas encore raconté ?</h2>
+      <p>Commence par la situation qui te prend du temps : préparer un devis, garder le fil d'un client, facturer une séance ou suivre un abonnement.</p>
+      <div class="story-actions"><a class="story-button" href="/metiers.html">Trouver mon métier</a><a class="story-button secondary" href="/#beta">Créer mon premier brouillon gratuit</a></div>
+    </section>
+  </div>
+</main>
+
+<footer class="story-footer">
+  <div class="story-container">
+    <nav aria-label="Navigation de pied de page"><span>© 2026 Diqto</span><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/histoires.html">Histoires</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/confidentialite.html">Confidentialité</a><a href="mailto:support@diqto.fr">Support</a></nav>
+  </div>
+</footer>
+</body>
+</html>

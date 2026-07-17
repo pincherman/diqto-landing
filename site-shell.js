@@ -5,6 +5,26 @@
 
   if (!header || !toggle || !menu) return;
 
+  function ensureStoriesLink() {
+    if (menu.querySelector('a[href="/histoires.html"]')) return;
+
+    var storiesLink = document.createElement('a');
+    storiesLink.href = '/histoires.html';
+    storiesLink.textContent = 'Histoires';
+    if (window.location.pathname === '/histoires.html') {
+      storiesLink.setAttribute('aria-current', 'page');
+    }
+
+    var featuresLink = menu.querySelector('a[href="/fonctionnalites.html"]');
+    if (featuresLink) {
+      featuresLink.insertAdjacentElement('afterend', storiesLink);
+      return;
+    }
+    menu.prepend(storiesLink);
+  }
+
+  ensureStoriesLink();
+
   function setMenu(open) {
     header.dataset.menuOpen = String(open);
     toggle.setAttribute('aria-expanded', String(open));

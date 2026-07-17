@@ -84,6 +84,14 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
 html { scroll-behavior: smooth; }
 body {
   background: var(--paper-light);
@@ -327,6 +335,73 @@ button, input, textarea { font: inherit; }
 .intent-card h3 { margin-top: 28px; font-size: 22px; line-height: 1.16; }
 .intent-card p { margin-top: 12px; color: var(--muted); font-size: 15px; }
 
+.stories-section { padding: 110px 0; background: var(--paper); }
+.stories-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 36px;
+}
+.stories-heading .section-intro { max-width: 540px; }
+.stories-link { color: var(--green-dark); font-weight: 700; text-decoration: none; }
+.stories-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.story-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 42px;
+}
+.story-preview {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #111;
+  color: #fff;
+}
+.story-preview img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.story-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0.88) 100%);
+}
+.story-preview:hover img { transform: scale(1.025); }
+.story-preview-copy {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 28px;
+}
+.story-preview-copy small {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.story-preview-copy h3 { margin-top: 8px; font-size: 28px; line-height: 1.1; }
+.story-preview-copy p { max-width: 520px; margin-top: 8px; color: #d8ded8; }
+.story-preview-copy span {
+  display: inline-flex;
+  margin-top: 18px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.story-preview > a { position: absolute; z-index: 2; inset: 0; }
+.story-preview > a:focus-visible { outline: 3px solid var(--green); outline-offset: -6px; }
+.stories-disclosure { margin-top: 18px; color: var(--muted); font-size: 13px; }
+
 .day-section { padding: 110px 0; }
 .day-layout {
   display: grid;
@@ -495,6 +570,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .hero-actions { justify-content: center; }
   .day-card { max-width: 600px; margin: 0 auto; transform: none; }
   .intent-grid { grid-template-columns: repeat(2, 1fr); }
+  .stories-heading { align-items: flex-start; flex-direction: column; }
   .day-layout .section-heading { position: static; }
   .how-grid, .benefit-grid { grid-template-columns: 1fr; }
   .benefit { min-height: auto; }
@@ -514,8 +590,11 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .hero-copy h1 { font-size: clamp(46px, 14vw, 68px); }
   .hero-actions { flex-direction: column; }
   .button-primary, .button-secondary { width: 100%; }
-  .intent-section, .day-section, .how-section, .benefits, .trades, .pricing { padding: 76px 0; }
+  .intent-section, .stories-section, .day-section, .how-section, .benefits, .trades, .pricing { padding: 76px 0; }
   .intent-grid { grid-template-columns: 1fr; }
+  .story-preview-grid { grid-template-columns: 1fr; }
+  .story-preview { min-height: 330px; }
+  .story-preview-copy { padding: 22px; }
   .guide-links { grid-template-columns: 1fr; }
   .intent-card { min-height: 0; }
   .intent-card h3 { margin-top: 18px; }
@@ -542,6 +621,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
     <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">
       <a href="/" aria-current="page">Accueil</a>
       <a href="/fonctionnalites.html">Fonctionnalités</a>
+      <a href="/histoires.html">Histoires</a>
       <a href="/metiers.html">Métiers</a>
       <a href="/guides.html">Guides</a>
       <a href="#tarifs">Tarifs</a>
@@ -613,6 +693,42 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
           <p>Finissez l'administratif pendant que les détails sont encore frais, pas deux jours plus tard.</p>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="stories-section" id="histoires">
+    <div class="container">
+      <div class="stories-heading">
+        <div>
+          <p class="eyebrow">Trouvez une histoire qui vous ressemble</p>
+          <h2 class="section-heading">Le même outil. Des journées très différentes.</h2>
+          <p class="section-intro">Sur un chantier, dans un cabinet, après un rendez-vous ou entre deux cours : voyez comment Diqto s'insère dans la vraie vie du métier.</p>
+        </div>
+        <a class="stories-link" href="/histoires.html">Voir les quatre films →</a>
+      </div>
+      <div class="story-preview-grid">
+        <article class="story-preview">
+          <img src="/assets/stories/marc-artisan-poster.jpg" alt="Marc termine la pose d'un meuble sur un chantier" width="1280" height="720" loading="lazy">
+          <div class="story-preview-copy"><small>Artisan sur chantier</small><h3>Marc veut finir son devis avant de rentrer.</h3><p>Il dicte ce qu'il vient de réaliser pendant que les détails sont encore frais.</p><span>Voir son histoire · 30 s →</span></div>
+          <a href="/histoires.html#marc-artisan"><span class="sr-only">Voir l'histoire de Marc, artisan</span></a>
+        </article>
+        <article class="story-preview">
+          <img src="/assets/stories/claire-osteopathe-poster.jpg" alt="Claire accompagne une patiente dans son cabinet d'ostéopathie" width="1280" height="720" loading="lazy">
+          <div class="story-preview-copy"><small>Professionnelle de santé</small><h3>Claire veut rester présente pour ses patients.</h3><p>Après la séance, elle dicte l'essentiel puis relit son compte rendu.</p><span>Voir son histoire · 30 s →</span></div>
+          <a href="/histoires.html#claire-osteopathe"><span class="sr-only">Voir l'histoire de Claire, ostéopathe</span></a>
+        </article>
+        <article class="story-preview">
+          <img src="/assets/stories/sarah-avocate-poster.jpg" alt="Sarah écoute son client dans son cabinet d'avocate" width="1280" height="720" loading="lazy">
+          <div class="story-preview-copy"><small>Professionnelle du droit</small><h3>Sarah garde son attention sur le dossier.</h3><p>Les faits, les diligences et le temps passé rejoignent un même fil à relire.</p><span>Voir son histoire · 30 s →</span></div>
+          <a href="/histoires.html#sarah-avocate"><span class="sr-only">Voir l'histoire de Sarah, avocate</span></a>
+        </article>
+        <article class="story-preview">
+          <img src="/assets/stories/jean-luc-karate-poster.jpg" alt="Jean-Luc transmet un geste de karaté à un pratiquant" width="1280" height="720" loading="lazy">
+          <div class="story-preview-copy"><small>Enseignant indépendant</small><h3>Jean-Luc préfère transmettre que gérer des tableaux.</h3><p>Formules, pratiquants et règlements restent suivis sans quitter le tatami des yeux.</p><span>Voir son histoire · 30 s →</span></div>
+          <a href="/histoires.html#jean-luc-karate"><span class="sr-only">Voir l'histoire de Jean-Luc, professeur de karaté</span></a>
+        </article>
+      </div>
+      <p class="stories-disclosure">Histoires inspirées de situations métier courantes. Les personnages et les situations sont fictifs ; les écrans Diqto montrent des parcours produit réels sur des données de démonstration.</p>
     </div>
   </section>
 
@@ -825,6 +941,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       <div class="footer-column">
         <h3>Découvrir</h3>
         <a href="/fonctionnalites.html">Fonctionnalités</a>
+        <a href="/histoires.html">Histoires</a>
         <a href="/metiers.html">Métiers</a>
         <a href="/guides.html">Guides</a>
         <a href="#tarifs">Tarifs</a>

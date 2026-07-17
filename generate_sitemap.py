@@ -19,10 +19,11 @@ CANONICAL_RE = re.compile(r'<link\s+rel="canonical"\s+href="([^"]+)"', re.IGNORE
 CORE_ROOT_ORDER = {
     "index.html": 0,
     "fonctionnalites.html": 1,
-    "docs.html": 2,
-    "cgu.html": 3,
-    "confidentialite.html": 4,
-    "mentions-legales.html": 5,
+    "histoires.html": 2,
+    "docs.html": 3,
+    "cgu.html": 4,
+    "confidentialite.html": 5,
+    "mentions-legales.html": 6,
 }
 
 
@@ -51,7 +52,7 @@ def sitemap_priority(path: Path) -> tuple[str, str]:
     rel = path.relative_to(ROOT).as_posix()
     if rel == "index.html":
         return "weekly", "1.0"
-    if rel == "fonctionnalites.html":
+    if rel in {"fonctionnalites.html", "histoires.html"}:
         return "weekly", "0.8"
     if rel == "docs.html":
         return "weekly", "0.7"

@@ -976,10 +976,12 @@ window.starterIntakePrefill = function starterIntakePrefill() {
     var metier = params.get('metier');
     var source = params.get('source');
     var accessLink = document.querySelector('.final-panel .button-primary');
-    if (metier && accessLink) {
-        var body = 'Bonjour,\nJe veux tester Diqto Free.\nMétier : ' +
-            metier.replace(/[-_]+/g, ' ') +
-            '\nPremier brouillon à créer :\n';
+    if ((metier || source) && accessLink) {
+        var body = 'Bonjour,\nJe veux tester Diqto Free.\n';
+        if (metier) {
+            body += 'Métier : ' + metier.replace(/[-_]+/g, ' ') + '\n';
+        }
+        body += 'Premier brouillon à créer :\n';
         if (source) body += 'Source : ' + source + '\n';
         accessLink.href = 'mailto:support@diqto.fr?subject=Acces%20Diqto%20Free&body=' +
             encodeURIComponent(body);

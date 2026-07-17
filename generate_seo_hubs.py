@@ -224,6 +224,24 @@ GUIDES = [
     },
 ]
 
+PRIORITY_PATHS = [
+    ("/guides/facturation-electronique-micro-entreprise.html", "Facturation électronique micro-entreprise"),
+    ("/guides/logiciel-facturation-micro-entrepreneur.html", "Logiciel de facturation micro-entrepreneur"),
+    ("/guides/logiciel-devis-facture-artisan.html", "Logiciel devis et factures artisan"),
+    ("/guides/mentions-obligatoires-facture-micro-entrepreneur.html", "Mentions obligatoires facture micro-entrepreneur"),
+    ("/guides/devis-artisan-mentions-obligatoires.html", "Mentions obligatoires devis artisan"),
+    ("/histoires.html", "Histoires de terrain"),
+    ("/metiers.html", "Tous les métiers"),
+    ("/plombier.html", "Plombier"),
+    ("/electricien.html", "Électricien"),
+    ("/osteopathe.html", "Ostéopathe"),
+    ("/coach-sportif.html", "Coach sportif"),
+    ("/metiers/avocat.html", "Avocat"),
+    ("/metiers/prof_karate.html", "Professeur de karaté"),
+    ("/fonctionnalites.html", "Fonctionnalités"),
+    ("/docs.html", "Bien démarrer"),
+]
+
 
 def shell(active: str = "") -> str:
     items = [
@@ -301,6 +319,11 @@ def source_section(sources) -> str:
     return f'<aside class="seo-sources"><h2>Sources officielles</h2><ul>{links}</ul></aside>'
 
 
+def priority_paths_section() -> str:
+    links = "".join(f'<a href="{href}">{html.escape(label)}</a>' for href, label in PRIORITY_PATHS)
+    return f'''<section class="seo-category seo-priority-paths" aria-labelledby="parcours-prioritaires"><h2 id="parcours-prioritaires">Parcours à explorer en priorité</h2><p>Ces pages relient les guides, les métiers les plus parlants et les premières actions utiles avant de tester Diqto.</p><div class="seo-link-grid">{links}</div></section>'''
+
+
 def generate_guide(guide: dict) -> None:
     url = f"{BASE_URL}/guides/{guide['slug']}.html"
     schema = schemas("Article", guide["title"], guide["description"], url, "Guides", sources=guide["sources"])
@@ -358,7 +381,7 @@ def generate_guides_hub() -> None:
     schema = schemas("CollectionPage", title, description, url, "Guides", items=items)
     cards = "".join(f'''<article class="seo-card"><h2>{guide['title']}</h2><p>{guide['description']}</p><p><a href="/guides/{guide['slug']}.html">Lire le guide</a></p></article>''' for guide in GUIDES)
     content = page_head(title, description, url, schema) + shell("guides")
-    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
+    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div>{priority_paths_section()}<section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "guides.html").write_text(content, encoding="utf-8")
 

@@ -72,6 +72,42 @@ assert(
   guides.includes(`class="global-announcement" href="${guideHref}"`),
   'guide hub must expose the static e-invoicing announcement',
 );
+assert(
+  guides.includes('Parcours à explorer en priorité'),
+  'guide hub must expose a compact priority path section for crawl and reader orientation',
+);
+
+const priorityPaths = [
+  '/guides/facturation-electronique-micro-entreprise.html',
+  '/guides/logiciel-facturation-micro-entrepreneur.html',
+  '/guides/logiciel-devis-facture-artisan.html',
+  '/guides/mentions-obligatoires-facture-micro-entrepreneur.html',
+  '/guides/devis-artisan-mentions-obligatoires.html',
+  '/histoires.html',
+  '/metiers.html',
+  '/plombier.html',
+  '/electricien.html',
+  '/osteopathe.html',
+  '/coach-sportif.html',
+  '/metiers/avocat.html',
+  '/metiers/prof_karate.html',
+  '/fonctionnalites.html',
+  '/docs.html',
+];
+const prioritySection = guides.match(/<section class="seo-category seo-priority-paths"[\s\S]*?<\/section>/);
+assert(prioritySection, 'guide hub priority path section is missing');
+for (const href of priorityPaths) {
+  assert(
+    prioritySection[0].includes(`href="${href}"`),
+    `guide hub priority path section must link ${href}`,
+  );
+}
+assert.equal(
+  (prioritySection[0].match(/<a href="/g) || []).length,
+  priorityPaths.length,
+  'guide hub priority path section must stay focused on 15 URLs',
+);
+assert(!/ranking|keyword|mot-cl[eé]/i.test(prioritySection[0]), 'priority links must stay reader-facing');
 
 const shell = read('site-shell.js');
 assert(

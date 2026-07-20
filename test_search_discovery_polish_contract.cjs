@@ -8,6 +8,42 @@ const path = require('path');
 const root = __dirname;
 const guideHref = '/guides/facturation-electronique-micro-entreprise.html';
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
+const publicExtensions = new Set(['.html', '.js', '.md', '.py']);
+
+function walkPublicFiles(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === '.git' || entry.name === 'assets') return [];
+      return walkPublicFiles(fullPath);
+    }
+    return publicExtensions.has(path.extname(entry.name)) ? [fullPath] : [];
+  });
+}
+
+const forbiddenEInvoicingClaims = [
+  /Envoyer maintenant/i,
+  /Envoi demand[ée]/i,
+  /Envoyer depuis Diqto/i,
+  /transmission r[ée]glementaire est op[ée]r[ée]e/i,
+  /Diqto (?:est|sera|devient) (?:une )?plateforme agr[ée][ée]e/i,
+  /Diqto (?:transmet|envoie) (?:vos )?(?:factures|donn[ée]es) (?:fiscales? )?(?:aux imp[ôo]ts|[àa] l'administration)/i,
+];
+
+const claimViolations = [];
+for (const file of walkPublicFiles(root)) {
+  const content = fs.readFileSync(file, 'utf8');
+  for (const claim of forbiddenEInvoicingClaims) {
+    if (claim.test(content)) {
+      claimViolations.push(`${path.relative(root, file)} matches ${claim}`);
+    }
+  }
+}
+assert.deepStrictEqual(
+  claimViolations,
+  [],
+  `public landing must not imply active e-invoicing send/PA role:\n${claimViolations.join('\n')}`,
+);
 
 function pngMetadata(relative) {
   const data = fs.readFileSync(path.join(root, relative));

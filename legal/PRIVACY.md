@@ -2,7 +2,7 @@
 
 **Diqto — Application de facturation pour indépendants**
 
-*Dernière mise à jour : 24 juin 2026*
+*Dernière mise à jour : 22 juillet 2026*
 
 La présente Politique de Confidentialité décrit la manière dont Diqto collecte, utilise, stocke et protège les données personnelles de ses Utilisateurs, conformément au Règlement (UE) 2016/679 (« RGPD ») et à la loi n°78-17 du 6 janvier 1978 modifiée (« Informatique et Libertés »).
 
@@ -29,6 +29,7 @@ Contact délégué à la protection des données (DPO) : **support@diqto.fr**
 | Catégorie | Données | Finalité |
 |-----------|---------|----------|
 | **Identification** | Numéro de téléphone mobile | Création de compte, authentification par SMS |
+| **Demande d’accès site** | Email professionnel, métier, première tâche à simplifier, source de la visite, consentement et date | Traiter la demande et recontacter le prospect |
 | **Profil professionnel** | Nom, prénom, nom commercial, adresse, SIRET, activité | Personnalisation des documents, conformité légale |
 | **Contact** | Adresse email (optionnel) | Communications, notifications, récupération de compte |
 | **Facturation** | Informations clients de l'Utilisateur, montants, descriptions de prestations | Génération des devis, factures, notes d'honoraires |

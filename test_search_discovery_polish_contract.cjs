@@ -49,8 +49,29 @@ assert.strictEqual(
 
 const home = read('index.html');
 assert(
-  home.includes('rel="icon" type="image/png" sizes="64x64" href="/favicon.png"'),
-  'home must declare the stable 64 px favicon URL',
+  home.includes(
+    'rel="icon" type="image/svg+xml" sizes="any" href="/favicon-diqto-voice.svg"',
+  ),
+  'home must declare the stable versioned voice-mark favicon URL',
+);
+assert(
+  !home.includes('rel="icon" type="image/png" sizes="64x64" href="/favicon.png"'),
+  'home must not keep the legacy cached favicon URL as its canonical icon',
+);
+
+const voiceFavicon = read('favicon-diqto-voice.svg');
+assert(
+  voiceFavicon.includes('viewBox="0 0 64 64"'),
+  'versioned favicon must expose a square 64 px viewBox',
+);
+assert(
+  voiceFavicon.includes('fill="#25d366"'),
+  'versioned favicon must use the canonical Diqto green',
+);
+assert.strictEqual(
+  (voiceFavicon.match(/<rect /g) || []).length,
+  5,
+  'versioned favicon must expose the five-bar Diqto voice mark',
 );
 assert(
   home.includes(`class="global-announcement" href="${guideHref}"`),
@@ -93,4 +114,6 @@ for (const marker of [
 }
 assert(!/Diqto (?:est|sera) conforme/i.test(guide), 'guide must not claim Diqto compliance');
 
-console.log('search_discovery_polish_contract: OK favicon=64 announcement=global guide=no-claim');
+console.log(
+  'search_discovery_polish_contract: OK favicon=versioned-voice announcement=global guide=no-claim',
+);

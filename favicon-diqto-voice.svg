@@ -1,0 +1,17 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-labelledby="faviconTitle"
+>
+  <title id="faviconTitle">Diqto</title>
+  <path
+    fill="#25d366"
+    d="M8 7h34c8 0 14 6 14 14v10c0 8-6 14-14 14H24L8 57V7Z"
+  />
+  <rect x="19" y="25" width="4" height="12" rx="2" fill="#fff" />
+  <rect x="26" y="21" width="4" height="20" rx="2" fill="#fff" />
+  <rect x="33" y="18" width="4" height="26" rx="2" fill="#fff" />
+  <rect x="40" y="22" width="4" height="18" rx="2" fill="#fff" />
+  <rect x="47" y="26" width="4" height="10" rx="2" fill="#fff" />
+</svg>

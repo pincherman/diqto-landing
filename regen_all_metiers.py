@@ -314,7 +314,7 @@ footer a:hover {{ color:var(--primary); }}
   <h2 id="faq-title-{trade_id}">Questions fréquentes des {label_lower}</h2>
 {faq_html}
 </section>
-<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
+<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/facturation-electronique.html">Facturation électronique 2026-2027</a></aside>
 <section class="final"><div class="container">
   <h2>Prêt à simplifier votre administratif ?</h2>
   <p>Essai gratuit avant tout paiement : choisissez votre métier, créez un brouillon, relisez avant partage.</p>

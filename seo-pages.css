@@ -95,6 +95,14 @@ a { color: inherit; }
 }
 .seo-card h2, .seo-card h3 { margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.02em; }
 .seo-card p { margin: 10px 0 0; color: var(--seo-muted); font-size: 15px; }
+.seo-card .seo-card-kicker {
+  margin: 0 0 10px;
+  color: var(--seo-green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 .seo-card a { color: var(--seo-green); font-weight: 700; text-decoration: none; }
 .seo-card a::after { content: ' →'; }
 .seo-note {

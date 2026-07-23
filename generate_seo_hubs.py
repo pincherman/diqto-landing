@@ -11,7 +11,31 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent
 CONFIG_ROOT = ROOT.parent / "batiboss" / "config" / "metiers"
 BASE_URL = "https://diqto.fr"
-UPDATED = "2026-07-11"
+UPDATED = "2026-07-23"
+UPDATED_LABEL = "23 juillet 2026"
+
+FACTURATION_HUB = {
+    "href": "/facturation-electronique.html",
+    "title": "Facturation électronique 2026–2027 pour TPE et indépendants",
+    "description": (
+        "Les dates officielles, la différence entre PDF et facture "
+        "électronique, le rôle d'une plateforme agréée et la checklist "
+        "pour préparer son activité."
+    ),
+    "intent": "Comprendre la réforme",
+}
+
+PRIORITY_TRADES = [
+    ("Plombier", "/plombier.html"),
+    ("Électricien", "/electricien.html"),
+    ("Peintre en bâtiment", "/peintre.html"),
+    ("Menuisier", "/menuisier.html"),
+    ("Carreleur", "/carreleur.html"),
+    ("Coach sportif", "/coach-sportif.html"),
+    ("Ostéopathe", "/osteopathe.html"),
+    ("Photographe", "/photographe.html"),
+    ("Psychologue", "/metiers/psychologue.html"),
+]
 
 CATEGORY_LABELS = {
     "batiment": "Bâtiment et travaux",
@@ -42,6 +66,7 @@ TOP_LEVEL = {
 GUIDES = [
     {
         "slug": "logiciel-devis-facture-artisan",
+        "intent": "Choisir un logiciel pour artisan",
         "title": "Logiciel de devis et factures pour artisan : choisir sans alourdir ses journées",
         "description": "Les critères concrets pour choisir un logiciel de devis et factures d'artisan : usage chantier, brouillons, clients, prix, contrôle et limites.",
         "eyebrow": "Guide pratique · Artisans",
@@ -78,6 +103,7 @@ GUIDES = [
     },
     {
         "slug": "logiciel-facturation-micro-entrepreneur",
+        "intent": "Choisir un logiciel pour micro-entreprise",
         "title": "Logiciel de facturation pour micro-entrepreneur : le choisir selon votre vraie activité",
         "description": "Comment choisir un logiciel de facturation pour micro-entrepreneur sans payer pour une usine à gaz : documents, clients, TVA, mobile et contrôle.",
         "eyebrow": "Guide pratique · Micro-entreprise",
@@ -105,6 +131,7 @@ GUIDES = [
             ("/fonctionnalites.html", "Voir les fonctionnalités Diqto"),
             ("/docs.html", "Préparer votre premier brouillon"),
             ("/guides/facturation-electronique-micro-entreprise.html", "Comprendre la facture électronique"),
+            ("/metiers/psychologue.html", "Facturation et notes d'honoraires pour psychologue"),
         ],
         "sources": [
             ("https://entreprendre.service-public.fr/vosdroits/F31808", "Entreprendre.Service-Public.fr — mentions obligatoires sur une facture"),
@@ -112,6 +139,7 @@ GUIDES = [
     },
     {
         "slug": "facturation-electronique-micro-entreprise",
+        "intent": "Comprendre les dates pour une micro-entreprise",
         "title": "Facturation électronique et micro-entreprise : ce qui change en 2026 et 2027",
         "description": "Calendrier officiel de la facturation électronique pour micro-entreprises : réception en 2026, émission en 2027, PDF, plateforme agréée et préparation.",
         "eyebrow": "Guide vérifié · Facturation électronique",
@@ -147,6 +175,7 @@ GUIDES = [
     },
     {
         "slug": "mentions-obligatoires-facture-micro-entrepreneur",
+        "intent": "Vérifier une facture de micro-entrepreneur",
         "title": "Mentions obligatoires sur une facture de micro-entrepreneur : la checklist 2026",
         "description": "La checklist vérifiée des mentions d'une facture de micro-entrepreneur en 2026 : identité, numérotation, TVA, paiement et cas particuliers.",
         "eyebrow": "Guide vérifié · Factures",
@@ -188,6 +217,7 @@ GUIDES = [
     },
     {
         "slug": "devis-artisan-mentions-obligatoires",
+        "intent": "Vérifier un devis artisan",
         "title": "Devis artisan : mentions obligatoires et points à vérifier avant signature",
         "description": "Ce qu'un artisan doit vérifier sur un devis : identité, détail des travaux, prix, déplacement, durée de validité, signature et cas obligatoires.",
         "eyebrow": "Guide vérifié · Devis artisan",
@@ -238,7 +268,7 @@ def shell(active: str = "") -> str:
         for href, label, key in items
     )
     return f'''<a class="global-skip-link" href="#contenu">Aller au contenu</a>
-<a class="global-announcement" href="/guides/facturation-electronique-micro-entreprise.html"><strong>Facturation électronique</strong><span>Ce qui change en 2026 et 2027 <span aria-hidden="true">→</span></span></a>
+<a class="global-announcement" href="/facturation-electronique.html"><strong>Facturation électronique</strong><span>Ce qui change en 2026 et 2027 <span aria-hidden="true">→</span></span></a>
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
@@ -248,7 +278,7 @@ def shell(active: str = "") -> str:
 
 def footer() -> str:
     return '''<footer class="seo-footer"><div class="seo-container"><nav aria-label="Navigation de pied de page">
-<span>© 2026 Diqto</span><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/docs.html">Bien démarrer</a><a href="/cgu.html">CGU</a><a href="/confidentialite.html">Confidentialité</a><a href="mailto:support@diqto.fr">Support</a>
+<span>© 2026 Diqto</span><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/facturation-electronique.html">Facturation électronique</a><a href="/docs.html">Bien démarrer</a><a href="/cgu.html">CGU</a><a href="/confidentialite.html">Confidentialité</a><a href="mailto:support@diqto.fr">Support</a>
 </nav></div></footer>'''
 
 
@@ -307,7 +337,7 @@ def generate_guide(guide: dict) -> None:
     content = page_head(guide["title"], guide["description"], url, schema, "article", "../")
     content += shell("guides")
     content += f'''<main id="contenu"><div class="seo-container"><nav class="seo-breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>›</span><a href="/guides.html">Guides</a><span>›</span>Guide</nav></div>
-<header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">{guide['eyebrow']}</p><h1>{guide['title']}</h1><p class="seo-lead">{guide['lead']}</p><p class="seo-meta">Publié et vérifié le 11 juillet 2026 · Lecture 6 minutes</p></div></header>
+<header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">{guide['eyebrow']}</p><h1>{guide['title']}</h1><p class="seo-lead">{guide['lead']}</p><p class="seo-meta">Publié et vérifié le {UPDATED_LABEL} · Lecture 6 minutes</p></div></header>
 <div class="seo-container seo-main">{guide['body']}{source_section(guide['sources'])}{related_section(guide['related'])}
 <section class="seo-cta"><h2>Testez Diqto sur une tâche réelle.</h2><p>Un devis, une facture ou une note à finir aujourd'hui. Vous jugerez le brouillon, pas une promesse marketing.</p><div class="seo-actions"><a class="seo-button" href="/?source=seo_guide_{guide['slug']}#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/fonctionnalites.html">Voir les fonctionnalités</a></div></section></div></main>'''
     content += footer() + "</body></html>"
@@ -339,6 +369,20 @@ def generate_trades_hub() -> None:
     schema = schemas("CollectionPage", title, description, url, "Métiers", items=items)
     content = page_head(title, description, url, schema) + shell("trades")
     content += '''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Votre activité, vos mots</p><h1>Diqto part de votre métier.</h1><p class="seo-lead">Le moteur reste commun. Les documents, le vocabulaire et les raccourcis s'adaptent à votre activité sans promettre la même fonction à tout le monde.</p></div></header><div class="seo-container seo-main">'''
+    priority_links = "".join(
+        (
+            '<a data-search-intent="metier-prioritaire" '
+            f'href="{href}">{html.escape(label)}</a>'
+        )
+        for label, href in PRIORITY_TRADES
+    )
+    content += (
+        '<section class="seo-category" aria-labelledby="metiers-prioritaires">'
+        '<h2 id="metiers-prioritaires">Parcours les plus recherchés</h2>'
+        '<p>Commencez par une page qui reprend les documents, le vocabulaire '
+        'et un exemple concret de votre activité.</p>'
+        f'<div class="seo-link-grid">{priority_links}</div></section>'
+    )
     for category, category_label in CATEGORY_LABELS.items():
         links = groups.get(category, [])
         if not links:
@@ -354,9 +398,37 @@ def generate_guides_hub() -> None:
     title = "Guides pratiques pour indépendants"
     description = "Des guides Diqto concrets et sourcés sur les devis, la facturation des micro-entreprises et la réforme de la facture électronique."
     url = f"{BASE_URL}/guides.html"
-    items = [{"@type": "ListItem", "position": index + 1, "name": guide["title"], "url": f"{BASE_URL}/guides/{guide['slug']}.html"} for index, guide in enumerate(GUIDES)]
+    guide_cards = [
+        FACTURATION_HUB,
+        *[
+            {
+                **guide,
+                "href": f"/guides/{guide['slug']}.html",
+            }
+            for guide in GUIDES
+        ],
+    ]
+    items = [
+        {
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": guide["title"],
+            "url": f"{BASE_URL}{guide['href']}",
+        }
+        for index, guide in enumerate(guide_cards)
+    ]
     schema = schemas("CollectionPage", title, description, url, "Guides", items=items)
-    cards = "".join(f'''<article class="seo-card"><h2>{guide['title']}</h2><p>{guide['description']}</p><p><a href="/guides/{guide['slug']}.html">Lire le guide</a></p></article>''' for guide in GUIDES)
+    cards = "".join(
+        (
+            '<article class="seo-card" data-search-intent="guide-prioritaire">'
+            f'<p class="seo-card-kicker">{guide["intent"]}</p>'
+            f'<h2>{guide["title"]}</h2>'
+            f'<p>{guide["description"]}</p>'
+            f'<p><a href="{guide["href"]}">Lire le guide</a></p>'
+            '</article>'
+        )
+        for guide in guide_cards
+    )
     content = page_head(title, description, url, schema) + shell("guides")
     content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"

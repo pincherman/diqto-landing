@@ -275,7 +275,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
     <p>"{example}"</p>
   </div>
 </div>
-<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/guides/facturation-electronique-micro-entreprise.html">Facturation électronique 2026-2027</a></aside>
+<aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/facturation-electronique.html">Facturation électronique 2026-2027</a></aside>
 <section class="final">
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>

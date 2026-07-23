@@ -1,0 +1,220 @@
+:root {
+    --watch-bg: #0c0c0c;
+    --watch-panel: #151a15;
+    --watch-text: #f5f5f2;
+    --watch-muted: #aab1aa;
+    --watch-green: #25d366;
+    --watch-line: rgba(255, 255, 255, 0.11);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--watch-bg);
+    color: var(--watch-text);
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.watch-container {
+    width: min(1040px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.watch-breadcrumbs {
+    padding-top: 24px;
+    color: var(--watch-muted);
+    font-size: 13px;
+}
+
+.watch-breadcrumbs a { text-decoration: none; }
+.watch-breadcrumbs span { margin: 0 7px; }
+
+.watch-hero { padding: 68px 0 34px; }
+
+.watch-eyebrow {
+    margin: 0;
+    color: var(--watch-green);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.watch-hero h1 {
+    max-width: 920px;
+    margin: 16px 0 0;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 0.99;
+    letter-spacing: -0.055em;
+}
+
+.watch-lead {
+    max-width: 780px;
+    margin: 22px 0 0;
+    color: #c8cfc8;
+    font-size: clamp(18px, 2.3vw, 22px);
+}
+
+.watch-disclosure {
+    margin-top: 20px;
+    color: var(--watch-muted);
+    font-size: 14px;
+}
+
+.watch-player {
+    overflow: hidden;
+    border: 1px solid var(--watch-line);
+    border-radius: 28px;
+    background: #050605;
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.42);
+}
+
+.watch-player video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+.watch-main { padding: 50px 0 96px; }
+
+.watch-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    gap: 48px;
+}
+
+.watch-section {
+    padding: 34px 0;
+    border-top: 1px solid var(--watch-line);
+}
+
+.watch-section:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.watch-section h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.watch-section h3 {
+    margin: 28px 0 8px;
+    font-size: 21px;
+}
+
+.watch-section p,
+.watch-section li {
+    color: #c8cfc8;
+}
+
+.watch-section ul { padding-left: 22px; }
+.watch-section li + li { margin-top: 10px; }
+
+.watch-transcript {
+    padding: 20px;
+    border: 1px solid var(--watch-line);
+    border-radius: 18px;
+    background: var(--watch-panel);
+}
+
+.watch-transcript summary {
+    min-height: 44px;
+    cursor: pointer;
+    color: var(--watch-text);
+    font-weight: 800;
+}
+
+.watch-transcript p {
+    margin: 10px 0 0;
+    color: #c8cfc8;
+}
+
+.watch-aside {
+    align-self: start;
+    padding: 24px;
+    border: 1px solid var(--watch-line);
+    border-radius: 22px;
+    background: var(--watch-panel);
+}
+
+.watch-aside h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.watch-aside p {
+    color: var(--watch-muted);
+    font-size: 15px;
+}
+
+.watch-actions {
+    display: grid;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.watch-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border: 1px solid var(--watch-green);
+    border-radius: 999px;
+    background: var(--watch-green);
+    color: #0c0c0c;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+}
+
+.watch-button.secondary {
+    border-color: var(--watch-line);
+    background: transparent;
+    color: var(--watch-text);
+}
+
+.watch-footer {
+    padding: 34px 0;
+    border-top: 1px solid var(--watch-line);
+    color: var(--watch-muted);
+    font-size: 13px;
+}
+
+.watch-footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.watch-footer a { text-decoration: none; }
+
+:focus-visible {
+    outline: 3px solid var(--watch-green);
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .watch-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+    .watch-container { width: min(100% - 28px, 1040px); }
+    .watch-hero { padding-top: 50px; }
+    .watch-main { padding-top: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}

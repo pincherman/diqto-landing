@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://diqto.fr/sitemap.xml
+Sitemap: https://diqto.fr/video-sitemap.xml

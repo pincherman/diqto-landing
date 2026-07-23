@@ -10,9 +10,9 @@
 
     var announcement = document.createElement('a');
     announcement.className = 'global-announcement';
-    announcement.href = '/guides/facturation-electronique-micro-entreprise.html';
+    announcement.href = '/facturation-electronique.html';
     announcement.innerHTML = '<strong>Facturation électronique</strong>'
-      + '<span>Ce qui change en 2026 et 2027 '
+      + '<span>Être prêt pour 2026 et 2027 '
       + '<span aria-hidden="true">→</span></span>';
     header.insertAdjacentElement('beforebegin', announcement);
   }

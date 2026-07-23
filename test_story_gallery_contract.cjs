@@ -11,18 +11,22 @@ const storyCases = [
     {
         id: 'marc-artisan',
         destination: '/plombier.html',
+        watch: '/histoires/marc-artisan.html',
     },
     {
         id: 'claire-osteopathe',
         destination: '/osteopathe.html',
+        watch: '/histoires/claire-osteopathe.html',
     },
     {
         id: 'sarah-avocate',
         destination: '/metiers/avocat.html',
+        watch: '/histoires/sarah-avocate.html',
     },
     {
         id: 'jean-luc-karate',
         destination: '/metiers/prof_karate.html',
+        watch: '/histoires/jean-luc-karate.html',
     },
 ];
 
@@ -61,6 +65,8 @@ for (const story of storyCases) {
     assert.match(stories, new RegExp(`src="/${videoRelative}"`));
     assert.match(stories, new RegExp(`poster="/${posterRelative}"`));
     assert.match(stories, new RegExp(`href="${story.destination}"`));
+    assert.match(stories, new RegExp(`href="${story.watch}"`));
+    assert.match(home, new RegExp(`href="${story.watch}"`));
 }
 
 const videos = stories.match(/<video\b[^>]*>/g) || [];

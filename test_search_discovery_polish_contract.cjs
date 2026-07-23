@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = __dirname;
-const guideHref = '/guides/facturation-electronique-micro-entreprise.html';
+const guideHref = '/facturation-electronique.html';
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 
 function pngMetadata(relative) {
@@ -83,11 +83,11 @@ assert(
   'shared shell must avoid duplicate announcements',
 );
 
-const guide = read('guides/facturation-electronique-micro-entreprise.html');
+const guide = read('facturation-electronique.html');
 for (const marker of [
-  'Diqto ne se présente pas comme une plateforme agréée',
-  'confirmation humaine avant envoi',
-  "un email ou un PDF Diqto ne doit pas être présenté comme une transmission réglementaire",
+  "Diqto n'est pas une Plateforme Agréée",
+  "L'intégration Diqto est en cours de qualification",
+  'Un PDF envoyé par email est-il une facture électronique ?',
 ]) {
   assert(guide.includes(marker), `e-invoicing guide missing safety marker: ${marker}`);
 }

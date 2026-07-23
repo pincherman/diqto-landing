@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://diqto.fr/histoires/marc-artisan.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/stories/marc-artisan-poster.jpg</video:thumbnail_loc>
+      <video:title>Marc finit son devis avant de quitter le chantier.</video:title>
+      <video:description>Film Diqto de 30 secondes : un artisan dicte les travaux réalisés, relit son devis puis prépare la facture sans tout ressaisir.</video:description>
+      <video:content_loc>https://diqto.fr/assets/stories/marc-artisan.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/claire-osteopathe.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/stories/claire-osteopathe-poster.jpg</video:thumbnail_loc>
+      <video:title>Claire reste présente pour son patient, puis finit son administratif.</video:title>
+      <video:description>Film Diqto de 30 secondes : une ostéopathe dicte l'essentiel après la séance, relit son compte rendu et prépare sa note d'honoraires.</video:description>
+      <video:content_loc>https://diqto.fr/assets/stories/claire-osteopathe.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/sarah-avocate.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/stories/sarah-avocate-poster.jpg</video:thumbnail_loc>
+      <video:title>Sarah garde son attention sur le dossier, pas sur la ressaisie.</video:title>
+      <video:description>Film Diqto de 30 secondes : une avocate reprend les faits, les diligences et le temps passé pour préparer son suivi et ses honoraires.</video:description>
+      <video:content_loc>https://diqto.fr/assets/stories/sarah-avocate.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/jean-luc-karate.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/stories/jean-luc-karate-poster.jpg</video:thumbnail_loc>
+      <video:title>Jean-Luc suit les abonnements sans quitter le tatami des yeux.</video:title>
+      <video:description>Film Diqto de 30 secondes : un professeur de karaté organise ses formules, pratiquants, échéances et règlements tout en gardant la main.</video:description>
+      <video:content_loc>https://diqto.fr/assets/stories/jean-luc-karate.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+</urlset>

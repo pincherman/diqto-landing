@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101712">
+    <title>Le premier client Diqto active sa facturation électronique | Reportage</title>
+    <meta
+        name="description"
+        content="Reportage prospectif : consentement, mandat, KYC/KYB, DGFiP, Annuaire et banque avant la première transmission via B2Brouter."
+    >
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link
+        rel="canonical"
+        href="https://diqto.fr/reportage-premier-client-facturation-electronique.html"
+    >
+    <link rel="icon" type="image/svg+xml" href="/favicon-diqto-voice.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/site-shell.css">
+    <script defer src="/site-shell.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Le premier client Diqto active sa facturation électronique",
+        "description": "Reportage prospectif sur les sept contrôles qui précèdent toute transmission réglementaire.",
+        "url": "https://diqto.fr/reportage-premier-client-facturation-electronique.html",
+        "datePublished": "2026-07-27",
+        "dateModified": "2026-07-27",
+        "inLanguage": "fr-FR",
+        "author": {
+            "@type": "Organization",
+            "name": "DIQTO"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DIQTO",
+            "url": "https://diqto.fr/"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Diqto",
+            "url": "https://diqto.fr/"
+        },
+        "about": [
+            "Facturation électronique",
+            "KYC",
+            "KYB",
+            "Plateforme Agréée",
+            "B2Brouter"
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --ink: #152119;
+            --ink-soft: #405047;
+            --paper: #f5f0e5;
+            --paper-deep: #e9e0cf;
+            --card: #fffdf8;
+            --green: #1fbd5a;
+            --green-dark: #0d6b35;
+            --green-pale: #dff6e6;
+            --orange: #ff7c43;
+            --orange-pale: #ffe6d8;
+            --yellow: #f4c84a;
+            --line: rgba(21, 33, 25, 0.16);
+            --shadow: 0 24px 70px rgba(46, 38, 25, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 116px;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 10% 8%, rgba(244, 200, 74, 0.18), transparent 22rem),
+                var(--paper);
+            color: var(--ink);
+            font-family: "Work Sans", sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .global-header {
+            background: rgba(16, 23, 18, 0.96);
+        }
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1200;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .reading-progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--green);
+            transition: width 120ms linear;
+        }
+
+        .report-container {
+            width: min(1240px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .report-hero {
+            min-height: calc(100vh - 74px);
+            display: grid;
+            align-items: center;
+            padding: 76px 0 60px;
+            overflow: hidden;
+        }
+
+        .report-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+            align-items: center;
+            gap: clamp(42px, 7vw, 96px);
+        }
+
+        .report-kicker,
+        .chapter-kicker,
+        .tiny-label {
+            margin: 0;
+            color: var(--green-dark);
+            font-family: "DM Mono", monospace;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .report-hero h1 {
+            max-width: 780px;
+            margin: 20px 0 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(54px, 7.3vw, 104px);
+            line-height: 0.89;
+            letter-spacing: -0.055em;
+        }
+
+        .report-hero h1 em {
+            color: var(--green-dark);
+            font-style: normal;
+        }
+
+        .report-deck {
+            max-width: 720px;
+            margin: 28px 0 0;
+            color: var(--ink-soft);
+            font-size: clamp(18px, 2vw, 23px);
+            line-height: 1.5;
+        }
+
+        .report-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .report-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 38px;
+            padding: 7px 13px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 253, 248, 0.66);
+            color: var(--ink-soft);
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .report-chip::before {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            content: "";
+        }
+
+        .report-disclaimer {
+            margin-top: 28px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--orange);
+            border-radius: 0 14px 14px 0;
+            background: var(--orange-pale);
+            color: #5c351f;
+            font-size: 14px;
+        }
+
+        .cover-scene {
+            position: relative;
+            min-height: 590px;
+            border: 1px solid rgba(21, 33, 25, 0.12);
+            border-radius: 44px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(233, 224, 207, 0.88)),
+                var(--paper-deep);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transform: rotate(1.2deg);
+        }
+
+        .cover-scene::before {
+            position: absolute;
+            top: -90px;
+            right: -70px;
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            background: rgba(31, 189, 90, 0.18);
+            content: "";
+        }
+
+        .cover-scene::after {
+            position: absolute;
+            bottom: -120px;
+            left: -80px;
+            width: 280px;
+            height: 280px;
+            border: 38px solid rgba(244, 200, 74, 0.26);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .desk-note {
+            position: absolute;
+            top: 72px;
+            left: 38px;
+            z-index: 2;
+            width: 205px;
+            padding: 20px;
+            background: #fff8bd;
+            box-shadow: 0 18px 40px rgba(47, 37, 17, 0.14);
+            transform: rotate(-5deg);
+        }
+
+        .desk-note strong {
+            display: block;
+            font-family: "Fraunces", serif;
+            font-size: 23px;
+            line-height: 1.05;
+        }
+
+        .desk-note span {
+            display: block;
+            margin-top: 12px;
+            color: #6c5e24;
+            font-size: 13px;
+        }
+
+        .phone {
+            position: absolute;
+            right: 42px;
+            bottom: 38px;
+            z-index: 3;
+            width: min(330px, 70%);
+            padding: 11px;
+            border: 3px solid #101712;
+            border-radius: 42px;
+            background: #101712;
+            box-shadow: 0 32px 80px rgba(13, 20, 15, 0.35);
+            transform: rotate(3deg);
+        }
+
+        .phone-screen {
+            min-height: 520px;
+            padding: 26px 20px 20px;
+            border-radius: 30px;
+            background: #f8faf8;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 17px;
+            left: 50%;
+            width: 92px;
+            height: 23px;
+            border-radius: 20px;
+            background: #101712;
+            transform: translateX(-50%);
+        }
+
+        .phone-brand {
+            margin-top: 20px;
+            color: #101712;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+        }
+
+        .phone-brand span {
+            color: var(--green);
+        }
+
+        .phone-screen h2 {
+            margin: 34px 0 0;
+            font-size: 28px;
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+        }
+
+        .phone-screen > p {
+            margin: 10px 0 0;
+            color: #667168;
+            font-size: 14px;
+        }
+
+        .phone-gate {
+            display: grid;
+            grid-template-columns: 32px 1fr auto;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+            padding: 13px;
+            border: 1px solid #dde5df;
+            border-radius: 15px;
+            background: #fff;
+        }
+
+        .phone-gate:first-of-type {
+            margin-top: 22px;
+        }
+
+        .phone-gate-icon {
+            width: 32px;
+            height: 32px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--green-pale);
+            color: var(--green-dark);
+            font-weight: 800;
+        }
+
+        .phone-gate strong,
+        .phone-gate small {
+            display: block;
+        }
+
+        .phone-gate strong {
+            font-size: 13px;
+        }
+
+        .phone-gate small {
+            color: #758078;
+            font-size: 10px;
+        }
+
+        .phone-gate-status {
+            color: var(--green-dark);
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .phone-lock {
+            margin-top: 18px;
+            padding: 14px;
+            border-radius: 16px;
+            background: #101712;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 750;
+            text-align: center;
+        }
+
+        .story-shell {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            align-items: start;
+            gap: clamp(34px, 6vw, 86px);
+            padding: 84px 0 130px;
+        }
+
+        .story-index {
+            position: sticky;
+            top: 116px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: rgba(255, 253, 248, 0.88);
+            backdrop-filter: blur(15px);
+        }
+
+        .story-index p {
+            margin: 0 0 12px;
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .story-index ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .story-index li + li {
+            margin-top: 4px;
+        }
+
+        .story-index a {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 8px;
+            padding: 8px 9px;
+            border-radius: 10px;
+            color: #657168;
+            font-size: 12px;
+            font-weight: 650;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+
+        .story-index a span:first-child {
+            font-family: "DM Mono", monospace;
+        }
+
+        .story-index a[aria-current="step"] {
+            background: var(--green-pale);
+            color: var(--green-dark);
+        }
+
+        .story-content {
+            min-width: 0;
+        }
+
+        .story-intro {
+            max-width: 790px;
+            margin-bottom: 70px;
+        }
+
+        .story-intro blockquote {
+            margin: 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(36px, 5.2vw, 68px);
+            font-weight: 600;
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+        }
+
+        .story-intro p {
+            max-width: 680px;
+            margin: 24px 0 0;
+            color: var(--ink-soft);
+            font-size: 18px;
+        }
+
+        .story-chapter {
+            position: relative;
+            min-height: 74vh;
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr);
+            align-items: center;
+            gap: clamp(28px, 5vw, 70px);
+            padding: 80px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .chapter-copy h2 {
+            margin: 14px 0 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1;
+            letter-spacing: -0.045em;
+        }
+
+        .chapter-copy > p {
+            margin: 22px 0 0;
+            color: var(--ink-soft);
+            font-size: 17px;
+        }
+
+        .chapter-quote {
+            margin-top: 26px;
+            padding-left: 18px;
+            border-left: 3px solid var(--orange);
+            color: #62341e;
+            font-family: "Fraunces", serif;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.28;
+        }
+
+        .responsibility {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .responsibility span {
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--card);
+            font-size: 11px;
+            font-weight: 750;
+        }
+
+        .responsibility .client {
+            background: #fff3ce;
+        }
+
+        .responsibility .diqto {
+            background: var(--green-pale);
+        }
+
+        .responsibility .provider {
+            background: #e8e9ff;
+        }
+
+        .screen {
+            position: relative;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            background: #101712;
+            box-shadow: var(--shadow);
+        }
+
+        .screen-inner {
+            min-height: 510px;
+            padding: clamp(22px, 4vw, 34px);
+            border-radius: 21px;
+            background: #f7f9f7;
+        }
+
+        .screen-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dfe6e0;
+        }
+
+        .screen-logo {
+            color: #101712;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+        }
+
+        .screen-logo span {
+            color: var(--green);
+        }
+
+        .screen-step {
+            color: #718077;
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .screen h3 {
+            margin: 30px 0 0;
+            color: #101712;
+            font-size: clamp(25px, 3vw, 36px);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+        }
+
+        .screen-lead {
+            margin: 10px 0 0;
+            color: #667168;
+            font-size: 14px;
+        }
+
+        .field,
+        .choice,
+        .proof-row,
+        .readiness-row {
+            margin-top: 13px;
+            padding: 14px 15px;
+            border: 1px solid #dce4de;
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .field label,
+        .field span,
+        .choice strong,
+        .choice small,
+        .proof-row strong,
+        .proof-row small {
+            display: block;
+        }
+
+        .field label {
+            color: #738077;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .field span {
+            margin-top: 3px;
+            color: #26352b;
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        .field.fictional span {
+            color: #667168;
+            font-family: "DM Mono", monospace;
+            font-size: 12px;
+        }
+
+        .screen-note {
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 13px;
+            background: #edf3ee;
+            color: #4f5e54;
+            font-size: 12px;
+        }
+
+        .screen-note strong {
+            color: #203027;
+        }
+
+        .choice {
+            position: relative;
+            padding-left: 48px;
+        }
+
+        .choice::before {
+            position: absolute;
+            top: 17px;
+            left: 16px;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #9bac9f;
+            border-radius: 50%;
+            content: "";
+        }
+
+        .choice.selected {
+            border-color: rgba(31, 189, 90, 0.5);
+            background: #f2fbf5;
+        }
+
+        .choice.selected::before {
+            border: 5px solid var(--green);
+        }
+
+        .choice strong {
+            color: #1f3026;
+            font-size: 14px;
+        }
+
+        .choice small {
+            margin-top: 3px;
+            color: #718077;
+            font-size: 11px;
+        }
+
+        .proof-row {
+            display: grid;
+            grid-template-columns: 36px 1fr auto;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .proof-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--green-pale);
+            color: var(--green-dark);
+            font-weight: 900;
+        }
+
+        .proof-row strong {
+            color: #203027;
+            font-size: 13px;
+        }
+
+        .proof-row small {
+            color: #758078;
+            font-size: 10px;
+        }
+
+        .proof-status {
+            color: var(--green-dark);
+            font-family: "DM Mono", monospace;
+            font-size: 9px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .proof-row.pending .proof-icon {
+            background: var(--orange-pale);
+            color: #a34c22;
+        }
+
+        .proof-row.pending .proof-status {
+            color: #a34c22;
+        }
+
+        .directory-card {
+            margin-top: 18px;
+            padding: 20px;
+            border-radius: 18px;
+            background: #101712;
+            color: #fff;
+        }
+
+        .directory-card .tiny-label {
+            color: #81e5a8;
+        }
+
+        .directory-card h4 {
+            margin: 12px 0 0;
+            font-size: 25px;
+            line-height: 1.1;
+        }
+
+        .directory-card p {
+            margin: 8px 0 0;
+            color: #b8c3ba;
+            font-size: 12px;
+        }
+
+        .directory-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .directory-node {
+            padding: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 13px;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .directory-arrow {
+            color: #81e5a8;
+            font-size: 20px;
+        }
+
+        .bank-card {
+            position: relative;
+            margin-top: 22px;
+            padding: 24px;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 95% 10%, rgba(255, 255, 255, 0.16), transparent 35%),
+                linear-gradient(145deg, #1d6e43, #0e3623);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .bank-card::after {
+            position: absolute;
+            right: -30px;
+            bottom: -45px;
+            width: 150px;
+            height: 150px;
+            border: 20px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .bank-card p {
+            margin: 0;
+            color: #bce2ca;
+            font-size: 11px;
+        }
+
+        .bank-card strong {
+            display: block;
+            margin-top: 20px;
+            font-family: "DM Mono", monospace;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+        }
+
+        .bank-card span {
+            display: block;
+            margin-top: 8px;
+            color: #dcefe2;
+            font-size: 11px;
+        }
+
+        .readiness {
+            margin-top: 20px;
+        }
+
+        .readiness-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .readiness-row strong {
+            color: #203027;
+            font-size: 13px;
+        }
+
+        .readiness-row span {
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: var(--green-pale);
+            color: var(--green-dark);
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .readiness-row.locked span {
+            background: var(--orange-pale);
+            color: #a34c22;
+        }
+
+        .transmission-lock,
+        .transmission-ready {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 750;
+            text-align: center;
+        }
+
+        .transmission-lock {
+            background: #101712;
+            color: #fff;
+        }
+
+        .transmission-ready {
+            border: 1px solid rgba(31, 189, 90, 0.4);
+            background: var(--green-pale);
+            color: var(--green-dark);
+        }
+
+        .confirm-box {
+            margin-top: 22px;
+            padding: 20px;
+            border: 2px solid var(--green);
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .confirm-box p {
+            margin: 0;
+            color: #5c6b61;
+            font-size: 12px;
+        }
+
+        .confirm-box strong {
+            display: block;
+            margin-top: 8px;
+            color: #17271d;
+            font-size: 15px;
+        }
+
+        .fake-action {
+            width: 100%;
+            min-height: 49px;
+            margin-top: 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: var(--green);
+            color: #07150c;
+            font-size: 13px;
+            font-weight: 850;
+        }
+
+        .caption {
+            margin: 12px 8px 0;
+            color: #647167;
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            line-height: 1.45;
+        }
+
+        .story-end {
+            margin-top: 70px;
+            padding: clamp(34px, 6vw, 70px);
+            border-radius: 34px;
+            background:
+                radial-gradient(circle at 88% 16%, rgba(31, 189, 90, 0.34), transparent 24rem),
+                #101712;
+            color: #fff;
+        }
+
+        .story-end .report-kicker {
+            color: #81e5a8;
+        }
+
+        .story-end h2 {
+            max-width: 900px;
+            margin: 18px 0 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(42px, 6vw, 74px);
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+        }
+
+        .story-end > p {
+            max-width: 720px;
+            margin: 24px 0 0;
+            color: #c1ccc3;
+            font-size: 18px;
+        }
+
+        .end-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 36px;
+        }
+
+        .end-card {
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .end-card span {
+            color: #81e5a8;
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+        }
+
+        .end-card strong {
+            display: block;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        .end-card p {
+            margin: 8px 0 0;
+            color: #aab7ad;
+            font-size: 13px;
+        }
+
+        .source-note {
+            margin-top: 34px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            color: #9eaba1;
+            font-size: 12px;
+        }
+
+        .source-note a {
+            color: #81e5a8;
+        }
+
+        .report-footer {
+            padding: 36px 0 54px;
+            color: #657168;
+            font-size: 12px;
+        }
+
+        .report-footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .report-footer nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--orange);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 980px) {
+            .report-hero {
+                min-height: auto;
+            }
+
+            .report-hero-grid,
+            .story-chapter {
+                grid-template-columns: 1fr;
+            }
+
+            .cover-scene {
+                min-height: 540px;
+            }
+
+            .story-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .story-index {
+                position: sticky;
+                top: 72px;
+                z-index: 30;
+                padding: 10px;
+                overflow-x: auto;
+            }
+
+            .story-index p {
+                display: none;
+            }
+
+            .story-index ol {
+                display: flex;
+                width: max-content;
+            }
+
+            .story-index li + li {
+                margin: 0 0 0 4px;
+            }
+
+            .story-index a {
+                grid-template-columns: 1fr;
+                min-width: 54px;
+                text-align: center;
+            }
+
+            .story-index a span:last-child {
+                display: none;
+            }
+
+            .story-chapter {
+                min-height: auto;
+            }
+
+            .chapter-copy {
+                max-width: 720px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .report-container {
+                width: min(100% - 28px, 1240px);
+            }
+
+            .report-hero {
+                padding-top: 54px;
+            }
+
+            .report-hero h1 {
+                font-size: clamp(48px, 15vw, 72px);
+            }
+
+            .cover-scene {
+                min-height: 510px;
+                border-radius: 28px;
+                transform: none;
+            }
+
+            .desk-note {
+                top: 32px;
+                left: 20px;
+                width: 170px;
+                padding: 16px;
+            }
+
+            .phone {
+                right: 18px;
+                bottom: 20px;
+                width: 275px;
+            }
+
+            .phone-screen {
+                min-height: 440px;
+                padding: 20px 15px 15px;
+            }
+
+            .phone-screen h2 {
+                margin-top: 28px;
+                font-size: 22px;
+            }
+
+            .phone-gate {
+                grid-template-columns: 28px 1fr;
+                padding: 10px;
+            }
+
+            .phone-gate-status {
+                display: none;
+            }
+
+            .story-shell {
+                padding-top: 44px;
+            }
+
+            .story-chapter {
+                padding: 60px 0;
+            }
+
+            .screen-inner {
+                min-height: 0;
+                padding: 20px 16px;
+            }
+
+            .proof-row {
+                grid-template-columns: 32px 1fr;
+            }
+
+            .proof-status {
+                grid-column: 2;
+            }
+
+            .directory-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .directory-arrow {
+                transform: rotate(90deg);
+                text-align: center;
+            }
+
+            .end-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-footer-inner {
+                display: block;
+            }
+
+            .report-footer nav {
+                margin-top: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reading-progress span {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" aria-hidden="true">
+        <span id="reading-progress-bar"></span>
+    </div>
+    <a class="global-skip-link" href="#reportage">Aller au reportage</a>
+    <header class="global-header" data-menu-open="false">
+        <div class="global-nav">
+            <a class="global-brand" href="/" aria-label="Diqto, accueil">
+                <span class="global-brand-mark" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i>
+                </span>
+                <span class="global-brand-name">diq<em>to</em></span>
+            </a>
+            <button
+                class="global-menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="navigation-principale"
+            >
+                Menu
+            </button>
+            <nav
+                class="global-menu"
+                id="navigation-principale"
+                aria-label="Navigation principale"
+            >
+                <a href="/">Accueil</a>
+                <a href="/fonctionnalites.html">Fonctionnalités</a>
+                <a href="/facturation-electronique.html">Facturation électronique</a>
+                <a href="/facturation-electronique-conditions.html">Annexe</a>
+                <a class="global-cta" href="/#beta">Commencer gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="reportage">
+        <article>
+            <header class="report-hero">
+                <div class="report-container report-hero-grid">
+                    <div>
+                        <p class="report-kicker">Reportage prospectif · 7 étapes · 12 minutes</p>
+                        <h1>Le jour où le <em>premier client</em> active Diqto.</h1>
+                        <p class="report-deck">
+                            Camille dirige une entreprise fictive. Elle veut recevoir et
+                            transmettre ses factures électroniques avec Diqto. Nous suivons
+                            son parcours, du premier consentement jusqu’à la confirmation
+                            humaine qui ouvre — enfin — la transmission via B2Brouter.
+                        </p>
+                        <div class="report-meta" aria-label="Caractéristiques du reportage">
+                            <span class="report-chip">Données 100 % fictives</span>
+                            <span class="report-chip">Aucune transmission réelle</span>
+                            <span class="report-chip">B2Brouter, Plateforme Agréée</span>
+                        </div>
+                        <p class="report-disclaimer">
+                            <strong>Important :</strong> cette page est une maquette narrative
+                            du parcours cible. Elle ne représente ni un compte client réel,
+                            ni une activation DGFiP, ni une validation bancaire effective.
+                        </p>
+                    </div>
+
+                    <figure class="cover-scene" aria-label="Illustration du parcours sur iPhone">
+                        <div class="desk-note">
+                            <strong>Une règle avant toutes les autres.</strong>
+                            <span>Aucune transmission avant validation humaine.</span>
+                        </div>
+                        <div class="phone" aria-hidden="true">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="phone-brand">diq<span>to</span></div>
+                                <h2>Activer la facturation électronique</h2>
+                                <p>7 contrôles avant la première transmission.</p>
+                                <div class="phone-gate">
+                                    <span class="phone-gate-icon">✓</span>
+                                    <span><strong>Consentement</strong><small>Version enregistrée</small></span>
+                                    <span class="phone-gate-status">Validé</span>
+                                </div>
+                                <div class="phone-gate">
+                                    <span class="phone-gate-icon">✓</span>
+                                    <span><strong>Mandat</strong><small>Périmètre réception + émission</small></span>
+                                    <span class="phone-gate-status">Validé</span>
+                                </div>
+                                <div class="phone-gate">
+                                    <span class="phone-gate-icon">✓</span>
+                                    <span><strong>Entreprise</strong><small>KYC / KYB et pouvoir</small></span>
+                                    <span class="phone-gate-status">Validé</span>
+                                </div>
+                                <div class="phone-gate">
+                                    <span class="phone-gate-icon">4</span>
+                                    <span><strong>DGFiP & Annuaire</strong><small>Contrôle en cours</small></span>
+                                    <span class="phone-gate-status">À vérifier</span>
+                                </div>
+                                <div class="phone-lock">Transmission verrouillée</div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </header>
+
+            <div class="report-container story-shell">
+                <nav class="story-index" aria-label="Chapitres du reportage">
+                    <p>Le parcours</p>
+                    <ol>
+                        <li><a href="#chapitre-1"><span>01</span><span>Comprendre et consentir</span></a></li>
+                        <li><a href="#chapitre-2"><span>02</span><span>Choisir le mandat</span></a></li>
+                        <li><a href="#chapitre-3"><span>03</span><span>Prouver l’entreprise</span></a></li>
+                        <li><a href="#chapitre-4"><span>04</span><span>Vérifier DGFiP</span></a></li>
+                        <li><a href="#chapitre-5"><span>05</span><span>Relire l’Annuaire</span></a></li>
+                        <li><a href="#chapitre-6"><span>06</span><span>Valider la banque</span></a></li>
+                        <li><a href="#chapitre-7"><span>07</span><span>Confirmer l’envoi</span></a></li>
+                    </ol>
+                </nav>
+
+                <div class="story-content">
+                    <section class="story-intro" aria-labelledby="ouverture">
+                        <blockquote id="ouverture">
+                            « On ne demande pas au client de faire confiance à une boîte
+                            noire. On lui montre chaque verrou. »
+                        </blockquote>
+                        <p>
+                            Le reportage commence un lundi à 9 h 12. Camille ouvre Diqto.
+                            Son entreprise fictive est prête à préparer des factures, mais
+                            aucune plateforme n’est encore autorisée à les transmettre.
+                            C’est exactement l’état attendu.
+                        </p>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-1" data-step="1">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">09:12 · Étape 1 sur 7</p>
+                            <h2>Comprendre avant de consentir.</h2>
+                            <p>
+                                Diqto commence par séparer l’acceptation générale de
+                                l’application et l’activation réglementaire. Camille voit
+                                qui fait quoi, quelles données seront traitées et comment
+                                sortir du service.
+                            </p>
+                            <p class="chapter-quote">
+                                Les CGU seules ne valent ni mandat, ni activation de la
+                                facturation électronique.
+                            </p>
+                            <div class="responsibility" aria-label="Responsabilités de l'étape">
+                                <span class="client">Client : lit et accepte</span>
+                                <span class="diqto">Diqto : versionne la preuve</span>
+                                <span class="provider">B2Brouter : rôle explicitement nommé</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Consentement séparé</div>
+                                    </div>
+                                    <h3>Activer le service réglementaire</h3>
+                                    <p class="screen-lead">
+                                        Diqto prépare et contrôle. B2Brouter opère le
+                                        transport en qualité de Plateforme Agréée.
+                                    </p>
+                                    <div class="choice selected">
+                                        <strong>J’ai lu l’annexe Facturation électronique</strong>
+                                        <small>Version 1.0 · empreinte conservée</small>
+                                    </div>
+                                    <div class="choice selected">
+                                        <strong>J’autorise les contrôles nécessaires</strong>
+                                        <small>Identité, statut fiscal, Annuaire et banque</small>
+                                    </div>
+                                    <div class="screen-note">
+                                        <strong>Réversible :</strong> le mandat pourra être
+                                        révoqué. Tant qu’il ne couvre pas l’émission, aucune
+                                        facture ne peut partir.
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                Maquette narrative — aucun consentement réel n’est collecté sur cette page.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-2" data-step="2">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">09:16 · Étape 2 sur 7</p>
+                            <h2>Un mandat qui dit précisément « quoi ».</h2>
+                            <p>
+                                Recevoir des factures ne signifie pas pouvoir en émettre.
+                                Camille choisit le périmètre. Diqto enregistre la version,
+                                l’empreinte, la date et le pouvoir du signataire.
+                            </p>
+                            <p class="chapter-quote">
+                                Le mandat de désignation n’est pas un mandat de facturation
+                                « au nom et pour le compte de ».
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : choisit le périmètre</span>
+                                <span class="diqto">Diqto : conserve la preuve</span>
+                                <span class="provider">B2Brouter : respecte le périmètre</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Mandat versionné</div>
+                                    </div>
+                                    <h3>Quel périmètre autorisez-vous ?</h3>
+                                    <p class="screen-lead">
+                                        La réception est obligatoire. L’émission et
+                                        l’e-reporting restent des autorisations distinctes.
+                                    </p>
+                                    <div class="choice">
+                                        <strong>Réception seule</strong>
+                                        <small>Recevoir et consulter les factures fournisseurs</small>
+                                    </div>
+                                    <div class="choice selected">
+                                        <strong>Réception + émission</strong>
+                                        <small>Brouillon no-send puis confirmation explicite</small>
+                                    </div>
+                                    <div class="choice">
+                                        <strong>Mandat de facturation</strong>
+                                        <small>Document séparé — non inclus par défaut</small>
+                                    </div>
+                                    <div class="screen-note">
+                                        Reçu : version 1.0 · hash enregistré · révocation
+                                        disponible dans les réglages.
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                Le choix montré est fictif et n’engage aucune entreprise.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-3" data-step="3">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">09:21 · Étape 3 sur 7</p>
+                            <h2>Prouver l’entreprise. Puis la personne.</h2>
+                            <p>
+                                Le KYB vérifie l’entreprise. Le KYC vérifie l’identité de la
+                                personne qui agit. Diqto doit aussi établir qu’elle possède
+                                le pouvoir d’engager la société.
+                            </p>
+                            <p class="chapter-quote">
+                                Une identité correcte sans pouvoir de signature reste un
+                                onboarding incomplet.
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : fournit les preuves</span>
+                                <span class="diqto">Diqto : contrôle cohérence et pouvoir</span>
+                                <span class="provider">B2Brouter : vérifie le compte société</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">KYC / KYB</div>
+                                    </div>
+                                    <h3>Vérifier l’entreprise fictive</h3>
+                                    <p class="screen-lead">
+                                        Les valeurs sont volontairement masquées dans ce reportage.
+                                    </p>
+                                    <div class="field fictional">
+                                        <label>Raison sociale de démonstration</label>
+                                        <span>ATELIER HORIZON — ENTREPRISE FICTIVE</span>
+                                    </div>
+                                    <div class="field fictional">
+                                        <label>Identifiant légal</label>
+                                        <span>SIREN DE DÉMONSTRATION ••• ••• •••</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Existence juridique</strong><small>Source officielle cohérente</small></span>
+                                        <span class="proof-status">Vérifié</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Identité du signataire</strong><small>Pièce valide, non affichée ici</small></span>
+                                        <span class="proof-status">Vérifié</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Pouvoir d’engager</strong><small>Qualité et mandat cohérents</small></span>
+                                        <span class="proof-status">Vérifié</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                Aucun document d’identité, SIREN ou dirigeant réel n’est utilisé.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-4" data-step="4">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">09:34 · Étape 4 sur 7</p>
+                            <h2>La DGFiP confirme le cadre fiscal.</h2>
+                            <p>
+                                Le régime de TVA, l’activité et les paramètres déclaratifs
+                                ne sont jamais devinés. Une incohérence bloque le rail au
+                                lieu d’être corrigée silencieusement.
+                            </p>
+                            <p class="chapter-quote">
+                                « À vérifier » est un état produit normal. Ce n’est pas une
+                                invitation à contourner le contrôle.
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : confirme ses données fiscales</span>
+                                <span class="diqto">Diqto : refuse toute valeur supposée</span>
+                                <span class="provider">B2Brouter : active le paramétrage DGFiP</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Contrôle DGFiP</div>
+                                    </div>
+                                    <h3>Paramètres fiscaux</h3>
+                                    <p class="screen-lead">
+                                        L’activation reste verrouillée tant que les données
+                                        ne sont pas exactes et confirmées.
+                                    </p>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Régime de TVA</strong><small>Confirmé par l’entreprise</small></span>
+                                        <span class="proof-status">Cohérent</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Activité et code NAF</strong><small>Sources concordantes</small></span>
+                                        <span class="proof-status">Cohérent</span>
+                                    </div>
+                                    <div class="proof-row pending">
+                                        <span class="proof-icon">!</span>
+                                        <span><strong>Activation DGFiP</strong><small>Réponse fournisseur attendue</small></span>
+                                        <span class="proof-status">En cours</span>
+                                    </div>
+                                    <div class="transmission-lock">
+                                        Verrou actif · aucune transmission possible
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                Ce statut est illustratif : aucune activation DGFiP réelle n’est montrée.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-5" data-step="5">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">10:02 · Étape 5 sur 7</p>
+                            <h2>L’Annuaire rend le routage visible.</h2>
+                            <p>
+                                L’inscription DGFiP ne suffit pas. L’entreprise doit apparaître
+                                dans l’Annuaire avec un routage actif pour les flux concernés.
+                                Diqto relit cet état ; il ne l’invente pas.
+                            </p>
+                            <p class="chapter-quote">
+                                Pas de statut Annuaire actif, pas de promesse de réception ou
+                                d’émission opérationnelle.
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : contrôle son identité publique</span>
+                                <span class="diqto">Diqto : relit l’état réel</span>
+                                <span class="provider">B2Brouter : publie le routage PA</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Annuaire</div>
+                                    </div>
+                                    <h3>Routage réglementaire</h3>
+                                    <p class="screen-lead">
+                                        Diqto distingue le rôle de l’application et celui de la PA.
+                                    </p>
+                                    <div class="directory-card">
+                                        <p class="tiny-label">Statut de démonstration</p>
+                                        <h4>Routage actif</h4>
+                                        <p>
+                                            Réception et émission rattachées à la Plateforme
+                                            Agréée choisie par l’entreprise.
+                                        </p>
+                                        <div class="directory-flow" aria-label="Flux de routage">
+                                            <div class="directory-node">Entreprise cliente</div>
+                                            <div class="directory-arrow" aria-hidden="true">→</div>
+                                            <div class="directory-node">B2Brouter · PA</div>
+                                        </div>
+                                    </div>
+                                    <div class="screen-note">
+                                        <strong>Diqto reste la solution.</strong> Il prépare,
+                                        contrôle et suit. B2Brouter opère le transport réglementaire.
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                L’état « actif » appartient au scénario fictif, pas à une entreprise réelle.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-6" data-step="6">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">10:08 · Étape 6 sur 7</p>
+                            <h2>Une banque exacte, jamais extrapolée.</h2>
+                            <p>
+                                Les coordonnées de règlement doivent appartenir à l’entreprise
+                                et correspondre aux informations visibles sur ses documents.
+                                Elles sont masquées après validation.
+                            </p>
+                            <p class="chapter-quote">
+                                L’IBAN sert au règlement de la facture. Il ne déclenche ni
+                                prélèvement fournisseur, ni paiement automatique.
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : saisit et atteste</span>
+                                <span class="diqto">Diqto : vérifie la cohérence</span>
+                                <span class="provider">B2Brouter : transporte les données utiles</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Coordonnées bancaires</div>
+                                    </div>
+                                    <h3>Compte de règlement</h3>
+                                    <p class="screen-lead">
+                                        Seul un compte exact et vérifié peut apparaître sur la facture.
+                                    </p>
+                                    <div class="bank-card">
+                                        <p>Compte bancaire de démonstration</p>
+                                        <strong>FR•• •••• •••• •••• •••• •••• •••</strong>
+                                        <span>Titulaire : entreprise fictive · IBAN masqué</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Titulaire cohérent</strong><small>Nom légal concordant</small></span>
+                                        <span class="proof-status">Vérifié</span>
+                                    </div>
+                                    <div class="proof-row">
+                                        <span class="proof-icon">✓</span>
+                                        <span><strong>Affichage facture</strong><small>Compte sélectionné explicitement</small></span>
+                                        <span class="proof-status">Vérifié</span>
+                                    </div>
+                                    <div class="screen-note">
+                                        Aucun prélèvement ni paiement n’est déclenché pendant ce contrôle.
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                L’IBAN est un motif visuel fictif, volontairement inutilisable.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-chapter" id="chapitre-7" data-step="7">
+                        <div class="chapter-copy">
+                            <p class="chapter-kicker">10:14 · Étape 7 sur 7</p>
+                            <h2>Prêt ne veut toujours pas dire envoyé.</h2>
+                            <p>
+                                Tous les contrôles sont verts. Diqto prépare un brouillon
+                                chez B2Brouter avec l’envoi désactivé. Camille relit encore
+                                le client, les montants, la TVA et le compte de règlement.
+                            </p>
+                            <p class="chapter-quote">
+                                La dernière action appartient à l’humain : « Confirmer
+                                l’envoi réglementaire ».
+                            </p>
+                            <div class="responsibility">
+                                <span class="client">Client : relit et confirme</span>
+                                <span class="diqto">Diqto : orchestre sans automatiser</span>
+                                <span class="provider">B2Brouter : transmet après confirmation</span>
+                            </div>
+                        </div>
+
+                        <figure>
+                            <div class="screen">
+                                <div class="screen-inner">
+                                    <div class="screen-top">
+                                        <div class="screen-logo">diq<span>to</span></div>
+                                        <div class="screen-step">Préflight final</div>
+                                    </div>
+                                    <h3>Première facture prête à relire</h3>
+                                    <p class="screen-lead">
+                                        Brouillon de démonstration · aucune valeur commerciale.
+                                    </p>
+                                    <div class="readiness">
+                                        <div class="readiness-row"><strong>Consentement & mandat</strong><span>Validés</span></div>
+                                        <div class="readiness-row"><strong>KYC / KYB & pouvoir</strong><span>Validés</span></div>
+                                        <div class="readiness-row"><strong>DGFiP & Annuaire</strong><span>Actifs</span></div>
+                                        <div class="readiness-row"><strong>Banque & paramètres fiscaux</strong><span>Vérifiés</span></div>
+                                    </div>
+                                    <div class="transmission-ready">
+                                        Prête à confirmer · aucune transmission automatique
+                                    </div>
+                                    <div class="confirm-box">
+                                        <p>Action externe</p>
+                                        <strong>Je confirme avoir relu cette facture.</strong>
+                                        <div class="fake-action" aria-hidden="true">
+                                            Confirmer l’envoi réglementaire
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <figcaption class="caption">
+                                Le bouton est une illustration : cette page ne peut envoyer aucune facture.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="story-end" aria-labelledby="conclusion">
+                        <p class="report-kicker">10:15 · Fin du reportage</p>
+                        <h2 id="conclusion">Sept preuves. Un geste humain. Zéro raccourci.</h2>
+                        <p>
+                            Le « super pouvoir » Diqto n’est pas d’envoyer plus vite à tout prix.
+                            C’est de rendre la conformité compréhensible, de bloquer ce qui
+                            manque et de laisser l’entreprise décider du premier envoi.
+                        </p>
+                        <div class="end-grid">
+                            <article class="end-card">
+                                <span>Diqto</span>
+                                <strong>Prépare, vérifie, explique.</strong>
+                                <p>Une interface unique, des preuves versionnées et des erreurs actionnables.</p>
+                            </article>
+                            <article class="end-card">
+                                <span>B2Brouter</span>
+                                <strong>Opère comme Plateforme Agréée.</strong>
+                                <p>Transport, réception, statuts et archives dans le périmètre activé.</p>
+                            </article>
+                            <article class="end-card">
+                                <span>L’entreprise</span>
+                                <strong>Reste aux commandes.</strong>
+                                <p>Elle fournit les données exactes, choisit le mandat et confirme la transmission.</p>
+                            </article>
+                        </div>
+                        <p class="source-note">
+                            Pour le cadre contractuel, consultez
+                            <a href="/facturation-electronique-conditions.html">l’annexe Facturation électronique</a>.
+                            Pour le calendrier et les sources officielles, consultez
+                            <a href="/facturation-electronique.html">le guide Diqto</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="report-footer">
+        <div class="report-container report-footer-inner">
+            <span>© 2026 DIQTO · Reportage prospectif · Données fictives</span>
+            <nav aria-label="Liens de pied de page">
+                <a href="/cgu.html">CGU</a>
+                <a href="/confidentialite.html">Confidentialité</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            const progressBar = document.getElementById("reading-progress-bar");
+            const chapters = Array.from(document.querySelectorAll("[data-step]"));
+            const links = Array.from(document.querySelectorAll(".story-index a"));
+
+            const updateProgress = () => {
+                const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const ratio = documentHeight > 0
+                    ? Math.min(1, Math.max(0, window.scrollY / documentHeight))
+                    : 0;
+                progressBar.style.width = `${Math.round(ratio * 100)}%`;
+            };
+
+            const setActiveChapter = (id) => {
+                links.forEach((link) => {
+                    const active = link.getAttribute("href") === `#${id}`;
+                    if (active) {
+                        link.setAttribute("aria-current", "step");
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    const visible = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                    if (visible[0]) {
+                        setActiveChapter(visible[0].target.id);
+                    }
+                },
+                {
+                    rootMargin: "-28% 0px -48% 0px",
+                    threshold: [0.1, 0.35, 0.6]
+                }
+            );
+
+            chapters.forEach((chapter) => observer.observe(chapter));
+            window.addEventListener("scroll", updateProgress, { passive: true });
+            updateProgress();
+        })();
+    </script>
+</body>
+</html>

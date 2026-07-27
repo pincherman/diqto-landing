@@ -106,12 +106,12 @@ assert(
 
 const guide = read('facturation-electronique.html');
 for (const marker of [
-  "Diqto n'est pas une Plateforme Agréée",
-  'DIQTO a rejoint le programme Startups de B2Brouter',
-  "L'activation est réalisée entreprise par entreprise",
+  'La facturation électronique, simplement dans Diqto.',
+  'Ce que Diqto fait pour vous',
+  'B2Brouter, Plateforme Agréée partenaire de Diqto',
   'Un PDF envoyé par email est-il une facture électronique ?',
 ]) {
-  assert(guide.includes(marker), `e-invoicing guide missing safety marker: ${marker}`);
+  assert(guide.includes(marker), `e-invoicing guide missing value marker: ${marker}`);
 }
 assert(!/Diqto (?:est|sera) conforme/i.test(guide), 'guide must not claim Diqto compliance');
 

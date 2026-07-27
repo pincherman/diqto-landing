@@ -12,7 +12,7 @@
     announcement.className = 'global-announcement';
     announcement.href = '/facturation-electronique.html';
     announcement.innerHTML = '<strong>Facturation électronique</strong>'
-      + '<span>Être prêt pour 2026 et 2027 '
+      + '<span>Recevoir et envoyer avec Diqto '
       + '<span aria-hidden="true">→</span></span>';
     header.insertAdjacentElement('beforebegin', announcement);
   }

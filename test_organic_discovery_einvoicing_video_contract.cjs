@@ -17,9 +17,10 @@ const hub = read('facturation-electronique.html');
 for (const marker of [
     '1er septembre 2026',
     '1er septembre 2027',
-    "Diqto n'est pas une Plateforme Agréée",
-    'DIQTO a rejoint le programme Startups de B2Brouter',
-    "L'activation est réalisée entreprise par entreprise",
+    'La facturation électronique, simplement dans Diqto.',
+    'Ce que Diqto fait pour vous',
+    'B2Brouter, Plateforme Agréée partenaire de Diqto',
+    "L'activation est guidée entreprise par entreprise",
     'Un PDF envoyé par email est-il une facture électronique ?',
     'https://www.impots.gouv.fr/facturation-electronique-et-plateformes-agreees',
 ]) {

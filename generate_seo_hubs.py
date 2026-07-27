@@ -150,17 +150,17 @@ GUIDES = [
 <p class="seo-meta">Sources officielles vérifiées le 11 juillet 2026.</p></section>
 <section class="seo-section"><h2>Un PDF envoyé par email n'est pas la facture électronique de la réforme</h2>
 <p>Le ministère de l'Économie précise qu'une facture électronique doit respecter un format normé, porter les données obligatoires dans des champs dédiés et transiter par une plateforme agréée. Un PDF ordinaire joint à un email ne suffit donc pas pour ce parcours réglementaire.</p>
-<div class="seo-note"><p><strong>Point de vigilance :</strong> méfiez-vous des logiciels qui utilisent le mot «&nbsp;conforme&nbsp;» sans expliquer le rôle de la plateforme agréée, le calendrier et le périmètre réellement opérationnel.</p></div></section>
+<div class="seo-note"><p><strong>Bon réflexe :</strong> choisissez une solution qui explique simplement le calendrier, l'activation et le suivi de vos factures électroniques.</p></div></section>
 <section class="seo-section"><h2>Comment vous préparer sans tout changer aujourd'hui</h2><ol>
 <li>Identifiez les factures reçues et émises entre entreprises françaises.</li>
 <li>Vérifiez que vos coordonnées légales, SIREN, régime de TVA et clients sont propres.</li>
-<li>Demandez à votre outil quel partenaire plateforme agréée portera la transmission.</li>
+<li>Vérifiez comment votre outil activera la réception, l'envoi et le suivi des statuts.</li>
 <li>Distinguez vos factures B2B, vos ventes aux particuliers et les éventuelles données de paiement.</li>
 <li>Gardez une validation humaine avant toute transmission réelle.</li>
 </ol></section>
-<section class="seo-section"><h2>La position de Diqto</h2>
-<p>Diqto reste une solution de préparation et de suivi. Diqto ne se présente pas comme une plateforme agréée. Le parcours réglementaire doit passer par un partenaire agréé, avec vérification de l'annuaire destinataire et confirmation humaine avant envoi.</p>
-<p>Cette intégration est en cours de préparation. Tant que le parcours de production n'est pas validé de bout en bout, un email ou un PDF Diqto ne doit pas être présenté comme une transmission réglementaire.</p></section>
+<section class="seo-section"><h2>Ce que Diqto simplifie</h2>
+<p><strong>Diqto intègre la facturation électronique à votre quotidien.</strong> Vous préparez, recevez, envoyez et suivez vos factures électroniques au même endroit que vos clients, vos devis et vos règlements.</p>
+<p>L'activation est guidée entreprise par entreprise. Le service s'appuie sur B2Brouter, Plateforme Agréée partenaire de Diqto, dont le rôle est précisé au moment du mandat.</p></section>
 """,
         "related": [
             ("/guides/logiciel-facturation-micro-entrepreneur.html", "Choisir son logiciel de facturation"),

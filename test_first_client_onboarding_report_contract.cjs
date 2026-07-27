@@ -45,11 +45,17 @@ for (const marker of [
 }
 
 assert(
-  report.includes('Aucune transmission avant validation humaine')
-    && report.includes('aucune transmission automatique')
-    && report.includes('B2Brouter · PA')
-    && report.includes('Diqto reste la solution'),
-  'report must preserve human confirmation and exact Diqto/B2Brouter roles',
+  report.includes('Recevoir · envoyer · suivre')
+    && report.includes('Tout se passe dans Diqto')
+    && report.includes('B2Brouter, Plateforme Agréée partenaire')
+    && report.includes('La dernière action appartient à l’humain'),
+  'report must lead with customer outcomes and retain a discreet partner disclosure',
+);
+
+assert(
+  (report.match(/B2Brouter/g) || []).length <= 2
+    && !/chaque verrou|Transmission verrouillée|Zéro raccourci/.test(report),
+  'report must not turn provider plumbing or internal safeguards into the story',
 );
 
 assert(

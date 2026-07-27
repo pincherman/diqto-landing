@@ -30,14 +30,14 @@ for (const [name, source] of [
 }
 
 assert(
-  home.includes('DIQTO rejoint le programme Startups de B2Brouter')
-    && home.includes('rien ne part sans validation explicite'),
-  'homepage must expose the partnership and human-control boundary',
+  home.includes('Votre facturation électronique, dans le même outil.')
+    && home.includes('Service opéré avec B2Brouter, Plateforme Agréée partenaire de Diqto.'),
+  'homepage must lead with Diqto value and disclose the partner secondarily',
 );
 assert(
-  hub.includes('B2Brouter assure le transport réglementaire en tant que Plateforme Agréée')
-    && hub.includes("Un brouillon est d'abord préparé sans envoi"),
-  'SEO hub must explain the exact operator and no-send draft sequence',
+  hub.includes('Ce que Diqto fait pour vous')
+    && hub.includes('B2Brouter, Plateforme Agréée partenaire de Diqto'),
+  'SEO hub must lead with Diqto value and retain an exact partner disclosure',
 );
 assert(
   annex.includes("L'acceptation générale des CGU ne vaut ni activation, ni mandat")

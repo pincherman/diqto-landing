@@ -269,6 +269,7 @@
     <li>Numéro de téléphone</li>
     <li>Adresse email</li>
     <li>Historique des prestations</li>
+    <li>Pour la facturation électronique activée : identifiants fiscaux et Annuaire, données de facture, statuts réglementaires, références de paiement et archives associées</li>
     <li>Notes de séance (pour les praticiens : santé, bien-être, coaching)</li>
     <li>Données de suivi patient — si companion activé (score douleur, exercices prescrits, évolution)</li>
   </ul>
@@ -325,6 +326,10 @@
       <td>Email, données de paiement (via Stripe)</td>
     </tr>
     <tr>
+      <td>Facturation électronique</td>
+      <td>Identité de l'entreprise et du client professionnel, identifiants fiscaux, contenu de la facture, données de paiement, statuts de cycle de vie et archive réglementaire</td>
+    </tr>
+    <tr>
       <td>Alertes URSSAF et coaching business</td>
       <td>Données financières (CA, seuils), statut juridique</td>
     </tr>
@@ -351,7 +356,7 @@
   </ul>
 
   <h2>5. Sous-traitants et transferts de données</h2>
-  <p>Diqto fait appel aux sous-traitants suivants, tous liés par des accords de traitement de données (DPA) :</p>
+  <p>Diqto fait appel aux prestataires suivants. Leur rôle dépend de la fonction utilisée et des obligations réglementaires qui leur sont propres :</p>
   <table class="data-table">
     <tr>
       <th>Sous-traitant</th>
@@ -408,6 +413,12 @@
       <td>DPA, SCCs.</td>
     </tr>
     <tr>
+      <td><strong>B2Brouter Global, S.L.</strong></td>
+      <td>Transport, réception, statuts et archivage des factures électroniques en qualité de Plateforme Agréée, uniquement après activation de l'entreprise</td>
+      <td>Union européenne</td>
+      <td>Contrat eDocSync ; données chiffrées en transit ; rôle et garanties précisés dans l'annexe Facturation électronique et les documents de protection applicables.</td>
+    </tr>
+    <tr>
       <td><strong>Meta / WhatsApp</strong></td>
       <td>Envoi OTP authentification</td>
       <td>États-Unis / UE</td>
@@ -439,6 +450,10 @@
     <tr>
       <td>Documents générés (devis, factures, etc.)</td>
       <td>Durée de l'abonnement actif + 3 ans (obligation légale de conservation)</td>
+    </tr>
+    <tr>
+      <td>Factures électroniques, statuts et archives réglementaires</td>
+      <td>Durée imposée par la réglementation applicable et les obligations d'archivage ; les modalités de restitution sont précisées lors de l'activation.</td>
     </tr>
     <tr>
       <td>Notes de séance / données patient</td>

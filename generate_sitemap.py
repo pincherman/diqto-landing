@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import difflib
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,6 +16,10 @@ ROOT = Path(__file__).resolve().parent
 SITEMAP_PATH = ROOT / "sitemap.xml"
 BASE_URL = "https://diqto.fr"
 CANONICAL_RE = re.compile(r'<link\s+rel="canonical"\s+href="([^"]+)"', re.IGNORECASE)
+SITEMAP_ENTRY_RE = re.compile(
+    r"<loc>([^<]+)</loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>",
+    re.IGNORECASE,
+)
 
 CORE_ROOT_ORDER = {
     "index.html": 0,
@@ -63,7 +68,12 @@ def sitemap_priority(path: Path) -> tuple[str, str]:
         return "weekly", "0.8"
     if rel.startswith("histoires/"):
         return "weekly", "0.8"
-    if rel in {"cgu.html", "confidentialite.html", "mentions-legales.html"}:
+    if rel in {
+        "cgu.html",
+        "confidentialite.html",
+        "facturation-electronique-conditions.html",
+        "mentions-legales.html",
+    }:
         return "weekly", "0.3"
     if rel.startswith("metiers/"):
         return "monthly", "0.6"
@@ -85,9 +95,37 @@ def collect_pages() -> list[Path]:
     return sorted((path for path in ROOT.rglob("*.html") if is_public_html(path)), key=sort_key)
 
 
+def existing_lastmods() -> dict[str, str]:
+    tracked = subprocess.run(
+        ["git", "show", "HEAD:sitemap.xml"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    if tracked.returncode == 0:
+        return dict(SITEMAP_ENTRY_RE.findall(tracked.stdout))
+    if SITEMAP_PATH.exists():
+        return dict(SITEMAP_ENTRY_RE.findall(SITEMAP_PATH.read_text(encoding="utf-8")))
+    return {}
+
+
+def is_dirty(path: Path) -> bool:
+    relative = path.relative_to(ROOT).as_posix()
+    result = subprocess.run(
+        ["git", "status", "--porcelain", "--", relative],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    return bool(result.stdout.strip())
+
+
 def build_sitemap(lastmod: str) -> str:
     urls: list[str] = []
     seen: set[str] = set()
+    known_lastmods = existing_lastmods()
     for path in collect_pages():
         loc = canonical_url(path)
         if not loc.startswith(f"{BASE_URL}/"):
@@ -96,10 +134,15 @@ def build_sitemap(lastmod: str) -> str:
             continue
         seen.add(loc)
         changefreq, priority = sitemap_priority(path)
+        page_lastmod = (
+            lastmod
+            if is_dirty(path) or loc not in known_lastmods
+            else known_lastmods[loc]
+        )
         urls.append(
             "  <url>\n"
             f"    <loc>{escape(loc)}</loc>\n"
-            f"    <lastmod>{lastmod}</lastmod>\n"
+            f"    <lastmod>{page_lastmod}</lastmod>\n"
             f"    <changefreq>{changefreq}</changefreq>\n"
             f"    <priority>{priority}</priority>\n"
             "  </url>"

@@ -2,7 +2,7 @@
 
 **Diqto — Application de facturation pour micro-entrepreneurs**
 
-*Dernière mise à jour : 22 mars 2026*
+*Dernière mise à jour : 27 juillet 2026*
 
 ---
 
@@ -50,10 +50,13 @@ Diqto permet aux Utilisateurs de :
 - Préparer des devis, factures et notes d'honoraires avec les mentions disponibles dans Diqto, à vérifier par l'Utilisateur avant envoi ;
 - Personnaliser leurs documents avec leurs informations professionnelles ;
 - Exporter et partager leurs documents (PDF) ;
+- Préparer et suivre des factures électroniques lorsque cette fonction est activée ; B2Brouter opère alors le transport réglementaire en tant que Plateforme Agréée, tandis que Diqto reste la solution de préparation, de contrôle et de suivi ;
 - Suivre leur activité commerciale (historique, chiffre d'affaires) ;
 - Interagir avec le Service via une interface conversationnelle (WhatsApp) ou via l'application web.
 
 Le Service utilise des technologies d'intelligence artificielle pour faciliter la création de documents. Les documents générés doivent être vérifiés par l'Utilisateur avant tout envoi à ses clients.
+
+L'acceptation des présentes CGU n'active pas la facturation électronique. Chaque entreprise doit accepter séparément l'[annexe Facturation électronique](https://diqto.fr/facturation-electronique-conditions.html), donner un mandat versionné et compléter les prérequis réglementaires. Un brouillon est préparé sans envoi et aucune transmission automatique n'est autorisée.
 
 ---
 
@@ -64,6 +67,7 @@ L'Utilisateur s'engage à :
 - Utiliser le Service conformément à sa destination et aux présentes CGU ;
 - Fournir des informations professionnelles exactes et à jour (SIRET, adresse, activité) ;
 - Vérifier l'exactitude de chaque document généré avant envoi à ses clients ;
+- Fournir des données fiscales, bancaires et d'identification exactes pour la facturation électronique, déclarer toute Plateforme Agréée déjà désignée et confirmer chaque transmission ;
 - Ne pas utiliser le Service à des fins frauduleuses, illicites ou contraires à l'ordre public ;
 - Ne pas tenter de contourner les limitations techniques du Service ;
 - Ne pas perturber le fonctionnement du Service ou porter atteinte à son infrastructure ;

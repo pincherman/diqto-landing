@@ -56,6 +56,7 @@ Diqto ne collecte pas de données sensibles au sens de l'article 9 du RGPD (orig
 |------------|---------------------------|
 | Création et gestion du compte | Exécution du contrat (art. 6.1.b) |
 | Génération et stockage des documents | Exécution du contrat (art. 6.1.b) |
+| Facturation électronique activée | Exécution du contrat, obligations légales fiscales et comptables ; mandat distinct de l'entreprise lorsque requis |
 | Traitement des paiements | Exécution du contrat (art. 6.1.b) |
 | Envoi de notifications de service | Exécution du contrat (art. 6.1.b) |
 | Communications commerciales | Consentement (art. 6.1.a) |
@@ -67,7 +68,7 @@ Diqto ne collecte pas de données sensibles au sens de l'article 9 du RGPD (orig
 
 ## 4. Sous-traitants et destinataires
 
-Diqto fait appel aux sous-traitants suivants pour la fourniture du Service. Chaque sous-traitant est lié par un accord de traitement des données (DPA) conforme à l'article 28 du RGPD.
+Diqto fait appel aux prestataires suivants pour la fourniture du Service. Leur rôle dépend de la fonction utilisée et des obligations réglementaires qui leur sont propres.
 
 | Sous-traitant | Fonction | Localisation | Garanties |
 |---------------|----------|--------------|-----------|
@@ -77,6 +78,7 @@ Diqto fait appel aux sous-traitants suivants pour la fourniture du Service. Chaq
 | **Stripe** | Traitement des paiements | 🇪🇺 / 🇺🇸 UE & États-Unis | Certifié PCI-DSS, clauses contractuelles types (CCT) |
 | **Meta / WhatsApp** | Canal de messagerie | 🇪🇺 / 🇺🇸 UE & États-Unis | Clauses contractuelles types (CCT), chiffrement de bout en bout |
 | **OpenAI** | Intelligence artificielle (assistance à la génération de documents) | 🇺🇸 États-Unis | Clauses contractuelles types (CCT), DPA en place, pas de réutilisation des données pour entraînement (API) |
+| **B2Brouter Global, S.L.** | Transport, réception, statuts et archivage des factures électroniques en qualité de Plateforme Agréée, après activation de l'entreprise | 🇪🇺 Union Européenne | Contrat eDocSync ; données chiffrées en transit ; rôle et garanties précisés dans l'annexe Facturation électronique et les documents de protection applicables |
 
 Diqto ne vend, ne loue et ne partage jamais les données personnelles de ses Utilisateurs avec des tiers à des fins commerciales.
 

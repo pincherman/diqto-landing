@@ -18,7 +18,8 @@ for (const marker of [
     '1er septembre 2026',
     '1er septembre 2027',
     "Diqto n'est pas une Plateforme Agréée",
-    "L'intégration Diqto est en cours de qualification",
+    'DIQTO a rejoint le programme Startups de B2Brouter',
+    "L'activation est réalisée entreprise par entreprise",
     'Un PDF envoyé par email est-il une facture électronique ?',
     'https://www.impots.gouv.fr/facturation-electronique-et-plateformes-agreees',
 ]) {

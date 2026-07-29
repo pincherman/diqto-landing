@@ -44,11 +44,14 @@
             });
 
             if (!response.ok) throw new Error('request_failed');
+            var result = await response.json();
 
             status.className = 'ec-form-status success';
-            status.textContent =
-                'Demande reçue. Nous étudierons d’abord vos outils et la '
-                + 'situation que vous souhaitez simplifier.';
+            status.textContent = result.confirmation_email_sent
+                ? 'Demande reçue. Un email de confirmation vient de vous '
+                    + 'être envoyé.'
+                : 'Demande reçue. L’email de confirmation n’a pas pu partir, '
+                    + 'mais votre demande est bien enregistrée.';
             form.reset();
         } catch (error) {
             status.className = 'ec-form-status error';

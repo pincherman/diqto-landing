@@ -16,6 +16,12 @@ assert.match(home, /name="source" type="hidden"/);
 assert.match(home, /role="status" aria-live="polite"/);
 assert.match(home, /fetch\('https:\/\/necessary-danila-diqto-7fbe88c8\.koyeb\.app\/api\/public\/starter-intake'/);
 assert.match(home, /contact_consent: data\.get\('contact_consent'\) === 'on'/);
+assert.match(home, /result\.confirmation_email_sent/);
+assert.match(home, /Un email de confirmation vient de vous être envoyé/);
+assert.match(
+    home,
+    /mais votre demande est bien enregistrée/,
+);
 assert.doesNotMatch(home, /mailto:support@diqto\.fr\?subject=Acces/);
 assert.doesNotMatch(home, /console\.(?:log|info|debug)\(/);
 assert.match(privacy, /Demande d’accès Diqto/);

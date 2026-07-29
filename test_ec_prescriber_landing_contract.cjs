@@ -78,6 +78,9 @@ assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
 assert.match(script, /source: data\.get\('source'\)/);
 assert.match(script, /Outils du cabinet/);
+assert.match(script, /result\.confirmation_email_sent/);
+assert.match(script, /Un email de confirmation vient de vous/);
+assert.match(script, /mais votre demande est bien enregistrée/);
 assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
 
 assert.ok(

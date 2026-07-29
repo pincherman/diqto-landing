@@ -16,18 +16,39 @@ const script = read('experts-comptables.js');
 const legacyEcPage = read('metiers/expert_comptable.html');
 
 for (const marker of [
-    'Votre client le plus difficile n’a pas besoin d’un',
-    'Le dernier kilomètre, enfin structuré.',
-    'Votre PA reste en place',
-    'Aucun cockpit cabinet obligatoire',
+    'Quand le métier se vit sur le terrain',
+    'Vos outils font leur travail.',
+    'Une PA partenaire si nécessaire',
+    'La PA partenaire de Diqto',
+    'B2Brouter, sa Plateforme Agréée',
+    'Ce qui est prouvé, ce qui reste à prouver',
+    'Preuves disponibles aujourd’hui',
+    'Vérification du 25 juillet 2026',
+    'Les six notifications associées à ce',
+    'À démontrer avec le premier cabinet',
+    'Le temps réellement économisé',
     'Tester avec 1 client',
-    'Un cycle suffit pour savoir',
-    'Minutes cabinet',
-    'Doubles dépôts',
-    'Objets acceptés sans ressaisie',
+    'Une première preuve, à petite échelle',
 ]) {
     assert.ok(page.includes(marker), `EC prescriber page missing: ${marker}`);
 }
+
+const canonicalMenuMarkers = [
+    '<a href="/">Accueil</a>',
+    '<a href="/fonctionnalites.html">Fonctionnalités</a>',
+    '<a href="/histoires.html">Histoires</a>',
+    '<a href="/metiers.html">Métiers</a>',
+    '<a href="/guides.html">Guides</a>',
+    '<a href="/#tarifs">Tarifs</a>',
+    '<a class="global-cta" href="/#beta">Commencer gratuit</a>',
+];
+for (const marker of canonicalMenuMarkers) {
+    assert.ok(page.includes(marker), `canonical menu missing: ${marker}`);
+}
+assert.match(
+    page,
+    /global-announcement" href="\/facturation-electronique\.html"/,
+);
 
 assert.match(
     page,
@@ -38,7 +59,7 @@ assert.match(page, /"@type": "FAQPage"/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);
-assert.match(page, /name="stack"[\s\S]+required/);
+assert.match(page, /name="tools"[\s\S]+required/);
 assert.match(page, /name="client_problem"[\s\S]+required/);
 assert.match(
     page,
@@ -56,11 +77,12 @@ assert.match(
 assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
 assert.match(script, /source: data\.get\('source'\)/);
+assert.match(script, /Outils du cabinet/);
 assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
 
 assert.ok(
-    (page.match(/B2Brouter/g) || []).length <= 1,
-    'provider plumbing must remain secondary',
+    (page.match(/B2Brouter/g) || []).length <= 3,
+    'PA partner must be explicit without becoming the main message',
 );
 assert.doesNotMatch(
     page,
@@ -71,6 +93,11 @@ assert.doesNotMatch(
     page,
     /Diqto est une Plateforme Agréée|Diqto remplace votre PA/i,
     'page must not make a PA claim',
+);
+assert.doesNotMatch(
+    page,
+    /\bstack\b|\bcockpit\b|\brail\b|\bbaseline\b|\bobjets\b/i,
+    'page must speak the language of an accountant, not internal jargon',
 );
 
 for (const marker of [
@@ -90,6 +117,6 @@ assert.ok(
 );
 
 console.log(
-    'PASS EC prescriber landing: problem measurable, stack retained, '
-    + 'accessible pilot intake',
+    'PASS EC prescriber landing: refined accountant language, two PA paths, '
+    + 'honest proof and accessible pilot intake',
 );

@@ -9,10 +9,10 @@
         + '/api/public/starter-intake';
 
     function buildFirstNeed(data) {
-        var stack = String(data.get('stack') || '').trim();
+        var tools = String(data.get('tools') || '').trim();
         var clientProblem = String(data.get('client_problem') || '').trim();
         return (
-            'Stack cabinet : ' + stack
+            'Outils du cabinet : ' + tools
             + ' | Client pilote : ' + clientProblem
         ).slice(0, 500);
     }
@@ -47,8 +47,8 @@
 
             status.className = 'ec-form-status success';
             status.textContent =
-                'Demande reçue. Nous vérifierons d’abord la compatibilité '
-                + 'avec votre stack.';
+                'Demande reçue. Nous étudierons d’abord vos outils et la '
+                + 'situation que vous souhaitez simplifier.';
             form.reset();
         } catch (error) {
             status.className = 'ec-form-status error';

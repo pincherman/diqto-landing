@@ -315,7 +315,7 @@ a {
     margin-top: 14px;
 }
 
-.ec-input-stack {
+.ec-input-group {
     display: grid;
     gap: 10px;
 }
@@ -516,14 +516,14 @@ a {
     text-align: right;
 }
 
-.ec-stack-dock {
+.ec-destination-choice {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     margin-top: 14px;
 }
 
-.ec-stack-dock span {
+.ec-destination-choice span {
     min-height: 38px;
     display: grid;
     place-items: center;
@@ -838,11 +838,48 @@ a {
     font-weight: 650;
 }
 
-.ec-scoreboard > p {
+.ec-proof-stamp {
     border-top: 1px solid var(--ec-line);
     padding-top: 18px;
     color: var(--ec-muted);
     font-size: 13px;
+}
+
+.ec-proof-stamp strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ec-cyan);
+}
+
+.ec-proof-boundary {
+    border-top: 1px solid var(--ec-line);
+    padding-top: 20px;
+}
+
+.ec-proof-boundary strong {
+    color: var(--ec-amber);
+    font-size: 13px;
+}
+
+.ec-proof-boundary p {
+    margin-top: 8px;
+    color: var(--ec-muted);
+    font-size: 13px;
+}
+
+.ec-proof-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--ec-green-light);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ec-proof-link:hover {
+    text-decoration: underline;
 }
 
 .ec-pilot {
@@ -1257,7 +1294,7 @@ a {
         animation-name: ecTravelMobile;
     }
 
-    .ec-stack-dock {
+    .ec-destination-choice {
         grid-template-columns: 1fr;
     }
 
@@ -1271,13 +1308,19 @@ a {
         margin-top: 42px;
     }
 
-    .ec-compare {
-        overflow-x: auto;
-    }
-
     .ec-compare-head,
     .ec-compare-row {
-        min-width: 560px;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .ec-compare-head span {
+        display: none;
+    }
+
+    .ec-compare-row strong {
+        padding-top: 8px;
+        border-top: 1px solid rgba(37, 211, 102, 0.14);
     }
 
     .ec-scoreboard dl div {

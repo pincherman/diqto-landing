@@ -39,6 +39,39 @@
 
   ensureStoriesLink();
 
+  function ensureAccountantLink() {
+    var existingLink = menu.querySelector(
+      'a[href="/experts-comptables.html"]'
+    );
+    var accountantLink = existingLink || document.createElement('a');
+
+    accountantLink.href = '/experts-comptables.html';
+    accountantLink.textContent = 'Experts-comptables';
+    if (window.location.pathname === '/experts-comptables.html') {
+      accountantLink.setAttribute('aria-current', 'page');
+    } else {
+      accountantLink.removeAttribute('aria-current');
+    }
+
+    if (existingLink) return;
+
+    var pricingLink = menu.querySelector(
+      'a[href="/#tarifs"], a[href="#tarifs"]'
+    );
+    if (pricingLink) {
+      pricingLink.insertAdjacentElement('beforebegin', accountantLink);
+      return;
+    }
+    var ctaLink = menu.querySelector('.global-cta');
+    if (ctaLink) {
+      ctaLink.insertAdjacentElement('beforebegin', accountantLink);
+      return;
+    }
+    menu.append(accountantLink);
+  }
+
+  ensureAccountantLink();
+
   function setBetaSource(link, source) {
     if (!link || link.getAttribute('href') !== '/#beta') return;
     link.setAttribute('href', '/?source=' + encodeURIComponent(source) + '#beta');

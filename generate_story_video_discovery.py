@@ -278,6 +278,7 @@ def render_page(story: Story) -> str:
       <a href="/histoires.html" aria-current="page">Histoires</a>
       <a href="/metiers.html">Métiers</a>
       <a href="/guides.html">Guides</a>
+      <a href="/experts-comptables.html">Experts-comptables</a>
       <a href="/#tarifs">Tarifs</a>
       <a class="global-cta" href="/?source=seo_video_{story.slug}#beta">Commencer gratuit</a>
     </nav>

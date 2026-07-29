@@ -261,6 +261,7 @@ def shell(active: str = "") -> str:
         ("/fonctionnalites.html", "Fonctionnalités", "features"),
         ("/metiers.html", "Métiers", "trades"),
         ("/guides.html", "Guides", "guides"),
+        ("/experts-comptables.html", "Experts-comptables", "accountants"),
         ("/#tarifs", "Tarifs", "pricing"),
     ]
     links = "".join(

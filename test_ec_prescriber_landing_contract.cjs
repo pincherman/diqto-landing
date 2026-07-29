@@ -39,6 +39,7 @@ const canonicalMenuMarkers = [
     '<a href="/histoires.html">Histoires</a>',
     '<a href="/metiers.html">Métiers</a>',
     '<a href="/guides.html">Guides</a>',
+    '<a href="/experts-comptables.html" aria-current="page">',
     '<a href="/#tarifs">Tarifs</a>',
     '<a class="global-cta" href="/#beta">Commencer gratuit</a>',
 ];

@@ -25,11 +25,12 @@ CORE_ROOT_ORDER = {
     "index.html": 0,
     "fonctionnalites.html": 1,
     "facturation-electronique.html": 2,
-    "histoires.html": 3,
-    "docs.html": 4,
-    "cgu.html": 5,
-    "confidentialite.html": 6,
-    "mentions-legales.html": 7,
+    "experts-comptables.html": 3,
+    "histoires.html": 4,
+    "docs.html": 5,
+    "cgu.html": 6,
+    "confidentialite.html": 7,
+    "mentions-legales.html": 8,
 }
 
 
@@ -58,7 +59,12 @@ def sitemap_priority(path: Path) -> tuple[str, str]:
     rel = path.relative_to(ROOT).as_posix()
     if rel == "index.html":
         return "weekly", "1.0"
-    if rel in {"fonctionnalites.html", "facturation-electronique.html", "histoires.html"}:
+    if rel in {
+        "fonctionnalites.html",
+        "facturation-electronique.html",
+        "experts-comptables.html",
+        "histoires.html",
+    }:
         return "weekly", "0.8"
     if rel == "docs.html":
         return "weekly", "0.7"

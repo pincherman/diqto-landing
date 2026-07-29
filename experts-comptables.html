@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07100c">
+    <title>Diqto pour les experts-comptables — Un client difficile, zéro nouvel outil</title>
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon-diqto-voice.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/site-shell.css">
+    <link rel="stylesheet" href="/experts-comptables.css">
+    <script defer src="/site-shell.js"></script>
+    <script defer src="/experts-comptables.js"></script>
+    <meta
+        name="description"
+        content="Diqto équipe le client de terrain qui alimente mal les outils du cabinet. Testez sur un client, gardez votre PA et mesurez le temps réellement gagné."
+    >
+    <link rel="canonical" href="https://diqto.fr/experts-comptables.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diqto.fr/experts-comptables.html">
+    <meta
+        property="og:title"
+        content="Gardez vos outils. Donnez-nous le client qui les alimente le moins bien."
+    >
+    <meta
+        property="og:description"
+        content="Un client difficile, un cycle mesuré, aucune migration de PA. Diqto travaille en amont et remet des données propres dans votre stack."
+    >
+    <meta property="og:image" content="https://diqto.fr/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Diqto">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta
+        name="twitter:title"
+        content="Diqto pour les experts-comptables — Zéro nouvel outil"
+    >
+    <meta
+        name="twitter:description"
+        content="Équipez un client de terrain sans changer votre PA ni votre production."
+    >
+    <meta name="twitter:image" content="https://diqto.fr/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Diqto pour les experts-comptables prescripteurs",
+        "url": "https://diqto.fr/experts-comptables.html",
+        "description": "Un pilote sur un client de terrain pour mesurer la qualité des données remises à la stack comptable existante, sans migration de PA.",
+        "inLanguage": "fr-FR",
+        "audience": {
+            "@type": "ProfessionalAudience",
+            "audienceType": "Experts-comptables et cabinets comptables"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Diqto",
+            "url": "https://diqto.fr/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Diqto",
+            "url": "https://diqto.fr/"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Faut-il changer de plateforme agréée ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. Le cabinet conserve sa plateforme agréée, son logiciel de production et sa GED. Le pilote commence par vérifier le chemin accepté par cette stack."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Le cabinet doit-il utiliser un nouveau tableau de bord ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. Le portail Diqto reste optionnel pour la démonstration ou le diagnostic. Le résultat utile doit rejoindre l'outil de référence du cabinet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qui accompagne le client pendant le pilote ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Diqto prend en charge l'accompagnement applicatif du client. Le cabinet valide uniquement le résultat métier dans son environnement."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <a class="global-skip-link" href="#contenu">Aller au contenu</a>
+    <a class="global-announcement" href="#pilote">
+        <strong>Pilote cabinet</strong>
+        <span>
+            Un client · Un cycle · Votre stack inchangée
+            <span aria-hidden="true">→</span>
+        </span>
+    </a>
+    <header class="global-header" data-menu-open="false">
+        <div class="global-nav">
+            <a class="global-brand" href="/" aria-label="Diqto, accueil">
+                <span class="global-brand-mark" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i>
+                </span>
+                <span class="global-brand-name">diq<em>to</em></span>
+            </a>
+            <button
+                class="global-menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="navigation-principale"
+            >
+                Menu
+            </button>
+            <nav
+                class="global-menu"
+                id="navigation-principale"
+                aria-label="Navigation principale"
+            >
+                <a href="/">Accueil</a>
+                <a href="/fonctionnalites.html">Fonctionnalités</a>
+                <a href="/histoires.html">Histoires</a>
+                <a href="/metiers.html">Métiers</a>
+                <a href="/guides.html">Guides</a>
+                <a href="/experts-comptables.html" aria-current="page">
+                    Pour les EC
+                </a>
+                <a class="global-cta" href="#pilote">Tester avec 1 client</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenu">
+        <section class="ec-hero">
+            <div class="ec-container ec-hero-grid">
+                <div class="ec-hero-copy">
+                    <p class="ec-eyebrow">
+                        Pour les cabinets qui ont déjà leurs outils
+                    </p>
+                    <h1>
+                        Votre client le plus difficile n’a pas besoin d’un
+                        <span>portail de plus.</span>
+                    </h1>
+                    <p class="ec-hero-lead">
+                        Il a besoin d’un outil qui parle son métier. Diqto
+                        transforme sa voix, ses photos et son travail réel en
+                        données propres pour votre stack existante.
+                    </p>
+                    <div class="ec-actions">
+                        <a class="ec-button ec-button-primary" href="#pilote">
+                            Tester avec 1 client
+                        </a>
+                        <a class="ec-button ec-button-secondary" href="#probleme">
+                            Voir le problème résolu
+                        </a>
+                    </div>
+                    <ul class="ec-trust-list" aria-label="Garanties du pilote">
+                        <li>Votre PA reste en place</li>
+                        <li>Aucun cockpit obligatoire</li>
+                        <li>Gain mesuré, jamais inventé</li>
+                    </ul>
+                </div>
+
+                <figure class="ec-signal-lab">
+                    <figcaption>
+                        Le dernier kilomètre, enfin structuré.
+                    </figcaption>
+                    <div class="ec-lab-status">
+                        <span class="ec-live-dot" aria-hidden="true"></span>
+                        <span>Flux client → cabinet</span>
+                        <strong>Contrôle humain</strong>
+                    </div>
+                    <div class="ec-lab-stage">
+                        <div class="ec-input-stack">
+                            <article class="ec-input-card ec-input-voice">
+                                <span class="ec-card-label">Voix · 18:12</span>
+                                <div class="ec-wave" aria-hidden="true">
+                                    <i></i><i></i><i></i><i></i><i></i>
+                                    <i></i><i></i>
+                                </div>
+                                <p>
+                                    « Chauffe-eau Martin, pose terminée,
+                                    acompte reçu. »
+                                </p>
+                            </article>
+                            <article class="ec-input-card ec-input-photo">
+                                <span class="ec-card-label">Photo terrain</span>
+                                <div class="ec-photo-grid" aria-hidden="true">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <p>Bon fournisseur · preuve liée</p>
+                            </article>
+                        </div>
+
+                        <div class="ec-transform">
+                            <span>Diqto</span>
+                            <i aria-hidden="true"></i>
+                        </div>
+
+                        <article class="ec-output-card">
+                            <div class="ec-output-head">
+                                <div>
+                                    <span class="ec-card-label">
+                                        Dossier préparé
+                                    </span>
+                                    <strong>Martin · Juillet</strong>
+                                </div>
+                                <span class="ec-ready">À relire</span>
+                            </div>
+                            <dl>
+                                <div>
+                                    <dt>Document</dt>
+                                    <dd>Facture structurée</dd>
+                                </div>
+                                <div>
+                                    <dt>Pièces</dt>
+                                    <dd>2 liées</dd>
+                                </div>
+                                <div>
+                                    <dt>Exception</dt>
+                                    <dd>TVA à confirmer</dd>
+                                </div>
+                            </dl>
+                        </article>
+                    </div>
+                    <div class="ec-stack-dock" aria-label="Stack cabinet conservée">
+                        <span>Votre PA</span>
+                        <span>Votre production</span>
+                        <span>Votre GED</span>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <section class="ec-problem" id="probleme">
+            <div class="ec-container">
+                <p class="ec-eyebrow">Le problème réel</p>
+                <div class="ec-heading-grid">
+                    <h2>
+                        Ce n’est pas un manque d’outils.
+                        <span>C’est le dernier kilomètre humain.</span>
+                    </h2>
+                    <p>
+                        Votre PA attend des données propres. Votre production
+                        sait les traiter. Mais certains clients travaillent
+                        debout, en déplacement, entre deux rendez-vous — et
+                        n’alimentent jamais correctement le système.
+                    </p>
+                </div>
+
+                <div class="ec-friction-grid">
+                    <article>
+                        <span class="ec-index">01</span>
+                        <h3>Le travail existe déjà</h3>
+                        <p>
+                            Il est dans une dictée, une photo, un carnet ou la
+                            mémoire du client. Pas dans les bons champs.
+                        </p>
+                    </article>
+                    <article>
+                        <span class="ec-index">02</span>
+                        <h3>Le cabinet reconstruit</h3>
+                        <p>
+                            Relances, qualification, pièces manquantes et
+                            ressaisie consomment la marge du dossier.
+                        </p>
+                    </article>
+                    <article>
+                        <span class="ec-index">03</span>
+                        <h3>Le portail ne change rien</h3>
+                        <p>
+                            Ajouter une destination ne résout pas l’adoption.
+                            Il faut partir du geste naturel du client.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-transformation" id="fonctionnement">
+            <div class="ec-container">
+                <p class="ec-eyebrow">La beauté utile</p>
+                <div class="ec-heading-grid">
+                    <h2>
+                        La technologie disparaît.
+                        <span>Le dossier, lui, devient lisible.</span>
+                    </h2>
+                    <p>
+                        L’émotion recherchée est simple : le soulagement de
+                        voir arriver une information propre, reliée à sa preuve
+                        et prête à rejoindre votre façon de travailler.
+                    </p>
+                </div>
+
+                <ol class="ec-flow">
+                    <li>
+                        <span class="ec-flow-number">01</span>
+                        <div>
+                            <small>Côté client</small>
+                            <h3>Il parle ou photographie</h3>
+                            <p>
+                                Diqto s’adapte au terrain au lieu de demander au
+                                terrain de s’adapter au logiciel.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ec-flow-number">02</span>
+                        <div>
+                            <small>Dans Diqto</small>
+                            <h3>La donnée prend forme</h3>
+                            <p>
+                                Client, document, montant, pièce et provenance
+                                sont structurés puis relus par l’utilisateur.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ec-flow-number">03</span>
+                        <div>
+                            <small>Côté cabinet</small>
+                            <h3>Votre stack reste la destination</h3>
+                            <p>
+                                Nous vérifions d’abord son rail accepté. Aucun
+                                connecteur ou gain n’est promis à l’aveugle.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ec-flow-number">04</span>
+                        <div>
+                            <small>Seulement si nécessaire</small>
+                            <h3>L’exception repart au bon endroit</h3>
+                            <p>
+                                Une pièce ou une TVA à confirmer revient au
+                                client avec son contexte, sous contrôle humain.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="ec-competition" id="difference">
+            <div class="ec-container">
+                <p class="ec-eyebrow">Mieux résoudre, pas mieux promettre</p>
+                <div class="ec-heading-grid">
+                    <h2>
+                        Diqto ne remplace pas votre écosystème.
+                        <span>Il résout ce qui se passe avant.</span>
+                    </h2>
+                    <p>
+                        Notre compétition n’est pas votre PA. C’est le temps
+                        perdu entre le travail réellement fait et la donnée
+                        enfin exploitable.
+                    </p>
+                </div>
+
+                <div class="ec-compare" role="region" aria-label="Comparaison">
+                    <div class="ec-compare-head">
+                        <span>Un outil cabinet de plus</span>
+                        <strong>Le rôle de Diqto</strong>
+                    </div>
+                    <div class="ec-compare-row">
+                        <span>Nouveau login et nouvelle file de travail</span>
+                        <strong>Aucun cockpit cabinet obligatoire</strong>
+                    </div>
+                    <div class="ec-compare-row">
+                        <span>Déploiement sur tout le portefeuille</span>
+                        <strong>Un seul client pour commencer</strong>
+                    </div>
+                    <div class="ec-compare-row">
+                        <span>Migration ou PA imposée</span>
+                        <strong>Votre PA reste en place</strong>
+                    </div>
+                    <div class="ec-compare-row">
+                        <span>Formulaire générique à remplir</span>
+                        <strong>Voix, photo et contexte métier</strong>
+                    </div>
+                    <div class="ec-compare-row">
+                        <span>ROI présenté dans une brochure</span>
+                        <strong>Temps mesuré sur votre dossier</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-value" id="gains">
+            <div class="ec-container">
+                <p class="ec-eyebrow">Ce que le cabinet doit gagner</p>
+                <h2 class="ec-section-title">
+                    De la marge, de la confiance et du temps pour conseiller.
+                </h2>
+                <div class="ec-value-grid">
+                    <article>
+                        <span class="ec-value-signal">↓</span>
+                        <h3>Moins de collecte</h3>
+                        <p>
+                            Les demandes de pièces et les corrections sont
+                            comptées avant et après le pilote.
+                        </p>
+                    </article>
+                    <article>
+                        <span class="ec-value-signal">↗</span>
+                        <h3>Une production mieux alimentée</h3>
+                        <p>
+                            Nous mesurons ce qui arrive sans double dépôt ni
+                            ressaisie manuelle.
+                        </p>
+                    </article>
+                    <article>
+                        <span class="ec-value-signal">+</span>
+                        <h3>Plus de temps de conseil</h3>
+                        <p>
+                            Le temps récupéré reste au cabinet, pas dans
+                            l’administration d’un nouvel outil.
+                        </p>
+                    </article>
+                    <article>
+                        <span class="ec-value-signal">◇</span>
+                        <h3>Une relation client protégée</h3>
+                        <p>
+                            Le cabinet garde ses outils, ses validations et sa
+                            place de conseiller de confiance.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-measure" aria-labelledby="mesure-title">
+            <div class="ec-container ec-measure-grid">
+                <div>
+                    <p class="ec-eyebrow">La preuve avant l’échelle</p>
+                    <h2 id="mesure-title">
+                        Un cycle suffit pour savoir si nous méritons le
+                        deuxième client.
+                    </h2>
+                    <p>
+                        Pas de pourcentage marketing. Nous établissons la
+                        baseline avec vous, puis nous regardons les faits.
+                    </p>
+                </div>
+                <div class="ec-scoreboard">
+                    <div class="ec-scoreboard-head">
+                        <span>Mesure du pilote</span>
+                        <strong>Avant → Après</strong>
+                    </div>
+                    <dl>
+                        <div>
+                            <dt>Minutes cabinet / dossier</dt>
+                            <dd>Mesurées</dd>
+                        </div>
+                        <div>
+                            <dt>Demandes de pièces</dt>
+                            <dd>Comptées</dd>
+                        </div>
+                        <div>
+                            <dt>Doubles dépôts</dt>
+                            <dd>Objectif : 0</dd>
+                        </div>
+                        <div>
+                            <dt>Objets acceptés sans ressaisie</dt>
+                            <dd>Vérifiés</dd>
+                        </div>
+                    </dl>
+                    <p>
+                        Le signal décisif : vous demandez vous-même le
+                        deuxième client.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-pilot" id="pilote">
+            <div class="ec-container ec-pilot-grid">
+                <div class="ec-pilot-copy">
+                    <p class="ec-eyebrow">Le pilote sans dilution</p>
+                    <h2>Donnez-nous un seul client difficile.</h2>
+                    <p>
+                        Nous commençons par comprendre votre stack et le
+                        problème concret. Diqto accompagne ensuite le client
+                        pendant un cycle. Vous jugez le résultat dans votre
+                        environnement.
+                    </p>
+                    <ul>
+                        <li>Un cabinet, un client consentant</li>
+                        <li>Votre PA, votre production et votre GED conservées</li>
+                        <li>Support applicatif assuré par Diqto</li>
+                        <li>Arrêt simple si le gain n’est pas visible</li>
+                    </ul>
+                    <p class="ec-pilot-note">
+                        Aucun paiement, aucune commission, aucun contact client
+                        automatique depuis ce formulaire.
+                    </p>
+                </div>
+
+                <div class="ec-form-panel">
+                    <div class="ec-form-head">
+                        <span>Premier échange · 15 min</span>
+                        <h3>Quel client voulez-vous enfin mieux équiper ?</h3>
+                        <p>
+                            Ne renseignez aucun nom ni donnée personnelle de
+                            votre client à ce stade.
+                        </p>
+                    </div>
+                    <form id="ec-prescriber-intake" novalidate>
+                        <div class="ec-field">
+                            <label for="ec-email">Votre email professionnel</label>
+                            <input
+                                id="ec-email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                maxlength="254"
+                                required
+                                placeholder="vous@cabinet.fr"
+                            >
+                        </div>
+                        <div class="ec-field">
+                            <label for="ec-stack">
+                                Votre production et votre PA actuelles
+                            </label>
+                            <input
+                                id="ec-stack"
+                                name="stack"
+                                type="text"
+                                autocomplete="organization-title"
+                                minlength="2"
+                                maxlength="120"
+                                required
+                                placeholder="Ex. Sage + PA déjà choisie"
+                            >
+                        </div>
+                        <div class="ec-field">
+                            <label for="ec-client-problem">
+                                Le type de client et le problème observé
+                            </label>
+                            <textarea
+                                id="ec-client-problem"
+                                name="client_problem"
+                                minlength="10"
+                                maxlength="300"
+                                required
+                                placeholder="Ex. artisan itinérant, pièces tardives et ressaisie en fin de mois"
+                            ></textarea>
+                        </div>
+                        <input
+                            name="trade"
+                            type="hidden"
+                            value="Cabinet d'expertise comptable"
+                        >
+                        <input
+                            name="source"
+                            type="hidden"
+                            value="ec_prescripteur_pilot"
+                        >
+                        <div class="ec-honeypot" aria-hidden="true">
+                            <label for="ec-website">Votre site internet</label>
+                            <input
+                                id="ec-website"
+                                name="website"
+                                type="text"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
+                        </div>
+                        <label class="ec-consent" for="ec-consent">
+                            <input
+                                id="ec-consent"
+                                name="contact_consent"
+                                type="checkbox"
+                                required
+                            >
+                            <span>
+                                J’accepte d’être recontacté au sujet de ce
+                                pilote et j’ai lu la
+                                <a href="/confidentialite.html">
+                                    politique de confidentialité
+                                </a>.
+                            </span>
+                        </label>
+                        <button
+                            class="ec-button ec-button-primary ec-submit"
+                            type="submit"
+                        >
+                            Étudier ce client pilote
+                        </button>
+                        <p
+                            class="ec-form-status"
+                            id="ec-form-status"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-faq" aria-labelledby="faq-title">
+            <div class="ec-container ec-faq-grid">
+                <div>
+                    <p class="ec-eyebrow">Questions directes</p>
+                    <h2 id="faq-title">Ce que nous ne vous demanderons pas.</h2>
+                </div>
+                <div class="ec-faq-list">
+                    <details>
+                        <summary>Faut-il changer de plateforme agréée ?</summary>
+                        <p>
+                            Non. Votre PA reste en place. Nous identifions
+                            d’abord le rail accepté par votre stack. B2Brouter
+                            reste le rail possible d’un client direct non
+                            équipé, jamais une plateforme imposée au cabinet.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>
+                            Faut-il utiliser un nouveau tableau de bord ?
+                        </summary>
+                        <p>
+                            Non. Le portail Diqto reste optionnel pour la
+                            démonstration ou le diagnostic. Aucun état utile ne
+                            doit vivre uniquement chez nous.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Qui accompagne le client ?</summary>
+                        <p>
+                            Diqto assure l’accompagnement applicatif. Le cabinet
+                            ne devient pas notre support N1.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Quel gain promettez-vous ?</summary>
+                        <p>
+                            Aucun chiffre avant mesure. Nous comparons les
+                            minutes, la ressaisie, les doubles dépôts et les
+                            demandes de pièces sur un cycle réel.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="ec-final">
+            <div class="ec-container">
+                <p class="ec-eyebrow">La seule question utile</p>
+                <h2>
+                    Quel est le client qui alimente le moins bien vos outils ?
+                </h2>
+                <p>
+                    Commençons par lui. Votre écosystème reste intact.
+                </p>
+                <a class="ec-button ec-button-primary" href="#pilote">
+                    Tester avec 1 client
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ec-footer">
+        <div class="ec-container ec-footer-grid">
+            <div>
+                <a class="global-brand" href="/" aria-label="Diqto, accueil">
+                    <span class="global-brand-mark" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i>
+                    </span>
+                    <span class="global-brand-name">diq<em>to</em></span>
+                </a>
+                <p>La couche métier du client de terrain.</p>
+            </div>
+            <nav aria-label="Pied de page">
+                <a href="/fonctionnalites.html">Fonctionnalités</a>
+                <a href="/facturation-electronique.html">
+                    Facturation électronique
+                </a>
+                <a href="/confidentialite.html">Confidentialité</a>
+                <a href="/mentions-legales.html">Mentions légales</a>
+                <a href="mailto:support@diqto.fr">Contact</a>
+            </nav>
+        </div>
+        <div class="ec-container ec-footer-bottom">
+            <span>© 2026 Diqto</span>
+            <span>Conçu à Marseille</span>
+        </div>
+    </footer>
+</body>
+</html>

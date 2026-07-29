@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diqto · Démonstration privée EC</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101713;
+      --muted: #647069;
+      --line: #dfe6e1;
+      --green: #1ed56b;
+      --green-deep: #12884b;
+      --green-soft: #e8f9ef;
+      --night: #07110c;
+      --paper: #ffffff;
+      --canvas: #f1f4f1;
+      --warm: #f8f3e9;
+      --amber: #ae6a12;
+      --amber-soft: #fff3dd;
+      --shadow: 0 28px 90px rgba(7, 17, 12, .12);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--night); }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 10%, rgba(30, 213, 107, .18), transparent 27rem),
+        radial-gradient(circle at 10% 90%, rgba(30, 213, 107, .08), transparent 32rem),
+        var(--night);
+    }
+
+    button, a { font: inherit; }
+
+    button { cursor: pointer; }
+
+    :focus-visible {
+      outline: 3px solid #72a8ff;
+      outline-offset: 3px;
+    }
+
+    .demo-shell {
+      width: min(1240px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0 44px;
+    }
+
+    .truth-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      min-height: 38px;
+      color: #b9c7bf;
+      font-size: 12px;
+      letter-spacing: .02em;
+      text-align: center;
+    }
+
+    .truth-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(30, 213, 107, .12);
+    }
+
+    .experience {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 30px;
+      background: var(--canvas);
+      box-shadow: 0 42px 130px rgba(0, 0, 0, .35);
+    }
+
+    .topbar {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      min-height: 82px;
+      padding: 18px 28px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 75% 0%, rgba(30, 213, 107, .18), transparent 22rem),
+        var(--night);
+    }
+
+    .brand {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.05em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 34px;
+      border-radius: 13px;
+      color: #fff;
+      background: var(--green);
+    }
+
+    .brand-mark span {
+      width: 19px;
+      height: 15px;
+      background:
+        linear-gradient(90deg,
+          transparent 0 4%, #fff 4% 18%, transparent 18% 30%,
+          #fff 30% 44%, transparent 44% 56%, #fff 56% 70%,
+          transparent 70% 82%, #fff 82% 96%, transparent 96%);
+    }
+
+    .top-context {
+      margin-left: 18px;
+      padding-left: 24px;
+      border-left: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .top-context strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .top-context span {
+      display: block;
+      margin-top: 4px;
+      color: #9fb0a7;
+      font-size: 12px;
+    }
+
+    .back {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      min-height: 40px;
+      margin-left: auto;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      color: #e6efe9;
+      background: rgba(255, 255, 255, .04);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      min-height: 54px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .progress-item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      align-items: center;
+      color: #78837d;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .progress-item::after {
+      position: absolute;
+      right: -1px;
+      width: 1px;
+      height: 22px;
+      background: var(--line);
+      content: "";
+    }
+
+    .progress-item:last-child::after { display: none; }
+
+    .progress-item[data-state="done"],
+    .progress-item[data-state="active"] {
+      color: var(--green-deep);
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      color: #6d7771;
+      background: #edf1ee;
+      font-size: 11px;
+    }
+
+    [data-state="done"] .step-number,
+    [data-state="active"] .step-number {
+      color: #083a21;
+      background: var(--green);
+    }
+
+    .stage {
+      display: none;
+      min-height: 650px;
+      animation: stage-in .42s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .stage[data-visible="true"] { display: grid; }
+
+    .stage-intro {
+      grid-template-columns: 1.1fr .9fr;
+      background:
+        linear-gradient(110deg, rgba(247, 244, 236, .97), rgba(232, 242, 235, .93));
+    }
+
+    .intro-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 72px 86px;
+    }
+
+    .eyebrow {
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 670px;
+      margin-bottom: 24px;
+      font-size: clamp(44px, 5.2vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin-bottom: 34px;
+      color: #55615b;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .primary,
+    .secondary,
+    .choice {
+      min-height: 48px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .primary {
+      width: fit-content;
+      padding: 0 20px;
+      border: 1px solid var(--night);
+      color: #fff;
+      background: var(--night);
+      box-shadow: 0 12px 28px rgba(7, 17, 12, .18);
+    }
+
+    .intro-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(30, 213, 107, .23), transparent 18rem),
+        var(--night);
+    }
+
+    .voice-orbit {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(390px, 72%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(30, 213, 107, .24);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 44px rgba(30, 213, 107, .045),
+        0 0 0 88px rgba(30, 213, 107, .025);
+    }
+
+    .voice-core {
+      display: grid;
+      place-items: center;
+      width: 126px;
+      height: 126px;
+      border-radius: 38px;
+      color: #fff;
+      background: var(--green);
+      box-shadow: 0 26px 70px rgba(30, 213, 107, .28);
+    }
+
+    .wave {
+      width: 64px;
+      height: 45px;
+      background:
+        linear-gradient(90deg,
+          transparent 0 2%, #fff 2% 10%, transparent 10% 18%,
+          #fff 18% 28%, transparent 28% 36%, #fff 36% 48%,
+          transparent 48% 56%, #fff 56% 68%, transparent 68% 76%,
+          #fff 76% 86%, transparent 86% 94%, #fff 94% 100%);
+      clip-path: polygon(0 38%, 100% 18%, 100% 82%, 0 62%);
+    }
+
+    .voice-note {
+      position: absolute;
+      right: 9%;
+      bottom: 12%;
+      width: min(330px, 78%);
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 18px;
+      color: #e7f1eb;
+      background: rgba(255, 255, 255, .075);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, .22);
+      backdrop-filter: blur(16px);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .stage-proof {
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      padding: 38px;
+    }
+
+    .prepared,
+    .decision,
+    .measure-strip {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 18px 50px rgba(25, 43, 33, .06);
+    }
+
+    .prepared { padding: 32px; }
+
+    .prepared-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .prepared h2,
+    .decision h2 {
+      margin: 8px 0 0;
+      font-size: 32px;
+      letter-spacing: -.04em;
+    }
+
+    .prepared h2:focus { outline: none; }
+
+    .status {
+      padding: 8px 11px;
+      border-radius: 999px;
+      color: var(--green-deep);
+      background: var(--green-soft);
+      font-size: 11px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .prepared-list {
+      display: grid;
+      gap: 0;
+      margin-top: 12px;
+    }
+
+    .prepared-row {
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      min-height: 70px;
+      border-bottom: 1px solid #edf0ee;
+    }
+
+    .prepared-row:last-child { border-bottom: 0; }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green-deep);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .prepared-row strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .prepared-row small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .source {
+      color: #78847d;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .destination {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-radius: 17px;
+      background: var(--warm);
+    }
+
+    .destination strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .destination span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .destination-badge {
+      padding: 9px 12px;
+      border: 1px solid #dfd5c2;
+      border-radius: 999px;
+      color: #5f5545;
+      background: #fffdf8;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .right-column {
+      display: grid;
+      gap: 20px;
+      grid-template-rows: 1fr auto;
+    }
+
+    .decision {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border-color: #f0d6aa;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 205, 124, .3), transparent 17rem),
+        #fffdf8;
+    }
+
+    .decision::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: #d88b24;
+      content: "";
+    }
+
+    .decision p {
+      margin: 16px 0 26px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .choices {
+      display: grid;
+      gap: 10px;
+    }
+
+    .choice {
+      padding: 0 16px;
+      border: 1px solid #dfe5e1;
+      color: var(--ink);
+      background: #fff;
+      text-align: left;
+    }
+
+    .choice:hover { border-color: var(--green-deep); }
+
+    .choice[data-selected="true"] {
+      border-color: var(--green-deep);
+      color: #0b6438;
+      background: var(--green-soft);
+    }
+
+    .guard {
+      margin: 18px 0 0;
+      color: #7c6b4f;
+      font-size: 11px;
+    }
+
+    .measure-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .measure {
+      min-height: 92px;
+      padding: 17px;
+      border-right: 1px solid var(--line);
+    }
+
+    .measure:last-child { border-right: 0; }
+
+    .measure strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .measure span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .actionbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      margin-top: 20px;
+      padding: 4px;
+    }
+
+    .actionbar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .secondary {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .result {
+      display: none;
+      gap: 10px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid #a9dabf;
+      border-radius: 14px;
+      color: #0b6438;
+      background: var(--green-soft);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .result[data-visible="true"] { display: flex; }
+
+    @keyframes stage-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .demo-shell {
+        width: min(100% - 20px, 700px);
+        padding-top: 10px;
+      }
+
+      .experience { border-radius: 22px; }
+
+      .topbar {
+        min-height: 68px;
+        padding: 14px 16px;
+      }
+
+      .top-context { display: none; }
+
+      .back {
+        min-width: 40px;
+        padding: 0 12px;
+      }
+
+      .back span:last-child { display: none; }
+
+      .progress-item { font-size: 10px; }
+
+      .stage-intro,
+      .stage-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-copy { padding: 48px 28px 42px; }
+
+      h1 { font-size: clamp(43px, 12vw, 64px); }
+
+      .intro-visual { min-height: 430px; }
+
+      .stage-proof {
+        gap: 14px;
+        padding: 14px;
+      }
+
+      .prepared,
+      .decision { padding: 24px 20px; }
+
+      .right-column { grid-template-rows: auto; }
+
+      .measure-strip { grid-template-columns: repeat(2, 1fr); }
+
+      .measure:nth-child(2) { border-right: 0; }
+
+      .measure:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+
+      .destination {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .actionbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .truth-bar { font-size: 10px; }
+
+      .brand { font-size: 20px; }
+
+      .brand-mark {
+        width: 33px;
+        height: 30px;
+      }
+
+      .progress-item span:last-child { display: none; }
+
+      .stage { min-height: 0; }
+
+      .intro-copy { padding-top: 42px; }
+
+      .lead { font-size: 16px; }
+
+      .source { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo-shell">
+    <div class="truth-bar" aria-label="Nature de cette démonstration">
+      <span class="truth-dot" aria-hidden="true"></span>
+      Démonstration privée · données synthétiques · aucune transmission
+    </div>
+
+    <section class="experience" aria-labelledby="demo-title">
+      <header class="topbar">
+        <div class="brand" aria-label="Diqto">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          diqto
+        </div>
+        <div class="top-context">
+          <strong>Cabinet pilote</strong>
+          <span>Un client · un cycle · quatre mesures</span>
+        </div>
+        <a class="back" href="#fin">
+          <span aria-hidden="true">←</span>
+          <span>Retour vers votre outil</span>
+        </a>
+      </header>
+
+      <nav class="progress" aria-label="Étapes de la démonstration">
+        <div class="progress-item" data-step="1" data-state="active">
+          <span class="step-number">1</span>
+          <span>Le geste terrain</span>
+        </div>
+        <div class="progress-item" data-step="2">
+          <span class="step-number">2</span>
+          <span>Le dossier préparé</span>
+        </div>
+        <div class="progress-item" data-step="3">
+          <span class="step-number">3</span>
+          <span>Une décision utile</span>
+        </div>
+      </nav>
+
+      <div class="stage stage-intro" id="stage-intro" data-visible="true">
+        <div class="intro-copy">
+          <div class="eyebrow">Le client agit comme il travaille</div>
+          <h1 id="demo-title">Il parle. Le cabinet comprend.</h1>
+          <p class="lead">
+            Marc parle et photographie. Diqto relie ses mots, ses pièces et
+            leur provenance. Il relit avant toute action.
+          </p>
+          <button class="primary" id="show-proof" type="button">
+            Voir ce que le cabinet reçoit
+          </button>
+        </div>
+        <div class="intro-visual" aria-label="Illustration d'une dictée Diqto">
+          <div class="voice-orbit" aria-hidden="true">
+            <div class="voice-core"><span class="wave"></span></div>
+          </div>
+          <div class="voice-note">
+            « Chantier Martin terminé. Deux photos. Acompte reçu. »
+          </div>
+        </div>
+      </div>
+
+      <div class="stage stage-proof" id="stage-proof" data-visible="false">
+        <article class="prepared">
+          <div class="prepared-head">
+            <div>
+              <div class="eyebrow">Dossier préparé</div>
+              <h2 tabindex="-1">Martin &amp; Fils · Juillet</h2>
+            </div>
+            <span class="status">Prêt à relire</span>
+          </div>
+
+          <div class="prepared-list">
+            <div class="prepared-row">
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>Projet de facture</strong>
+                <small>Les éléments dictés ont été structurés.</small>
+              </div>
+              <span class="source">Voix · 18:42</span>
+            </div>
+            <div class="prepared-row">
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>Deux pièces liées</strong>
+                <small>Photo et contexte restent associés.</small>
+              </div>
+              <span class="source">iPhone · chantier</span>
+            </div>
+            <div class="prepared-row">
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>Provenance conservée</strong>
+                <small>Chaque information garde son origine.</small>
+              </div>
+              <span class="source">Traçabilité</span>
+            </div>
+          </div>
+
+          <div class="destination">
+            <div>
+              <strong>Destination choisie par le cabinet</strong>
+              <span>Votre logiciel et votre Plateforme Agréée restent en place.</span>
+            </div>
+            <span class="destination-badge">Aucun envoi automatique</span>
+          </div>
+        </article>
+
+        <div class="right-column">
+          <article class="decision">
+            <div class="eyebrow">Une décision utile</div>
+            <h2>TVA à confirmer</h2>
+            <p>
+              Le dossier est prêt. Ce point seulement demande l’expertise du
+              cabinet avant un retour vers le client ou l’outil choisi.
+            </p>
+            <div class="choices" role="group" aria-label="Choisir la prochaine action">
+              <button class="choice" type="button">
+                Demander une précision au client
+              </button>
+              <button class="choice" type="button">
+                Préparer le retour vers votre outil
+              </button>
+            </div>
+            <div class="result" id="result" aria-live="polite">
+              <span aria-hidden="true">✓</span>
+              Choix simulé. Rien n’a été envoyé.
+            </div>
+            <p class="guard">Aucune action réelle depuis cette démonstration.</p>
+          </article>
+
+          <div class="measure-strip" aria-label="Mesures prévues pour le pilote">
+            <div class="measure">
+              <strong>Temps cabinet</strong>
+              <span>Avant / après</span>
+            </div>
+            <div class="measure">
+              <strong>Ressaisies</strong>
+              <span>Comptées</span>
+            </div>
+            <div class="measure">
+              <strong>Relances</strong>
+              <span>Comptées</span>
+            </div>
+            <div class="measure">
+              <strong>Pièces manquantes</strong>
+              <span>Comptées</span>
+            </div>
+          </div>
+
+          <div class="actionbar" id="fin">
+            <p>
+              Pas de gain inventé : la preuve se construit avec un vrai
+              cabinet, sur un client et pendant un cycle.
+            </p>
+            <button class="secondary" id="restart" type="button">
+              Revoir l’expérience
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const intro = document.querySelector('#stage-intro');
+      const proof = document.querySelector('#stage-proof');
+      const showProof = document.querySelector('#show-proof');
+      const restart = document.querySelector('#restart');
+      const result = document.querySelector('#result');
+      const choices = Array.from(document.querySelectorAll('.choice'));
+      const progress = Array.from(document.querySelectorAll('.progress-item'));
+
+      const show = (target) => {
+        const proofVisible = target === 'proof';
+        intro.dataset.visible = String(!proofVisible);
+        proof.dataset.visible = String(proofVisible);
+        progress[0].dataset.state = proofVisible ? 'done' : 'active';
+        progress[1].dataset.state = proofVisible ? 'done' : '';
+        progress[2].dataset.state = proofVisible ? 'active' : '';
+        if (proofVisible) {
+          proof.querySelector('h2').focus({preventScroll: true});
+        } else {
+          showProof.focus({preventScroll: true});
+        }
+      };
+
+      showProof.addEventListener('click', () => show('proof'));
+      restart.addEventListener('click', () => {
+        choices.forEach((choice) => choice.dataset.selected = 'false');
+        result.dataset.visible = 'false';
+        show('intro');
+      });
+
+      choices.forEach((choice) => {
+        choice.addEventListener('click', () => {
+          choices.forEach((item) => item.dataset.selected = String(item === choice));
+          result.dataset.visible = 'true';
+        });
+      });
+
+      if (new URLSearchParams(window.location.search).get('stage') === 'proof') {
+        show('proof');
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -20,9 +20,9 @@ for (const marker of [
     'Votre IA.',
     'L’app client reste',
     'Le principe en 29 secondes',
-    'Piloter les PA',
-    'Exploiter avec l’IA',
-    'Collecter en option',
+    'Garder ses outils',
+    'Choisir son assistant',
+    'Équiper certains clients',
     'La matière fiable dont vos assistants ont besoin.',
     'Quels dossiers sont incomplets ?',
     'Faut-il choisir Claude ou ChatGPT/Codex ?',
@@ -71,9 +71,9 @@ assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
 assert.match(page, /class="ec-freedom-film"/);
 assert.match(page, /autoplay[\s\S]+muted[\s\S]+loop[\s\S]+controls/);
-assert.match(page, /diqto-cabinet-libre-v1\.mp4/);
-assert.match(page, /diqto-cabinet-libre-v1-fr\.vtt/);
-assert.match(page, /L’application client reste optionnelle/);
+assert.match(page, /diqto-cabinet-humain-v2\.mp4/);
+assert.match(page, /diqto-cabinet-humain-v2-fr\.vtt/);
+assert.match(page, /Dessin animé de 29 secondes/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);

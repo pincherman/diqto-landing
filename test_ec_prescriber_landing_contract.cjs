@@ -16,9 +16,15 @@ const script = read('experts-comptables.js');
 const legacyEcPage = read('metiers/expert_comptable.html');
 
 for (const marker of [
-    'Le cabinet augmenté commence',
+    'Le cabinet prêt pour l’IA commence',
+    'Claude, ChatGPT, Codex ou autre assistant compatible',
+    'Vos logiciels et votre PA restent en place',
+    'La matière fiable dont vos assistants ont besoin.',
+    'Quels dossiers sont incomplets ?',
+    'Faut-il choisir Claude ou ChatGPT/Codex ?',
+    'L’assistant prépare; le professionnel',
     'Vos outils font leur travail.',
-    'Une PA partenaire si nécessaire',
+    'Votre PA conservée, ou notre partenaire si nécessaire',
     'La PA partenaire de Diqto',
     'B2Brouter, sa Plateforme Agréée',
     'Ce qui est prouvé, ce qui reste à prouver',
@@ -29,7 +35,6 @@ for (const marker of [
     'Le temps réellement économisé',
     'Choisir mon partenariat',
     'Votre partenariat, cadré en 15 minutes',
-    'Plus qu’un portail.',
     '99 € <small>HT / mois / cabinet</small>',
     '0 € <small>contre 5 clients actifs</small>',
     'Aucun prélèvement, invitation ou contact de',
@@ -105,6 +110,11 @@ assert.doesNotMatch(
     page,
     /Diqto est une Plateforme Agréée|Diqto remplace votre PA/i,
     'page must not make a PA claim',
+);
+assert.doesNotMatch(
+    page,
+    /connexion (?:déjà )?active avec (?:Claude|ChatGPT|Codex)|décide automatiquement/i,
+    'page must not claim a live real-data AI connection or autonomous decision',
 );
 assert.doesNotMatch(
     page,

@@ -16,7 +16,7 @@ const script = read('experts-comptables.js');
 const legacyEcPage = read('metiers/expert_comptable.html');
 
 for (const marker of [
-    'Quand le métier se vit sur le terrain',
+    'Le cabinet augmenté commence',
     'Vos outils font leur travail.',
     'Une PA partenaire si nécessaire',
     'La PA partenaire de Diqto',
@@ -27,8 +27,12 @@ for (const marker of [
     'Les six notifications associées à ce',
     'À démontrer avec le premier cabinet',
     'Le temps réellement économisé',
-    'Tester avec 1 client',
-    'Une première preuve, à petite échelle',
+    'Choisir mon partenariat',
+    'Votre partenariat, cadré en 15 minutes',
+    'Plus qu’un portail.',
+    '99 € <small>HT / mois / cabinet</small>',
+    '0 € <small>contre 5 clients actifs</small>',
+    'Aucun prélèvement, invitation ou contact de',
 ]) {
     assert.ok(page.includes(marker), `EC prescriber page missing: ${marker}`);
 }
@@ -62,6 +66,8 @@ assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);
 assert.match(page, /name="tools"[\s\S]+required/);
 assert.match(page, /name="client_problem"[\s\S]+required/);
+assert.match(page, /name="partnership_offer"[\s\S]+value="cabinet_99"/);
+assert.match(page, /name="partnership_offer"[\s\S]+value="ambassadeur_5"/);
 assert.match(
     page,
     /name="source"[\s\S]+value="ec_prescripteur_pilot"/,
@@ -79,6 +85,8 @@ assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
 assert.match(script, /source: data\.get\('source'\)/);
 assert.match(script, /Outils du cabinet/);
+assert.match(script, /Offre EC/);
+assert.match(script, /data-offer-choice/);
 assert.match(script, /result\.confirmation_email_sent/);
 assert.match(script, /Un email de confirmation vient de vous/);
 assert.match(script, /mais votre demande est bien enregistrée/);

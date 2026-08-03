@@ -537,6 +537,8 @@ a {
 }
 
 .ec-problem,
+.ec-capabilities,
+.ec-offer,
 .ec-transformation,
 .ec-competition,
 .ec-value,
@@ -544,6 +546,155 @@ a {
 .ec-pilot,
 .ec-faq {
     padding: clamp(86px, 11vw, 150px) 0;
+}
+
+.ec-capabilities {
+    border-top: 1px solid var(--ec-line);
+    background: var(--ec-bg);
+}
+
+.ec-capability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 62px;
+}
+
+.ec-capability-grid article,
+.ec-offer-card {
+    border: 1px solid var(--ec-line);
+    border-radius: var(--ec-radius);
+    padding: 26px;
+    background: var(--ec-panel);
+}
+
+.ec-capability-grid span,
+.ec-offer-kicker {
+    color: var(--ec-green-light);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ec-capability-grid h3 {
+    margin-top: 42px;
+    font-size: 22px;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+}
+
+.ec-capability-grid p {
+    margin-top: 14px;
+    color: var(--ec-muted);
+}
+
+.ec-offer {
+    border-block: 1px solid var(--ec-line);
+    background: var(--ec-bg-deep);
+}
+
+.ec-offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 62px;
+}
+
+.ec-offer-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.ec-offer-card-featured {
+    border-color: rgba(37, 211, 102, 0.5);
+    box-shadow: 0 24px 70px rgba(37, 211, 102, 0.09);
+}
+
+.ec-offer-card h3 {
+    margin-top: 18px;
+    font-size: clamp(44px, 6vw, 70px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.ec-offer-card h3 small {
+    display: block;
+    margin-top: 10px;
+    color: var(--ec-muted);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.ec-offer-lead {
+    margin-top: 24px;
+    color: var(--ec-ink-soft);
+    font-size: 18px;
+}
+
+.ec-offer-card ul {
+    display: grid;
+    gap: 12px;
+    margin: 28px 0 34px;
+    color: var(--ec-muted);
+    list-style: none;
+}
+
+.ec-offer-card li {
+    position: relative;
+    padding-left: 22px;
+}
+
+.ec-offer-card li::before {
+    position: absolute;
+    left: 0;
+    color: var(--ec-green);
+    content: '✓';
+}
+
+.ec-offer-card .ec-button {
+    width: 100%;
+    margin-top: auto;
+}
+
+.ec-offer-boundary {
+    max-width: 850px;
+    margin: 24px auto 0;
+    color: var(--ec-muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.ec-offer-choice {
+    display: grid;
+    gap: 10px;
+    border: 0;
+    margin-bottom: 22px;
+}
+
+.ec-offer-choice legend {
+    margin-bottom: 9px;
+    font-weight: 700;
+}
+
+.ec-offer-choice label {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    border: 1px solid var(--ec-line);
+    border-radius: 14px;
+    padding: 14px;
+    color: var(--ec-ink-soft);
+    cursor: pointer;
+}
+
+.ec-offer-choice input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--ec-green);
 }
 
 .ec-problem {
@@ -1204,6 +1355,10 @@ a {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .ec-capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .ec-flow,
     .ec-value-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1222,7 +1377,9 @@ a {
     }
 
     .ec-friction-grid,
-    .ec-value-grid {
+    .ec-value-grid,
+    .ec-capability-grid,
+    .ec-offer-grid {
         grid-template-columns: 1fr;
     }
 

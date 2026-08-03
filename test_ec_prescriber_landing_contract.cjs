@@ -16,14 +16,13 @@ const script = read('experts-comptables.js');
 const legacyEcPage = read('metiers/expert_comptable.html');
 
 for (const marker of [
-    'Vos clients parlent.',
-    'L’IA travaille.',
-    'Vous décidez.',
-    'Compris en 5 secondes',
-    'Dossier Martin',
-    'Pièces manquantes ?',
-    '1</b> dossier propre',
-    '0</b> migration',
+    'Vos outils. Vos PA.',
+    'Votre IA.',
+    'L’app client reste',
+    'Le principe en 29 secondes',
+    'Piloter les PA',
+    'Exploiter avec l’IA',
+    'Collecter en option',
     'La matière fiable dont vos assistants ont besoin.',
     'Quels dossiers sont incomplets ?',
     'Faut-il choisir Claude ou ChatGPT/Codex ?',
@@ -70,18 +69,11 @@ assert.match(
 );
 assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
-assert.match(page, /class="ec-ai-flow"/);
-assert.equal(
-    (page.match(/class="ec-ai-step /g) || []).length,
-    4,
-    'hero must show the four visual stages',
-);
-assert.equal(
-    (page.match(/class="ec-flow-arrow"/g) || []).length,
-    3,
-    'hero must show the direction between the four stages',
-);
-assert.match(page, /aria-label="Le client envoie voix, photos et pièces/);
+assert.match(page, /class="ec-freedom-film"/);
+assert.match(page, /autoplay[\s\S]+muted[\s\S]+loop[\s\S]+controls/);
+assert.match(page, /diqto-cabinet-libre-v1\.mp4/);
+assert.match(page, /diqto-cabinet-libre-v1-fr\.vtt/);
+assert.match(page, /L’application client reste optionnelle/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);

@@ -71,8 +71,8 @@ assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
 assert.match(page, /class="ec-freedom-film"/);
 assert.match(page, /autoplay[\s\S]+muted[\s\S]+loop[\s\S]+controls/);
-assert.match(page, /diqto-cabinet-cinematique-v6\.mp4/);
-assert.match(page, /diqto-cabinet-cinematique-v6-fr\.vtt/);
+assert.match(page, /diqto-cabinet-cinematique-v7\.mp4/);
+assert.match(page, /diqto-cabinet-cinematique-v7-fr\.vtt/);
 assert.match(page, /Film cinématographique de 29 secondes/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);

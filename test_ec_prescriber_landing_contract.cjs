@@ -16,16 +16,20 @@ const script = read('experts-comptables.js');
 const legacyEcPage = read('metiers/expert_comptable.html');
 
 for (const marker of [
-    'Le cabinet prêt pour l’IA commence',
-    'Claude, ChatGPT, Codex ou autre assistant compatible',
-    'Vos logiciels et votre PA restent en place',
+    'Vos clients parlent.',
+    'L’IA travaille.',
+    'Vous décidez.',
+    'Compris en 5 secondes',
+    'Dossier Martin',
+    'Pièces manquantes ?',
+    '1</b> dossier propre',
+    '0</b> migration',
     'La matière fiable dont vos assistants ont besoin.',
     'Quels dossiers sont incomplets ?',
     'Faut-il choisir Claude ou ChatGPT/Codex ?',
     'L’assistant prépare; le professionnel',
     'Vos outils font leur travail.',
     'Votre PA conservée, ou notre partenaire si nécessaire',
-    'La PA partenaire de Diqto',
     'B2Brouter, sa Plateforme Agréée',
     'Ce qui est prouvé, ce qui reste à prouver',
     'Preuves disponibles aujourd’hui',
@@ -66,6 +70,18 @@ assert.match(
 );
 assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
+assert.match(page, /class="ec-ai-flow"/);
+assert.equal(
+    (page.match(/class="ec-ai-step /g) || []).length,
+    4,
+    'hero must show the four visual stages',
+);
+assert.equal(
+    (page.match(/class="ec-flow-arrow"/g) || []).length,
+    3,
+    'hero must show the direction between the four stages',
+);
+assert.match(page, /aria-label="Le client envoie voix, photos et pièces/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);

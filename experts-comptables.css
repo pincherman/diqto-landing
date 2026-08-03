@@ -169,7 +169,7 @@ a {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(430px, 0.88fr);
+    grid-template-columns: minmax(340px, 0.72fr) minmax(560px, 1.28fr);
     align-items: center;
     gap: clamp(50px, 8vw, 112px);
 }
@@ -177,7 +177,7 @@ a {
 .ec-hero-copy h1 {
     max-width: 760px;
     margin-top: 20px;
-    font-size: clamp(51px, 7.4vw, 92px);
+    font-size: clamp(48px, 5.8vw, 78px);
     font-weight: 800;
     line-height: 0.94;
     letter-spacing: -0.07em;
@@ -225,6 +225,230 @@ a {
     background: var(--ec-green);
     box-shadow: 0 0 14px rgba(37, 211, 102, 0.72);
     content: '';
+}
+
+.ec-ai-map {
+    position: relative;
+    margin: 0;
+    border: 1px solid var(--ec-line-green);
+    border-radius: var(--ec-radius-large);
+    padding: 22px;
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        rgba(5, 13, 9, 0.96);
+    background-size: 26px 26px;
+    box-shadow: var(--ec-shadow);
+}
+
+.ec-ai-map::after {
+    position: absolute;
+    inset: 24% 8% -12%;
+    z-index: -1;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.18);
+    filter: blur(70px);
+    content: '';
+}
+
+.ec-ai-map figcaption {
+    margin-bottom: 18px;
+    color: var(--ec-green-light);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.ec-ai-flow {
+    display: grid;
+    grid-template-columns:
+        minmax(90px, 0.84fr) 24px
+        minmax(105px, 1fr) 24px
+        minmax(125px, 1.2fr) 24px
+        minmax(90px, 0.84fr);
+    align-items: stretch;
+    gap: 6px;
+}
+
+.ec-ai-step {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--ec-line);
+    border-radius: 20px;
+    padding: 16px 12px;
+    background: rgba(15, 27, 20, 0.94);
+    text-align: center;
+}
+
+.ec-ai-step > strong {
+    margin-top: 10px;
+    color: var(--ec-ink);
+    font-size: 17px;
+}
+
+.ec-ai-icon,
+.ec-ai-orbit,
+.ec-check-ring,
+.ec-diqto-mini {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--ec-green-light);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.ec-diqto-mini {
+    gap: 3px;
+    background: var(--ec-green);
+}
+
+.ec-diqto-mini i {
+    width: 3px;
+    border-radius: 4px;
+    background: #061009;
+}
+
+.ec-diqto-mini i:nth-child(1),
+.ec-diqto-mini i:nth-child(5) {
+    height: 12px;
+}
+
+.ec-diqto-mini i:nth-child(2),
+.ec-diqto-mini i:nth-child(4) {
+    height: 23px;
+}
+
+.ec-diqto-mini i:nth-child(3) {
+    height: 32px;
+}
+
+.ec-ai-orbit {
+    border: 1px solid rgba(120, 220, 255, 0.25);
+    background: rgba(120, 220, 255, 0.08);
+    color: var(--ec-cyan);
+    font-size: 28px;
+}
+
+.ec-check-ring {
+    border-radius: 50%;
+    background: var(--ec-green);
+    color: #061009;
+    font-size: 28px;
+}
+
+.ec-flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ec-green);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.ec-input-pills,
+.ec-tool-pills,
+.ec-ai-brands,
+.ec-prompt-preview,
+.ec-clean-file {
+    width: 100%;
+    display: grid;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.ec-input-pills span,
+.ec-tool-pills span,
+.ec-ai-brands span,
+.ec-prompt-preview span,
+.ec-clean-file span,
+.ec-clean-file b {
+    border: 1px solid var(--ec-line);
+    border-radius: 9px;
+    padding: 6px;
+    background: rgba(4, 8, 6, 0.62);
+    color: var(--ec-ink-soft);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.ec-clean-file span {
+    color: var(--ec-ink);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.ec-clean-file b:nth-child(2),
+.ec-clean-file b:nth-child(3) {
+    color: var(--ec-green-light);
+}
+
+.ec-clean-file b:last-child {
+    color: var(--ec-amber);
+}
+
+.ec-ai-brands {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ec-ai-brands span {
+    padding-inline: 3px;
+    color: var(--ec-cyan);
+    font-size: 8px;
+}
+
+.ec-prompt-preview span {
+    border-color: rgba(120, 220, 255, 0.18);
+    background: rgba(120, 220, 255, 0.05);
+    text-align: left;
+}
+
+.ec-ai-step-cabinet p {
+    margin-top: 16px;
+    color: var(--ec-ink);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.ec-ai-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 16px;
+    border: 1px solid var(--ec-line-green);
+    border-radius: 14px;
+    padding: 11px;
+    background: rgba(37, 211, 102, 0.055);
+    color: var(--ec-muted);
+    font-size: 11px;
+}
+
+.ec-ai-result b {
+    color: var(--ec-green-light);
+    font-size: 16px;
+}
+
+.ec-ai-result i {
+    color: var(--ec-green);
+    font-style: normal;
 }
 
 .ec-signal-lab {
@@ -1346,9 +1570,18 @@ a {
         grid-template-columns: 1fr;
     }
 
-    .ec-signal-lab {
+    .ec-signal-lab,
+    .ec-ai-map {
         width: min(100%, 620px);
         margin: 0 auto;
+    }
+
+    .ec-ai-map {
+        grid-row: 1;
+    }
+
+    .ec-hero-copy {
+        grid-row: 2;
     }
 
     .ec-friction-grid {
@@ -1433,6 +1666,49 @@ a {
         display: grid;
     }
 
+    .ec-ai-map {
+        padding: 16px;
+    }
+
+    .ec-ai-flow {
+        grid-template-columns: 1fr 22px 1fr;
+        gap: 8px 4px;
+    }
+
+    .ec-ai-flow > .ec-flow-arrow:nth-of-type(2) {
+        display: none;
+    }
+
+    .ec-ai-step-assistant {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .ec-ai-step-cabinet {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .ec-ai-flow > .ec-flow-arrow:nth-of-type(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .ec-ai-step {
+        padding: 14px 10px;
+    }
+
+    .ec-ai-result {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .ec-ai-result i {
+        transform: rotate(90deg);
+    }
+
     .ec-lab-stage {
         grid-template-columns: 1fr;
     }
@@ -1501,6 +1777,7 @@ a {
 
 @media (max-width: 480px) {
     .ec-signal-lab,
+    .ec-ai-map,
     .ec-form-panel {
         border-radius: 24px;
         padding: 16px;

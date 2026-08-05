@@ -19,7 +19,7 @@ for (const marker of [
     'Vos outils. Vos PA.',
     'Votre IA.',
     'L’app client reste',
-    'Le principe en 29 secondes',
+    'Le principe en 32 secondes',
     'Connecter ses plateformes',
     'Voir ce qui bloque',
     'Demander, vérifier, décider',
@@ -71,9 +71,10 @@ assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
 assert.match(page, /class="ec-freedom-film"/);
 assert.match(page, /autoplay[\s\S]+muted[\s\S]+loop[\s\S]+controls/);
-assert.match(page, /diqto-cabinet-cinematique-v8\.mp4/);
-assert.match(page, /diqto-cabinet-cinematique-v8-fr\.vtt/);
-assert.match(page, /Film cinématographique de 29 secondes/);
+assert.match(page, /diqto-cabinet-cinematique-v9\.mp4/);
+assert.match(page, /diqto-cabinet-cinematique-v9-fr\.vtt/);
+assert.match(page, /Film cinématographique de 32 secondes/);
+assert.match(page, /visualise une simulation de huit plateformes/);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);

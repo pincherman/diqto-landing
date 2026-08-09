@@ -34,6 +34,8 @@ class Story:
     thumbnail_asset: str | None = None
     captions_asset: str | None = None
     duration_seconds: int = 30
+    width: int = 1280
+    height: int = 720
     upload_date: str = DEFAULT_UPLOAD_DATE
     disclosure: str = (
         "Personnage et situation fictifs · Écrans Diqto sur données de démonstration."
@@ -216,9 +218,11 @@ STORIES = (
         related_url="/experts-comptables.html",
         related_label="Découvrir l'offre experts-comptables",
         video_asset="/assets/ec/diqto-cabinet-cinematique-v9.mp4",
-        thumbnail_asset="/assets/ec/diqto-cabinet-cinematique-v6-poster.jpg",
+        thumbnail_asset="/assets/ec/diqto-cabinet-cinematique-v9-poster.jpg",
         captions_asset="/assets/ec/diqto-cabinet-cinematique-v9-fr.vtt",
         duration_seconds=32,
+        width=1920,
+        height=1080,
         upload_date="2026-08-05T15:40:00+00:00",
         disclosure=(
             "Simulation produit · Personnages et situation fictifs · "
@@ -310,12 +314,12 @@ def render_page(story: Story) -> str:
 <meta property="og:site_name" content="Diqto">
 <meta property="og:description" content="{escape(story.description, quote=True)}">
 <meta property="og:image" content="{story.thumbnail_url}">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="720">
+<meta property="og:image:width" content="{story.width}">
+<meta property="og:image:height" content="{story.height}">
 <meta property="og:video" content="{story.video_url}">
 <meta property="og:video:type" content="video/mp4">
-<meta property="og:video:width" content="1280">
-<meta property="og:video:height" content="720">
+<meta property="og:video:width" content="{story.width}">
+<meta property="og:video:height" content="{story.height}">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="player">
 <meta name="twitter:title" content="{escape(story.heading, quote=True)}">

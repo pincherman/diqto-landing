@@ -52,7 +52,7 @@ assert.match(
 assert.match(stories, /href="\/experts-comptables\.html"/);
 assert.match(
     stories,
-    /src="\/assets\/ec\/diqto-cabinet-cinematique-v6-poster\.jpg"/,
+    /src="\/assets\/ec\/diqto-cabinet-cinematique-v9-poster\.jpg"/,
 );
 assert.match(stories, /toute connexion réelle reste à cadrer et autoriser/i);
 

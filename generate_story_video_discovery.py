@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent
 WATCH_DIR = ROOT / "histoires"
 VIDEO_SITEMAP = ROOT / "video-sitemap.xml"
 BASE_URL = "https://diqto.fr"
-UPLOAD_DATE = "2026-07-17T12:55:17+00:00"
+DEFAULT_UPLOAD_DATE = "2026-07-17T12:55:17+00:00"
 
 
 @dataclass(frozen=True)
@@ -30,6 +30,14 @@ class Story:
     transcript: tuple[str, ...]
     related_url: str
     related_label: str
+    video_asset: str | None = None
+    thumbnail_asset: str | None = None
+    captions_asset: str | None = None
+    duration_seconds: int = 30
+    upload_date: str = DEFAULT_UPLOAD_DATE
+    disclosure: str = (
+        "Personnage et situation fictifs · Écrans Diqto sur données de démonstration."
+    )
 
     @property
     def watch_url(self) -> str:
@@ -37,15 +45,23 @@ class Story:
 
     @property
     def video_url(self) -> str:
-        return f"{BASE_URL}/assets/stories/{self.slug}.mp4"
+        return f"{BASE_URL}{self.video_path}"
+
+    @property
+    def video_path(self) -> str:
+        return self.video_asset or f"/assets/stories/{self.slug}.mp4"
 
     @property
     def thumbnail_url(self) -> str:
-        return f"{BASE_URL}/assets/stories/{self.slug}-poster.jpg"
+        return f"{BASE_URL}{self.thumbnail_path}"
+
+    @property
+    def thumbnail_path(self) -> str:
+        return self.thumbnail_asset or f"/assets/stories/{self.slug}-poster.jpg"
 
     @property
     def captions_url(self) -> str:
-        return f"/assets/stories/{self.slug}-fr.vtt"
+        return self.captions_asset or f"/assets/stories/{self.slug}-fr.vtt"
 
 
 STORIES = (
@@ -161,6 +177,54 @@ STORIES = (
         related_url="/metiers/prof_karate.html",
         related_label="Voir le parcours professeur de karaté",
     ),
+    Story(
+        slug="cabinet-expert-comptable",
+        title=(
+            "Assistant IA pour expert-comptable sans changer de logiciel "
+            "| Film Diqto"
+        ),
+        heading="Le cabinet garde ses outils, son assistant IA et la décision.",
+        description=(
+            "Film Diqto de 32 secondes pour experts-comptables : un cabinet "
+            "réunit les informations utiles, choisit son assistant IA et conserve "
+            "la validation humaine sans migration imposée."
+        ),
+        eyebrow="Expertise comptable · IA · outils conservés",
+        summary=(
+            "Claire conserve ses logiciels et ses plateformes. Diqto prépare une "
+            "vue contrôlable pour l'assistant choisi, sans décision ni envoi "
+            "automatique."
+        ),
+        details=(
+            "Conserver les logiciels, la GED et la Plateforme Agréée du cabinet.",
+            "Réunir les informations utiles sans présenter une connexion de "
+            "démonstration comme réelle.",
+            "Laisser Claude, ChatGPT, Codex ou un autre assistant préparer une "
+            "analyse cadrée.",
+            "Faire vérifier et décider l'expert-comptable avant toute action externe.",
+        ),
+        transcript=(
+            "Claire garde ses logiciels et ses plateformes. Diqto réunit leurs "
+            "flux dans un seul cockpit.",
+            "Elle cadre uniquement ce qui lui est utile. Claude, ChatGPT ou "
+            "Codex recherchent, comparent et préparent.",
+            "Claire vérifie. Rien ne part seul. Elle peut aussi activer "
+            "l'application Diqto pour certains clients.",
+            "Pour les autres, rien ne change. Vos outils. Vos plateformes. "
+            "Votre intelligence artificielle. Enfin ensemble.",
+        ),
+        related_url="/experts-comptables.html",
+        related_label="Découvrir l'offre experts-comptables",
+        video_asset="/assets/ec/diqto-cabinet-cinematique-v9.mp4",
+        thumbnail_asset="/assets/ec/diqto-cabinet-cinematique-v6-poster.jpg",
+        captions_asset="/assets/ec/diqto-cabinet-cinematique-v9-fr.vtt",
+        duration_seconds=32,
+        upload_date="2026-08-05T15:40:00+00:00",
+        disclosure=(
+            "Simulation produit · Personnages et situation fictifs · "
+            "Toute connexion réelle reste à cadrer et autoriser."
+        ),
+    ),
 )
 
 
@@ -173,8 +237,8 @@ def structured_data(story: Story) -> str:
                 "name": story.heading,
                 "description": story.description,
                 "thumbnailUrl": [story.thumbnail_url],
-                "uploadDate": UPLOAD_DATE,
-                "duration": "PT30S",
+                "uploadDate": story.upload_date,
+                "duration": f"PT{story.duration_seconds}S",
                 "contentUrl": story.video_url,
                 "url": story.watch_url,
                 "inLanguage": "fr-FR",
@@ -296,13 +360,13 @@ def render_page(story: Story) -> str:
       <p class="watch-eyebrow">{escape(story.eyebrow)}</p>
       <h1>{escape(story.heading)}</h1>
       <p class="watch-lead">{escape(story.summary)}</p>
-      <p class="watch-disclosure">Film de 30 secondes · Personnage et situation fictifs · Écrans Diqto sur données de démonstration.</p>
+      <p class="watch-disclosure">Film de {story.duration_seconds} secondes · {escape(story.disclosure)}</p>
     </div>
   </header>
   <div class="watch-container">
     <div class="watch-player">
-      <video controls preload="metadata" playsinline poster="/assets/stories/{story.slug}-poster.jpg" aria-label="{escape(story.heading, quote=True)}">
-        <source src="/assets/stories/{story.slug}.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="{story.thumbnail_path}" aria-label="{escape(story.heading, quote=True)}">
+        <source src="{story.video_path}" type="video/mp4">
         <track kind="captions" src="{story.captions_url}" srclang="fr" label="Français" default>
         Votre navigateur ne permet pas de lire cette vidéo.
       </video>
@@ -335,7 +399,7 @@ def render_page(story: Story) -> str:
         <div class="watch-actions">
           <a class="watch-button" href="{story.related_url}">{escape(story.related_label)}</a>
           <a class="watch-button secondary" href="/?source=seo_video_{story.slug}#beta">Créer un brouillon gratuit</a>
-          <a class="watch-button secondary" href="/histoires.html">Voir les quatre films</a>
+          <a class="watch-button secondary" href="/histoires.html">Voir tous les films</a>
         </div>
       </aside>
     </div>
@@ -369,7 +433,7 @@ def render_video_sitemap() -> str:
             f"      <video:title>{xml_escape(story.heading)}</video:title>\n"
             f"      <video:description>{xml_escape(story.description)}</video:description>\n"
             f"      <video:content_loc>{xml_escape(story.video_url)}</video:content_loc>\n"
-            "      <video:duration>30</video:duration>\n"
+            f"      <video:duration>{story.duration_seconds}</video:duration>\n"
             "      <video:family_friendly>yes</video:family_friendly>\n"
             "      <video:live>no</video:live>\n"
             "    </video:video>\n"

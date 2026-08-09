@@ -49,4 +49,16 @@
       <video:live>no</video:live>
     </video:video>
   </url>
+  <url>
+    <loc>https://diqto.fr/histoires/cabinet-expert-comptable.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/ec/diqto-cabinet-cinematique-v6-poster.jpg</video:thumbnail_loc>
+      <video:title>Le cabinet garde ses outils, son assistant IA et la décision.</video:title>
+      <video:description>Film Diqto de 32 secondes pour experts-comptables : un cabinet réunit les informations utiles, choisit son assistant IA et conserve la validation humaine sans migration imposée.</video:description>
+      <video:content_loc>https://diqto.fr/assets/ec/diqto-cabinet-cinematique-v9.mp4</video:content_loc>
+      <video:duration>32</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
 </urlset>

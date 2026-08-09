@@ -288,6 +288,17 @@ a {
     object-fit: cover;
 }
 
+.ec-film-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+    color: var(--ec-green-light);
+    font-size: 13px;
+    font-weight: 750;
+    text-underline-offset: 4px;
+}
+
 .ec-freedom-legend {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

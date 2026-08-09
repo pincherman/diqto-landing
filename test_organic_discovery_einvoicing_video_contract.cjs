@@ -78,13 +78,39 @@ for (const slug of storySlugs) {
     );
 }
 
+const accountantVideoPage = read('histoires/cabinet-expert-comptable.html');
+for (const marker of [
+    'Assistant IA pour expert-comptable sans changer de logiciel',
+    '"@type": "VideoObject"',
+    'https://diqto.fr/assets/ec/diqto-cabinet-cinematique-v9.mp4',
+    'https://diqto.fr/assets/ec/diqto-cabinet-cinematique-v6-poster.jpg',
+    '/assets/ec/diqto-cabinet-cinematique-v9-fr.vtt',
+    'Transcription de la vidéo',
+    'Toute connexion réelle reste à cadrer et autoriser',
+    'href="/experts-comptables.html"',
+]) {
+    assert.ok(
+        accountantVideoPage.includes(marker),
+        `accountant watch page missing: ${marker}`,
+    );
+}
+assert.match(
+    videoSitemap,
+    /<loc>https:\/\/diqto\.fr\/histoires\/cabinet-expert-comptable\.html<\/loc>/,
+);
+assert.match(
+    videoSitemap,
+    /<video:content_loc>https:\/\/diqto\.fr\/assets\/ec\/diqto-cabinet-cinematique-v9\.mp4<\/video:content_loc>/,
+);
+assert.match(videoSitemap, /<video:duration>32<\/video:duration>/);
+
 assert.equal(
     (videoSitemap.match(/<video:video>/g) || []).length,
-    storySlugs.length,
+    storySlugs.length + 1,
 );
 assert.equal(
     (videoSitemap.match(/<video:thumbnail_loc>/g) || []).length,
-    storySlugs.length,
+    storySlugs.length + 1,
 );
 
 console.log('organic_discovery_einvoicing_video_contract: OK');

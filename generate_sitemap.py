@@ -28,15 +28,18 @@ CORE_ROOT_ORDER = {
     "experts-comptables.html": 3,
     "histoires.html": 4,
     "docs.html": 5,
-    "cgu.html": 6,
-    "confidentialite.html": 7,
-    "mentions-legales.html": 8,
+    "aide.html": 6,
+    "cgu.html": 7,
+    "confidentialite.html": 8,
+    "mentions-legales.html": 9,
 }
 
 
 def is_public_html(path: Path) -> bool:
     rel = path.relative_to(ROOT).as_posix()
     if not rel.endswith(".html"):
+        return False
+    if rel.startswith(("prototypes/", "tmp/")):
         return False
     if "/_" in f"/{rel}":
         return False
@@ -68,6 +71,8 @@ def sitemap_priority(path: Path) -> tuple[str, str]:
         return "weekly", "0.8"
     if rel == "docs.html":
         return "weekly", "0.7"
+    if rel == "aide.html":
+        return "monthly", "0.6"
     if rel in {"metiers.html", "guides.html"}:
         return "weekly", "0.8"
     if rel.startswith("guides/"):
@@ -128,7 +133,7 @@ def is_dirty(path: Path) -> bool:
     return bool(result.stdout.strip())
 
 
-def build_sitemap(lastmod: str) -> str:
+def build_sitemap(lastmod: str, changed_paths: set[str] | None = None) -> str:
     urls: list[str] = []
     seen: set[str] = set()
     known_lastmods = existing_lastmods()
@@ -140,9 +145,13 @@ def build_sitemap(lastmod: str) -> str:
             continue
         seen.add(loc)
         changefreq, priority = sitemap_priority(path)
+        rel = path.relative_to(ROOT).as_posix()
+        changed = (
+            is_dirty(path) if changed_paths is None else rel in changed_paths
+        )
         page_lastmod = (
             lastmod
-            if is_dirty(path) or loc not in known_lastmods
+            if changed or loc not in known_lastmods
             else known_lastmods[loc]
         )
         urls.append(
@@ -168,11 +177,25 @@ def current_utc_date() -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check", action="store_true", help="Fail if sitemap.xml is stale.")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Fail if sitemap.xml is stale.",
+    )
     parser.add_argument("--lastmod", default=current_utc_date())
+    parser.add_argument(
+        "--changed-path",
+        action="append",
+        default=None,
+        help=(
+            "Limit lastmod updates to an explicit relative HTML path; "
+            "repeat as needed."
+        ),
+    )
     args = parser.parse_args()
 
-    expected = build_sitemap(args.lastmod)
+    changed_paths = set(args.changed_path) if args.changed_path is not None else None
+    expected = build_sitemap(args.lastmod, changed_paths)
     if args.check:
         actual = SITEMAP_PATH.read_text(encoding="utf-8")
         if actual != expected:

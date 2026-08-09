@@ -75,6 +75,10 @@ assert.match(page, /diqto-cabinet-cinematique-v9\.mp4/);
 assert.match(page, /diqto-cabinet-cinematique-v9-fr\.vtt/);
 assert.match(page, /Film cinématographique de 32 secondes/);
 assert.match(page, /visualise une simulation de huit plateformes/);
+assert.match(
+    page,
+    /href="\/histoires\/cabinet-expert-comptable\.html"[^>]*>[\s\S]*?Voir le film et sa transcription/,
+);
 
 assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);

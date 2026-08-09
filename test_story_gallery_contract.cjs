@@ -44,6 +44,17 @@ assert.match(home, /document\.getElementById\('starter-source'\)/);
 assert.match(stories, /Histoires inspirées du quotidien/);
 assert.match(stories, /personnages et situations sont fictifs/i);
 assert.doesNotMatch(stories, /témoignage client/i);
+assert.match(stories, /id="cabinet-expert-comptable"/);
+assert.match(
+    stories,
+    /href="\/histoires\/cabinet-expert-comptable\.html"/,
+);
+assert.match(stories, /href="\/experts-comptables\.html"/);
+assert.match(
+    stories,
+    /src="\/assets\/ec\/diqto-cabinet-cinematique-v6-poster\.jpg"/,
+);
+assert.match(stories, /toute connexion réelle reste à cadrer et autoriser/i);
 
 for (const story of storyCases) {
     const videoRelative = `assets/stories/${story.id}.mp4`;

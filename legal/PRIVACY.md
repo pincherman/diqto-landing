@@ -2,7 +2,7 @@
 
 **Diqto — Application de facturation pour indépendants**
 
-*Dernière mise à jour : 22 juillet 2026*
+*Dernière mise à jour : 12 août 2026*
 
 La présente Politique de Confidentialité décrit la manière dont Diqto collecte, utilise, stocke et protège les données personnelles de ses Utilisateurs, conformément au Règlement (UE) 2016/679 (« RGPD ») et à la loi n°78-17 du 6 janvier 1978 modifiée (« Informatique et Libertés »).
 
@@ -33,7 +33,8 @@ Contact délégué à la protection des données (DPO) : **support@diqto.fr**
 | **Profil professionnel** | Nom, prénom, nom commercial, adresse, SIRET, activité | Personnalisation des documents, conformité légale |
 | **Contact** | Adresse email (optionnel) | Communications, notifications, récupération de compte |
 | **Facturation** | Informations clients de l'Utilisateur, montants, descriptions de prestations | Génération des devis, factures, notes d'honoraires |
-| **Paiement** | Données de carte bancaire (traitées par Stripe, jamais stockées par Diqto) | Paiement des abonnements |
+| **Fonctions assistées par IA** | Audio et transcription, textes saisis, documents ou images importés, contexte professionnel utile | Transcription, structuration et synthèse uniquement après autorisation explicite dans l'application |
+| **Paiement** | État d'abonnement et historique d'achat iOS traités par Apple et RevenueCat ; données de carte éventuelles traitées par Stripe, jamais stockées par Diqto | Gestion des abonnements et paiements activés par l'Utilisateur |
 
 ### 2.2 Données collectées automatiquement
 
@@ -44,9 +45,13 @@ Contact délégué à la protection des données (DPO) : **support@diqto.fr**
 | **Documents créés** | Devis, factures, notes d'honoraires générés | Fourniture du Service, historique |
 | **Conversations** | Échanges via l'interface WhatsApp | Fourniture du Service (traitement des instructions) |
 
-### 2.3 Données non collectées
+### 2.3 Autorisation des services d'IA tiers
 
-Diqto ne collecte pas de données sensibles au sens de l'article 9 du RGPD (origine ethnique, opinions politiques, données de santé, etc.).
+Avant l'accès aux fonctions assistées par IA, l'application liste les catégories de données susceptibles d'être envoyées et identifie les destinataires : **OpenAI**, **Anthropic** et **Deepgram**. Aucun partage avec ces services n'a lieu avant un choix positif. L'autorisation peut être retirée dans **Réglages → Données** ; son retrait bloque les futurs envois sans affecter la licéité des traitements antérieurs.
+
+### 2.4 Données sensibles
+
+Diqto ne demande pas par défaut l'origine ethnique, les opinions politiques, les convictions religieuses, l'orientation sexuelle ou l'appartenance syndicale. Certains profils professionnels de santé peuvent toutefois contenir des données de santé saisies par l'Utilisateur dans les notes, documents, transcriptions ou suivis de ses patients. Elles sont traitées uniquement pour fournir les fonctions demandées et restent soumises aux obligations renforcées applicables.
 
 ---
 
@@ -60,6 +65,7 @@ Diqto ne collecte pas de données sensibles au sens de l'article 9 du RGPD (orig
 | Traitement des paiements | Exécution du contrat (art. 6.1.b) |
 | Envoi de notifications de service | Exécution du contrat (art. 6.1.b) |
 | Communications commerciales | Consentement (art. 6.1.a) |
+| Partage de données avec les services d'IA tiers | Consentement explicite préalable (art. 6.1.a), versionné et retirable dans l'application |
 | Statistiques et amélioration du Service | Intérêt légitime (art. 6.1.f) |
 | Sécurité et prévention de la fraude | Intérêt légitime (art. 6.1.f) |
 | Conservation des factures émises | Obligation légale (art. 6.1.c) — CGI, Code de commerce |
@@ -75,12 +81,18 @@ Diqto fait appel aux prestataires suivants pour la fourniture du Service. Leur r
 | **Koyeb** | Hébergement de l'application | 🇪🇺 Union Européenne | Hébergeur européen, données en UE |
 | **Neon** | Base de données PostgreSQL | 🇪🇺 Union Européenne | Données chiffrées, hébergement UE |
 | **Cloudflare (R2)** | Stockage de fichiers (PDFs) | 🇪🇺 Union Européenne | Chiffrement, réseau européen |
+| **Apple** | Achats intégrés et abonnements iOS | Selon l'infrastructure Apple | Contrat Apple, contrôles de compte et de paiement Apple |
+| **RevenueCat** | État des abonnements et droits d'accès | 🇪🇺 / 🇺🇸 UE & États-Unis | Identifiant applicatif limité, historique d'achat et état d'abonnement ; CCT et mesures de sécurité contractuelles |
 | **Stripe** | Traitement des paiements | 🇪🇺 / 🇺🇸 UE & États-Unis | Certifié PCI-DSS, clauses contractuelles types (CCT) |
 | **Meta / WhatsApp** | Canal de messagerie | 🇪🇺 / 🇺🇸 UE & États-Unis | Clauses contractuelles types (CCT), chiffrement de bout en bout |
-| **OpenAI** | Intelligence artificielle (assistance à la génération de documents) | 🇺🇸 États-Unis | Clauses contractuelles types (CCT), DPA en place, pas de réutilisation des données pour entraînement (API) |
+| **OpenAI** | Transcription vocale et traitement de secours de textes ou documents | 🇺🇸 États-Unis | CCT, DPA, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée |
+| **Anthropic** | Structuration et synthèse de textes, transcriptions, brouillons et contexte professionnel utile | 🇺🇸 États-Unis | CCT, DPA, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée |
+| **Deepgram** | Transcription vocale en direct ou différée | 🇺🇸 États-Unis | CCT, DPA, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée |
 | **B2Brouter Global, S.L.** | Transport, réception, statuts et archivage des factures électroniques en qualité de Plateforme Agréée, après activation de l'entreprise | 🇪🇺 Union Européenne | Contrat eDocSync ; données chiffrées en transit ; rôle et garanties précisés dans l'annexe Facturation électronique et les documents de protection applicables |
 
 Diqto ne vend, ne loue et ne partage jamais les données personnelles de ses Utilisateurs avec des tiers à des fins commerciales.
+
+Diqto exige des sous-traitants qui reçoivent des données personnelles une protection au moins équivalente à celle décrite dans la présente politique et aux exigences applicables. Les données sont minimisées et les identifiants sont retirés ou remplacés lorsque la fonction le permet ; un audio, une image, un document ou un texte libre peut néanmoins contenir des identifiants, d'où l'autorisation préalable dans l'application.
 
 ---
 
@@ -89,6 +101,9 @@ Diqto ne vend, ne loue et ne partage jamais les données personnelles de ses Uti
 Certains sous-traitants sont situés en dehors de l'Espace Économique Européen (EEE), principalement aux États-Unis :
 
 - **OpenAI** (traitement IA) ;
+- **Anthropic** (traitement IA) ;
+- **Deepgram** (transcription vocale) ;
+- **RevenueCat** (gestion des droits d'abonnement) ;
 - **Stripe** (paiement, partiellement) ;
 - **Meta/WhatsApp** (messagerie, partiellement).
 
@@ -109,6 +124,7 @@ L'Utilisateur peut obtenir une copie des garanties mises en place en contactant 
 | Données de compte (profil, téléphone) | Durée de vie du compte + 3 ans après suppression |
 | Documents commerciaux (factures, devis) | 10 ans à compter de la clôture de l'exercice (obligation légale — art. L.123-22 du Code de commerce) |
 | Données de paiement | Durée de la relation commerciale + 13 mois (CB) pour gestion des contestations |
+| Données vocales (audio) | Dictées courtes : traitement temporaire puis suppression. Rendez-vous enregistrés : durée de vie du compte ou jusqu'à une demande d'effacement, puis suppression sous 30 jours sauf obligation légale |
 | Conversations WhatsApp | 12 mois glissants, puis anonymisation |
 | Données techniques (logs) | 12 mois |
 | Données de prospection | 3 ans à compter du dernier contact |

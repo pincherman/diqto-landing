@@ -227,7 +227,7 @@
 <main id="contenu">
 <div class="header">
   <h1>Politique de <span>Confidentialité</span></h1>
-  <p class="date">Dernière mise à jour : 22 juillet 2026</p>
+  <p class="date">Dernière mise à jour : 12 août 2026</p>
 </div>
 
 <div class="content">
@@ -258,7 +258,7 @@
     <li>Statut juridique (micro-entreprise, EI, EURL, SASU, association, profession libérale)</li>
     <li>Métier / activité exercée (parmi 71 métiers supportés)</li>
     <li>Logo de l'entreprise (si fourni)</li>
-    <li>Données vocales : transcrites en texte par l'IA, puis <strong>audio supprimé immédiatement</strong> — l'audio n'est jamais conservé</li>
+    <li>Données vocales : audio et transcription déclenchés par l'Utilisateur. Une dictée courte est traitée temporairement ; l'audio d'un rendez-vous peut être conservé de façon sécurisée pour permettre sa reprise et sa réécoute.</li>
   </ul>
 
   <h3>2.2 Données des clients de l'Utilisateur</h3>
@@ -274,7 +274,7 @@
     <li>Données de suivi patient — si companion activé (score douleur, exercices prescrits, évolution)</li>
   </ul>
   <div class="highlight-box">
-    <strong>Note :</strong> L'Utilisateur est responsable de l'obtention du consentement de ses clients pour la transmission de ces données à Diqto. Les données des clients sont <strong>anonymisées avant tout envoi</strong> vers les services d'intelligence artificielle (Anthropic, OpenAI). Pour les praticiens de santé, l'Utilisateur est responsable du respect du secret médical et des obligations renforcées du RGPD relatives aux données de santé.
+    <strong>Note :</strong> L'Utilisateur est responsable de l'information et, lorsque nécessaire, du consentement de ses propres clients. Diqto minimise le contexte envoyé aux services d'intelligence artificielle et retire ou remplace les identifiants lorsqu'une fonction le permet. Un audio, une image, un document ou un texte libre peut néanmoins contenir des données personnelles ; il n'est partagé avec OpenAI, Anthropic ou Deepgram qu'après l'autorisation explicite affichée dans l'application. Pour les praticiens de santé, l'Utilisateur reste responsable du secret médical et des obligations renforcées applicables aux données de santé.
   </div>
 
   <h3>2.3 Données d'usage</h3>
@@ -285,8 +285,11 @@
     <li>Données de timetracking (durée des séances/prestations)</li>
     <li>Interactions avec le companion patient (si activé)</li>
     <li>Dates et heures de connexion / utilisation</li>
-    <li>Données de facturation et de paiement (gérées par Stripe)</li>
+    <li>État d'abonnement et historique d'achat iOS (gérés par Apple et RevenueCat) ; données de carte éventuelles gérées par Stripe</li>
   </ul>
+  <div class="highlight-box" id="consentement-ia">
+    <strong>Autorisation des services d'IA tiers :</strong> avant l'accès aux fonctions assistées par IA, l'application décrit les catégories de données susceptibles d'être envoyées — audio et transcription, textes saisis, documents ou images importés et contexte professionnel utile — et identifie OpenAI, Anthropic et Deepgram. Aucun de ces envois n'a lieu avant un choix positif. L'autorisation peut être retirée dans <strong>Réglages → Données</strong> ; son retrait bloque les futurs envois à ces services sans affecter la licéité des traitements antérieurs.
+  </div>
 
   <h3>2.4 Données collectées sur le site diqto.fr</h3>
   <ul>
@@ -351,7 +354,7 @@
   <ul>
     <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de documents, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
     <li><strong>Intérêt légitime</strong> (article 6.1.f du RGPD) : les traitements liés à l'amélioration du service et aux statistiques d'usage sont fondés sur l'intérêt légitime de Diqto à améliorer son offre.</li>
-    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales et les cookies analytics sont soumis au consentement préalable de l'Utilisateur.</li>
+    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales, les cookies analytics et le partage de données avec les services d'IA tiers sont soumis à un choix positif préalable. Les autorisations sont retirables à tout moment dans les réglages concernés.</li>
     <li><strong>Obligation légale</strong> (article 6.1.c du RGPD) : la conservation des données de facturation est requise par les obligations comptables et fiscales.</li>
   </ul>
 
@@ -366,21 +369,21 @@
     </tr>
     <tr>
       <td><strong>Anthropic</strong></td>
-      <td>Traitement IA (Claude Haiku — structuration documents, notes de séance)</td>
+      <td>Structuration et synthèse de textes, transcriptions, brouillons et contexte professionnel utile</td>
       <td>États-Unis</td>
-      <td>DPA, SCCs. Données personnelles anonymisées avant envoi.</td>
+      <td>DPA, SCCs, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée.</td>
     </tr>
     <tr>
       <td><strong>OpenAI</strong></td>
-      <td>Embeddings (recherche sémantique dans les notes et documents)</td>
+      <td>Transcription vocale et traitement de secours de textes ou documents</td>
       <td>États-Unis</td>
-      <td>DPA, SCCs. Données personnelles anonymisées avant envoi.</td>
+      <td>DPA, SCCs, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée.</td>
     </tr>
     <tr>
       <td><strong>Deepgram</strong></td>
-      <td>Transcription vocale (speech-to-text)</td>
+      <td>Transcription vocale en direct ou différée</td>
       <td>États-Unis</td>
-      <td>DPA, SCCs. Audio supprimé immédiatement après transcription.</td>
+      <td>DPA, SCCs, confidentialité et sécurité contractuelles ; données limitées à la fonction demandée.</td>
     </tr>
     <tr>
       <td><strong>Neon</strong></td>
@@ -393,6 +396,18 @@
       <td>Stockage documents PDF</td>
       <td>UE</td>
       <td>Hébergement UE. Chiffrement au repos et en transit.</td>
+    </tr>
+    <tr>
+      <td><strong>Apple</strong></td>
+      <td>Achats intégrés et abonnements iOS</td>
+      <td>Selon l'infrastructure Apple</td>
+      <td>Contrat Apple, contrôles de compte et de paiement Apple.</td>
+    </tr>
+    <tr>
+      <td><strong>RevenueCat</strong></td>
+      <td>État des abonnements et droits d'accès</td>
+      <td>Union européenne / États-Unis</td>
+      <td>Identifiant applicatif limité, historique d'achat et état d'abonnement ; CCT et mesures de sécurité contractuelles.</td>
     </tr>
     <tr>
       <td><strong>Koyeb</strong></td>
@@ -426,7 +441,7 @@
     </tr>
   </table>
   <div class="highlight-box">
-    <strong>Anonymisation :</strong> Avant tout envoi de données vers les services d'IA (Anthropic, OpenAI), les données personnelles identifiantes (noms, adresses, téléphones des clients) sont remplacées par des identifiants anonymes. Les données originales ne quittent pas l'infrastructure européenne de Diqto.
+    <strong>Protection équivalente :</strong> Diqto exige de ses sous-traitants qui reçoivent des données personnelles une protection au moins équivalente à celle décrite dans la présente politique et aux exigences applicables. Les données sont minimisées et les identifiants sont retirés ou remplacés lorsque la fonction le permet. Un audio, une image, un document ou un texte libre peut contenir des identifiants ; l'application demande donc l'autorisation avant tout partage avec une IA tierce.
   </div>
 
   <h2>6. Durée de conservation</h2>
@@ -461,7 +476,7 @@
     </tr>
     <tr>
       <td>Données vocales (audio)</td>
-      <td><strong>Supprimées immédiatement après transcription</strong> — jamais stockées</td>
+      <td>Dictées courtes : traitement temporaire puis suppression. Enregistrements de rendez-vous : durée de vie du compte ou jusqu'à une demande d'effacement, puis suppression sous 30 jours sauf obligation légale.</td>
     </tr>
     <tr>
       <td>Données de facturation</td>
@@ -486,6 +501,7 @@
     <li><strong>Droit à la portabilité</strong> (article 20) : recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</li>
     <li><strong>Droit d'opposition</strong> (article 21) : vous opposer au traitement de vos données fondé sur l'intérêt légitime.</li>
     <li><strong>Droit à la limitation</strong> (article 18) : demander la limitation du traitement dans certaines circonstances.</li>
+    <li><strong>Retrait du consentement</strong> : retirer à tout moment l'autorisation donnée aux services d'IA tiers dans Réglages → Données, sans affecter la licéité des traitements antérieurs.</li>
   </ul>
 
   <div class="highlight-box">
@@ -505,9 +521,9 @@
     <li><strong>Tokens d'accès avec expiration :</strong> Les tokens d'authentification expirent automatiquement après 24 heures.</li>
     <li><strong>Signature électronique sécurisée :</strong> Hash SHA-256 avec audit trail complet (qui, quand, IP, hash du document).</li>
     <li><strong>Données patient chiffrées au repos :</strong> Les données sensibles (notes de séance, données de suivi patient) sont chiffrées dans la base de données.</li>
-    <li><strong>Audio vocal jamais stocké :</strong> Les enregistrements vocaux sont transcrits en temps réel et l'audio est supprimé immédiatement après transcription.</li>
+    <li><strong>Audio sous contrôle :</strong> Les dictées courtes sont temporaires. Les rendez-vous conservés pour reprise ou réécoute sont stockés avec accès restreint et liens temporaires signés.</li>
     <li><strong>Accès restreint :</strong> L'accès aux données est limité aux personnes strictement nécessaires au fonctionnement du service.</li>
-    <li><strong>Anonymisation :</strong> Les données personnelles sont anonymisées avant tout traitement par les services d'IA hors UE.</li>
+    <li><strong>Minimisation :</strong> Le contexte est limité à la fonction demandée et les identifiants sont retirés ou remplacés lorsque le traitement le permet.</li>
     <li><strong>Sauvegardes :</strong> Des sauvegardes régulières sont effectuées pour prévenir la perte de données.</li>
     <li><strong>Surveillance :</strong> Les accès et opérations sur les données sont journalisés et surveillés.</li>
   </ul>

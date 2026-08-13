@@ -33,6 +33,8 @@ Contact délégué à la protection des données (DPO) : **support@diqto.fr**
 | **Profil professionnel** | Nom, prénom, nom commercial, adresse, SIRET, activité | Personnalisation des documents, conformité légale |
 | **Contact** | Adresse email (optionnel) | Communications, notifications, récupération de compte |
 | **Facturation** | Informations clients de l'Utilisateur, montants, descriptions de prestations | Génération des devis, factures, notes d'honoraires |
+| **Facturation électronique** | Identité de l'entreprise et du client professionnel, identifiants fiscaux, contenu de la facture, données de paiement, statuts de cycle de vie et archive réglementaire | Transmission, réception, suivi et archivage après activation séparée de l'entreprise |
+| **Catalogue professionnel** | Prestations, tarifs HT, unités, métier, département et date | Catalogue personnel ; repères agrégés uniquement après accord séparé de l'activité |
 | **Fonctions assistées par IA** | Audio et transcription, textes saisis, documents ou images importés, contexte professionnel utile | Transcription, structuration et synthèse uniquement après autorisation explicite dans l'application |
 | **Paiement** | État d'abonnement et historique d'achat iOS traités par Apple et RevenueCat ; données de carte éventuelles traitées par Stripe, jamais stockées par Diqto | Gestion des abonnements et paiements activés par l'Utilisateur |
 
@@ -45,11 +47,17 @@ Contact délégué à la protection des données (DPO) : **support@diqto.fr**
 | **Documents créés** | Devis, factures, notes d'honoraires générés | Fourniture du Service, historique |
 | **Conversations** | Échanges via l'interface WhatsApp | Fourniture du Service (traitement des instructions) |
 
-### 2.3 Autorisation des services d'IA tiers
+### 2.3 Repères de prix facultatifs
 
-Avant l'accès aux fonctions assistées par IA, l'application liste les catégories de données susceptibles d'être envoyées et identifie les destinataires : **OpenAI**, **Anthropic** et **Deepgram**. Aucun partage avec ces services n'a lieu avant un choix positif. L'autorisation peut être retirée dans **Réglages → Données** ; son retrait bloque les futurs envois sans affecter la licéité des traitements antérieurs.
+Cette contribution est désactivée par défaut ; par défaut, les tarifs d'une activité ne participent pas aux comparaisons de marché. L'Utilisateur peut activer séparément cette finalité dans les réglages de chaque activité. Seuls la prestation, le tarif HT, l'unité, le métier, le département et la date alimentent alors des statistiques agrégées d'au moins cinq entreprises. Les clients, documents, coordonnées et identités ne sont jamais inclus dans le résultat.
 
-### 2.4 Données sensibles
+Refuser ne retire aucune fonction. L'accord peut être retiré à tout moment au même endroit : les tarifs restent dans le catalogue personnel mais sont immédiatement exclus des nouveaux calculs agrégés. Le catalogue et le registre de choix sont inclus dans l'export de compte.
+
+### 2.4 Autorisation des services d'IA tiers
+
+Avant l'accès aux fonctions assistées par IA, l'application liste les catégories de données susceptibles d'être envoyées et identifie les destinataires : **OpenAI**, **Anthropic** et **Deepgram**. Aucun partage avec ces services n'a lieu avant un choix positif. L'Utilisateur peut choisir **Continuer sans IA** : les fonctions manuelles et l'accès aux abonnements restent disponibles, tandis que les routes susceptibles de transmettre un contenu à ces prestataires sont bloquées avant l'appel réseau. L'autorisation peut être donnée ou retirée dans **Réglages → Données** ; son retrait bloque les futurs envois sans affecter la licéité des traitements antérieurs.
+
+### 2.5 Données non collectées
 
 Diqto ne demande pas par défaut l'origine ethnique, les opinions politiques, les convictions religieuses, l'orientation sexuelle ou l'appartenance syndicale. Certains profils professionnels de santé peuvent toutefois contenir des données de santé saisies par l'Utilisateur dans les notes, documents, transcriptions ou suivis de ses patients. Elles sont traitées uniquement pour fournir les fonctions demandées et restent soumises aux obligations renforcées applicables.
 
@@ -65,6 +73,7 @@ Diqto ne demande pas par défaut l'origine ethnique, les opinions politiques, le
 | Traitement des paiements | Exécution du contrat (art. 6.1.b) |
 | Envoi de notifications de service | Exécution du contrat (art. 6.1.b) |
 | Communications commerciales | Consentement (art. 6.1.a) |
+| Contribution aux repères de prix agrégés | Consentement distinct par activité (art. 6.1.a), désactivé par défaut et retirable sans perte de fonctionnalité |
 | Partage de données avec les services d'IA tiers | Consentement explicite préalable (art. 6.1.a), versionné et retirable dans l'application |
 | Statistiques et amélioration du Service | Intérêt légitime (art. 6.1.f) |
 | Sécurité et prévention de la fraude | Intérêt légitime (art. 6.1.f) |

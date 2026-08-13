@@ -283,12 +283,17 @@
     <li>Historique des documents créés (devis, factures, notes d'honoraires, conventions, reçus)</li>
     <li>Notes de séance structurées par l'IA</li>
     <li>Données de timetracking (durée des séances/prestations)</li>
+    <li>Catalogue de prestations et tarifs professionnels</li>
     <li>Interactions avec le companion patient (si activé)</li>
     <li>Dates et heures de connexion / utilisation</li>
     <li>État d'abonnement et historique d'achat iOS (gérés par Apple et RevenueCat) ; données de carte éventuelles gérées par Stripe</li>
   </ul>
+  <div class="highlight-box">
+    <strong>Repères de prix facultatifs :</strong> cette contribution est désactivée par défaut ; par défaut, les tarifs d'une activité ne participent pas aux comparaisons de marché. Si l'Utilisateur active séparément l'option dans les réglages de cette activité, Diqto utilise uniquement la prestation, le tarif HT, l'unité, le métier, le département et la date pour calculer des statistiques agrégées d'au moins cinq entreprises. Les clients, documents, coordonnées et identités ne sont jamais inclus dans le résultat. Refuser ne retire aucune fonction. L'accord peut être retiré à tout moment au même endroit ; les tarifs restent dans le catalogue personnel mais sont immédiatement exclus des nouveaux calculs agrégés.
+  </div>
+
   <div class="highlight-box" id="consentement-ia">
-    <strong>Autorisation des services d'IA tiers :</strong> avant l'accès aux fonctions assistées par IA, l'application décrit les catégories de données susceptibles d'être envoyées — audio et transcription, textes saisis, documents ou images importés et contexte professionnel utile — et identifie OpenAI, Anthropic et Deepgram. Aucun de ces envois n'a lieu avant un choix positif. L'autorisation peut être retirée dans <strong>Réglages → Données</strong> ; son retrait bloque les futurs envois à ces services sans affecter la licéité des traitements antérieurs.
+    <strong>Autorisation des services d'IA tiers :</strong> avant l'accès aux fonctions assistées par IA, l'application décrit les catégories de données susceptibles d'être envoyées — audio et transcription, textes saisis, documents ou images importés et contexte professionnel utile — et identifie OpenAI, Anthropic et Deepgram. Aucun de ces envois n'a lieu avant un choix positif. L'Utilisateur peut choisir <strong>Continuer sans IA</strong> : les fonctions manuelles et l'accès aux abonnements restent disponibles, tandis que les routes susceptibles de transmettre un contenu à ces prestataires sont bloquées avant l'appel réseau. L'autorisation peut être donnée ou retirée dans <strong>Réglages → Données</strong> ; son retrait bloque les futurs envois à ces services sans affecter la licéité des traitements antérieurs.
   </div>
 
   <h3>2.4 Données collectées sur le site diqto.fr</h3>
@@ -341,6 +346,10 @@
       <td>Données d'usage anonymisées, retours utilisateurs</td>
     </tr>
     <tr>
+      <td>Repères de prix agrégés facultatifs</td>
+      <td>Prestation, tarif HT, unité, métier, département et date des activités ayant donné leur accord</td>
+    </tr>
+    <tr>
       <td>Support client</td>
       <td>Messages, email, données du compte</td>
     </tr>
@@ -354,7 +363,7 @@
   <ul>
     <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de documents, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
     <li><strong>Intérêt légitime</strong> (article 6.1.f du RGPD) : les traitements liés à l'amélioration du service et aux statistiques d'usage sont fondés sur l'intérêt légitime de Diqto à améliorer son offre.</li>
-    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales, les cookies analytics et le partage de données avec les services d'IA tiers sont soumis à un choix positif préalable. Les autorisations sont retirables à tout moment dans les réglages concernés.</li>
+    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales, les cookies analytics, la contribution facultative aux repères de prix agrégés et le partage de données avec les services d'IA tiers sont soumis à un choix positif préalable. Les autorisations sont retirables à tout moment dans les réglages concernés.</li>
     <li><strong>Obligation légale</strong> (article 6.1.c du RGPD) : la conservation des données de facturation est requise par les obligations comptables et fiscales.</li>
   </ul>
 
@@ -476,7 +485,7 @@
     </tr>
     <tr>
       <td>Données vocales (audio)</td>
-      <td>Dictées courtes : traitement temporaire puis suppression. Enregistrements de rendez-vous : durée de vie du compte ou jusqu'à une demande d'effacement, puis suppression sous 30 jours sauf obligation légale.</td>
+      <td>Dictées courtes : traitement temporaire puis suppression. Enregistrements de rendez-vous conservés de façon sécurisée pendant la vie du compte ou jusqu'à une demande d'effacement, puis supprimés sous 30 jours sauf obligation légale.</td>
     </tr>
     <tr>
       <td>Données de facturation</td>

@@ -973,36 +973,6 @@ a {
     text-align: center;
 }
 
-.ec-offer-choice {
-    display: grid;
-    gap: 10px;
-    border: 0;
-    margin-bottom: 22px;
-}
-
-.ec-offer-choice legend {
-    margin-bottom: 9px;
-    font-weight: 700;
-}
-
-.ec-offer-choice label {
-    display: flex;
-    align-items: flex-start;
-    gap: 11px;
-    border: 1px solid var(--ec-line);
-    border-radius: 14px;
-    padding: 14px;
-    color: var(--ec-ink-soft);
-    cursor: pointer;
-}
-
-.ec-offer-choice input {
-    width: 18px;
-    height: 18px;
-    margin-top: 2px;
-    accent-color: var(--ec-green);
-}
-
 .ec-problem {
     border-top: 1px solid var(--ec-line);
     background: var(--ec-bg-deep);
@@ -1659,12 +1629,12 @@ a {
         margin: 0 auto;
     }
 
-    .ec-ai-map,
-    .ec-freedom-film {
+    .ec-hero-copy {
         grid-row: 1;
     }
 
-    .ec-hero-copy {
+    .ec-ai-map,
+    .ec-freedom-film {
         grid-row: 2;
     }
 
@@ -1758,8 +1728,16 @@ a {
         padding: 10px;
     }
 
+    .ec-freedom-film figcaption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
     .ec-freedom-film figcaption span {
-        display: none;
+        display: block;
+        font-size: 10px;
+        line-height: 1.45;
     }
 
     .ec-freedom-legend {

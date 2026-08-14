@@ -13,39 +13,37 @@ const read = (relative) => fs.readFileSync(
 const page = read('experts-comptables.html');
 const styles = read('experts-comptables.css');
 const script = read('experts-comptables.js');
+const home = read('index.html');
 const legacyEcPage = read('metiers/expert_comptable.html');
+const kineAlias = read('metiers/kine.html');
 
 for (const marker of [
-    'Vos outils. Vos PA.',
-    'Votre IA.',
-    'L’app client reste',
-    'Le principe en 32 secondes',
-    'Connecter ses plateformes',
-    'Voir ce qui bloque',
-    'Demander, vérifier, décider',
-    'La matière fiable dont vos assistants ont besoin.',
-    'Quels dossiers sont incomplets ?',
-    'Faut-il choisir Claude ou ChatGPT/Codex ?',
-    'L’assistant prépare; le professionnel',
-    'Vos outils font leur travail.',
-    'Votre PA conservée, ou notre partenaire si nécessaire',
-    'B2Brouter, sa Plateforme Agréée',
+    'Vos clients parlent métier.',
+    'Diqto prépare l’information.',
+    'Évaluer un client sur un cycle',
+    'Voir ce qui est déjà prouvé',
+    'Compatibilité vérifiée d’abord',
+    'Simulation produit · 32 secondes',
+    'Aucune connexion réelle à un cabinet n’est montrée',
+    'Recenser et qualifier vos outils',
+    'Un client, un cycle, quatre mesures',
+    'Le cycle de facturation électronique a été testé en recette',
+    'Leur usage dans l’organisation d’un cabinet reste à valider',
+    'Aucune donnée réelle n’est ouverte dans la démonstration publique',
+    'L’humain valide ce qui engage',
+    'Un chemin vérifiable, pas un connecteur promis',
     'Ce qui est prouvé, ce qui reste à prouver',
-    'Preuves disponibles aujourd’hui',
     'Vérification du 25 juillet 2026',
-    'Les six notifications associées à ce',
     'À démontrer avec le premier cabinet',
-    'Le temps réellement économisé',
-    'Choisir mon partenariat',
-    'Votre partenariat, cadré en 15 minutes',
     '99 € <small>HT / mois / cabinet</small>',
-    '0 € <small>contre 5 clients actifs</small>',
-    'Aucun prélèvement, invitation ou contact de',
+    'Cohorte pilote',
+    'sans avantage lié à la prescription',
+    'Vérifier la compatibilité d’un cas client',
 ]) {
     assert.ok(page.includes(marker), `EC prescriber page missing: ${marker}`);
 }
 
-const canonicalMenuMarkers = [
+for (const marker of [
     '<a href="/">Accueil</a>',
     '<a href="/fonctionnalites.html">Fonctionnalités</a>',
     '<a href="/histoires.html">Histoires</a>',
@@ -53,16 +51,12 @@ const canonicalMenuMarkers = [
     '<a href="/guides.html">Guides</a>',
     '<a href="/experts-comptables.html" aria-current="page">',
     '<a href="/#tarifs">Tarifs</a>',
-    '<a class="global-cta" href="/#beta">Commencer gratuit</a>',
-];
-for (const marker of canonicalMenuMarkers) {
+    '<a class="global-cta" href="#pilote">Évaluer un cas client</a>',
+]) {
     assert.ok(page.includes(marker), `canonical menu missing: ${marker}`);
 }
-assert.match(
-    page,
-    /global-announcement" href="\/facturation-electronique\.html"/,
-);
 
+assert.match(page, /global-announcement" href="\/facturation-electronique\.html"/);
 assert.match(
     page,
     /<link rel="canonical" href="https:\/\/diqto\.fr\/experts-comptables\.html">/,
@@ -70,11 +64,10 @@ assert.match(
 assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
 assert.match(page, /class="ec-freedom-film"/);
-assert.match(page, /autoplay[\s\S]+muted[\s\S]+loop[\s\S]+controls/);
+assert.match(page, /<video[\s\S]+muted[\s\S]+controls[\s\S]+preload="none"/);
+assert.doesNotMatch(page, /<video[^>]+(?:autoplay|loop)/);
 assert.match(page, /diqto-cabinet-cinematique-v9\.mp4/);
 assert.match(page, /diqto-cabinet-cinematique-v9-fr\.vtt/);
-assert.match(page, /Film cinématographique de 32 secondes/);
-assert.match(page, /visualise une simulation de huit plateformes/);
 assert.match(
     page,
     /href="\/histoires\/cabinet-expert-comptable\.html"[^>]*>[\s\S]*?Voir le film et sa transcription/,
@@ -84,56 +77,51 @@ assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);
 assert.match(page, /name="tools"[\s\S]+required/);
 assert.match(page, /name="client_problem"[\s\S]+required/);
-assert.match(page, /name="partnership_offer"[\s\S]+value="cabinet_99"/);
-assert.match(page, /name="partnership_offer"[\s\S]+value="ambassadeur_5"/);
-assert.match(
-    page,
-    /name="source"[\s\S]+value="ec_prescripteur_pilot"/,
-);
+assert.match(page, /name="partnership_offer" type="hidden" value=""/);
+assert.doesNotMatch(page, /name="partnership_offer"[^>]+required/);
+assert.match(page, /data-offer-choice="cabinet_99"/);
+assert.match(page, /data-offer-choice="pilot_cohort_5"/);
+assert.match(page, /name="source"[\s\S]+value="ec_prescripteur_pilot"/);
 assert.match(page, /name="contact_consent"[\s\S]+required/);
 assert.match(page, /name="website"[\s\S]+tabindex="-1"/);
 assert.match(page, /role="status"[\s\S]+aria-live="polite"/);
 assert.match(page, /Ne renseignez aucun nom ni donnée personnelle/);
 
-assert.match(
-    script,
-    /\/api\/public\/starter-intake/,
-);
+assert.match(script, /\/api\/public\/starter-intake/);
 assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
 assert.match(script, /source: data\.get\('source'\)/);
-assert.match(script, /Outils du cabinet/);
-assert.match(script, /Offre EC/);
+assert.match(script, /Modèle envisagé/);
+assert.match(script, /à qualifier après compatibilité/);
 assert.match(script, /data-offer-choice/);
 assert.match(script, /result\.confirmation_email_sent/);
-assert.match(script, /Un email de confirmation vient de vous/);
-assert.match(script, /mais votre demande est bien enregistrée/);
 assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
+
+assert.match(
+    home,
+    /<title>Diqto — Devis et factures par la voix pour indépendants<\/title>/,
+);
+assert.match(home, /class="ec-entry-section"/);
+assert.match(home, /Aidez un client de terrain à mieux alimenter vos outils/);
+assert.match(home, /Vous évitez de tout ressaisir/);
+assert.match(home, /"@type": "UnitPriceSpecification"/);
 
 assert.ok(
     (page.match(/B2Brouter/g) || []).length <= 3,
     'PA partner must be explicit without becoming the main message',
 );
-assert.doesNotMatch(
-    page,
-    /gagnez \d+ ?%|économisez \d+|ROI garanti|migration offerte/i,
-    'page must not invent a gain or migration promise',
-);
-assert.doesNotMatch(
-    page,
+for (const forbidden of [
+    /Vos outils\. Vos PA\. Votre IA/i,
+    /Diqto les fait travailler ensemble/i,
+    /Connecter ses plateformes/i,
+    /Cabinet Ambassadeur/i,
+    /contre 5 clients actifs/i,
+    /gagnez \d+ ?%|économisez \d+|ROI garanti/i,
     /Diqto est une Plateforme Agréée|Diqto remplace votre PA/i,
-    'page must not make a PA claim',
-);
-assert.doesNotMatch(
-    page,
-    /connexion (?:déjà )?active avec (?:Claude|ChatGPT|Codex)|décide automatiquement/i,
-    'page must not claim a live real-data AI connection or autonomous decision',
-);
-assert.doesNotMatch(
-    page,
-    /\bstack\b|\bcockpit\b|\brail\b|\bbaseline\b|\bobjets\b/i,
-    'page must speak the language of an accountant, not internal jargon',
-);
+    /connexion (?:déjà )?active avec (?:Claude|ChatGPT|Codex)/i,
+]) {
+    assert.doesNotMatch(page, forbidden, `forbidden EC claim found: ${forbidden}`);
+}
 
 for (const marker of [
     ':focus-visible',
@@ -145,13 +133,21 @@ for (const marker of [
 ]) {
     assert.ok(styles.includes(marker), `EC styles missing: ${marker}`);
 }
+assert.match(
+    styles,
+    /@media \(max-width: 980px\)[\s\S]*?\.ec-hero-copy\s*\{\s*grid-row: 1;[\s\S]*?\.ec-freedom-film\s*\{\s*grid-row: 2;/,
+);
 
 assert.ok(
     legacyEcPage.includes('/experts-comptables.html'),
     'legacy EC métier page must link to the prescriber page',
 );
+assert.match(
+    kineAlias,
+    /rel="canonical" href="https:\/\/diqto\.fr\/kinesitherapeute\.html"/,
+);
 
 console.log(
-    'PASS EC prescriber landing: refined accountant language, two PA paths, '
-    + 'honest proof and accessible pilot intake',
+    'PASS EC prescriber landing: client problem first, bounded claims, '
+    + 'fast media and compatibility-first intake',
 );

@@ -13,6 +13,7 @@ TOP_LEVEL_CANONICALS = {
     "carreleur": "carreleur.html",
     "coach_sportif": "coach-sportif.html",
     "electricien": "electricien.html",
+    "kine": "kinesitherapeute.html",
     "kinesitherapeute": "kinesitherapeute.html",
     "menuisier": "menuisier.html",
     "osteopathe": "osteopathe.html",

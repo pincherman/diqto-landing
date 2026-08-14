@@ -13,20 +13,21 @@
         var tools = String(data.get('tools') || '').trim();
         var clientProblem = String(data.get('client_problem') || '').trim();
         var offer = String(data.get('partnership_offer') || '').trim();
-        return (
-            'Offre EC : ' + offer
-            + ' | Outils du cabinet : ' + tools
-            + ' | Client pilote : ' + clientProblem
-        ).slice(0, 500);
+        var offerLabel = offer || 'à qualifier après compatibilité';
+        return [
+            'Modèle envisagé : ' + offerLabel,
+            'Outils du cabinet : ' + tools,
+            'Cas client : ' + clientProblem,
+        ].join(' | ').slice(0, 500);
     }
 
     offerLinks.forEach(function bindOfferChoice(link) {
         link.addEventListener('click', function chooseOffer() {
             var value = link.getAttribute('data-offer-choice');
-            var radio = form.querySelector(
-                'input[name="partnership_offer"][value="' + value + '"]',
+            var offerInput = form.querySelector(
+                'input[name="partnership_offer"]',
             );
-            if (radio) radio.checked = true;
+            if (offerInput) offerInput.value = value;
         });
     });
 

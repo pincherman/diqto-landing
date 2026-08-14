@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0c0c0c">
-<title>Diqto — Moins d'administratif, plus de métier</title>
+<title>Diqto — Devis et factures par la voix pour indépendants</title>
 <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon-diqto-voice.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site-shell.css">
 <script defer src="site-shell.js"></script>
-<meta name="description" content="Diqto aide les indépendants à créer leurs devis et factures, puis à préparer, recevoir, envoyer et suivre leurs factures électroniques depuis la même application.">
+<meta name="description" content="Dictez une prestation : Diqto prépare le devis, la facture ou le compte rendu à relire, puis vous aide à suivre vos clients et votre facturation électronique.">
 <meta name="keywords" content="devis indépendant, facture artisan, facturation électronique, logiciel facture électronique, suivi client, application facturation iPhone">
 <link rel="canonical" href="https://diqto.fr/">
 <meta property="og:type" content="website">
@@ -37,8 +37,8 @@
   "operatingSystem": "iOS",
   "offers": [
     { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Diqto Free — Brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, footer Diqto" },
-    { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "valueAddedTaxIncluded": true, "eligibleRegion": "FR", "description": "Diqto Essential — Prix App Store France TTC, devis et factures illimités, vocal court jusqu'à 5 minutes" },
-    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "valueAddedTaxIncluded": true, "eligibleRegion": "FR", "description": "Diqto Vocal Pro — Prix App Store France TTC, Essential plus comptes rendus vocaux longs avec fair use" }
+    { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "eligibleRegion": "FR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "9", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Essential — Prix App Store France TTC, devis et factures illimités, vocal court jusqu'à 5 minutes" },
+    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "eligibleRegion": "FR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Vocal Pro — Prix App Store France TTC, Essential plus comptes rendus vocaux longs avec fair use" }
   ]
 }
 </script>
@@ -310,6 +310,51 @@ button, input, textarea { font: inherit; }
   color: var(--green-dark);
   font-size: 13px;
   font-weight: 600;
+}
+
+.ec-entry-section {
+  padding: 0 0 68px;
+  background: var(--paper-light);
+}
+.ec-entry-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 24px;
+  border: 1px solid rgba(37, 211, 102, 0.24);
+  border-radius: var(--radius);
+  background: rgba(37, 211, 102, 0.07);
+}
+.ec-entry-label {
+  color: var(--green);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ec-entry-copy h2 {
+  font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.ec-entry-copy p {
+  max-width: 760px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.ec-entry-link {
+  white-space: nowrap;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.ec-entry-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .intent-section { padding: 92px 0; background: #090b09; color: #fff; }
@@ -644,6 +689,8 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .price-card { max-width: 660px; width: 100%; margin: 0 auto; }
   .price-features { min-height: 0; }
   .footer-grid { grid-template-columns: 1.2fr repeat(3, 1fr); }
+  .ec-entry-panel { grid-template-columns: 1fr auto; }
+  .ec-entry-label { grid-column: 1 / -1; }
 }
 
 @media (max-width: 720px) {
@@ -671,6 +718,9 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { flex-direction: column; }
+  .ec-entry-section { padding-bottom: 46px; }
+  .ec-entry-panel { grid-template-columns: 1fr; padding: 20px; }
+  .ec-entry-link { white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -707,11 +757,11 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Pour les indépendants qui veulent souffler</p>
+        <p class="eyebrow">Devis, factures et suivi client sur iPhone</p>
         <h1>Le travail est fini.<br><span>Pas votre journée ?</span></h1>
-        <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous récupérez du temps.</p>
+        <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous évitez de tout ressaisir.</p>
         <div class="hero-actions">
-          <a class="button-primary" href="#beta">Créer mon premier brouillon gratuit</a>
+          <a class="button-primary" href="#beta">Demander mon accès gratuit</a>
           <a class="button-secondary" href="#une-journee">Voir une journée avec Diqto</a>
         </div>
         <p class="hero-note">Sur iPhone · Sans carte bancaire · Pas de démonstration obligatoire</p>
@@ -738,6 +788,19 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       </div>
     </div>
   </section>
+
+  <aside class="ec-entry-section" aria-labelledby="ec-entry-title">
+    <div class="container">
+      <div class="ec-entry-panel">
+        <p class="ec-entry-label">Vous êtes expert-comptable ?</p>
+        <div class="ec-entry-copy">
+          <h2 id="ec-entry-title">Aidez un client de terrain à mieux alimenter vos outils.</h2>
+          <p>Diqto accompagne le client, qualifie le chemin vers votre organisation et mesure le résultat sur un cycle, sans imposer de migration au cabinet.</p>
+        </div>
+        <a class="ec-entry-link" href="/experts-comptables.html">Découvrir le parcours cabinet →</a>
+      </div>
+    </div>
+  </aside>
 
   <section class="intent-section" id="ce-que-ca-change">
     <div class="container">

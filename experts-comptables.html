@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/experts-comptables.css">
     <script defer src="/site-shell.js"></script>
     <script defer src="/experts-comptables.js"></script>
+    <script defer src="/growth.js"></script>
     <meta
         name="description"
         content="Diqto aide vos clients de terrain à transformer voix, photos et documents en brouillons relus. Votre cabinet garde ses logiciels, sa GED et sa PA."
@@ -126,7 +127,7 @@
     }
     </script>
 </head>
-<body>
+<body data-growth-page="experts_comptables" data-growth-source="expert_accountant">
     <a class="global-skip-link" href="#contenu">Aller au contenu</a>
     <a class="global-announcement" href="/facturation-electronique.html">
         <strong>Nouveau · Facturation électronique</strong>
@@ -165,7 +166,7 @@
                     Experts-comptables
                 </a>
                 <a href="/#tarifs">Tarifs</a>
-                <a class="global-cta" href="#pilote">Évaluer un cas client</a>
+                <a class="global-cta" href="#pilote" data-growth-placement="header">Évaluer un cas client</a>
             </nav>
         </div>
     </header>
@@ -188,7 +189,7 @@
                         pilote.
                     </p>
                     <div class="ec-actions">
-                        <a class="ec-button ec-button-primary" href="#pilote">
+                        <a class="ec-button ec-button-primary" href="#pilote" data-growth-placement="hero">
                             Évaluer un client sur un cycle
                         </a>
                         <a class="ec-button ec-button-secondary" href="#mesure-title">
@@ -610,7 +611,7 @@
                             votre client à ce stade.
                         </p>
                     </div>
-                    <form id="ec-prescriber-intake" novalidate>
+                    <form id="ec-prescriber-intake" data-growth-form novalidate>
                         <input name="partnership_offer" type="hidden" value="">
                         <div class="ec-field">
                             <label for="ec-email">Votre email professionnel</label>

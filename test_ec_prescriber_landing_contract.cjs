@@ -51,7 +51,7 @@ for (const marker of [
     '<a href="/guides.html">Guides</a>',
     '<a href="/experts-comptables.html" aria-current="page">',
     '<a href="/#tarifs">Tarifs</a>',
-    '<a class="global-cta" href="#pilote">Évaluer un cas client</a>',
+    '<a class="global-cta" href="#pilote" data-growth-placement="header">Évaluer un cas client</a>',
 ]) {
     assert.ok(page.includes(marker), `canonical menu missing: ${marker}`);
 }
@@ -73,7 +73,7 @@ assert.match(
     /href="\/histoires\/cabinet-expert-comptable\.html"[^>]*>[\s\S]*?Voir le film et sa transcription/,
 );
 
-assert.match(page, /<form id="ec-prescriber-intake" novalidate>/);
+assert.match(page, /<form id="ec-prescriber-intake" data-growth-form novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);
 assert.match(page, /name="tools"[\s\S]+required/);
 assert.match(page, /name="client_problem"[\s\S]+required/);

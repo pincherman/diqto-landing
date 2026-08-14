@@ -6,7 +6,7 @@ const root = __dirname;
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const privacy = fs.readFileSync(path.join(root, 'confidentialite.html'), 'utf8');
 
-assert.match(home, /<form class="starter-intake" id="starter-intake" novalidate>/);
+assert.match(home, /<form class="starter-intake" id="starter-intake" data-growth-form novalidate>/);
 assert.match(home, /name="email"[^>]+required/);
 assert.match(home, /name="trade"[^>]+required/);
 assert.match(home, /name="first_need"[^>]+required/);

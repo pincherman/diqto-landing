@@ -227,7 +227,7 @@
 <main id="contenu">
 <div class="header">
   <h1>Politique de <span>Confidentialité</span></h1>
-  <p class="date">Dernière mise à jour : 12 août 2026</p>
+  <p class="date">Dernière mise à jour : 14 août 2026</p>
 </div>
 
 <div class="content">
@@ -299,9 +299,11 @@
   <h3>2.4 Données collectées sur le site diqto.fr</h3>
   <ul>
     <li>Demande d’accès Diqto : adresse email professionnelle, métier, première tâche à simplifier, source de la visite et consentement au contact</li>
-    <li>Données de navigation (pages visitées, durée — via cookies analytics optionnels)</li>
-    <li>Adresse IP (anonymisée)</li>
+    <li>Événements de parcours agrégés : page, emplacement du bouton et étape du formulaire, associés à un identifiant aléatoire temporaire conservé uniquement pendant la session du navigateur</li>
   </ul>
+  <div class="highlight-box">
+    <strong>Mesure sans cookie :</strong> Diqto ne stocke dans ce dispositif ni adresse IP, ni référent, ni agent utilisateur, ni URL libre, ni identité. L'identifiant de session est haché côté serveur et les événements bruts sont supprimés après 90 jours.
+  </div>
 
   <h2>3. Finalités des traitements</h2>
   <table class="data-table">
@@ -363,7 +365,7 @@
   <ul>
     <li><strong>Exécution du contrat</strong> (article 6.1.b du RGPD) : les traitements nécessaires à la fourniture du service (génération de documents, gestion du compte, facturation) sont fondés sur l'exécution des CGU acceptées par l'Utilisateur.</li>
     <li><strong>Intérêt légitime</strong> (article 6.1.f du RGPD) : les traitements liés à l'amélioration du service et aux statistiques d'usage sont fondés sur l'intérêt légitime de Diqto à améliorer son offre.</li>
-    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales, les cookies analytics, la contribution facultative aux repères de prix agrégés et le partage de données avec les services d'IA tiers sont soumis à un choix positif préalable. Les autorisations sont retirables à tout moment dans les réglages concernés.</li>
+    <li><strong>Consentement</strong> (article 6.1.a du RGPD) : les communications commerciales, la contribution facultative aux repères de prix agrégés et le partage de données avec les services d'IA tiers sont soumis à un choix positif préalable. Les autorisations sont retirables à tout moment dans les réglages concernés.</li>
     <li><strong>Obligation légale</strong> (article 6.1.c du RGPD) : la conservation des données de facturation est requise par les obligations comptables et fiscales.</li>
   </ul>
 
@@ -437,6 +439,12 @@
       <td>DPA, SCCs.</td>
     </tr>
     <tr>
+      <td><strong>Sentry</strong></td>
+      <td>Détection et diagnostic des erreurs techniques de l'application</td>
+      <td>Union européenne / États-Unis</td>
+      <td>Données techniques limitées au diagnostic, sans contenu métier volontairement joint ; DPA et CCT.</td>
+    </tr>
+    <tr>
       <td><strong>B2Brouter Global, S.L.</strong></td>
       <td>Transport, réception, statuts et archivage des factures électroniques en qualité de Plateforme Agréée, uniquement après activation de l'entreprise</td>
       <td>Union européenne</td>
@@ -497,7 +505,7 @@
     </tr>
     <tr>
       <td>Données de navigation (site web)</td>
-      <td>13 mois maximum (recommandation CNIL)</td>
+      <td>90 jours maximum pour les événements de parcours sans cookie</td>
     </tr>
   </table>
 
@@ -542,31 +550,7 @@
   <p>L'application mobile Diqto <strong>n'utilise aucun cookie</strong>. L'authentification se fait via code OTP et tokens d'accès sécurisés.</p>
 
   <h3>9.2 Site web diqto.fr</h3>
-  <p>Le site <a href="https://diqto.fr">diqto.fr</a> peut utiliser les cookies suivants :</p>
-  <table class="data-table">
-    <tr>
-      <th>Cookie</th>
-      <th>Type</th>
-      <th>Finalité</th>
-      <th>Durée</th>
-      <th>Consentement</th>
-    </tr>
-    <tr>
-      <td>Cookies techniques</td>
-      <td>Strictement nécessaires</td>
-      <td>Fonctionnement du site</td>
-      <td>Session</td>
-      <td>Non requis</td>
-    </tr>
-    <tr>
-      <td>Cookies analytics</td>
-      <td>Mesure d'audience</td>
-      <td>Statistiques de fréquentation</td>
-      <td>13 mois max.</td>
-      <td><strong>Optionnel</strong> — Consentement requis</td>
-    </tr>
-  </table>
-  <p>L'Utilisateur peut gérer ses préférences de cookies à tout moment via le bandeau de consentement présent sur le site.</p>
+  <p>Le site <a href="https://diqto.fr">diqto.fr</a> <strong>ne dépose aucun cookie de mesure d'audience</strong>. La mesure du parcours utilise uniquement un identifiant aléatoire en mémoire de session du navigateur ; il disparaît à la fermeture de l'onglet ou de la session et n'est pas partagé avec une régie publicitaire.</p>
 
   <h2>10. Mise à jour de la politique</h2>
   <p>La présente Politique de Confidentialité peut être modifiée à tout moment pour refléter les évolutions du service ou de la réglementation applicable.</p>

@@ -67,6 +67,13 @@
                 : 'Demande reçue. L’email de confirmation n’a pas pu partir, '
                     + 'mais votre demande est bien enregistrée.';
             form.reset();
+            if (window.diqtoGrowthTrack) {
+                window.diqtoGrowthTrack(
+                    'intake_submitted',
+                    'intake',
+                    'submitted',
+                );
+            }
         } catch (error) {
             status.className = 'ec-form-status error';
             status.textContent =

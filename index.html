@@ -729,8 +729,9 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .brand-mark i { animation: none; }
 }
 </style>
+<script defer src="/growth.js"></script>
 </head>
-<body>
+<body data-growth-page="home" data-growth-source="direct_or_organic">
 <a class="global-skip-link" href="#contenu">Aller au contenu</a>
 <a class="global-announcement" href="/facturation-electronique.html">
   <strong>Nouveau · Facturation électronique</strong>
@@ -748,7 +749,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       <a href="/guides.html">Guides</a>
       <a href="/experts-comptables.html">Experts-comptables</a>
       <a href="#tarifs">Tarifs</a>
-      <a class="global-cta" href="#beta">Commencer gratuit</a>
+      <a class="global-cta" href="#beta" data-growth-placement="header">Commencer gratuit</a>
     </nav>
   </div>
 </header>
@@ -761,7 +762,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
         <h1>Le travail est fini.<br><span>Pas votre journée ?</span></h1>
         <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous évitez de tout ressaisir.</p>
         <div class="hero-actions">
-          <a class="button-primary" href="#beta">Demander mon accès gratuit</a>
+          <a class="button-primary" href="#beta" data-growth-placement="hero">Demander mon accès gratuit</a>
           <a class="button-secondary" href="#une-journee">Voir une journée avec Diqto</a>
         </div>
         <p class="hero-note">Sur iPhone · Sans carte bancaire · Pas de démonstration obligatoire</p>
@@ -797,7 +798,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
           <h2 id="ec-entry-title">Aidez un client de terrain à mieux alimenter vos outils.</h2>
           <p>Diqto accompagne le client, qualifie le chemin vers votre organisation et mesure le résultat sur un cycle, sans imposer de migration au cabinet.</p>
         </div>
-        <a class="ec-entry-link" href="/experts-comptables.html">Découvrir le parcours cabinet →</a>
+        <a class="ec-entry-link" href="/experts-comptables.html" data-growth-placement="expert_entry">Découvrir le parcours cabinet →</a>
       </div>
     </div>
   </aside>
@@ -1027,7 +1028,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Tableau de bord simple</li>
             <li>Aucun checkout ni prélèvement automatique</li>
           </ul>
-          <a href="#beta" class="price-btn secondary">Commencer gratuit</a>
+          <a href="#beta" class="price-btn secondary" data-growth-placement="pricing">Commencer gratuit</a>
         </div>
         <div class="price-card featured">
           <div class="price-name">Diqto Essential</div>
@@ -1043,7 +1044,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Paiement cadré avant activation</li>
             <li>Footer supprimé</li>
           </ul>
-          <a href="#beta" class="price-btn primary">Tester Essential</a>
+          <a href="#beta" class="price-btn primary" data-growth-placement="pricing">Tester Essential</a>
         </div>
         <div class="price-card">
           <div class="price-name">Diqto Vocal Pro</div>
@@ -1059,7 +1060,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Export FEC comptable</li>
             <li>Support prioritaire pilote</li>
           </ul>
-          <a href="#beta" class="price-btn secondary">Tester Vocal Pro</a>
+          <a href="#beta" class="price-btn secondary" data-growth-placement="pricing">Tester Vocal Pro</a>
         </div>
       </div>
       <p class="pricing-note">Prix TTC pour l’App Store France. Apple affiche le prix local définitif avant l’achat selon votre pays. Aucun frais par devis ou facture sur les plans payants.</p>
@@ -1071,7 +1072,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       <div class="final-panel">
         <h2>Commencez avec la tâche que vous repoussez aujourd'hui.</h2>
         <p>Un devis, une facture, une note de séance ou simplement un client à reprendre. C'est le meilleur moyen de savoir si Diqto vous simplifie vraiment la vie.</p>
-        <form class="starter-intake" id="starter-intake" novalidate>
+        <form class="starter-intake" id="starter-intake" data-growth-form novalidate>
           <div class="starter-intake-grid">
             <div class="starter-field">
               <label for="starter-email">Email professionnel</label>
@@ -1191,6 +1192,9 @@ window.starterIntakeSubmit = function starterIntakeSubmit() {
                 : 'Demande reçue. L’email de confirmation n’a pas pu partir, mais votre demande est bien enregistrée.';
             form.reset();
             window.starterIntakePrefill();
+            if (window.diqtoGrowthTrack) {
+                window.diqtoGrowthTrack('intake_submitted', 'intake', 'submitted');
+            }
         } catch (error) {
             status.className = 'starter-status error';
             status.textContent = 'La demande n’a pas pu être envoyée. Réessayez ou écrivez à support@diqto.fr.';

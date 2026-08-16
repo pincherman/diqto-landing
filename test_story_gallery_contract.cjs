@@ -13,7 +13,7 @@ const storyCases = [
         id: 'marc-artisan',
         destination: '/plombier.html',
         watch: '/histoires/marc-artisan.html',
-        sha256: '980740c518f9f5ce786728903a4e33f86cadb03ada1b2b0afa6069b67bdfb453',
+        sha256: '398970df27ee00a17403a60e0813f6c817d3781d734d1f74035a0ab97e27c550',
     },
     {
         id: 'claire-osteopathe',

@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -12,6 +13,7 @@ const storyCases = [
         id: 'marc-artisan',
         destination: '/plombier.html',
         watch: '/histoires/marc-artisan.html',
+        sha256: '980740c518f9f5ce786728903a4e33f86cadb03ada1b2b0afa6069b67bdfb453',
     },
     {
         id: 'claire-osteopathe',
@@ -72,6 +74,13 @@ for (const story of storyCases) {
         fs.statSync(posterPath).size <= 150 * 1024,
         `${posterRelative} exceeds the 150 KB poster budget`,
     );
+    if (story.sha256) {
+        const digest = crypto
+            .createHash('sha256')
+            .update(fs.readFileSync(videoPath))
+            .digest('hex');
+        assert.equal(digest, story.sha256, `${videoRelative} provenance drifted`);
+    }
 
     assert.match(stories, new RegExp(`src="/${videoRelative}"`));
     assert.match(stories, new RegExp(`poster="/${posterRelative}"`));

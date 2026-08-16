@@ -94,6 +94,7 @@ STORIES = (
         ),
         related_url="/plombier.html",
         related_label="Voir le parcours artisan",
+        upload_date="2026-08-16T10:25:23+00:00",
     ),
     Story(
         slug="claire-osteopathe",

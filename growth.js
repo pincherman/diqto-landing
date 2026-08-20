@@ -25,7 +25,23 @@
     }
 
     var page = body.getAttribute('data-growth-page') || 'unknown';
-    var source = body.getAttribute('data-growth-source') || 'unknown';
+    var defaultSource = body.getAttribute('data-growth-source') || 'unknown';
+    var campaignSources = {
+        linkedin_carousel: true,
+        linkedin_founder_comment: true,
+        linkedin_founder_launch: true,
+        linkedin_profile: true,
+        linkedin_video: true,
+    };
+    var source = defaultSource;
+    try {
+        var requestedSource = new URLSearchParams(
+            window.location.search
+        ).get('source');
+        if (campaignSources[requestedSource]) source = requestedSource;
+    } catch (_error) {
+        source = defaultSource;
+    }
 
     function track(eventName, placement, status) {
         var payload = {

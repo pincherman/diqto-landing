@@ -15,6 +15,8 @@ for (const marker of [
     "track('landing_view'",
     "'appstore_outbound'",
     "track('intake_started'",
+    'linkedin_founder_launch: true',
+    "new URLSearchParams(\n            window.location.search\n        ).get('source')",
 ]) {
     assert(growth.includes(marker), `growth rail missing ${marker}`);
 }
@@ -45,5 +47,16 @@ assert(privacy.includes("ne dépose aucun cookie de mesure d'audience"));
 assert(privacy.includes('90 jours maximum pour les événements de parcours sans cookie'));
 assert(privacy.includes('<strong>Sentry</strong>'));
 assert(!privacy.includes('bandeau de consentement présent sur le site'));
+
+for (const source of [
+    'linkedin_carousel',
+    'linkedin_founder_comment',
+    'linkedin_founder_launch',
+    'linkedin_profile',
+    'linkedin_video',
+]) {
+    assert(growth.includes(`${source}: true`), `missing closed source ${source}`);
+}
+assert(!growth.includes("source = requestedSource || defaultSource"));
 
 console.log('PASS first-ten privacy-safe growth contract');

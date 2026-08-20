@@ -7,6 +7,7 @@ const path = require('path');
 
 const root = __dirname;
 const guideHref = '/facturation-electronique.html';
+const appStoreUrl = 'https://apps.apple.com/fr/app/diqto/id6761616034';
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 
 function pngMetadata(relative) {
@@ -74,12 +75,12 @@ assert.strictEqual(
   'versioned favicon must expose the five-bar Diqto voice mark',
 );
 assert(
-  home.includes(`class="global-announcement" href="${guideHref}"`),
-  'home must expose a crawlable e-invoicing announcement',
+  home.includes(`class="global-announcement" href="${appStoreUrl}"`),
+  'home announcement must expose the current App Store launch',
 );
 assert(
-  home.includes('<strong>Facturation électronique</strong>'),
-  'home must name the e-invoicing topic explicitly',
+  home.includes(`href="${guideHref}"`) && home.includes('Facturation électronique'),
+  'home must retain a crawlable e-invoicing path after the launch banner',
 );
 assert(!home.includes('Réforme 2026–2027'), 'home must not hide the topic behind a vague label');
 
@@ -90,14 +91,15 @@ assert(
 );
 assert(!guides.includes('remplissage SEO'), 'guide hub must not talk about SEO to readers');
 assert(
-  guides.includes(`class="global-announcement" href="${guideHref}"`),
-  'guide hub must expose the static e-invoicing announcement',
+  guides.includes(`class="global-announcement" href="${appStoreUrl}"`)
+    && guides.includes(`href="${guideHref}"`),
+  'guide hub must expose the App Store launch and e-invoicing guide',
 );
 
 const shell = read('site-shell.js');
 assert(
-  shell.includes(`announcement.href = '${guideHref}'`),
-  'shared shell must add the announcement to legacy public pages',
+  shell.includes('announcement.href = appStoreUrl'),
+  'shared shell must add the App Store announcement to legacy public pages',
 );
 assert(
   shell.includes("document.querySelector('.global-announcement')"),

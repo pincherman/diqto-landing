@@ -10,6 +10,8 @@ from html import escape
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
+from release_config import APP_STORE_URL
+
 
 ROOT = Path(__file__).resolve().parent
 WATCH_DIR = ROOT / "histoires"
@@ -349,7 +351,7 @@ def render_page(story: Story) -> str:
       <a href="/guides.html">Guides</a>
       <a href="/experts-comptables.html">Experts-comptables</a>
       <a href="/#tarifs">Tarifs</a>
-      <a class="global-cta" href="/?source=seo_video_{story.slug}#beta">Commencer gratuit</a>
+      <a class="global-cta" href="{APP_STORE_URL}">Télécharger l’app</a>
     </nav>
   </div>
 </header>
@@ -403,7 +405,7 @@ def render_page(story: Story) -> str:
         <p>Retrouvez les documents, les contrôles et les limites présentés pour ce métier.</p>
         <div class="watch-actions">
           <a class="watch-button" href="{story.related_url}">{escape(story.related_label)}</a>
-          <a class="watch-button secondary" href="/?source=seo_video_{story.slug}#beta">Créer un brouillon gratuit</a>
+          <a class="watch-button secondary" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a>
           <a class="watch-button secondary" href="/histoires.html">Voir tous les films</a>
         </div>
       </aside>

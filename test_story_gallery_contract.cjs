@@ -36,13 +36,13 @@ assert.match(home, /id="histoires"/);
 assert.match(home, /href="\/histoires\.html"/);
 assert.match(siteShell, /ensureStoriesLink/);
 assert.match(siteShell, /href = '\/histoires\.html'/);
-assert.match(siteShell, /tagConsentlessConversionPaths/);
-assert.match(siteShell, /seo_guides_hub_cta/);
-assert.match(siteShell, /seo_stories_nav/);
-assert.match(siteShell, /seo_stories_final_cta/);
+assert.match(siteShell, /ensureAppStoreAnnouncement/);
+assert.match(
+    siteShell,
+    /https:\/\/apps\.apple\.com\/fr\/app\/diqto\/id6761616034/,
+);
 assert.doesNotMatch(siteShell, /document\.cookie|localStorage|sessionStorage|sendBeacon|gtag|plausible/i);
-assert.match(home, /document\.getElementById\('starter-trade'\)/);
-assert.match(home, /document\.getElementById\('starter-source'\)/);
+assert.doesNotMatch(home, /starterIntake|#beta/);
 assert.match(stories, /Histoires inspirées du quotidien/);
 assert.match(stories, /personnages et situations sont fictifs/i);
 assert.doesNotMatch(stories, /témoignage client/i);
@@ -98,7 +98,11 @@ for (const video of videos) {
 }
 
 assert.match(stories, /Rien ne part sans votre validation/);
-assert.match(stories, /href="\/#beta"/);
+assert.match(
+    stories,
+    /href="https:\/\/apps\.apple\.com\/fr\/app\/diqto\/id6761616034"/,
+);
+assert.doesNotMatch(stories, /#beta|Demander mon accès/i);
 assert.doesNotMatch(stories, /conforme|automatique(?:ment)? envoyé/i);
 
 console.log('story_gallery_contract: OK');

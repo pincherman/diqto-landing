@@ -51,12 +51,15 @@ for (const marker of [
     '<a href="/guides.html">Guides</a>',
     '<a href="/experts-comptables.html" aria-current="page">',
     '<a href="/#tarifs">Tarifs</a>',
-    '<a class="global-cta" href="#pilote" data-growth-placement="header">Évaluer un cas client</a>',
+    '<a class="global-cta" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="header">Télécharger l’app</a>',
 ]) {
     assert.ok(page.includes(marker), `canonical menu missing: ${marker}`);
 }
 
-assert.match(page, /global-announcement" href="\/facturation-electronique\.html"/);
+assert.match(
+    page,
+    /global-announcement" href="https:\/\/apps\.apple\.com\/fr\/app\/diqto\/id6761616034"/,
+);
 assert.match(
     page,
     /<link rel="canonical" href="https:\/\/diqto\.fr\/experts-comptables\.html">/,
@@ -90,7 +93,10 @@ assert.match(page, /Ne renseignez aucun nom ni donnée personnelle/);
 assert.match(script, /\/api\/public\/starter-intake/);
 assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
-assert.match(script, /source: data\.get\('source'\)/);
+assert.match(
+    script,
+    /source: String\(data\.get\('source'\) \|\| ''\)\.slice\(0, 120\)/,
+);
 assert.match(script, /Modèle envisagé/);
 assert.match(script, /à qualifier après compatibilité/);
 assert.match(script, /data-offer-choice/);

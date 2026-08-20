@@ -34,11 +34,14 @@
   "url": "https://diqto.fr",
   "description": "Application iPhone pour indépendants qui prépare devis, factures et comptes rendus à partir de la voix, du texte ou d'une photo, puis réunit la facturation électronique dans le même parcours.",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "iOS",
+  "operatingSystem": "iOS 15.1 or later",
+  "softwareVersion": "1.0",
+  "datePublished": "2026-08-20",
+  "downloadUrl": "https://apps.apple.com/fr/app/diqto/id6761616034",
   "offers": [
-    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Diqto Free — Brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, footer Diqto" },
-    { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "eligibleRegion": "FR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "9", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Essential — Prix App Store France TTC, devis et factures illimités, vocal court jusqu'à 5 minutes" },
-    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "eligibleRegion": "FR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Vocal Pro — Prix App Store France TTC, Essential plus comptes rendus vocaux longs avec fair use" }
+    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "description": "Diqto Free — Brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, footer Diqto" },
+    { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "eligibleRegion": "FR", "availability": "https://schema.org/InStock", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "9", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Essential — Prix App Store France TTC, devis et factures illimités, vocal court jusqu'à 5 minutes" },
+    { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "eligibleRegion": "FR", "availability": "https://schema.org/InStock", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Vocal Pro — Prix App Store France TTC, Essential plus comptes rendus vocaux longs avec fair use" }
   ]
 }
 </script>
@@ -627,40 +630,6 @@ button, input, textarea { font: inherit; }
 .final-panel > p { max-width: 650px; margin-top: 20px; color: var(--muted); font-size: 18px; }
 .final-panel .button-primary { background: var(--green); border-color: var(--green); color: #0c0c0c !important; }
 .final-panel .button-secondary { background: transparent; color: #fff; border-color: #4b594b; }
-.starter-intake {
-  max-width: 760px;
-  margin-top: 30px;
-  padding: 24px;
-  border: 1px solid #3c483d;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-}
-.starter-intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.starter-field { display: flex; flex-direction: column; gap: 8px; }
-.starter-field.full { grid-column: 1 / -1; }
-.starter-field label { color: #fff; font-size: 14px; font-weight: 700; }
-.starter-field input,
-.starter-field textarea {
-  width: 100%;
-  border: 1px solid #536054;
-  border-radius: 10px;
-  background: #111612;
-  color: #fff;
-  font: inherit;
-  padding: 13px 14px;
-}
-.starter-field textarea { min-height: 108px; resize: vertical; }
-.starter-field input:focus,
-.starter-field textarea:focus { outline: 3px solid rgba(180,255,49,0.24); border-color: var(--green); }
-.starter-consent { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0; color: #d8ddd8; font-size: 13px; line-height: 1.45; }
-.starter-consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--green); }
-.starter-consent a { color: var(--green); }
-.starter-intake .button-primary { border: 0; cursor: pointer; }
-.starter-intake .button-primary:disabled { cursor: wait; opacity: 0.65; transform: none; }
-.starter-status { min-height: 24px; margin: 14px 0 0; color: #fff; font-size: 14px; }
-.starter-status.success { color: var(--green); }
-.starter-status.error { color: #ffb1a8; }
-.starter-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 .starter-secondary { margin-top: 18px; }
 .final-small { margin-top: 16px !important; font-size: 13px !important; }
 
@@ -702,9 +671,6 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .hero-copy h1 { font-size: clamp(46px, 14vw, 68px); }
   .hero-actions { flex-direction: column; }
   .button-primary, .button-secondary { width: 100%; }
-  .starter-intake { padding: 18px; }
-  .starter-intake-grid { grid-template-columns: 1fr; }
-  .starter-field.full { grid-column: auto; }
   .intent-section, .stories-section, .day-section, .how-section, .benefits, .partner-section, .trades, .pricing { padding: 76px 0; }
   .intent-grid { grid-template-columns: 1fr; }
   .story-preview-grid { grid-template-columns: 1fr; }
@@ -733,9 +699,9 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
 </head>
 <body data-growth-page="home" data-growth-source="direct_or_organic">
 <a class="global-skip-link" href="#contenu">Aller au contenu</a>
-<a class="global-announcement" href="/facturation-electronique.html">
-  <strong>Nouveau · Facturation électronique</strong>
-  <span>Recevoir, envoyer et suivre depuis Diqto <span aria-hidden="true">→</span></span>
+<a class="global-announcement" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="announcement">
+  <strong>Diqto 1.0 est disponible</strong>
+  <span>Télécharger sur l’App Store France <span aria-hidden="true">→</span></span>
 </a>
 <header class="global-header" data-menu-open="false">
   <div class="global-nav">
@@ -749,7 +715,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
       <a href="/guides.html">Guides</a>
       <a href="/experts-comptables.html">Experts-comptables</a>
       <a href="#tarifs">Tarifs</a>
-      <a class="global-cta" href="#beta" data-growth-placement="header">Commencer gratuit</a>
+      <a class="global-cta" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="header">Télécharger l’app</a>
     </nav>
   </div>
 </header>
@@ -762,10 +728,10 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
         <h1>Le travail est fini.<br><span>Pas votre journée ?</span></h1>
         <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous évitez de tout ressaisir.</p>
         <div class="hero-actions">
-          <a class="button-primary" href="#beta" data-growth-placement="hero">Demander mon accès gratuit</a>
+          <a class="button-primary" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="hero">Télécharger Diqto gratuitement</a>
           <a class="button-secondary" href="#une-journee">Voir une journée avec Diqto</a>
         </div>
-        <p class="hero-note">Sur iPhone · Sans carte bancaire · Pas de démonstration obligatoire</p>
+        <p class="hero-note">Disponible maintenant sur l’App Store France · iPhone · Sans carte bancaire pour commencer</p>
       </div>
 
       <div class="day-card" aria-label="Exemple de brouillon préparé par Diqto">
@@ -824,7 +790,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
           <h3>Je perds le fil de mes clients</h3>
           <p>Retrouvez ce qui a été fait, ce qui reste à envoyer et ce qui attend encore un règlement.</p>
         </a>
-        <a class="intent-card" href="#beta">
+        <a class="intent-card" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="intent-evening">
           <small>04</small>
           <h3>Je veux récupérer mes soirées</h3>
           <p>Finissez l'administratif pendant que les détails sont encore frais, pas deux jours plus tard.</p>
@@ -1026,9 +992,9 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>PDF avec footer Diqto</li>
             <li>3 vocaux courts par mois jusqu'à 1 min</li>
             <li>Tableau de bord simple</li>
-            <li>Aucun checkout ni prélèvement automatique</li>
+            <li>Aucun achat requis</li>
           </ul>
-          <a href="#beta" class="price-btn secondary" data-growth-placement="pricing">Commencer gratuit</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Télécharger Diqto</a>
         </div>
         <div class="price-card featured">
           <div class="price-name">Diqto Essential</div>
@@ -1044,7 +1010,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Paiement cadré avant activation</li>
             <li>Footer supprimé</li>
           </ul>
-          <a href="#beta" class="price-btn primary" data-growth-placement="pricing">Tester Essential</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn primary" data-growth-placement="pricing">Télécharger Diqto</a>
         </div>
         <div class="price-card">
           <div class="price-name">Diqto Vocal Pro</div>
@@ -1060,49 +1026,23 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Export FEC comptable</li>
             <li>Support prioritaire pilote</li>
           </ul>
-          <a href="#beta" class="price-btn secondary" data-growth-placement="pricing">Tester Vocal Pro</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Télécharger Diqto</a>
         </div>
       </div>
-      <p class="pricing-note">Prix TTC pour l’App Store France. Apple affiche le prix local définitif avant l’achat selon votre pays. Aucun frais par devis ou facture sur les plans payants.</p>
+      <p class="pricing-note">Prix TTC pour l’App Store France. Le téléchargement est gratuit et Apple affiche le prix définitif avant tout achat intégré optionnel. Aucun frais par devis ou facture sur les plans payants.</p>
     </div>
   </section>
 
-  <section class="final-cta" id="beta">
+  <section class="final-cta" id="telecharger">
     <div class="container">
       <div class="final-panel">
         <h2>Commencez avec la tâche que vous repoussez aujourd'hui.</h2>
         <p>Un devis, une facture, une note de séance ou simplement un client à reprendre. C'est le meilleur moyen de savoir si Diqto vous simplifie vraiment la vie.</p>
-        <form class="starter-intake" id="starter-intake" data-growth-form novalidate>
-          <div class="starter-intake-grid">
-            <div class="starter-field">
-              <label for="starter-email">Email professionnel</label>
-              <input id="starter-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="vous@entreprise.fr">
-            </div>
-            <div class="starter-field">
-              <label for="starter-trade">Votre métier</label>
-              <input id="starter-trade" name="trade" type="text" autocomplete="organization-title" required minlength="2" maxlength="80" placeholder="Plombier, avocat, ostéopathe…">
-            </div>
-            <div class="starter-field full">
-              <label for="starter-need">La première tâche que vous voulez simplifier</label>
-              <textarea id="starter-need" name="first_need" required minlength="5" maxlength="500" placeholder="Ex. préparer un devis à partir de mes notes de chantier"></textarea>
-            </div>
-          </div>
-          <input id="starter-source" name="source" type="hidden" value="homepage">
-          <div class="starter-honeypot" aria-hidden="true">
-            <label for="starter-website">Votre site internet</label>
-            <input id="starter-website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <label class="starter-consent" for="starter-consent">
-            <input id="starter-consent" name="contact_consent" type="checkbox" required>
-            <span>J’accepte d’être recontacté au sujet de mon accès Diqto et j’ai lu la <a href="/confidentialite.html">politique de confidentialité</a>.</span>
-          </label>
-          <button type="submit" class="button-primary">Demander mon accès gratuit</button>
-          <p class="starter-status" id="starter-status" role="status" aria-live="polite"></p>
-        </form>
         <div class="hero-actions starter-secondary">
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="button-primary" data-growth-placement="final">Télécharger Diqto gratuitement</a>
           <a href="/fonctionnalites.html" class="button-secondary">Voir tout ce que fait Diqto</a>
         </div>
-        <p class="final-small">Disponible sur iOS. Aucun paiement, aucune carte bancaire pour commencer.</p>
+        <p class="final-small">Disponible maintenant sur l’App Store France pour iPhone. Téléchargement gratuit, achats intégrés optionnels.</p>
       </div>
     </div>
   </section>
@@ -1147,63 +1087,5 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   </div>
 </footer>
 
-<script>
-window.starterIntakePrefill = function starterIntakePrefill() {
-    var params = new URLSearchParams(window.location.search);
-    var metier = params.get('metier');
-    var source = params.get('source');
-    var tradeInput = document.getElementById('starter-trade');
-    var sourceInput = document.getElementById('starter-source');
-    if (metier && tradeInput) tradeInput.value = metier.replace(/[-_]+/g, ' ').slice(0, 80);
-    if (source && sourceInput) sourceInput.value = source.slice(0, 120);
-};
-window.starterIntakePrefill();
-
-window.starterIntakeSubmit = function starterIntakeSubmit() {
-    var form = document.getElementById('starter-intake');
-    if (!form) return;
-    var status = document.getElementById('starter-status');
-    var submit = form.querySelector('button[type="submit"]');
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault();
-        status.className = 'starter-status';
-        if (!form.reportValidity()) return;
-        submit.disabled = true;
-        status.textContent = 'Envoi de votre demande…';
-        try {
-            var data = new FormData(form);
-            var response = await fetch('https://necessary-danila-diqto-7fbe88c8.koyeb.app/api/public/starter-intake', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    email: data.get('email'),
-                    trade: data.get('trade'),
-                    first_need: data.get('first_need'),
-                    source: data.get('source') || 'homepage',
-                    contact_consent: data.get('contact_consent') === 'on',
-                    website: data.get('website') || ''
-                })
-            });
-            if (!response.ok) throw new Error('request_failed');
-            var result = await response.json();
-            status.className = 'starter-status success';
-            status.textContent = result.confirmation_email_sent
-                ? 'Demande reçue. Un email de confirmation vient de vous être envoyé.'
-                : 'Demande reçue. L’email de confirmation n’a pas pu partir, mais votre demande est bien enregistrée.';
-            form.reset();
-            window.starterIntakePrefill();
-            if (window.diqtoGrowthTrack) {
-                window.diqtoGrowthTrack('intake_submitted', 'intake', 'submitted');
-            }
-        } catch (error) {
-            status.className = 'starter-status error';
-            status.textContent = 'La demande n’a pas pu être envoyée. Réessayez ou écrivez à support@diqto.fr.';
-        } finally {
-            submit.disabled = false;
-        }
-    });
-};
-window.starterIntakeSubmit();
-</script>
 </body>
 </html>

@@ -50,7 +50,9 @@ assert.ok(
 assert.ok(
     report.includes('<link rel="stylesheet" href="/site-shell.css">')
         && report.includes('<header class="global-header"')
-        && report.includes('<a class="global-cta" href="/#beta">'),
+        && report.includes(
+            '<a class="global-cta" href="https://apps.apple.com/fr/app/diqto/id6761616034">',
+        ),
     'report must retain the shared Diqto navigation and CTA',
 );
 

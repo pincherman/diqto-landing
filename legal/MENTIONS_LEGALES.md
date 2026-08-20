@@ -19,7 +19,7 @@
 - **Contact téléphonique** : communiqué sur demande via l'adresse support
 - **Directeur de la publication** : Philippe Incherman
 
-Les offres payantes ne déclenchent aucun paiement réel tant que le checkout n'est pas activé. La TVA applicable et, le cas échéant, le numéro de TVA intracommunautaire seront précisés avant toute facturation.
+Les abonnements Essential et Vocal Pro sont proposés exclusivement sous forme d'achats intégrés dans l'application iOS. Apple affiche le prix définitif TTC avant confirmation et gère la transaction ; aucun checkout Stripe public n'est proposé sur diqto.fr.
 
 ---
 

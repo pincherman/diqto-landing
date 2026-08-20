@@ -50,7 +50,7 @@
                     email: data.get('email'),
                     trade: data.get('trade'),
                     first_need: buildFirstNeed(data),
-                    source: data.get('source'),
+                    source: String(data.get('source') || '').slice(0, 120),
                     contact_consent:
                         data.get('contact_consent') === 'on',
                     website: data.get('website') || '',

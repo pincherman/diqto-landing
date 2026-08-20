@@ -10,7 +10,6 @@ import os
 import glob
 import runpy
 from pathlib import Path
-from urllib.parse import quote
 
 SCRIPT_DIR = Path(__file__).parent
 METIERS_CONFIG_DIR = SCRIPT_DIR / ".." / "batiboss" / "config" / "metiers"
@@ -369,7 +368,9 @@ def generate_page(metier_id, metier_data, all_metiers):
     "@type": "Offer",
     "price": "",
     "priceCurrency": "EUR",
-    "description": "Essai gratuit avant offre payante"
+    "description": "Téléchargement gratuit avec achats intégrés optionnels",
+    "availability": "https://schema.org/InStock",
+    "url": "https://apps.apple.com/fr/app/diqto/id6761616034"
   }}
 }}
 </script>
@@ -478,8 +479,8 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
     <span class="bubble"><i></i><i></i><i></i></span>
     <span class="text">diq<em>to</em></span>
   </a>
-  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="nav-cta">
-    Commencer gratuit
+  <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="nav-cta">
+    Télécharger l’app
   </a>
 </nav>
 
@@ -487,8 +488,8 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <section class="hero">
   <h1>{accroche}</h1>
   <p class="subtitle">Tu t'es mis à ton compte pour faire ce que tu aimes.<br><strong>Pas pour faire de l'administratif.</strong></p>
-  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa">
-    Créer mon premier brouillon gratuit
+  <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="btn-wa">
+    Télécharger Diqto gratuitement
   </a>
 </section>
 
@@ -545,10 +546,10 @@ footer .links{{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margi
 <!-- CTA FINAL -->
 <section class="cta-section">
   <h2>Ton prochain {profile_data['doc_word']} part d'un brouillon clair.<br>Pas d'une page blanche.</h2>
-  <a href="../?source=seo_metier_{metier_id}&metier={quote(name, safe='')}#beta" class="btn-wa" style="margin:24px 0">
-    Commencer gratuit
+  <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="btn-wa" style="margin:24px 0">
+    Installer Diqto sur iPhone
   </a>
-  <p class="cta-sub">Essai gratuit avant tout paiement.<br>Premier brouillon uniquement après validation humaine.</p>
+  <p class="cta-sub">Disponible sur l’App Store France.<br>Téléchargement gratuit, achats intégrés optionnels.</p>
 </section>
 
 <!-- AUTRES MÉTIERS -->

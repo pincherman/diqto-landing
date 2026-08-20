@@ -4,27 +4,35 @@ const path = require('node:path');
 
 const root = __dirname;
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const privacy = fs.readFileSync(path.join(root, 'confidentialite.html'), 'utf8');
+const accountant = fs.readFileSync(
+    path.join(root, 'experts-comptables.html'),
+    'utf8',
+);
+const accountantScript = fs.readFileSync(
+    path.join(root, 'experts-comptables.js'),
+    'utf8',
+);
+const privacy = fs.readFileSync(
+    path.join(root, 'confidentialite.html'),
+    'utf8',
+);
 
-assert.match(home, /<form class="starter-intake" id="starter-intake" data-growth-form novalidate>/);
-assert.match(home, /name="email"[^>]+required/);
-assert.match(home, /name="trade"[^>]+required/);
-assert.match(home, /name="first_need"[^>]+required/);
-assert.match(home, /name="contact_consent"[^>]+required/);
-assert.match(home, /name="website"[^>]+tabindex="-1"/);
-assert.match(home, /name="source" type="hidden"/);
-assert.match(home, /role="status" aria-live="polite"/);
-assert.match(home, /fetch\('https:\/\/necessary-danila-diqto-7fbe88c8\.koyeb\.app\/api\/public\/starter-intake'/);
-assert.match(home, /contact_consent: data\.get\('contact_consent'\) === 'on'/);
-assert.match(home, /result\.confirmation_email_sent/);
-assert.match(home, /Un email de confirmation vient de vous être envoyé/);
+assert.doesNotMatch(home, /id="starter-intake"|data-growth-form/);
+assert.doesNotMatch(home, /starterIntakeSubmit|starterIntakePrefill/);
+assert.doesNotMatch(home, /Demander mon accès|#beta/i);
 assert.match(
     home,
-    /mais votre demande est bien enregistrée/,
+    /href="https:\/\/apps\.apple\.com\/fr\/app\/diqto\/id6761616034"/,
 );
-assert.doesNotMatch(home, /mailto:support@diqto\.fr\?subject=Acces/);
-assert.doesNotMatch(home, /console\.(?:log|info|debug)\(/);
+assert.match(accountant, /id="ec-prescriber-intake" data-growth-form/);
+assert.match(accountant, /name="email"[^>]+required/);
+assert.match(accountant, /name="contact_consent"[^>]+required/);
+assert.match(
+    accountantScript,
+    /\/api\/public\/starter-intake/,
+);
+assert.doesNotMatch(accountantScript, /console\.(?:log|info|debug)\(/);
 assert.match(privacy, /Demande d’accès Diqto/);
 assert.match(privacy, /3 ans à compter du dernier contact/);
 
-console.log('starter_intake_contract: OK');
+console.log('starter_intake_contract: OK public install direct, EC intake kept');

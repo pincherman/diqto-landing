@@ -3,7 +3,13 @@
 
 import json
 from html import escape
-from urllib.parse import quote
+
+from release_config import (
+    APP_STORE_AVAILABILITY,
+    APP_STORE_URL,
+    APP_VERSION,
+    IOS_MINIMUM_VERSION,
+)
 
 ICON_LABELS = {
     "🎤": "VOIX",
@@ -255,14 +261,14 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
-  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/experts-comptables.html">Experts-comptables</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="{diagnostic_href}">Commencer gratuit</a></nav>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/fonctionnalites.html">Fonctionnalités</a><a href="/metiers.html">Métiers</a><a href="/guides.html">Guides</a><a href="/experts-comptables.html">Experts-comptables</a><a href="/#tarifs">Tarifs</a><a class="global-cta" href="{diagnostic_href}">Télécharger l’app</a></nav>
 </div></header>
 <main id="contenu">
 <section class="hero">
   <div class="container">
     <h1>Diqto pour les <span>{label}</span></h1>
     <p>{desc}</p>
-    <a href="{diagnostic_href}" class="cta">Créer mon premier brouillon gratuit →</a>
+    <a href="{diagnostic_href}" class="cta">Télécharger Diqto gratuitement →</a>
   </div>
 </section>
 <div class="container">
@@ -279,8 +285,8 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 <section class="final">
   <div class="container">
     <h2>Prêt à gagner du temps ?</h2>
-    <p>Essai gratuit avant tout paiement : choisissez votre métier, créez un brouillon, relisez avant partage.</p>
-    <a href="{diagnostic_href}" class="cta">Commencer gratuit →</a>
+    <p>Diqto 1.0 est disponible gratuitement au téléchargement sur l’App Store France. Les abonnements restent optionnels dans l’app.</p>
+    <a href="{diagnostic_href}" class="cta">Installer Diqto sur iPhone →</a>
   </div>
 </section>
 </main>
@@ -322,10 +328,14 @@ for m in METIERS:
         },
         "offers": {
             "@type": "Offer",
-            "description": "Essai gratuit avant offre payante",
+            "price": "0",
+            "description": "Téléchargement gratuit avec achats intégrés optionnels",
             "priceCurrency": "EUR",
-            "availability": "https://schema.org/PreOrder",
+            "availability": APP_STORE_AVAILABILITY,
         },
+        "downloadUrl": APP_STORE_URL,
+        "softwareVersion": APP_VERSION,
+        "softwareRequirements": f"iOS {IOS_MINIMUM_VERSION} ou version ultérieure",
     }
     
     html = TEMPLATE.format(
@@ -347,7 +357,7 @@ for m in METIERS:
         example=escape(m["example"]),
         guide_href=guide_href,
         guide_label=guide_label,
-        diagnostic_href=f"/?source=seo_top_{m['id']}&metier={quote(m['label'], safe='')}#beta",
+        diagnostic_href=APP_STORE_URL,
     )
     
     with open(f'{m["id"]}.html', 'w') as f:

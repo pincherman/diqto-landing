@@ -2,13 +2,13 @@
 
 **Diqto — Application de facturation pour micro-entrepreneurs**
 
-*Dernière mise à jour : 27 juillet 2026*
+*Dernière mise à jour : 20 août 2026*
 
 ---
 
 ## 1. Objet
 
-Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les modalités et conditions d'utilisation du service Diqto (ci-après « le Service »), accessible via l'application web [diqto.fr](https://diqto.fr) et via l'interface conversationnelle WhatsApp.
+Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les modalités et conditions d'utilisation du service Diqto (ci-après « le Service »), accessible via l'application mobile iOS distribuée sur l'App Store France. Le site [diqto.fr](https://diqto.fr) présente le Service, sa documentation et ses moyens de support.
 
 Diqto est un service de création et de gestion de documents commerciaux — devis, factures et notes d'honoraires — destiné aux micro-entrepreneurs et travailleurs indépendants exerçant en France.
 
@@ -52,7 +52,7 @@ Diqto permet aux Utilisateurs de :
 - Exporter et partager leurs documents (PDF) ;
 - Préparer et suivre des factures électroniques lorsque cette fonction est activée ; B2Brouter opère alors le transport réglementaire en tant que Plateforme Agréée, tandis que Diqto reste la solution de préparation, de contrôle et de suivi ;
 - Suivre leur activité commerciale (historique, chiffre d'affaires) ;
-- Interagir avec le Service via une interface conversationnelle (WhatsApp) ou via l'application web.
+- Interagir avec le Service via l'application mobile iOS.
 
 Le Service utilise des technologies d'intelligence artificielle pour faciliter la création de documents. Les documents générés doivent être vérifiés par l'Utilisateur avant tout envoi à ses clients.
 
@@ -114,7 +114,7 @@ Diqto ne saurait être tenu responsable de l'inexécution de ses obligations en 
 
 ## 8. Données personnelles
 
-Le traitement des données personnelles des Utilisateurs est régi par la Politique de Confidentialité de Diqto, accessible à l'adresse : [diqto.fr/legal/privacy](https://diqto.fr/legal/privacy).
+Le traitement des données personnelles des Utilisateurs est régi par la Politique de Confidentialité de Diqto, accessible à l'adresse : [diqto.fr/confidentialite.html](https://diqto.fr/confidentialite.html).
 
 L'Utilisateur est invité à consulter cette politique pour connaître les modalités de collecte, de traitement et de protection de ses données personnelles, conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
 

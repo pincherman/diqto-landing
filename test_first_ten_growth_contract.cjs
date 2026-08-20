@@ -31,8 +31,12 @@ for (const forbidden of [
 
 assert(home.includes('data-growth-page="home"'));
 assert(home.includes('data-growth-source="direct_or_organic"'));
-assert(home.includes('id="starter-intake" data-growth-form'));
-assert(home.includes("window.diqtoGrowthTrack('intake_submitted'"));
+assert(home.includes('data-growth-placement="announcement"'));
+assert(home.includes('data-growth-placement="hero"'));
+assert(home.includes('data-growth-placement="final"'));
+assert(home.includes('https://apps.apple.com/fr/app/diqto/id6761616034'));
+assert(!home.includes('id="starter-intake" data-growth-form'));
+assert(!home.includes("window.diqtoGrowthTrack('intake_submitted'"));
 assert(ec.includes('data-growth-page="experts_comptables"'));
 assert(ec.includes('data-growth-source="expert_accountant"'));
 assert(ec.includes('id="ec-prescriber-intake" data-growth-form'));

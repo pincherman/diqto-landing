@@ -70,8 +70,8 @@ for (const relative of priorityPages) {
 
     assert.match(
         page,
-        /href="(?:\/|\.\.\/)\?source=[^"]+#beta"/,
-        `${relative}: CTA source must reach consented intake`,
+        /href="https:\/\/apps\.apple\.com\/fr\/app\/diqto\/id6761616034"/,
+        `${relative}: CTA must reach the public App Store release`,
     );
     assert.ok(
         sitemap.includes(`<loc>https://diqto.fr${target}</loc>`),
@@ -139,10 +139,11 @@ assert.match(
     /"url": "https:\/\/diqto\.fr\/facturation-electronique\.html"/,
     'guide collection schema must include the canonical hub',
 );
+const ecIntakeScript = read('experts-comptables.js');
 assert.match(
-    home,
-    /sourceInput\.value = source\.slice\(0, 120\)/,
-    'home must preserve bounded source attribution',
+    ecIntakeScript,
+    /String\(data\.get\('source'\) \|\| ''\)\.slice\(0, 120\)/,
+    'the remaining public pilot intake must preserve bounded source attribution',
 );
 
 console.log(

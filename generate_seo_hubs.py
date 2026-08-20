@@ -5,7 +5,8 @@ from __future__ import annotations
 import html
 import json
 from pathlib import Path
-from urllib.parse import quote
+
+from release_config import APP_STORE_URL
 
 
 ROOT = Path(__file__).resolve().parent
@@ -55,6 +56,7 @@ TOP_LEVEL = {
     "carreleur": "carreleur.html",
     "coach_sportif": "coach-sportif.html",
     "electricien": "electricien.html",
+    "kine": "kinesitherapeute.html",
     "kinesitherapeute": "kinesitherapeute.html",
     "menuisier": "menuisier.html",
     "osteopathe": "osteopathe.html",
@@ -269,11 +271,11 @@ def shell(active: str = "") -> str:
         for href, label, key in items
     )
     return f'''<a class="global-skip-link" href="#contenu">Aller au contenu</a>
-<a class="global-announcement" href="/facturation-electronique.html"><strong>Facturation électronique</strong><span>Ce qui change en 2026 et 2027 <span aria-hidden="true">→</span></span></a>
+<a class="global-announcement" href="{APP_STORE_URL}"><strong>Diqto 1.0 est disponible</strong><span>Télécharger sur l’App Store France <span aria-hidden="true">→</span></span></a>
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
-  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">{links}<a class="global-cta" href="/#beta">Commencer gratuit</a></nav>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">{links}<a class="global-cta" href="{APP_STORE_URL}">Télécharger l’app</a></nav>
 </div></header>'''
 
 
@@ -340,7 +342,7 @@ def generate_guide(guide: dict) -> None:
     content += f'''<main id="contenu"><div class="seo-container"><nav class="seo-breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>›</span><a href="/guides.html">Guides</a><span>›</span>Guide</nav></div>
 <header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">{guide['eyebrow']}</p><h1>{guide['title']}</h1><p class="seo-lead">{guide['lead']}</p><p class="seo-meta">Publié et vérifié le {UPDATED_LABEL} · Lecture 6 minutes</p></div></header>
 <div class="seo-container seo-main">{guide['body']}{source_section(guide['sources'])}{related_section(guide['related'])}
-<section class="seo-cta"><h2>Testez Diqto sur une tâche réelle.</h2><p>Un devis, une facture ou une note à finir aujourd'hui. Vous jugerez le brouillon, pas une promesse marketing.</p><div class="seo-actions"><a class="seo-button" href="/?source=seo_guide_{guide['slug']}#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/fonctionnalites.html">Voir les fonctionnalités</a></div></section></div></main>'''
+<section class="seo-cta"><h2>Testez Diqto sur une tâche réelle.</h2><p>Un devis, une facture ou une note à finir aujourd'hui. Vous jugerez le brouillon, pas une promesse marketing.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/fonctionnalites.html">Voir les fonctionnalités</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     out = ROOT / "guides" / f"{guide['slug']}.html"
     out.parent.mkdir(exist_ok=True)
@@ -390,7 +392,7 @@ def generate_trades_hub() -> None:
             continue
         link_html = "".join(f'<a href="{href}">{html.escape(label)}</a>' for label, href in sorted(links))
         content += f'<section class="seo-category"><h2>{category_label}</h2><div class="seo-link-grid">{link_html}</div></section>'
-    content += '''<section class="seo-cta"><h2>Votre métier n'apparaît pas&nbsp;?</h2><p>Commencez par décrire votre activité et le premier document que vous voulez préparer. Nous vérifierons le parcours réellement adapté.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Demander mon accès gratuit</a><a class="seo-button secondary" href="/guides.html">Consulter les guides</a></div></section></div></main>'''
+    content += f'''<section class="seo-cta"><h2>Votre métier n'apparaît pas&nbsp;?</h2><p>Diqto adapte le parcours à votre activité dès l'onboarding. Commencez avec le plan Free, puis vérifiez le premier brouillon sur un cas réel.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/guides.html">Consulter les guides</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "metiers.html").write_text(content, encoding="utf-8")
 
@@ -431,7 +433,7 @@ def generate_guides_hub() -> None:
         for guide in guide_cards
     )
     content = page_head(title, description, url, schema) + shell("guides")
-    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="/#beta">Créer mon premier brouillon gratuit</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
+    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "guides.html").write_text(content, encoding="utf-8")
 

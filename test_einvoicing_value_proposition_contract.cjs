@@ -16,8 +16,8 @@ const annex = read('facturation-electronique-conditions.html');
 const shell = read('site-shell.js');
 
 for (const marker of [
-    'Nouveau · Facturation électronique',
-    'Recevoir, envoyer et suivre depuis Diqto',
+    'Diqto 1.0 est disponible',
+    'Télécharger sur l’App Store France',
     'Votre facturation électronique, dans le même outil.',
     'Préparez, recevez, envoyez et suivez vos factures électroniques depuis Diqto.',
 ]) {
@@ -89,8 +89,9 @@ assert.ok(
     'partner transparency must remain in secondary marketing and legal surfaces',
 );
 assert.ok(
-    shell.includes('Recevoir et envoyer avec Diqto'),
-    'the shared site announcement must carry the customer-value message',
+    shell.includes('Diqto 1.0 est disponible')
+        && shell.includes('Télécharger sur l’App Store France'),
+    'the shared site announcement must carry the current launch state',
 );
 
 console.log('PASS e-invoicing customer-value-first contract');

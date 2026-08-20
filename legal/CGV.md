@@ -2,13 +2,13 @@
 
 **Diqto — Application de facturation pour indépendants**
 
-*Dernière mise à jour : 24 juin 2026*
+*Dernière mise à jour : 20 août 2026*
 
 ---
 
 ## 1. Objet
 
-Les présentes Conditions Générales de Vente (ci-après « CGV ») définissent les conditions dans lesquelles Diqto propose ses services payants aux Utilisateurs. Elles complètent les Conditions Générales d'Utilisation (CGU) disponibles sur [diqto.fr/legal/cgu](https://diqto.fr/legal/cgu).
+Les présentes Conditions Générales de Vente (ci-après « CGV ») définissent les conditions dans lesquelles Diqto propose ses services payants aux Utilisateurs. Elles complètent les Conditions Générales d'Utilisation (CGU) disponibles sur [diqto.fr/cgu.html](https://diqto.fr/cgu.html).
 
 ---
 
@@ -22,7 +22,7 @@ RCS Marseille : 106 569 619
 Siège social : 498 Rue Paradis, 13008 Marseille
 Email : support@diqto.fr
 
-Les offres payantes ne déclenchent aucun paiement réel tant que le checkout n'est pas activé. La TVA applicable et, le cas échéant, le numéro de TVA intracommunautaire seront précisés avant toute facturation.
+Les offres payantes sont proposées sous forme d'achats intégrés dans l'application iOS. Apple affiche le prix TTC applicable avant confirmation et gère le paiement ; Diqto ne reçoit pas les données complètes du moyen de paiement.
 
 ---
 
@@ -32,7 +32,7 @@ Diqto propose les offres suivantes :
 
 | Plan | Prix mensuel | Documents | Fonctionnalités |
 |------|---------------|-----------|-----------------|
-| **Diqto Free** | 0 € / mois | Brouillons illimités, 3 documents finalisés/exportés/envoyés par mois | 1 entreprise, 1 utilisateur, clients illimités, PDF avec footer Diqto, 3 vocaux courts par mois jusqu'à 1 minute, tableau de bord simple, aucun checkout ni prélèvement automatique. |
+| **Diqto Free** | 0 € / mois | Brouillons illimités, 3 documents finalisés/exportés/envoyés par mois | 1 entreprise, 1 utilisateur, clients illimités, PDF avec footer Diqto, 3 vocaux courts par mois jusqu'à 1 minute, tableau de bord simple, aucun achat requis. |
 | **Diqto Essential** | 9 € TTC / mois (France) | Devis et factures illimités | Clients illimités, PDF professionnels à relire, vocal court jusqu'à 5 minutes, catalogue auto-appris, paiement cadré avant activation. |
 | **Diqto Vocal Pro** | 19 € TTC / mois (France) | Devis et factures illimités | Tout Essential + comptes rendus vocaux longs, usage vocal normal non limité avec fair use anti-abus, notes de séance/chantier/rendez-vous, export FEC, support prioritaire pilote. |
 
@@ -40,7 +40,7 @@ Aucune offre annuelle n'est proposée tant qu'elle n'est pas configurée dans l'
 
 Le plan Diqto Free permet une découverte durable du Service sans carte bancaire. Il ne constitue pas une offre de production illimitée : les documents finalisés, exportés ou envoyés sont limités à 3 par mois et les PDF conservent un footer Diqto.
 
-Les prix Essential (9 €) et Vocal Pro (19 €) sont les prix TTC de référence pour l'App Store France. Apple affiche avant l'achat le prix local définitif, taxes applicables incluses selon le pays du compte Apple. Ce prix affiché par Apple fait foi.
+Les prix Essential (9 €) et Vocal Pro (19 €) sont les prix TTC de référence pour l'App Store France. Apple affiche le prix définitif avant confirmation de l'achat intégré. Ce prix affiché par Apple fait foi.
 
 Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notifiée aux Utilisateurs au moins 30 jours avant son entrée en vigueur. Les tarifs en cours d'un abonnement restent applicables jusqu'à la fin de la période en cours.
 
@@ -50,13 +50,13 @@ Diqto se réserve le droit de modifier ses tarifs. Toute modification sera notif
 
 ### 4.1 Processus
 
-La souscription à un plan payant s'effectue dans l'application iOS lorsqu'elle est disponible. L'Utilisateur choisit son plan puis Apple affiche le prix local final avant confirmation.
+La souscription à un plan payant s'effectue dans l'application iOS. L'Utilisateur choisit son plan puis Apple affiche le prix final avant confirmation.
 
-Tant que la souscription payante n'est pas activée dans le Service, aucun prélèvement automatique n'est déclenché.
+Le plan Diqto Free reste accessible sans achat intégré ni carte bancaire.
 
 ### 4.2 Durée
 
-Les abonnements mensuels seront souscrits pour une durée mensuelle, renouvelée automatiquement par tacite reconduction à chaque date anniversaire, sauf résiliation par l'Utilisateur. Les offres annuelles, lorsqu'elles sont proposées, couvrent une période de 12 mois.
+Les abonnements mensuels sont souscrits pour une durée mensuelle et renouvelés automatiquement par Apple, sauf résiliation par l'Utilisateur depuis les réglages de son compte Apple. Aucune offre annuelle n'est proposée à la date de la dernière mise à jour des présentes CGV.
 
 ---
 
@@ -64,22 +64,15 @@ Les abonnements mensuels seront souscrits pour une durée mensuelle, renouvelée
 
 ### 5.1 Moyen de paiement
 
-Les paiements seront traités par un prestataire de paiement sécurisé certifié PCI-DSS. Diqto n'aura pas accès aux données complètes de carte bancaire de l'Utilisateur.
-
-Moyens de paiement acceptés : carte bancaire (Visa, Mastercard, American Express).
+Les achats intégrés sont traités exclusivement par Apple au moyen de paiement associé au compte Apple de l'Utilisateur. Diqto n'a pas accès aux données complètes de ce moyen de paiement.
 
 ### 5.2 Facturation
 
-Le paiement est prélevé à la date de souscription, puis à chaque date de renouvellement mensuel. Une facture est automatiquement mise à disposition de l'Utilisateur dans son espace.
+Apple débite le compte à la confirmation de la souscription puis à chaque renouvellement, conformément aux conditions affichées dans l'App Store. Le justificatif de transaction ou la facture applicable est fourni par Apple et reste consultable dans l'historique d'achats du compte Apple.
 
 ### 5.3 Retard ou défaut de paiement
 
-En cas d'échec du paiement, Diqto se réserve le droit de :
-- Relancer l'Utilisateur par email ou SMS ;
-- Suspendre l'accès aux fonctionnalités payantes après un délai de 7 jours ;
-- Résilier l'abonnement après un délai de 30 jours.
-
-Des pénalités de retard au taux légal pourront être appliquées conformément à l'article L.441-10 du Code de commerce.
+En cas d'échec du renouvellement, Apple applique ses mécanismes de relance et de recouvrement. L'accès aux fonctionnalités payantes peut prendre fin lorsque l'abonnement n'est plus signalé comme actif par l'App Store ; le compte repasse alors sur le plan Diqto Free.
 
 ---
 
@@ -99,7 +92,7 @@ Lors de la souscription, l'Utilisateur sera invité à consentir expressément a
 
 ### 6.3 Exercice du droit de rétractation
 
-Pour exercer son droit de rétractation, l'Utilisateur adresse sa demande à support@diqto.fr en indiquant clairement sa volonté de se rétracter. Le remboursement est effectué dans un délai de 14 jours suivant la réception de la demande, par le même moyen de paiement que celui utilisé pour la transaction initiale.
+Les demandes de remboursement relatives à un achat App Store doivent être adressées à Apple depuis [reportaproblem.apple.com](https://reportaproblem.apple.com/) ou le support Apple, selon les règles de l'App Store et le droit applicable. Diqto peut aider à identifier la transaction, mais ne peut ni débiter ni rembourser directement le moyen de paiement Apple.
 
 ---
 
@@ -108,10 +101,10 @@ Pour exercer son droit de rétractation, l'Utilisateur adresse sa demande à sup
 ### 7.1 Par l'Utilisateur
 
 L'Utilisateur peut résilier son abonnement à tout moment :
-- Depuis son espace dans le Service ;
-- Par email à support@diqto.fr.
+- Depuis les réglages d'abonnements de son compte Apple ;
+- Depuis le lien de gestion des abonnements disponible dans l'application.
 
-La résiliation prend effet à la fin de la période d'abonnement en cours. L'Utilisateur conserve l'accès aux fonctionnalités payantes jusqu'à cette date. **Aucun remboursement prorata temporis ne sera effectué** pour la période restante.
+La résiliation prend effet à la fin de la période d'abonnement en cours. L'Utilisateur conserve l'accès aux fonctionnalités payantes jusqu'à cette date. Une demande envoyée uniquement à support@diqto.fr ne résilie pas techniquement un abonnement géré par Apple.
 
 Après résiliation d'un plan payant, le compte repasse automatiquement en plan Gratuit.
 
@@ -151,9 +144,9 @@ Diqto ne saurait être tenu responsable des conséquences fiscales, comptables o
 
 ## 10. Mentions spécifiques société
 
-Diqto est édité par DIQTO, SASU immatriculée au RCS de Marseille. Les abonnements payants restent en préparation : aucun achat intégré, checkout Stripe ou prélèvement automatique n'est actif tant que le paiement n'a pas été explicitement activé dans le Service.
+Diqto est édité par DIQTO, SASU immatriculée au RCS de Marseille. Les abonnements Essential et Vocal Pro sont disponibles sous forme d'achats intégrés dans l'application iOS distribuée sur l'App Store France. Aucun checkout Stripe public n'est proposé sur diqto.fr.
 
-Avant toute facturation, Diqto précisera les informations fiscales applicables aux factures d'abonnement, notamment la TVA le cas échéant.
+Le prix affiché par Apple avant confirmation est le prix définitif applicable à l'Utilisateur et inclut les taxes applicables collectées dans le cadre de la transaction App Store.
 
 ---
 

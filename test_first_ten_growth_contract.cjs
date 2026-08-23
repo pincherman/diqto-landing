@@ -49,6 +49,7 @@ assert(privacy.includes('<strong>Sentry</strong>'));
 assert(!privacy.includes('bandeau de consentement présent sur le site'));
 
 for (const source of [
+    'artisan_concierge',
     'linkedin_carousel',
     'linkedin_founder_comment',
     'linkedin_founder_launch',

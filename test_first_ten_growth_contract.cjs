@@ -1,6 +1,7 @@
 const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 
 const root = __dirname;
 const growth = fs.readFileSync(path.join(root, 'growth.js'), 'utf8');
@@ -59,5 +60,52 @@ for (const source of [
     assert(growth.includes(`${source}: true`), `missing closed source ${source}`);
 }
 assert(!growth.includes("source = requestedSource || defaultSource"));
+
+function executeGrowth(search) {
+    const payloads = [];
+    const body = {
+        getAttribute(name) {
+            return {
+                'data-growth-page': 'home',
+                'data-growth-source': 'direct_or_organic',
+            }[name] || null;
+        },
+    };
+    const context = {
+        URLSearchParams,
+        Math,
+        Date,
+        window: {
+            fetch(_url, options) {
+                payloads.push(JSON.parse(options.body));
+                return Promise.resolve({ ok: true });
+            },
+            location: { search },
+            crypto: { randomUUID: () => '01234567-89ab-cdef-0123-456789abcdef' },
+            sessionStorage: {
+                getItem: () => null,
+                setItem: () => {},
+            },
+        },
+        document: {
+            body,
+            addEventListener: () => {},
+            querySelectorAll: () => [],
+        },
+    };
+    vm.runInNewContext(growth, context);
+    return payloads;
+}
+
+const conciergePayloads = executeGrowth('?source=artisan_concierge');
+assert.equal(conciergePayloads.length, 1);
+assert.equal(conciergePayloads[0].event, 'landing_view');
+assert.equal(conciergePayloads[0].source, 'artisan_concierge');
+assert(!JSON.stringify(conciergePayloads[0]).includes('window.location'));
+
+const fallbackPayloads = executeGrowth('?source=untrusted@example.test');
+assert.equal(fallbackPayloads.length, 1);
+assert.equal(fallbackPayloads[0].source, 'direct_or_organic');
+assert(!JSON.stringify(fallbackPayloads[0]).includes('untrusted@example.test'));
 
 console.log('PASS first-ten privacy-safe growth contract');

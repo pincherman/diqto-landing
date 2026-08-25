@@ -28,11 +28,15 @@
     var defaultSource = body.getAttribute('data-growth-source') || 'unknown';
     var campaignSources = {
         artisan_concierge: true,
+        facebook_reels: true,
+        instagram_reels: true,
         linkedin_carousel: true,
         linkedin_founder_comment: true,
         linkedin_founder_launch: true,
         linkedin_profile: true,
         linkedin_video: true,
+        tiktok_video: true,
+        youtube_shorts: true,
     };
     var source = defaultSource;
     try {

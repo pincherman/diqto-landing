@@ -51,11 +51,15 @@ assert(!privacy.includes('bandeau de consentement présent sur le site'));
 
 for (const source of [
     'artisan_concierge',
+    'facebook_reels',
+    'instagram_reels',
     'linkedin_carousel',
     'linkedin_founder_comment',
     'linkedin_founder_launch',
     'linkedin_profile',
     'linkedin_video',
+    'tiktok_video',
+    'youtube_shorts',
 ]) {
     assert(growth.includes(`${source}: true`), `missing closed source ${source}`);
 }
@@ -107,5 +111,17 @@ const fallbackPayloads = executeGrowth('?source=untrusted@example.test');
 assert.equal(fallbackPayloads.length, 1);
 assert.equal(fallbackPayloads[0].source, 'direct_or_organic');
 assert(!JSON.stringify(fallbackPayloads[0]).includes('untrusted@example.test'));
+
+for (const source of [
+    'facebook_reels',
+    'instagram_reels',
+    'linkedin_video',
+    'tiktok_video',
+    'youtube_shorts',
+]) {
+    const payloads = executeGrowth(`?source=${source}`);
+    assert.equal(payloads.length, 1);
+    assert.equal(payloads[0].source, source);
+}
 
 console.log('PASS first-ten privacy-safe growth contract');

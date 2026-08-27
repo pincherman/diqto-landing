@@ -54,7 +54,9 @@ assert(!privacy.includes('bandeau de consentement présent sur le site'));
 
 for (const source of [
     'artisan_concierge',
+    'facebook_post',
     'facebook_reels',
+    'instagram_post',
     'instagram_reels',
     'linkedin_carousel',
     'linkedin_founder_comment',
@@ -120,7 +122,9 @@ assert.equal(fallbackPayloads[0].source, 'direct_or_organic');
 assert(!JSON.stringify(fallbackPayloads[0]).includes('untrusted@example.test'));
 
 for (const source of [
+    'facebook_post',
     'facebook_reels',
+    'instagram_post',
     'instagram_reels',
     'linkedin_video',
     'tiktok_video',
@@ -167,5 +171,21 @@ assert.equal(poisonedPayloads[0].campaign, 'unknown');
 assert.equal(poisonedPayloads[0].content, 'unknown');
 assert(!JSON.stringify(poisonedPayloads[0]).includes('private@example.test'));
 assert(!JSON.stringify(poisonedPayloads[0]).includes('0600000000'));
+
+for (const [source, utmSource, content] of [
+    ['facebook_post', 'facebook', 'dictee_prete_v1'],
+    ['instagram_post', 'instagram', 'documents_controle_v1'],
+]) {
+    const payloads = executeGrowth([
+        `?source=${source}`,
+        `utm_source=${utmSource}`,
+        'utm_medium=organic_social',
+        'utm_campaign=preuve_produit_s1',
+        `utm_content=${content}`,
+    ].join('&'));
+    assert.equal(payloads[0].source, source);
+    assert.equal(payloads[0].campaign, 'preuve_produit_s1');
+    assert.equal(payloads[0].content, content);
+}
 
 console.log('PASS first-ten privacy-safe growth contract');

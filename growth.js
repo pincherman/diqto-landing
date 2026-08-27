@@ -28,7 +28,9 @@
     var defaultSource = body.getAttribute('data-growth-source') || 'unknown';
     var campaignSources = {
         artisan_concierge: true,
+        facebook_post: true,
         facebook_reels: true,
+        instagram_post: true,
         instagram_reels: true,
         linkedin_carousel: true,
         linkedin_founder_comment: true,
@@ -39,7 +41,9 @@
         youtube_shorts: true,
     };
     var socialCampaignSources = {
+        facebook_post: 'facebook',
         facebook_reels: 'facebook',
+        instagram_post: 'instagram',
         instagram_reels: 'instagram',
         linkedin_video: 'linkedin',
         tiktok_video: 'tiktok',
@@ -47,8 +51,11 @@
     };
     var campaigns = {
         deuxieme_journee_s1_btp: true,
+        preuve_produit_s1: true,
     };
     var campaignContents = {
+        dictee_prete_v1: true,
+        documents_controle_v1: true,
         ep01_plombier_v2: true,
         ep02_electricien_v3: true,
         ep03_couvreur_v1: true,

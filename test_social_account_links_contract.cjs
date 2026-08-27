@@ -16,11 +16,27 @@ const publicHtml = childProcess
     .map((relativePath) => fs.readFileSync(path.join(root, relativePath), 'utf8'))
     .join('\n');
 
-assert.match(
-    home,
-    /href="https:\/\/www\.linkedin\.com\/company\/diqto\/"[^>]*>LinkedIn<\/a>/,
-    'home must expose the verified public Diqto LinkedIn Page',
-);
+const verifiedSocialProfiles = [
+    ['LinkedIn', 'https://www.linkedin.com/company/diqto/'],
+    ['Instagram', 'https://www.instagram.com/diqto.app/'],
+    ['Facebook', 'https://www.facebook.com/profile.php?id=61593797400849'],
+    ['TikTok', 'https://www.tiktok.com/@philippeincherma5'],
+    ['YouTube', 'https://www.youtube.com/@diqtoapp'],
+];
+
+for (const [network, url] of verifiedSocialProfiles) {
+    const escapedUrl = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(
+        home,
+        new RegExp(`href="${escapedUrl}"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*>${network}<\\/a>`),
+        `home must expose the verified public Diqto ${network} profile safely`,
+    );
+    assert.match(
+        home,
+        new RegExp(`"${escapedUrl}"`),
+        `organization structured data must expose the verified Diqto ${network} profile`,
+    );
+}
 
 assert.doesNotMatch(
     publicHtml,

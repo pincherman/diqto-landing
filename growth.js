@@ -38,14 +38,92 @@
         tiktok_video: true,
         youtube_shorts: true,
     };
+    var socialCampaignSources = {
+        facebook_reels: 'facebook',
+        instagram_reels: 'instagram',
+        linkedin_video: 'linkedin',
+        tiktok_video: 'tiktok',
+        youtube_shorts: 'youtube',
+    };
+    var campaigns = {
+        deuxieme_journee_s1_btp: true,
+    };
+    var campaignContents = {
+        ep01_plombier_v2: true,
+        ep02_electricien_v3: true,
+        ep03_couvreur_v1: true,
+        ep04_macon_v2: true,
+    };
     var source = defaultSource;
+    var campaign = 'unknown';
+    var content = 'unknown';
+
+    function closedAttribution(candidate) {
+        var candidateSource = campaignSources[candidate.source]
+            ? candidate.source
+            : defaultSource;
+        var hasCompleteSocialCampaign = Boolean(
+            socialCampaignSources[candidateSource]
+            && candidate.utmSource === socialCampaignSources[candidateSource]
+            && candidate.medium === 'organic_social'
+            && campaigns[candidate.campaign]
+            && campaignContents[candidate.content]
+        );
+        return {
+            source: candidateSource,
+            campaign: hasCompleteSocialCampaign
+                ? candidate.campaign
+                : 'unknown',
+            content: hasCompleteSocialCampaign
+                ? candidate.content
+                : 'unknown',
+        };
+    }
+
     try {
-        var requestedSource = new URLSearchParams(
-            window.location.search
-        ).get('source');
-        if (campaignSources[requestedSource]) source = requestedSource;
+        var params = new URLSearchParams(window.location.search);
+        var hasRequestedAttribution = [
+            'source', 'utm_source', 'utm_medium',
+            'utm_campaign', 'utm_content',
+        ].some(function hasParam(name) {
+            return params.has(name);
+        });
+        var attribution;
+        if (hasRequestedAttribution) {
+            attribution = closedAttribution({
+                source: params.get('source'),
+                utmSource: params.get('utm_source'),
+                medium: params.get('utm_medium'),
+                campaign: params.get('utm_campaign'),
+                content: params.get('utm_content'),
+            });
+            window.sessionStorage.setItem(
+                'diqto_growth_attribution_v1',
+                JSON.stringify(attribution)
+            );
+        } else {
+            var storedAttribution = JSON.parse(
+                window.sessionStorage.getItem(
+                    'diqto_growth_attribution_v1'
+                ) || '{}'
+            );
+            attribution = closedAttribution({
+                source: storedAttribution.source,
+                utmSource: socialCampaignSources[storedAttribution.source],
+                medium: storedAttribution.campaign
+                    ? 'organic_social'
+                    : '',
+                campaign: storedAttribution.campaign,
+                content: storedAttribution.content,
+            });
+        }
+        source = attribution.source;
+        campaign = attribution.campaign;
+        content = attribution.content;
     } catch (_error) {
         source = defaultSource;
+        campaign = 'unknown';
+        content = 'unknown';
     }
 
     function track(eventName, placement, status) {
@@ -56,6 +134,8 @@
             page: page,
             placement: placement || 'unknown',
             source: source,
+            campaign: campaign,
+            content: content,
             status: status || 'unknown',
         };
         window.fetch(endpoint, {

@@ -12,12 +12,15 @@ const privacy = fs.readFileSync(path.join(root, 'confidentialite.html'), 'utf8')
 
 for (const marker of [
     "sessionStorage.getItem('diqto_growth_session_v1')",
+    "'diqto_growth_attribution_v1'",
     "credentials: 'omit'",
     "track('landing_view'",
     "'appstore_outbound'",
     "track('intake_started'",
     'linkedin_founder_launch: true',
-    "new URLSearchParams(\n            window.location.search\n        ).get('source')",
+    'new URLSearchParams(window.location.search)',
+    "campaign: campaign",
+    "content: content",
 ]) {
     assert(growth.includes(marker), `growth rail missing ${marker}`);
 }
@@ -65,7 +68,7 @@ for (const source of [
 }
 assert(!growth.includes("source = requestedSource || defaultSource"));
 
-function executeGrowth(search) {
+function executeGrowth(search, storedSession = {}) {
     const payloads = [];
     const body = {
         getAttribute(name) {
@@ -87,8 +90,10 @@ function executeGrowth(search) {
             location: { search },
             crypto: { randomUUID: () => '01234567-89ab-cdef-0123-456789abcdef' },
             sessionStorage: {
-                getItem: () => null,
-                setItem: () => {},
+                getItem: (key) => storedSession[key] || null,
+                setItem: (key, value) => {
+                    storedSession[key] = value;
+                },
             },
         },
         document: {
@@ -105,6 +110,8 @@ const conciergePayloads = executeGrowth('?source=artisan_concierge');
 assert.equal(conciergePayloads.length, 1);
 assert.equal(conciergePayloads[0].event, 'landing_view');
 assert.equal(conciergePayloads[0].source, 'artisan_concierge');
+assert.equal(conciergePayloads[0].campaign, 'unknown');
+assert.equal(conciergePayloads[0].content, 'unknown');
 assert(!JSON.stringify(conciergePayloads[0]).includes('window.location'));
 
 const fallbackPayloads = executeGrowth('?source=untrusted@example.test');
@@ -123,5 +130,42 @@ for (const source of [
     assert.equal(payloads.length, 1);
     assert.equal(payloads[0].source, source);
 }
+
+const socialSession = {};
+const socialQuery = [
+    '?source=facebook_reels',
+    'utm_source=facebook',
+    'utm_medium=organic_social',
+    'utm_campaign=deuxieme_journee_s1_btp',
+    'utm_content=ep01_plombier_v2',
+].join('&');
+const socialPayloads = executeGrowth(socialQuery, socialSession);
+assert.equal(socialPayloads[0].source, 'facebook_reels');
+assert.equal(
+    socialPayloads[0].campaign,
+    'deuxieme_journee_s1_btp',
+);
+assert.equal(socialPayloads[0].content, 'ep01_plombier_v2');
+
+const continuedPayloads = executeGrowth('', socialSession);
+assert.equal(continuedPayloads[0].source, 'facebook_reels');
+assert.equal(
+    continuedPayloads[0].campaign,
+    'deuxieme_journee_s1_btp',
+);
+assert.equal(continuedPayloads[0].content, 'ep01_plombier_v2');
+
+const poisonedPayloads = executeGrowth(
+    '?source=facebook_reels'
+    + '&utm_source=facebook'
+    + '&utm_medium=organic_social'
+    + '&utm_campaign=private@example.test'
+    + '&utm_content=client-phone-0600000000',
+);
+assert.equal(poisonedPayloads[0].source, 'facebook_reels');
+assert.equal(poisonedPayloads[0].campaign, 'unknown');
+assert.equal(poisonedPayloads[0].content, 'unknown');
+assert(!JSON.stringify(poisonedPayloads[0]).includes('private@example.test'));
+assert(!JSON.stringify(poisonedPayloads[0]).includes('0600000000'));
 
 console.log('PASS first-ten privacy-safe growth contract');

@@ -29,6 +29,8 @@ FACTURATION_HUB = {
 PRIORITY_TRADES = [
     ("Plombier", "/plombier.html"),
     ("Électricien", "/electricien.html"),
+    ("Couvreur", "/metiers/couvreur.html"),
+    ("Maçon", "/metiers/macon.html"),
     ("Peintre en bâtiment", "/peintre.html"),
     ("Menuisier", "/menuisier.html"),
     ("Carreleur", "/carreleur.html"),
@@ -63,6 +65,7 @@ TOP_LEVEL = {
     "peintre": "peintre.html",
     "photographe": "photographe.html",
     "plombier": "plombier.html",
+    "prof_yoga": "professeur-yoga.html",
 }
 
 GUIDES = [
@@ -351,6 +354,7 @@ def generate_guide(guide: dict) -> None:
 
 def load_trades():
     groups = {key: [] for key in CATEGORY_LABELS}
+    seen_hrefs = set()
     for path in sorted(CONFIG_ROOT.glob("*.json")):
         if path.stem.startswith("_"):
             continue
@@ -358,6 +362,9 @@ def load_trades():
         label = data.get("label", path.stem.replace("_", " ").title())
         category = data.get("category", "autre")
         href = "/" + TOP_LEVEL.get(path.stem, f"metiers/{path.stem}.html")
+        if href in seen_hrefs:
+            continue
+        seen_hrefs.add(href)
         groups.setdefault(category, []).append((label, href))
     return groups
 

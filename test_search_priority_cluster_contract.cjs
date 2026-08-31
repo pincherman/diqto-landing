@@ -22,6 +22,8 @@ const informationPages = [
 const tradePages = [
     'plombier.html',
     'electricien.html',
+    'metiers/couvreur.html',
+    'metiers/macon.html',
     'peintre.html',
     'menuisier.html',
     'carreleur.html',

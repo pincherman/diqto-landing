@@ -20,7 +20,7 @@ const verifiedSocialProfiles = [
     ['LinkedIn', 'https://www.linkedin.com/company/diqto/'],
     ['Instagram', 'https://www.instagram.com/diqto.app/'],
     ['Facebook', 'https://www.facebook.com/profile.php?id=61593797400849'],
-    ['TikTok', 'https://www.tiktok.com/@philippeincherma5'],
+    ['TikTok', 'https://www.tiktok.com/@diqto.fr'],
     ['YouTube', 'https://www.youtube.com/@diqtoapp'],
 ];
 

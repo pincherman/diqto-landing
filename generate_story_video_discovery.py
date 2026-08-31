@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import hashlib
 import json
 from dataclasses import dataclass
 from html import escape
@@ -11,6 +12,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
 from release_config import APP_STORE_URL
+from campaign_video_content import CAMPAIGN_VIDEOS, render_vtt
 
 
 ROOT = Path(__file__).resolve().parent
@@ -446,6 +448,21 @@ def render_video_sitemap() -> str:
             "    </video:video>\n"
             "  </url>"
         )
+    for video in CAMPAIGN_VIDEOS:
+        entries.append(
+            "  <url>\n"
+            f"    <loc>{xml_escape(video.page_url)}</loc>\n"
+            "    <video:video>\n"
+            f"      <video:thumbnail_loc>{xml_escape(video.poster_url)}</video:thumbnail_loc>\n"
+            f"      <video:title>{xml_escape(video.heading)}</video:title>\n"
+            f"      <video:description>{xml_escape(video.description)}</video:description>\n"
+            f"      <video:content_loc>{xml_escape(video.video_url)}</video:content_loc>\n"
+            f"      <video:duration>{video.duration_seconds}</video:duration>\n"
+            "      <video:family_friendly>yes</video:family_friendly>\n"
+            "      <video:live>no</video:live>\n"
+            "    </video:video>\n"
+            "  </url>"
+        )
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
@@ -474,6 +491,26 @@ def write_or_check(path: Path, content: str, check: bool) -> bool:
     return True
 
 
+def validate_campaign_assets() -> bool:
+    valid = True
+    for video in CAMPAIGN_VIDEOS:
+        media_path = ROOT / video.video_path.lstrip("/")
+        poster_path = ROOT / video.poster_path.lstrip("/")
+        for asset_path in (media_path, poster_path):
+            if not asset_path.is_file():
+                print(f"missing_campaign_asset: {asset_path}")
+                valid = False
+        if media_path.is_file():
+            digest = hashlib.sha256(media_path.read_bytes()).hexdigest()
+            if digest != video.sha256:
+                print(
+                    f"campaign_asset_sha256_mismatch: {media_path} "
+                    f"expected={video.sha256} actual={digest}"
+                )
+                valid = False
+    return valid
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
@@ -483,11 +520,23 @@ def main() -> int:
         write_or_check(WATCH_DIR / f"{story.slug}.html", render_page(story), args.check)
         for story in STORIES
     ]
+    results.extend(
+        write_or_check(
+            ROOT / video.captions_path.lstrip("/"),
+            render_vtt(video),
+            args.check,
+        )
+        for video in CAMPAIGN_VIDEOS
+    )
     results.append(write_or_check(VIDEO_SITEMAP, render_video_sitemap(), args.check))
+    results.append(validate_campaign_assets())
     if not all(results):
         return 1
     action = "check" if args.check else "generate"
-    print(f"story_video_discovery_{action}: OK pages={len(STORIES)}")
+    print(
+        f"story_video_discovery_{action}: OK "
+        f"pages={len(STORIES)} campaign_videos={len(CAMPAIGN_VIDEOS)}"
+    )
     return 0
 
 

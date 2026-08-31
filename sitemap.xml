@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://diqto.fr/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/facturation-electronique.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/electricien.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,7 +128,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/plombier.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers/couvreur.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -326,7 +326,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers/macon.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -428,12 +428,6 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers/prof_natation.html</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://diqto.fr/metiers/prof_yoga.html</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

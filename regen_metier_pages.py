@@ -10,6 +10,12 @@ from release_config import (
     APP_VERSION,
     IOS_MINIMUM_VERSION,
 )
+from campaign_video_content import (
+    CAMPAIGN_VIDEO_CSS,
+    campaign_video_for_page,
+    render_video_head,
+    render_video_section,
+)
 
 ICON_LABELS = {
     "🎤": "VOIX",
@@ -223,7 +229,7 @@ TEMPLATE = '''<!DOCTYPE html>
 <meta name="twitter:image" content="{og_image}">
 <script type="application/ld+json">
 {schema_json}
-</script>
+</script>{video_head}
 <style>
 :root {{ --bg:#0c0c0c; --primary:#25d366; --green:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -252,7 +258,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 .seo-next {{ max-width:800px; margin:0 auto 52px; padding:22px 24px; border:1px solid var(--border); border-radius:18px; background:#121712; }}
 .seo-next strong {{ display:block; margin-bottom:8px; }}
 .seo-next a {{ color:var(--primary); font-weight:700; text-decoration:none; }}
-.seo-next a + a {{ margin-left:18px; }}
+.seo-next a + a {{ margin-left:18px; }}{campaign_video_css}
 @media (max-width:600px) {{ .hero {{ padding:58px 0 40px; }} .features {{ grid-template-columns:1fr; }} .cta {{ width:100%; }} }}
 </style>
 </head>
@@ -270,7 +276,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
     <p>{desc}</p>
     <a href="{diagnostic_href}" class="cta">Télécharger Diqto gratuitement →</a>
   </div>
-</section>
+</section>{video_section}
 <div class="container">
   <div class="pain">{pain}</div>
   <div class="features">
@@ -310,7 +316,12 @@ for m in METIERS:
         features_html += f'    <div class="feat"><div class="icon">{icon_label(icon)}</div><h3>{feature_title}</h3><p>{feature_desc}</p></div>\n'
 
     canonical_url = f"https://diqto.fr/{m['id']}.html"
-    og_image = "https://diqto.fr/og-image.png"
+    campaign_video = campaign_video_for_page(f"/{m['id']}.html")
+    og_image = (
+        campaign_video.poster_url
+        if campaign_video
+        else "https://diqto.fr/og-image.png"
+    )
     schema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -352,6 +363,9 @@ for m in METIERS:
         og_title_attr=escape(f"Diqto pour les {m['label']}", quote=True),
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
+        video_head=("\n" + render_video_head(campaign_video)) if campaign_video else "",
+        campaign_video_css=CAMPAIGN_VIDEO_CSS if campaign_video else "",
+        video_section=("\n" + render_video_section(campaign_video)) if campaign_video else "",
         pain=escape(m["pain"]),
         features_html=features_html,
         example=escape(m["example"]),

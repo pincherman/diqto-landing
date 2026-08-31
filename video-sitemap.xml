@@ -61,4 +61,52 @@
       <video:live>no</video:live>
     </video:video>
   </url>
+  <url>
+    <loc>https://diqto.fr/plombier.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/campaign/diqto-plombier-devis-paiement-poster.jpg</video:thumbnail_loc>
+      <video:title>Du devis au paiement : le cas concret d'un plombier</video:title>
+      <video:description>Film Diqto de 40 secondes pour plombiers : dicter les travaux, préparer le devis, reprendre les changements et préparer la facture sans tout ressaisir.</video:description>
+      <video:content_loc>https://diqto.fr/assets/campaign/diqto-plombier-devis-paiement.mp4</video:content_loc>
+      <video:duration>40</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/electricien.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/campaign/diqto-electricien-diagnostic-paiement-poster.jpg</video:thumbnail_loc>
+      <video:title>Du diagnostic au paiement : le cas concret d'un électricien</video:title>
+      <video:description>Film Diqto de 40 secondes pour électriciens : dicter le diagnostic et les travaux, préparer le devis puis la facture sans tout ressaisir.</video:description>
+      <video:content_loc>https://diqto.fr/assets/campaign/diqto-electricien-diagnostic-paiement.mp4</video:content_loc>
+      <video:duration>40</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/metiers/couvreur.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/campaign/diqto-couvreur-inspection-paiement-poster.jpg</video:thumbnail_loc>
+      <video:title>De l'inspection au paiement : le cas concret d'un couvreur</video:title>
+      <video:description>Film Diqto de 40 secondes pour couvreurs : dicter les travaux de toiture, préparer le devis puis la facture sans tout ressaisir.</video:description>
+      <video:content_loc>https://diqto.fr/assets/campaign/diqto-couvreur-inspection-paiement.mp4</video:content_loc>
+      <video:duration>40</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://diqto.fr/metiers/macon.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://diqto.fr/assets/campaign/diqto-macon-devis-paiement-poster.jpg</video:thumbnail_loc>
+      <video:title>Du devis au paiement : le cas concret d'un maçon</video:title>
+      <video:description>Film Diqto de 40 secondes pour maçons : dicter le chantier, ajuster le devis quand les travaux changent puis préparer la facture.</video:description>
+      <video:content_loc>https://diqto.fr/assets/campaign/diqto-macon-devis-paiement.mp4</video:content_loc>
+      <video:duration>40</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
 </urlset>

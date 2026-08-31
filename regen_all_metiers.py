@@ -11,6 +11,12 @@ from release_config import (
     APP_VERSION,
     IOS_MINIMUM_VERSION,
 )
+from campaign_video_content import (
+    CAMPAIGN_VIDEO_CSS,
+    campaign_video_for_page,
+    render_video_head,
+    render_video_section,
+)
 
 CONFIG_DIR = Path(__file__).parent / ".." / "batiboss" / "config" / "metiers"
 OUTPUT_DIR = Path(__file__).parent / "metiers"
@@ -26,6 +32,7 @@ TOP_LEVEL_CANONICALS = {
     "peintre": "peintre.html",
     "photographe": "photographe.html",
     "plombier": "plombier.html",
+    "prof_yoga": "professeur-yoga.html",
 }
 
 CATEGORY_LABELS = {
@@ -241,7 +248,7 @@ TEMPLATE = '''<!DOCTYPE html>
 </script>
 <script type="application/ld+json" data-schema="metier-faq">
 {faq_schema_json}
-</script>
+</script>{video_head}
 <style>
 :root {{ --bg:#0c0c0c; --primary:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -284,7 +291,7 @@ footer a:hover {{ color:var(--primary); }}
 .seo-next {{ max-width:800px; margin:0 auto 52px; padding:22px 24px; border:1px solid var(--border); border-radius:18px; background:#121712; }}
 .seo-next strong {{ display:block; margin-bottom:8px; }}
 .seo-next a {{ color:var(--primary); font-weight:700; text-decoration:none; }}
-.seo-next a + a {{ margin-left:18px; }}
+.seo-next a + a {{ margin-left:18px; }}{campaign_video_css}
 @media (max-width:600px) {{ .hero {{ padding:58px 0 38px; }} .features {{ grid-template-columns:1fr; }} .cta {{ width:100%; }} }}
 </style>
 </head>
@@ -303,7 +310,7 @@ footer a:hover {{ color:var(--primary); }}
   <h1>Diqto pour les <span>{label}</span></h1>
   <p>{desc}</p>
   <a href="{diagnostic_href}" class="cta">Télécharger Diqto gratuitement →</a>
-</div></section>
+</div></section>{video_section}
 <div class="container"><div class="features">
 {features_html}
 </div></div>
@@ -377,7 +384,12 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
             f'<p class="canonical-note">Page principale : '
             f'<a href="/{canonical_path}">Diqto pour les {escape(display_label)}</a></p>'
         )
-    og_image = "https://diqto.fr/og-image.png"
+    campaign_video = campaign_video_for_page(f"/metiers/{trade_id}.html")
+    og_image = (
+        campaign_video.poster_url
+        if campaign_video
+        else "https://diqto.fr/og-image.png"
+    )
     schema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -460,6 +472,9 @@ for config_file in sorted(glob.glob(str(CONFIG_DIR / "*.json"))):
         og_image=og_image,
         schema_json=json.dumps(schema, ensure_ascii=False, indent=2),
         faq_schema_json=json.dumps(faq_schema, ensure_ascii=False, indent=2),
+        video_head=("\n" + render_video_head(campaign_video)) if campaign_video else "",
+        campaign_video_css=CAMPAIGN_VIDEO_CSS if campaign_video else "",
+        video_section=("\n" + render_video_section(campaign_video)) if campaign_video else "",
         features_html=features_html, diagnostic_href=diagnostic_href,
         guide_href=guide_href, guide_label=guide_label,
         canonical_note=canonical_note,

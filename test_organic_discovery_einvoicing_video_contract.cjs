@@ -12,6 +12,7 @@ const storySlugs = [
     'sarah-avocate',
     'jean-luc-karate',
 ];
+const campaignVideoCount = 4;
 
 const hub = read('facturation-electronique.html');
 for (const marker of [
@@ -110,11 +111,11 @@ assert.match(videoSitemap, /<video:duration>32<\/video:duration>/);
 
 assert.equal(
     (videoSitemap.match(/<video:video>/g) || []).length,
-    storySlugs.length + 1,
+    storySlugs.length + 1 + campaignVideoCount,
 );
 assert.equal(
     (videoSitemap.match(/<video:thumbnail_loc>/g) || []).length,
-    storySlugs.length + 1,
+    storySlugs.length + 1 + campaignVideoCount,
 );
 
 console.log('organic_discovery_einvoicing_video_contract: OK');

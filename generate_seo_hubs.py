@@ -26,6 +26,16 @@ FACTURATION_HUB = {
     "intent": "Comprendre la réforme",
 }
 
+PDF_EMAIL_GUIDE = {
+    "href": "/guides/pdf-email-facture-electronique.html",
+    "title": "PDF par email ou facture électronique : la différence",
+    "description": (
+        "Pourquoi un PDF ordinaire ne suffit pas, ce que Factur-X ajoute "
+        "et quel rôle joue une plateforme agréée."
+    ),
+    "intent": "PDF ou facture électronique",
+}
+
 PRIORITY_TRADES = [
     ("Plombier", "/plombier.html"),
     ("Électricien", "/electricien.html"),
@@ -71,12 +81,19 @@ TOP_LEVEL = {
 GUIDES = [
     {
         "slug": "logiciel-devis-facture-artisan",
-        "intent": "Choisir un logiciel pour artisan",
-        "title": "Logiciel de devis et factures pour artisan : choisir sans alourdir ses journées",
-        "description": "Les critères concrets pour choisir un logiciel de devis et factures d'artisan : usage chantier, brouillons, clients, prix, contrôle et limites.",
+        "intent": "Logiciel devis facture artisan",
+        "title": "Logiciel devis facture artisan sur iPhone",
+        "h1": "Un logiciel de devis et factures pour artisan, pensé pour l'iPhone",
+        "description": "Dictez un devis ou une facture d'artisan sur iPhone, relisez le brouillon et décidez quand le finaliser. Parcours, limites et prix Diqto.",
         "eyebrow": "Guide pratique · Artisans",
-        "lead": "Le bon outil n'est pas celui qui affiche le plus de boutons. C'est celui qui vous évite de refaire au bureau ce que vous saviez déjà sur le chantier.",
+        "lead": "Capturez le client et les travaux tant qu'ils sont frais. Diqto prépare un brouillon modifiable, puis vous gardez la main sur les prix, la TVA et l'envoi.",
+        "updated": "2026-09-03",
+        "updated_label": "3 septembre 2026",
+        "hero_cta": True,
         "body": """
+<section class="seo-section" aria-labelledby="test-artisan"><h2 id="test-artisan">Le parcours à tester sur un vrai devis</h2>
+<div class="seo-grid"><article class="seo-card"><p class="seo-card-kicker">1. Dicter</p><h3>Décrivez le chantier</h3><p>Depuis l'iPhone, indiquez le client, les travaux, les quantités et les prix que vous connaissez. Vous pouvez aussi saisir le texte manuellement.</p></article><article class="seo-card"><p class="seo-card-kicker">2. Relire</p><h3>Contrôlez le brouillon</h3><p>Diqto structure les lignes dans un brouillon modifiable. Corrigez la prestation, la quantité, le prix, la TVA et les coordonnées avant de continuer.</p></article><article class="seo-card"><p class="seo-card-kicker">3. Décider</p><h3>Finalisez quand c'est prêt</h3><p>Rien ne part à la seule dictée. Vous choisissez quand finaliser, exporter ou envoyer le document après votre vérification.</p></article></div>
+<div class="seo-note"><p><strong>Prix en France :</strong> Free à 0&nbsp;€, Essential à 9&nbsp;€ TTC par mois et Vocal Pro à 19&nbsp;€ TTC par mois. Le prix local affiché par Apple avant l'achat fait foi.</p></div></section>
 <section class="seo-section"><h2>Commencez par la contrainte réelle</h2>
 <p>Pour un artisan, le devis n'est pas qu'un calcul. Il faut retrouver le client, se rappeler les travaux, reprendre les quantités, vérifier le matériel, appliquer le bon taux de TVA et garder une trace. Si le logiciel exige de tout ressaisir le soir, il déplace la paperasse sans la réduire.</p>
 <div class="seo-note"><p><strong>Le test le plus utile :</strong> prenez une intervention terminée aujourd'hui. Pouvez-vous préparer un brouillon fiable depuis votre téléphone, le corriger et le garder pour demain sans rien envoyer par erreur&nbsp;?</p></div></section>
@@ -108,12 +125,19 @@ GUIDES = [
     },
     {
         "slug": "logiciel-facturation-micro-entrepreneur",
-        "intent": "Choisir un logiciel pour micro-entreprise",
-        "title": "Logiciel de facturation pour micro-entrepreneur : le choisir selon votre vraie activité",
-        "description": "Comment choisir un logiciel de facturation pour micro-entrepreneur sans payer pour une usine à gaz : documents, clients, TVA, mobile et contrôle.",
+        "intent": "Logiciel facturation auto-entrepreneur",
+        "title": "Logiciel facturation auto-entrepreneur et micro-entreprise",
+        "h1": "Un logiciel de facturation pour auto-entrepreneur, sans usine à gaz",
+        "description": "Créez devis et factures de micro-entreprise sur iPhone, avec brouillons modifiables, suivi client et contrôle avant envoi. Prix et limites Diqto.",
         "eyebrow": "Guide pratique · Micro-entreprise",
-        "lead": "Un micro-entrepreneur n'a pas besoin d'un mini-ERP. Il a besoin de documents justes, d'un suivi clair et de moins de tâches reportées au soir.",
+        "lead": "Pour une micro-entreprise ou une auto-entreprise, le bon outil fait gagner du temps sans masquer les mentions, la TVA, les montants ni les limites du forfait.",
+        "updated": "2026-09-03",
+        "updated_label": "3 septembre 2026",
+        "hero_cta": True,
         "body": """
+<section class="seo-section" aria-labelledby="test-micro"><h2 id="test-micro">Ce que Diqto permet de tester gratuitement</h2>
+<div class="seo-grid"><article class="seo-card"><p class="seo-card-kicker">1. Partir du réel</p><h3>Parlez ou écrivez</h3><p>Dictez le client, la prestation et les montants connus, ou saisissez-les manuellement depuis l'iPhone.</p></article><article class="seo-card"><p class="seo-card-kicker">2. Garder le contrôle</p><h3>Relisez chaque champ</h3><p>Le résultat reste un brouillon modifiable. Vérifiez les coordonnées, la numérotation, la TVA, les lignes et les conditions de règlement.</p></article><article class="seo-card"><p class="seo-card-kicker">3. Créer la suite</p><h3>Retrouvez le client</h3><p>Conservez l'historique, reprenez un devis et préparez la facture sans repartir d'une page blanche. Aucun envoi n'est automatique.</p></article></div>
+<div class="seo-note"><p><strong>Plan Free :</strong> clients et brouillons illimités, avec trois documents finalisés, exportés ou envoyés par mois. Essential coûte 9&nbsp;€ TTC par mois et Vocal Pro 19&nbsp;€ TTC par mois en France. Le prix local affiché par Apple fait foi.</p></div></section>
 <section class="seo-section"><h2>Le volume de documents ne dit pas tout</h2>
 <p>Deux indépendants qui émettent dix factures par mois peuvent avoir des besoins opposés. L'un reprend toujours les mêmes prestations. L'autre travaille sur devis, facture des acomptes et doit relancer plusieurs clients. Le bon choix part donc de votre parcours réel, pas d'une liste de fonctionnalités.</p></section>
 <section class="seo-section"><h2>La checklist avant de choisir</h2><ul>
@@ -260,7 +284,7 @@ GUIDES = [
 ]
 
 
-def shell(active: str = "") -> str:
+def shell(active: str = "", growth: bool = False) -> str:
     items = [
         ("/", "Accueil", "home"),
         ("/fonctionnalites.html", "Fonctionnalités", "features"),
@@ -273,12 +297,14 @@ def shell(active: str = "") -> str:
         f'<a href="{href}"{(" aria-current=\"page\"" if key == active else "")}>{label}</a>'
         for href, label, key in items
     )
+    announcement_growth = ' data-growth-placement="announcement"' if growth else ""
+    header_growth = ' data-growth-placement="header"' if growth else ""
     return f'''<a class="global-skip-link" href="#contenu">Aller au contenu</a>
-<a class="global-announcement" href="{APP_STORE_URL}"><strong>Diqto 1.0 est disponible</strong><span>Télécharger sur l’App Store France <span aria-hidden="true">→</span></span></a>
+<a class="global-announcement" href="{APP_STORE_URL}"{announcement_growth}><strong>Diqto 1.0 est disponible</strong><span>Télécharger sur l’App Store France <span aria-hidden="true">→</span></span></a>
 <header class="global-header" data-menu-open="false"><div class="global-nav">
   <a class="global-brand" href="/" aria-label="Diqto, accueil"><span class="global-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="global-brand-name">diq<em>to</em></span></a>
   <button class="global-menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-principale">Menu</button>
-  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">{links}<a class="global-cta" href="{APP_STORE_URL}">Télécharger l’app</a></nav>
+  <nav class="global-menu" id="navigation-principale" aria-label="Navigation principale">{links}<a class="global-cta" href="{APP_STORE_URL}"{header_growth}>Télécharger l’app</a></nav>
 </div></header>'''
 
 
@@ -288,7 +314,7 @@ def footer() -> str:
 </nav></div></footer>'''
 
 
-def schemas(page_type: str, title: str, description: str, url: str, parent: str, items=None, sources=None) -> str:
+def schemas(page_type: str, title: str, description: str, url: str, parent: str, items=None, sources=None, modified_date: str = UPDATED) -> str:
     parent_url = f"{BASE_URL}/{parent.lower()}.html"
     breadcrumb_items = [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{BASE_URL}/"},
@@ -302,7 +328,7 @@ def schemas(page_type: str, title: str, description: str, url: str, parent: str,
     }
     page = {"@type": page_type, "headline": title, "name": title, "description": description, "url": url, "inLanguage": "fr-FR"}
     if page_type == "Article":
-        page.update({"datePublished": UPDATED, "dateModified": UPDATED, "author": {"@type": "Organization", "name": "DIQTO"}, "publisher": {"@type": "Organization", "name": "DIQTO", "url": f"{BASE_URL}/"}})
+        page.update({"datePublished": UPDATED, "dateModified": modified_date, "author": {"@type": "Organization", "name": "DIQTO"}, "publisher": {"@type": "Organization", "name": "DIQTO", "url": f"{BASE_URL}/"}})
         if sources:
             page["citation"] = [url for url, _ in sources]
     if items:
@@ -311,18 +337,23 @@ def schemas(page_type: str, title: str, description: str, url: str, parent: str,
     return json.dumps(graph, ensure_ascii=False, indent=2)
 
 
-def page_head(title: str, description: str, url: str, schema: str, og_type: str = "website", asset_prefix: str = "") -> str:
+def page_head(title: str, description: str, url: str, schema: str, og_type: str = "website", asset_prefix: str = "", growth_page: str = "") -> str:
     escaped_title = html.escape(title, quote=True)
     escaped_description = html.escape(description, quote=True)
+    growth_script = f'<script defer src="{asset_prefix}growth.js"></script>' if growth_page else ""
+    body_attributes = (
+        f' data-growth-page="{growth_page}" data-growth-source="direct_or_organic"'
+        if growth_page else ""
+    )
     return f'''<!DOCTYPE html><html lang="fr"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0c0c0c">
 <title>{escaped_title} — Diqto</title><meta name="description" content="{escaped_description}"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{url}"><link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{asset_prefix}site-shell.css"><link rel="stylesheet" href="{asset_prefix}seo-pages.css"><script defer src="{asset_prefix}site-shell.js"></script>
+<link rel="stylesheet" href="{asset_prefix}site-shell.css"><link rel="stylesheet" href="{asset_prefix}seo-pages.css"><script defer src="{asset_prefix}site-shell.js"></script>{growth_script}
 <meta property="og:type" content="{og_type}"><meta property="og:url" content="{url}"><meta property="og:title" content="{escaped_title}"><meta property="og:site_name" content="Diqto"><meta property="og:description" content="{escaped_description}"><meta property="og:image" content="{BASE_URL}/og-image.png"><meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escaped_title}"><meta name="twitter:description" content="{escaped_description}"><meta name="twitter:image" content="{BASE_URL}/og-image.png">
-<script type="application/ld+json">{schema}</script></head><body>'''
+<script type="application/ld+json">{schema}</script></head><body{body_attributes}>'''
 
 
 def related_section(related) -> str:
@@ -339,13 +370,17 @@ def source_section(sources) -> str:
 
 def generate_guide(guide: dict) -> None:
     url = f"{BASE_URL}/guides/{guide['slug']}.html"
-    schema = schemas("Article", guide["title"], guide["description"], url, "Guides", sources=guide["sources"])
-    content = page_head(guide["title"], guide["description"], url, schema, "article", "../")
-    content += shell("guides")
+    schema = schemas("Article", guide["title"], guide["description"], url, "Guides", sources=guide["sources"], modified_date=guide.get("updated", UPDATED))
+    content = page_head(guide["title"], guide["description"], url, schema, "article", "../", "guides")
+    content += shell("guides", growth=True)
+    hero_cta = (
+        f'<div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}" data-growth-placement="hero">Tester Diqto gratuitement</a></div>'
+        if guide.get("hero_cta") else ""
+    )
     content += f'''<main id="contenu"><div class="seo-container"><nav class="seo-breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>›</span><a href="/guides.html">Guides</a><span>›</span>Guide</nav></div>
-<header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">{guide['eyebrow']}</p><h1>{guide['title']}</h1><p class="seo-lead">{guide['lead']}</p><p class="seo-meta">Publié et vérifié le {UPDATED_LABEL} · Lecture 6 minutes</p></div></header>
+<header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">{guide['eyebrow']}</p><h1>{guide.get('h1', guide['title'])}</h1><p class="seo-lead">{guide['lead']}</p>{hero_cta}<p class="seo-meta">Publié et vérifié le {guide.get('updated_label', UPDATED_LABEL)} · Lecture 6 minutes</p></div></header>
 <div class="seo-container seo-main">{guide['body']}{source_section(guide['sources'])}{related_section(guide['related'])}
-<section class="seo-cta"><h2>Testez Diqto sur une tâche réelle.</h2><p>Un devis, une facture ou une note à finir aujourd'hui. Vous jugerez le brouillon, pas une promesse marketing.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/fonctionnalites.html">Voir les fonctionnalités</a></div></section></div></main>'''
+<section class="seo-cta"><h2>Testez Diqto sur une tâche réelle.</h2><p>Un devis, une facture ou une note à finir aujourd'hui. Vous jugerez le brouillon, pas une promesse marketing.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}" data-growth-placement="final_cta">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/fonctionnalites.html">Voir les fonctionnalités</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     out = ROOT / "guides" / f"{guide['slug']}.html"
     out.parent.mkdir(exist_ok=True)
@@ -410,6 +445,7 @@ def generate_guides_hub() -> None:
     url = f"{BASE_URL}/guides.html"
     guide_cards = [
         FACTURATION_HUB,
+        PDF_EMAIL_GUIDE,
         *[
             {
                 **guide,
@@ -439,8 +475,8 @@ def generate_guides_hub() -> None:
         )
         for guide in guide_cards
     )
-    content = page_head(title, description, url, schema) + shell("guides")
-    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
+    content = page_head(title, description, url, schema, growth_page="guides") + shell("guides", growth=True)
+    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}" data-growth-placement="final_cta">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "guides.html").write_text(content, encoding="utf-8")
 

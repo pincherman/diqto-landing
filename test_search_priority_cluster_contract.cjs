@@ -12,6 +12,7 @@ const read = (relative) => fs.readFileSync(
 
 const informationPages = [
     'facturation-electronique.html',
+    'guides/pdf-email-facture-electronique.html',
     'guides/logiciel-devis-facture-artisan.html',
     'guides/logiciel-facturation-micro-entrepreneur.html',
     'guides/facturation-electronique-micro-entreprise.html',

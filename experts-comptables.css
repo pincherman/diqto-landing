@@ -897,8 +897,13 @@ a {
 }
 
 .ec-offer {
+    scroll-margin-top: 96px;
     border-block: 1px solid var(--ec-line);
     background: var(--ec-bg-deep);
+}
+
+.ec-pilot {
+    scroll-margin-top: 96px;
 }
 
 .ec-offer-grid {

@@ -13,7 +13,12 @@
         var tools = String(data.get('tools') || '').trim();
         var clientProblem = String(data.get('client_problem') || '').trim();
         var offer = String(data.get('partnership_offer') || '').trim();
-        var offerLabel = offer || 'à qualifier après compatibilité';
+        var offerLabels = {
+            free_accountant_access: 'accès cabinet gratuit',
+            one_client_pilot: 'pilote sur un client volontaire',
+        };
+        var offerLabel = offerLabels[offer]
+            || 'à qualifier après compatibilité';
         return [
             'Modèle envisagé : ' + offerLabel,
             'Outils du cabinet : ' + tools,

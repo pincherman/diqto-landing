@@ -21,7 +21,14 @@ for (const marker of [
     'Vos clients parlent métier.',
     'Diqto prépare l’information.',
     'Évaluer un client sur un cycle',
+    'Voir la démo de l’espace EC',
     'Voir ce qui est déjà prouvé',
+    '0 € pour le cabinet',
+    'Aucun frais de siège ni abonnement cabinet',
+    'Diqto Essential',
+    '9 € TTC / mois',
+    'Diqto Vocal Pro',
+    '19 € TTC / mois',
     'Compatibilité vérifiée d’abord',
     'Simulation produit · 32 secondes',
     'Aucune connexion réelle à un cabinet n’est montrée',
@@ -35,9 +42,8 @@ for (const marker of [
     'Ce qui est prouvé, ce qui reste à prouver',
     'Vérification du 25 juillet 2026',
     'À démontrer avec le premier cabinet',
-    '99 € <small>HT / mois / cabinet</small>',
-    'Cohorte pilote',
-    'sans avantage lié à la prescription',
+    'Votre logiciel, votre GED et votre PA restent en place',
+    'Nous qualifions le chemin avant tout pilote',
     'Vérifier la compatibilité d’un cas client',
 ]) {
     assert.ok(page.includes(marker), `EC prescriber page missing: ${marker}`);
@@ -82,8 +88,12 @@ assert.match(page, /name="tools"[\s\S]+required/);
 assert.match(page, /name="client_problem"[\s\S]+required/);
 assert.match(page, /name="partnership_offer" type="hidden" value=""/);
 assert.doesNotMatch(page, /name="partnership_offer"[^>]+required/);
-assert.match(page, /data-offer-choice="cabinet_99"/);
-assert.match(page, /data-offer-choice="pilot_cohort_5"/);
+assert.match(page, /data-offer-choice="free_accountant_access"/);
+assert.match(page, /data-offer-choice="one_client_pilot"/);
+assert.match(
+    page,
+    /href="https:\/\/necessary-danila-diqto-7fbe88c8\.koyeb\.app\/ec\/v1"/,
+);
 assert.match(page, /name="source"[\s\S]+value="ec_prescripteur_pilot"/);
 assert.match(page, /name="contact_consent"[\s\S]+required/);
 assert.match(page, /name="website"[\s\S]+tabindex="-1"/);
@@ -99,6 +109,8 @@ assert.match(
 );
 assert.match(script, /Modèle envisagé/);
 assert.match(script, /à qualifier après compatibilité/);
+assert.match(script, /free_accountant_access: 'accès cabinet gratuit'/);
+assert.match(script, /one_client_pilot: 'pilote sur un client volontaire'/);
 assert.match(script, /data-offer-choice/);
 assert.match(script, /result\.confirmation_email_sent/);
 assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
@@ -122,6 +134,8 @@ for (const forbidden of [
     /Connecter ses plateformes/i,
     /Cabinet Ambassadeur/i,
     /contre 5 clients actifs/i,
+    /99\s*(?:€|EUR)/i,
+    /notre PA\b/i,
     /gagnez \d+ ?%|économisez \d+|ROI garanti/i,
     /Diqto est une Plateforme Agréée|Diqto remplace votre PA/i,
     /connexion (?:déjà )?active avec (?:Claude|ChatGPT|Codex)/i,

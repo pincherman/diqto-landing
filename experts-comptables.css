@@ -965,6 +965,19 @@ a {
     margin-top: auto;
 }
 
+.ec-offer-inline-link {
+    align-self: center;
+    margin-top: 16px;
+    color: var(--ec-green-light);
+    font-size: 13px;
+    font-weight: 700;
+    text-underline-offset: 4px;
+}
+
+.ec-offer-inline-link:hover {
+    color: var(--ec-green);
+}
+
 .ec-offer-boundary {
     max-width: 850px;
     margin: 24px auto 0;

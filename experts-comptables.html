@@ -613,55 +613,171 @@
 
                 <div class="ec-form-panel">
                     <div class="ec-form-head">
-                        <span>Premier échange · 15 min</span>
-                        <h3>Quelle situation souhaitez-vous simplifier ?</h3>
+                        <span>Pré-diagnostic · sans email</span>
+                        <h3>Qualifiez d’abord le chemin vers votre organisation.</h3>
                         <p>
-                            Ne renseignez aucun nom ni donnée personnelle de
-                            votre client à ce stade.
+                            Obtenez les vérifications à mener avant tout pilote.
+                            Ne renseignez aucun nom, email, téléphone ni donnée
+                            personnelle de votre client.
                         </p>
                     </div>
                     <form id="ec-prescriber-intake" data-growth-form novalidate>
                         <input name="partnership_offer" type="hidden" value="">
-                        <div class="ec-field">
-                            <label for="ec-email">Votre email professionnel</label>
-                            <input
-                                id="ec-email"
-                                name="email"
-                                type="email"
-                                autocomplete="email"
-                                maxlength="254"
-                                required
-                                placeholder="vous@cabinet.fr"
+                        <fieldset class="ec-form-stage" id="ec-qualification-stage">
+                            <legend>1 · Qualification anonyme</legend>
+                            <div class="ec-field-grid">
+                                <div class="ec-field">
+                                    <label for="ec-software-access">
+                                        Sortie disponible côté logiciel
+                                    </label>
+                                    <select id="ec-software-access" name="software_access" required>
+                                        <option value="">Choisir une catégorie</option>
+                                        <option value="api_documented">API documentée</option>
+                                        <option value="structured_export">Export structuré</option>
+                                        <option value="manual_only">Manipulation manuelle uniquement</option>
+                                        <option value="unknown">À identifier</option>
+                                    </select>
+                                </div>
+                                <div class="ec-field">
+                                    <label for="ec-document-management-access">
+                                        Accès à la GED ou au dépôt
+                                    </label>
+                                    <select
+                                        id="ec-document-management-access"
+                                        name="document_management_access"
+                                        required
+                                    >
+                                        <option value="">Choisir une catégorie</option>
+                                        <option value="integrated">Dépôt intégré</option>
+                                        <option value="api_documented">API documentée</option>
+                                        <option value="structured_export">Échange structuré</option>
+                                        <option value="manual_only">Dépôt manuel uniquement</option>
+                                        <option value="none">Aucune GED</option>
+                                        <option value="unknown">À identifier</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="ec-field-grid">
+                                <div class="ec-field">
+                                    <label for="ec-pa-status">Où en est votre choix de PA ?</label>
+                                    <select id="ec-pa-status" name="pa_status" required>
+                                        <option value="">Choisir une situation</option>
+                                        <option value="chosen">PA déjà choisie</option>
+                                        <option value="selection_in_progress">PA en cours d’évaluation</option>
+                                        <option value="not_chosen">Aucune PA choisie</option>
+                                        <option value="unknown">À identifier</option>
+                                    </select>
+                                </div>
+                                <div class="ec-field">
+                                    <label for="ec-client-type">Type de client, sans identité</label>
+                                    <select id="ec-client-type" name="client_type" required>
+                                        <option value="">Choisir une catégorie</option>
+                                        <option value="artisan">Artisan</option>
+                                        <option value="profession_liberale">Profession libérale</option>
+                                        <option value="commerce">Commerce</option>
+                                        <option value="services">Entreprise de services</option>
+                                        <option value="association">Association</option>
+                                        <option value="other">Autre catégorie</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="ec-field">
+                                <label for="ec-workflow-issue">
+                                    Principal problème observé
+                                </label>
+                                <select id="ec-workflow-issue" name="workflow_issue" required>
+                                    <option value="">Choisir une catégorie</option>
+                                    <option value="late_documents">Pièces reçues trop tard</option>
+                                    <option value="manual_reentry">Ressaisie manuelle</option>
+                                    <option value="duplicate_deposit">Dépôts en double</option>
+                                    <option value="status_tracking">Suivi des pièces difficile</option>
+                                    <option value="other">Autre difficulté</option>
+                                </select>
+                            </div>
+                            <p class="ec-category-note">
+                                Ces choix fermés empêchent l’envoi accidentel d’une
+                                identité ou de coordonnées client.
+                            </p>
+                            <button
+                                class="ec-button ec-button-primary ec-submit"
+                                id="ec-qualify-stack"
+                                type="button"
                             >
-                        </div>
-                        <div class="ec-field">
-                            <label for="ec-tools">
-                                Vos logiciels et votre PA, si vous en avez
+                                Qualifier ce chemin sans laisser d’email
+                            </button>
+                            <p
+                                class="ec-form-status"
+                                id="ec-qualification-status"
+                                role="status"
+                                aria-live="polite"
+                            ></p>
+                        </fieldset>
+
+                        <article
+                            class="ec-qualification-result"
+                            id="ec-qualification-result"
+                            tabindex="-1"
+                            aria-labelledby="ec-qualification-title"
+                            hidden
+                        >
+                            <span>Chemin à vérifier</span>
+                            <h4 id="ec-qualification-title"></h4>
+                            <p id="ec-qualification-decision"></p>
+                            <ol id="ec-qualification-steps"></ol>
+                            <p class="ec-partner-note" id="ec-qualification-partner" hidden></p>
+                            <div class="ec-next-proof">
+                                <span>Prochaine preuve</span>
+                                <strong id="ec-qualification-next"></strong>
+                            </div>
+                        </article>
+
+                        <fieldset
+                            class="ec-form-stage ec-contact-stage"
+                            id="ec-contact-stage"
+                            disabled
+                            hidden
+                        >
+                            <legend>2 · Cadrage humain, si vous le souhaitez</legend>
+                            <p>
+                                Le pré-diagnostic est terminé. Laissez votre email
+                                uniquement si vous voulez vérifier ce chemin avec Diqto.
+                            </p>
+                            <div class="ec-field">
+                                <label for="ec-email">Votre email professionnel</label>
+                                <input
+                                    id="ec-email"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    maxlength="254"
+                                    required
+                                    placeholder="vous@cabinet.fr"
+                                >
+                            </div>
+                            <input name="qualification_summary" type="hidden" value="">
+                            <label class="ec-consent" for="ec-consent">
+                                <input
+                                    id="ec-consent"
+                                    name="contact_consent"
+                                    type="checkbox"
+                                    required
+                                >
+                                <span>
+                                    J’accepte d’être recontacté au sujet de ce
+                                    pilote et j’ai lu la
+                                    <a href="/confidentialite.html">
+                                        politique de confidentialité
+                                    </a>.
+                                </span>
                             </label>
-                            <input
-                                id="ec-tools"
-                                name="tools"
-                                type="text"
-                                autocomplete="organization-title"
-                                minlength="2"
-                                maxlength="120"
-                                required
-                                placeholder="Ex. Sage, Pennylane, Cegid, jefacture.com ou aucun choix arrêté"
+                            <button
+                                class="ec-button ec-button-primary ec-submit"
+                                type="submit"
                             >
-                        </div>
-                        <div class="ec-field">
-                            <label for="ec-client-problem">
-                                Le type de client et le problème observé
-                            </label>
-                            <textarea
-                                id="ec-client-problem"
-                                name="client_problem"
-                                minlength="10"
-                                maxlength="300"
-                                required
-                                placeholder="Ex. artisan itinérant, pièces tardives et ressaisie en fin de mois"
-                            ></textarea>
-                        </div>
+                                Demander un cadrage de 15 minutes
+                            </button>
+                        </fieldset>
+
                         <input
                             name="trade"
                             type="hidden"
@@ -682,27 +798,6 @@
                                 autocomplete="off"
                             >
                         </div>
-                        <label class="ec-consent" for="ec-consent">
-                            <input
-                                id="ec-consent"
-                                name="contact_consent"
-                                type="checkbox"
-                                required
-                            >
-                            <span>
-                                J’accepte d’être recontacté au sujet de ce
-                                pilote et j’ai lu la
-                                <a href="/confidentialite.html">
-                                    politique de confidentialité
-                                </a>.
-                            </span>
-                        </label>
-                        <button
-                            class="ec-button ec-button-primary ec-submit"
-                            type="submit"
-                        >
-                            Vérifier la compatibilité d’un cas client
-                        </button>
                         <p
                             class="ec-form-status"
                             id="ec-form-status"

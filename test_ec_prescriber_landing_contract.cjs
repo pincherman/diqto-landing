@@ -44,7 +44,11 @@ for (const marker of [
     'À démontrer avec le premier cabinet',
     'Votre logiciel, votre GED et votre PA restent en place',
     'Nous qualifions le chemin avant tout pilote',
-    'Vérifier la compatibilité d’un cas client',
+    'Qualifier ce chemin sans laisser d’email',
+    'Qualification anonyme',
+    'Chemin à vérifier',
+    'Cadrage humain, si vous le souhaitez',
+    'Demander un cadrage de 15 minutes',
 ]) {
     assert.ok(page.includes(marker), `EC prescriber page missing: ${marker}`);
 }
@@ -84,8 +88,25 @@ assert.match(
 
 assert.match(page, /<form id="ec-prescriber-intake" data-growth-form novalidate>/);
 assert.match(page, /name="email"[\s\S]+required/);
-assert.match(page, /name="tools"[\s\S]+required/);
-assert.match(page, /name="client_problem"[\s\S]+required/);
+assert.match(page, /name="software_access"[\s\S]+required/);
+assert.match(page, /name="document_management_access"[\s\S]+required/);
+assert.match(page, /name="pa_status"[\s\S]+required/);
+assert.match(page, /value="chosen"/);
+assert.match(page, /value="selection_in_progress"/);
+assert.match(page, /value="not_chosen"/);
+assert.match(page, /name="client_type"[\s\S]+required/);
+assert.match(page, /name="workflow_issue"[\s\S]+required/);
+assert.doesNotMatch(
+    page.match(/id="ec-qualification-stage"[\s\S]*?<\/fieldset>/)[0],
+    /<(?:input|textarea)[^>]+type="(?:text|email|tel)"|<textarea/,
+);
+assert.match(page, /Ces choix fermés empêchent l’envoi accidentel/);
+assert.match(page, /name="qualification_summary" type="hidden" value=""/);
+assert.match(page, /id="ec-contact-stage"[\s\S]+disabled[\s\S]+hidden/);
+assert.ok(
+    page.indexOf('id="ec-qualification-result"') < page.indexOf('id="ec-email"'),
+    'anonymous qualification result must precede email capture',
+);
 assert.match(page, /name="partnership_offer" type="hidden" value=""/);
 assert.doesNotMatch(page, /name="partnership_offer"[^>]+required/);
 assert.match(page, /data-offer-choice="free_accountant_access"/);
@@ -98,9 +119,20 @@ assert.match(page, /name="source"[\s\S]+value="ec_prescripteur_pilot"/);
 assert.match(page, /name="contact_consent"[\s\S]+required/);
 assert.match(page, /name="website"[\s\S]+tabindex="-1"/);
 assert.match(page, /role="status"[\s\S]+aria-live="polite"/);
-assert.match(page, /Ne renseignez aucun nom ni donnée personnelle/);
+assert.match(page, /Ne renseignez aucun nom, email, téléphone ni donnée/);
 
+assert.match(script, /\/api\/public\/ec-stack-qualification/);
 assert.match(script, /\/api\/public\/starter-intake/);
+assert.match(script, /software_access: data\.get\('software_access'\)/);
+assert.match(script, /document_management_access: data\.get\(/);
+assert.match(script, /client_type: data\.get\('client_type'\)/);
+assert.match(script, /workflow_issue: data\.get\('workflow_issue'\)/);
+assert.doesNotMatch(script, /accounting_software|client_problem|pa_name/);
+assert.match(script, /status !== 'qualification_required'/);
+assert.match(script, /contactStage\.disabled = false/);
+assert.match(script, /contactStage\.hidden = false/);
+assert.match(script, /qualificationSummary\.value/);
+assert.match(script, /Aucun email n’a été demandé/);
 assert.match(script, /contact_consent:[\s\S]+=== 'on'/);
 assert.match(script, /first_need: buildFirstNeed\(data\)/);
 assert.match(
@@ -113,6 +145,8 @@ assert.match(script, /free_accountant_access: 'accès cabinet gratuit'/);
 assert.match(script, /one_client_pilot: 'pilote sur un client volontaire'/);
 assert.match(script, /data-offer-choice/);
 assert.match(script, /result\.confirmation_email_sent/);
+assert.match(script, /document\.createElement\('li'\)/);
+assert.doesNotMatch(script, /\.innerHTML\s*=/);
 assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
 
 assert.match(
@@ -150,6 +184,8 @@ for (const marker of [
     '@media (max-width: 680px)',
     '@media (max-width: 480px)',
     '@media (prefers-reduced-motion: reduce)',
+    '.ec-qualification-result',
+    '.ec-field-grid',
 ]) {
     assert.ok(styles.includes(marker), `EC styles missing: ${marker}`);
 }
@@ -168,6 +204,6 @@ assert.match(
 );
 
 console.log(
-    'PASS EC prescriber landing: client problem first, bounded claims, '
-    + 'fast media and compatibility-first intake',
+    'PASS EC prescriber landing: category-only preflight, bounded claims, '
+    + 'fast media and consent-gated contact',
 );

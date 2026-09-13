@@ -1,0 +1,16 @@
+{
+  "kind": "synthetic_pdf_renderer_example",
+  "renderer": "pdf_generator.generate_pdf",
+  "pdf_path": "assets/examples/devis-plombier-chauffe-eau-demonstration.pdf",
+  "sha256": "1721560ec5fc715da613e46b72157810ec0e816a9a0536ae7912a43e44c33ce2",
+  "bytes": 2816,
+  "document_number": "DEMO-PLOMBIER-001",
+  "total_ht": 780,
+  "total_tva": 156,
+  "total_ttc": 936,
+  "ai_transcription_tested": false,
+  "production_called": false,
+  "database_called": false,
+  "cloud_upload": false,
+  "client_send": false
+}

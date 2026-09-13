@@ -3,6 +3,7 @@
 
 import json
 from html import escape
+from plombier_devis_example import CSS as QUOTE_PROOF_CSS, render_example
 
 from release_config import (
     APP_STORE_AVAILABILITY,
@@ -258,7 +259,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
 .seo-next {{ max-width:800px; margin:0 auto 52px; padding:22px 24px; border:1px solid var(--border); border-radius:18px; background:#121712; }}
 .seo-next strong {{ display:block; margin-bottom:8px; }}
 .seo-next a {{ color:var(--primary); font-weight:700; text-decoration:none; }}
-.seo-next a + a {{ margin-left:18px; }}{campaign_video_css}
+.seo-next a + a {{ margin-left:18px; }}{campaign_video_css}{quote_proof_css}
 @media (max-width:600px) {{ .hero {{ padding:58px 0 40px; }} .features {{ grid-template-columns:1fr; }} .cta {{ width:100%; }} }}
 </style>
 </head>
@@ -282,10 +283,7 @@ footer a {{ color:var(--primary); text-decoration:none; }}
   <div class="features">
 {features_html}
   </div>
-  <div class="example">
-    <h3>Exemple de dictée</h3>
-    <p>"{example}"</p>
-  </div>
+{example_section}
 </div>
 <aside class="seo-next"><strong>Pour choisir avec du contexte</strong><a href="{guide_href}">{guide_label}</a><a href="/facturation-electronique.html">Facturation électronique 2026-2027</a></aside>
 <section class="final">
@@ -368,7 +366,9 @@ for m in METIERS:
         video_section=("\n" + render_video_section(campaign_video)) if campaign_video else "",
         pain=escape(m["pain"]),
         features_html=features_html,
-        example=escape(m["example"]),
+        quote_proof_css=QUOTE_PROOF_CSS if m["id"] == "plombier" else "",
+        example_section=(render_example(APP_STORE_URL) if m["id"] == "plombier" else
+            '  <div class="example">\n    <h3>Exemple de dictée</h3>\n    <p>"' + escape(m["example"]) + '"</p>\n  </div>'),
         guide_href=guide_href,
         guide_label=guide_label,
         diagnostic_href=APP_STORE_URL,

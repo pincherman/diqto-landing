@@ -170,12 +170,12 @@
         preuve_produit_s1: true,
     };
     var campaignContents = {
-        dictee_prete_v1: true,
-        documents_controle_v1: true,
-        ep01_plombier_v2: true,
-        ep02_electricien_v3: true,
-        ep03_couvreur_v1: true,
-        ep04_macon_v2: true,
+        dictee_prete_v1: 'preuve_produit_s1',
+        documents_controle_v1: 'preuve_produit_s1',
+        ep01_plombier_v2: 'deuxieme_journee_s1_btp',
+        ep02_electricien_v3: 'deuxieme_journee_s1_btp',
+        ep03_couvreur_v1: 'deuxieme_journee_s1_btp',
+        ep04_macon_v2: 'deuxieme_journee_s1_btp',
     };
     var source = defaultSource;
     var campaign = 'unknown';
@@ -196,6 +196,7 @@
             && candidate.medium === 'organic_social'
             && member(campaigns, candidate.campaign)
             && member(campaignContents, candidate.content)
+            && campaignContents[candidate.content] === candidate.campaign
         );
         return {
             source: candidateSource,

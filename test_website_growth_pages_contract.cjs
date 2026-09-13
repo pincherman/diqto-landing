@@ -61,6 +61,8 @@ for(const source of ['constructor','__proto__','private@example.test']){
   e.context.window.diqtoGrowthTrack('constructor','private@example.test','constructor');assert.equal(e.sent.length,1);
 }
 const e=environment('/');e.run();e.click('https://apps.apple.com.attacker.test/id6761616034',null);assert.equal(e.sent.length,1);
+const mismatched=environment('/','?source=facebook_reels&utm_source=facebook&utm_medium=organic_social&utm_campaign=preuve_produit_s1&utm_content=ep01_plombier_v2');
+mismatched.run();assert.equal(mismatched.sent[0].campaign,'unknown');assert.equal(mismatched.sent[0].content,'unknown');
 e.click('https://apps.apple.com/fr/app/other/id0000000000',null);assert.equal(e.sent.length,1);
 for(const [alias,expected]of Object.entries({final:'final_cta','intent-evening':'hero',hero_ec_demo:'hero',offer_ec_demo:'expert_entry'})){
   e.click('https://apps.apple.com/fr/app/diqto/id6761616034',alias);assert.equal(e.sent.at(-1).placement,expected);

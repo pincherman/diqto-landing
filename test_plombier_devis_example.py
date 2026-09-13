@@ -70,7 +70,7 @@ class PublicExampleContract(unittest.TestCase):
         self.assertIn("elle n’a pas été transcrite par l’IA", html)
         self.assertIn("3 documents finalisés, exportés ou envoyés par mois", html)
         self.assertIn("3 vocaux courts par mois jusqu’à 1 minute", html)
-        self.assertIn('href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="plombier-example"', html)
+        self.assertIn('href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="final_cta"', html)
         proof = json.loads((ROOT / PDF_PATH).with_suffix(".json").read_text())
         self.assertEqual(proof["sha256"], hashlib.sha256((ROOT / PDF_PATH).read_bytes()).hexdigest())
         self.assertEqual(proof["renderer"], "pdf_generator.generate_pdf")

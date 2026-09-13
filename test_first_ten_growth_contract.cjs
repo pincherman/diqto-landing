@@ -81,6 +81,7 @@ function executeGrowth(search, storedSession = {}) {
         },
     };
     const context = {
+        URL,
         URLSearchParams,
         Math,
         Date,
@@ -89,7 +90,7 @@ function executeGrowth(search, storedSession = {}) {
                 payloads.push(JSON.parse(options.body));
                 return Promise.resolve({ ok: true });
             },
-            location: { search },
+            location: { search, pathname: '/', hostname: 'diqto.fr', origin: 'https://diqto.fr' },
             crypto: { randomUUID: () => '01234567-89ab-cdef-0123-456789abcdef' },
             sessionStorage: {
                 getItem: (key) => storedSession[key] || null,

@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "site_origin": "https://diqto.fr",
+  "pages": [
+    {
+      "path": "/",
+      "key": "home",
+      "group": "home",
+      "aliases": [
+        "/index.html"
+      ]
+    },
+    {
+      "path": "/fonctionnalites.html",
+      "key": "page_fonctionnalites",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/facturation-electronique.html",
+      "key": "page_facturation_electronique",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/experts-comptables.html",
+      "key": "experts_comptables",
+      "group": "experts_comptables",
+      "aliases": []
+    },
+    {
+      "path": "/histoires.html",
+      "key": "story_histoires",
+      "group": "histoires",
+      "aliases": []
+    },
+    {
+      "path": "/docs.html",
+      "key": "page_docs",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/aide.html",
+      "key": "page_aide",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/cgu.html",
+      "key": "page_cgu",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/confidentialite.html",
+      "key": "page_confidentialite",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/mentions-legales.html",
+      "key": "page_mentions_legales",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/carreleur.html",
+      "key": "metier_carreleur",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/carreleur.html"
+      ]
+    },
+    {
+      "path": "/coach-sportif.html",
+      "key": "metier_coach_sportif",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/coach_sportif.html"
+      ]
+    },
+    {
+      "path": "/electricien.html",
+      "key": "metier_electricien",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/electricien.html"
+      ]
+    },
+    {
+      "path": "/facturation-electronique-conditions.html",
+      "key": "page_facturation_electronique_conditions",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/guides.html",
+      "key": "guides_index",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/kinesitherapeute.html",
+      "key": "metier_kinesitherapeute",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/kinesitherapeute.html",
+        "/metiers/kine.html"
+      ]
+    },
+    {
+      "path": "/menuisier.html",
+      "key": "metier_menuisier",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/menuisier.html"
+      ]
+    },
+    {
+      "path": "/metiers.html",
+      "key": "metiers_index",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/osteopathe.html",
+      "key": "metier_osteopathe",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/osteopathe.html"
+      ]
+    },
+    {
+      "path": "/peintre.html",
+      "key": "metier_peintre",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/peintre.html"
+      ]
+    },
+    {
+      "path": "/photographe.html",
+      "key": "metier_photographe",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/photographe.html"
+      ]
+    },
+    {
+      "path": "/plombier.html",
+      "key": "metier_plombier",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/plombier.html"
+      ]
+    },
+    {
+      "path": "/professeur-yoga.html",
+      "key": "metier_professeur_yoga",
+      "group": "metiers",
+      "aliases": [
+        "/metiers/prof_yoga.html"
+      ]
+    },
+    {
+      "path": "/reportage-premier-client-facturation-electronique.html",
+      "key": "page_reportage_premier_client_facturation_electronique",
+      "group": "site",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/accastilleur.html",
+      "key": "metier_accastilleur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/acupuncteur.html",
+      "key": "metier_acupuncteur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/animateur.html",
+      "key": "metier_animateur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/architecte.html",
+      "key": "metier_architecte",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/architecte_interieur.html",
+      "key": "metier_architecte_interieur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/art_therapeute.html",
+      "key": "metier_art_therapeute",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/auto_ecole.html",
+      "key": "metier_auto_ecole",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/avocat.html",
+      "key": "metier_avocat",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/charpentier.html",
+      "key": "metier_charpentier",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/chauffagiste.html",
+      "key": "metier_chauffagiste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/chiropracteur.html",
+      "key": "metier_chiropracteur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/climatisation.html",
+      "key": "metier_climatisation",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/coiffeur.html",
+      "key": "metier_coiffeur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/consultant.html",
+      "key": "metier_consultant",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/couvreur.html",
+      "key": "metier_couvreur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/diagnostiqueur.html",
+      "key": "metier_diagnostiqueur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/dieteticien.html",
+      "key": "metier_dieteticien",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/dog_groomer.html",
+      "key": "metier_dog_groomer",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/domotique.html",
+      "key": "metier_domotique",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/ergotherapeute.html",
+      "key": "metier_ergotherapeute",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/estheticienne.html",
+      "key": "metier_estheticienne",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/expert_comptable.html",
+      "key": "metier_expert_comptable",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/facade.html",
+      "key": "metier_facade",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/fleuriste.html",
+      "key": "metier_fleuriste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/formateur.html",
+      "key": "metier_formateur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/garagiste.html",
+      "key": "metier_garagiste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/graphiste.html",
+      "key": "metier_graphiste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/hypnotherapeute.html",
+      "key": "metier_hypnotherapeute",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/infirmier.html",
+      "key": "metier_infirmier",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/kinesiologue.html",
+      "key": "metier_kinesiologue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/macon.html",
+      "key": "metier_macon",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/masseur.html",
+      "key": "metier_masseur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/medecine_chinoise.html",
+      "key": "metier_medecine_chinoise",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/moniteur_ski.html",
+      "key": "metier_moniteur_ski",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/musicotherapeute.html",
+      "key": "metier_musicotherapeute",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/naturopathe.html",
+      "key": "metier_naturopathe",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/nettoyage.html",
+      "key": "metier_nettoyage",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/orthophoniste.html",
+      "key": "metier_orthophoniste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/paysagiste.html",
+      "key": "metier_paysagiste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/pet_sitter.html",
+      "key": "metier_pet_sitter",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/pisciniste.html",
+      "key": "metier_pisciniste",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/platrier.html",
+      "key": "metier_platrier",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/podologue.html",
+      "key": "metier_podologue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/prof_danse.html",
+      "key": "metier_prof_danse",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/prof_karate.html",
+      "key": "metier_prof_karate",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/prof_langue.html",
+      "key": "metier_prof_langue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/prof_musique.html",
+      "key": "metier_prof_musique",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/prof_natation.html",
+      "key": "metier_prof_natation",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/psychologue.html",
+      "key": "metier_psychologue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/ramoneur.html",
+      "key": "metier_ramoneur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/reflexologue.html",
+      "key": "metier_reflexologue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/sage_femme.html",
+      "key": "metier_sage_femme",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/serrurier.html",
+      "key": "metier_serrurier",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/sophrologue.html",
+      "key": "metier_sophrologue",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/tatoueur.html",
+      "key": "metier_tatoueur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/terrassier.html",
+      "key": "metier_terrassier",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/traiteur.html",
+      "key": "metier_traiteur",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/metiers/veterinaire.html",
+      "key": "metier_veterinaire",
+      "group": "metiers",
+      "aliases": []
+    },
+    {
+      "path": "/guides/devis-artisan-mentions-obligatoires.html",
+      "key": "guide_devis_artisan_mentions_obligatoires",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/guides/facturation-electronique-micro-entreprise.html",
+      "key": "guide_facturation_electronique_micro_entreprise",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/guides/logiciel-devis-facture-artisan.html",
+      "key": "guide_logiciel_devis_facture_artisan",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/guides/logiciel-facturation-micro-entrepreneur.html",
+      "key": "guide_logiciel_facturation_micro_entrepreneur",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/guides/mentions-obligatoires-facture-micro-entrepreneur.html",
+      "key": "guide_mentions_obligatoires_facture_micro_entrepreneur",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/guides/pdf-email-facture-electronique.html",
+      "key": "guide_pdf_email_facture_electronique",
+      "group": "guides",
+      "aliases": []
+    },
+    {
+      "path": "/histoires/cabinet-expert-comptable.html",
+      "key": "story_cabinet_expert_comptable",
+      "group": "histoires",
+      "aliases": []
+    },
+    {
+      "path": "/histoires/claire-osteopathe.html",
+      "key": "story_claire_osteopathe",
+      "group": "histoires",
+      "aliases": []
+    },
+    {
+      "path": "/histoires/jean-luc-karate.html",
+      "key": "story_jean_luc_karate",
+      "group": "histoires",
+      "aliases": []
+    },
+    {
+      "path": "/histoires/marc-artisan.html",
+      "key": "story_marc_artisan",
+      "group": "histoires",
+      "aliases": []
+    },
+    {
+      "path": "/histoires/sarah-avocate.html",
+      "key": "story_sarah_avocate",
+      "group": "histoires",
+      "aliases": []
+    }
+  ]
+}

@@ -1,4 +1,13 @@
 (function initialiseSiteShell() {
+  // Shared public-page bootstrap, independent of the navigation markup.
+  if (!window.__diqtoGrowthInitialized && document.head
+      && !document.querySelector('script[src$="growth.js"], script[src*="growth.js?"], script[data-diqto-growth]')) {
+    var growthScript = document.createElement('script');
+    growthScript.src = '/growth.js';
+    growthScript.defer = true;
+    growthScript.setAttribute('data-diqto-growth', 'website-pages-v1');
+    document.head.appendChild(growthScript);
+  }
   var appStoreUrl = 'https://apps.apple.com/fr/app/diqto/id6761616034';
   var header = document.querySelector('.global-header');
   var toggle = document.querySelector('.global-menu-toggle');

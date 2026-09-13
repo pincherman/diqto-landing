@@ -14,21 +14,22 @@ import sys
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from plombier_devis_example import DOCUMENT_NUMBER, LINES, PDF_PATH
+import plombier_devis_example
+from quote_example_common import quote_totals
 
 
-def render(backend_root, output_root):
+def render(backend_root, output_root, example=plombier_devis_example):
     def refuse_network(*_args, **_kwargs):
         raise RuntimeError("Public demo generation must not access the network")
 
-    output = output_root / PDF_PATH
+    output = output_root / example.PDF_PATH
     output.parent.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(backend_root.resolve()))
     with patch.object(socket.socket, "connect", refuse_network), patch.object(socket, "create_connection", refuse_network):
         import pdf_generator
 
         def save_local(pdf, _filename, _doc_type):
-            pdf.set_title("DEMONSTRATION - Devis plombier fictif - aucune somme due")
+            pdf.set_title(example.PDF_TITLE)
             pdf.set_author("Diqto - demonstration fictive")
             pdf.output(str(output))
             return str(output), None
@@ -36,23 +37,24 @@ def render(backend_root, output_root):
         document = SimpleNamespace(
             doc_type="devis", client_name="CLIENT FICTIF - DEMONSTRATION",
             client_address="", client_email="", client_phone="",
-            created_at="2026-09-13T00:00:00Z", prestations=[dict(line) for line in LINES],
+            created_at="2026-09-13T00:00:00Z", prestations=[dict(line) for line in example.LINES],
             tva_rate=20, payment_terms="Demonstration fictive : aucune somme due.",
             notes=("DEMONSTRATION FICTIVE - Ne pas signer ni utiliser comme offre. "
                    "Donnees preparees, sans transcription IA. Prix illustratifs, pas des tarifs de marche. "
                    "TVA 20 % : hypothese de calcul, pas un conseil fiscal. "
                    "Identites fictives. Mentions d'entreprise, assurances et conditions reelles non renseignees. "
-                   "Exemple non contractuel, pas un modele juridique complet."),
+                   "Exemple non contractuel, pas un modele juridique complet. " + example.EXTRA_NOTES),
         )
-        company = {"nom_entreprise": "ENTREPRISE FICTIVE - DEMONSTRATION", "metier": "plombier", "tva_applicable": True, "tva": 20}
+        company = {"nom_entreprise": "ENTREPRISE FICTIVE - DEMONSTRATION", "metier": example.TRADE, "tva_applicable": True, "tva": 20}
         with patch.object(pdf_generator, "save_pdf_persistent", save_local):
-            pdf_generator.generate_pdf(document, company, doc_type="devis", doc_number=DOCUMENT_NUMBER)
+            pdf_generator.generate_pdf(document, company, doc_type="devis", doc_number=example.DOCUMENT_NUMBER)
 
+    total_ht, total_tva, total_ttc = quote_totals(example.LINES)
     proof = {
         "kind": "synthetic_pdf_renderer_example", "renderer": "pdf_generator.generate_pdf",
-        "pdf_path": PDF_PATH, "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
-        "bytes": output.stat().st_size, "document_number": DOCUMENT_NUMBER,
-        "total_ht": 780, "total_tva": 156, "total_ttc": 936,
+        "pdf_path": example.PDF_PATH, "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
+        "bytes": output.stat().st_size, "document_number": example.DOCUMENT_NUMBER,
+        "total_ht": float(total_ht), "total_tva": float(total_tva), "total_ttc": float(total_ttc),
         "ai_transcription_tested": False, "production_called": False,
         "database_called": False, "cloud_upload": False, "client_send": False,
     }

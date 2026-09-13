@@ -1,6 +1,11 @@
 """Canonical, explicitly synthetic quote example for the plumber landing page."""
 
 from html import escape
+from quote_example_common import CSS, render_rows
+
+TRADE = "plombier"
+PDF_TITLE = "DEMONSTRATION - Devis plombier fictif - aucune somme due"
+EXTRA_NOTES = ""
 
 PDF_PATH = "assets/examples/devis-plombier-chauffe-eau-demonstration.pdf"
 DOCUMENT_NUMBER = "DEMO-PLOMBIER-001"
@@ -16,34 +21,11 @@ DICTATION = (
     "Pour cet exemple uniquement, TVA à 20 %."
 )
 
-CSS = """
-.quote-proof { margin:40px 0; border:1px solid rgba(37,211,102,.26); border-radius:18px; padding:24px; background:rgba(37,211,102,.06); }
-.quote-proof h2 { font-size:clamp(24px,4vw,32px); line-height:1.2; margin:8px 0 16px; }
-.quote-proof h3 { font-size:18px; margin:24px 0 10px; }
-.quote-proof p, .quote-proof li { color:var(--dim); }
-.quote-proof .proof-label { color:var(--primary); font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-.quote-proof blockquote { padding:16px; border-left:3px solid var(--primary); background:var(--card); border-radius:0 12px 12px 0; }
-.quote-proof table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
-.quote-proof caption { text-align:left; color:var(--dim); margin-bottom:10px; }
-.quote-proof th, .quote-proof td { padding:10px 6px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; }
-.quote-proof th[scope=row] { font-weight:500; }
-.quote-proof th:last-child, .quote-proof td:last-child { text-align:right; white-space:nowrap; }
-.quote-proof tfoot tr:last-child { color:var(--primary); font-weight:800; }
-.quote-proof ul { padding-left:20px; margin:12px 0; }
-.quote-proof li + li { margin-top:8px; }
-.quote-proof .proof-note { font-size:13px; margin:12px 0; }
-.quote-proof a:not(.cta) { color:var(--primary); text-underline-offset:3px; }
-.quote-proof a:focus-visible { outline:3px solid var(--primary); outline-offset:5px; }
-.quote-proof .proof-download { display:inline-block; font-weight:700; padding:12px 0; }
-@media (max-width:400px) { .quote-proof { padding:16px; } .quote-proof th, .quote-proof td { padding:8px 3px; font-size:12px; } }
-"""
+
 
 
 def render_example(app_store_url):
-    rows = "\n".join(
-        f'<tr><th scope="row">{escape(line["description"])}</th><td>1</td><td>{line["unit_price"]},00 €</td></tr>'
-        for line in LINES
-    )
+    rows = render_rows(LINES)
     return f'''<section class="quote-proof" id="exemple-devis-plombier" aria-labelledby="quote-proof-title">
     <p class="proof-label">Exemple de démonstration · données fictives</p>
     <h2 id="quote-proof-title">Un devis de chauffe-eau, de la dictée au PDF à relire</h2>

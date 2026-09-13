@@ -80,7 +80,7 @@ class PublicExampleContract(unittest.TestCase):
     def test_regeneration_preserves_example_without_changing_neighboring_pages(self):
         with tempfile.TemporaryDirectory(prefix="diqto-proof-regeneration-") as tmp:
             destination = Path(tmp)
-            for name in ("regen_metier_pages.py", "release_config.py", "campaign_video_content.py", "plombier_devis_example.py"):
+            for name in ("regen_metier_pages.py", "release_config.py", "campaign_video_content.py", "plombier_devis_example.py", "electricien_devis_example.py", "quote_example_common.py"):
                 shutil.copyfile(ROOT / name, destination / name)
             result = subprocess.run([sys.executable, "regen_metier_pages.py"], cwd=destination, text=True, capture_output=True)
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -88,7 +88,7 @@ class PublicExampleContract(unittest.TestCase):
             self.assertEqual(len(generated), 10)
             for page in generated:
                 self.assertEqual(page.read_text(), (ROOT / page.name).read_text(), page.name)
-                if page.name != "plombier.html":
+                if page.name not in {"plombier.html", "electricien.html"}:
                     self.assertNotIn("quote-proof", page.read_text(), page.name)
             html = (destination / "plombier.html").read_text()
             self.assertEqual(html.count('id="exemple-devis-plombier"'), 1)

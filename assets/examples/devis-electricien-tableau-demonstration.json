@@ -1,0 +1,16 @@
+{
+  "kind": "synthetic_pdf_renderer_example",
+  "renderer": "pdf_generator.generate_pdf",
+  "pdf_path": "assets/examples/devis-electricien-tableau-demonstration.pdf",
+  "sha256": "a932e30d2c95f0dda711a10db2230a1234395e83d774e11d47312f10f62cf73a",
+  "bytes": 2959,
+  "document_number": "DEMO-ELECTRICIEN-001",
+  "total_ht": 690.0,
+  "total_tva": 138.0,
+  "total_ttc": 828.0,
+  "ai_transcription_tested": false,
+  "production_called": false,
+  "database_called": false,
+  "cloud_upload": false,
+  "client_send": false
+}

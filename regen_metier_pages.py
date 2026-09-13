@@ -3,7 +3,11 @@
 
 import json
 from html import escape
-from plombier_devis_example import CSS as QUOTE_PROOF_CSS, render_example
+from quote_example_common import CSS as QUOTE_PROOF_CSS
+from plombier_devis_example import render_example as render_plombier_example
+from electricien_devis_example import render_example as render_electricien_example
+
+QUOTE_EXAMPLES = {"plombier": render_plombier_example, "electricien": render_electricien_example}
 
 from release_config import (
     APP_STORE_AVAILABILITY,
@@ -90,19 +94,19 @@ METIERS = [
     },
     {
         "id": "electricien", "emoji": "⚡", "label": "Électriciens",
-        "title_doc": "Devis & factures IA",
-        "desc": "Diqto pour électriciens : devis et factures depuis l'iPhone. Dictez, relisez, puis partagez sous contrôle humain.",
+        "title_doc": "Devis sur iPhone & exemple PDF",
+        "desc": "Devis électricien sur iPhone : voyez un exemple de remplacement de tableau et son PDF fictif. Relisez les postes, montants et conditions avant de partager.",
         "keywords": "devis électricien, facture électricien, application électricien",
         "pain": "Les devis prennent plus de temps que les interventions ?",
         "features": [
-            ("🎤", "Dictez", "Dictez votre devis en langage naturel. L'IA structure tout."),
+            ("🎤", "Dictez", "Dictez le client, les postes et les prix connus. Diqto prépare un brouillon à vérifier."),
             ("📸", "Photo → brouillon", "Photographiez le tableau électrique. Diqto prépare un brouillon à relire."),
             ("📄", "PDF prêts à relire", "Devis et factures prêts à relire avec mentions, numérotation et conditions."),
             ("💳", "Paiement cadré", "On vérifie le mode de règlement adapté avant activation."),
             ("🔄", "Relances", "Préparées à J+7, J+15, J+30, avec contexte client."),
             ("🧠", "Catalogue appris", "Vos prestations habituelles en 1 tap."),
         ],
-        "example": "Devis installation tableau électrique 3 rangées, mise aux normes NF C 15-100, 12 points lumineux.",
+        "example": "Devis fictif de remplacement du tableau : fourniture 360 euros HT, pose 240 euros HT, repérage 90 euros HT. Matériel et périmètre à vérifier.",
     },
     {
         "id": "photographe", "emoji": "📸", "label": "Photographes",
@@ -366,8 +370,8 @@ for m in METIERS:
         video_section=("\n" + render_video_section(campaign_video)) if campaign_video else "",
         pain=escape(m["pain"]),
         features_html=features_html,
-        quote_proof_css=QUOTE_PROOF_CSS if m["id"] == "plombier" else "",
-        example_section=(render_example(APP_STORE_URL) if m["id"] == "plombier" else
+        quote_proof_css=QUOTE_PROOF_CSS if m["id"] in QUOTE_EXAMPLES else "",
+        example_section=(QUOTE_EXAMPLES[m["id"]](APP_STORE_URL) if m["id"] in QUOTE_EXAMPLES else
             '  <div class="example">\n    <h3>Exemple de dictée</h3>\n    <p>"' + escape(m["example"]) + '"</p>\n  </div>'),
         guide_href=guide_href,
         guide_label=guide_label,

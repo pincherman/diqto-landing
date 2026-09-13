@@ -39,7 +39,8 @@ def quote_totals(lines):
 
 
 def euro(amount):
-    return f"{Decimal(str(amount)):.2f}".replace(".", ",") + " €"
+    rounded = Decimal(str(amount)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+    return f"{rounded:.2f}".replace(".", ",") + " €"
 
 
 def render_rows(lines):

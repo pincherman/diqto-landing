@@ -77,6 +77,10 @@ class ElectricianExampleContract(unittest.TestCase):
         html = render_rows(lines)
         self.assertIn('&lt;test &amp; matériel&gt;', html)
         self.assertIn('<td>3</td><td>37,05 €</td>', html)
+        # A half-cent must not display a different HT amount from the totals.
+        half_cent = ({'description': 'Poste de démonstration', 'quantity': 3, 'unit_price': '12.355', 'tva_rate': 20},)
+        self.assertEqual(tuple(map(str, quote_totals(half_cent))), ('37.07', '7.41', '44.48'))
+        self.assertIn('<td>3</td><td>37,07 €</td>', render_rows(half_cent))
 
 
 if __name__ == '__main__':

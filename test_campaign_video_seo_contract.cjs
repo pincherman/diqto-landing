@@ -111,7 +111,8 @@ test('brand identity and truthful lastmod values are aligned with the campaign',
 
   const sitemap = read('sitemap.xml');
   for (const campaign of campaigns) {
-    const entry = `<loc>${campaign.canonical}</loc>\n    <lastmod>2026-08-31</lastmod>`;
+    const lastmod = '2026-09-13';
+    const entry = `<loc>${campaign.canonical}</loc>\n    <lastmod>${lastmod}</lastmod>`;
     assert.ok(sitemap.includes(entry), campaign.page);
   }
   assert.ok(sitemap.includes('<loc>https://diqto.fr/mentions-legales.html</loc>\n    <lastmod>2026-08-20</lastmod>'));

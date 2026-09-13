@@ -18,7 +18,7 @@ const priorityPages = [
     canonical: 'https://diqto.fr/guides/logiciel-facturation-micro-entrepreneur.html',
     title: 'Logiciel facturation auto-entrepreneur et micro-entreprise',
     h1: 'Un logiciel de facturation pour auto-entrepreneur, sans usine à gaz',
-    modified: '2026-09-03',
+    modified: '2026-09-13',
     intent: ['Parlez ou écrivez', 'Relisez chaque champ', 'Retrouvez le client'],
   },
 ];

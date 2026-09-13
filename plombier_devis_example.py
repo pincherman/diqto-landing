@@ -73,7 +73,7 @@ def render_example(app_store_url):
     </ul>
     <p><a href="/guides/devis-artisan-mentions-obligatoires.html">Voir les points à vérifier sur un devis artisan</a></p>
     <h3>Essayer avec votre propre chantier</h3>
-    <p>Diqto Free : clients et brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, 3 vocaux courts par mois jusqu’à 1 minute. PDF avec footer Diqto ; 1 entreprise et 1 utilisateur. Aucun achat requis.</p>
+    <p>Diqto Free : 3 documents par mois pour essayer. Dans le parcours actuel, les nouveaux brouillons enregistrés comptent dans ce quota. Aucun achat requis. <a href="/docs.html#premiere-dictee">Préparez votre première dictée avec une trame à copier</a>.</p>
     <p class="proof-note">Téléchargement gratuit sur iPhone, achats intégrés optionnels. <a href="/#tarifs">Consulter les formules et leurs limites</a>.</p>
     <a class="cta" href="{escape(app_store_url, quote=True)}" data-growth-placement="final_cta">Télécharger Diqto gratuitement →</a>
   </section>'''

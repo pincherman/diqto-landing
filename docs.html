@@ -99,6 +99,12 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
   .plan { grid-template-columns: 1fr; gap: 6px; }
 }
 @media (prefers-reduced-motion: reduce) { .brand-mark i { animation: none; } }
+#premiere-dictee { scroll-margin-top: 150px; }
+#premiere-dictee .check { display:flex; flex-direction:column; gap:16px; }
+#premiere-dictee .check p { overflow-wrap:anywhere; }
+#premiere-dictee .button { font:inherit; padding:12px 16px; border:0; cursor:pointer; text-align:left; }
+#premiere-dictee [role=status] { margin-top:20px; min-height:3em; }
+.example a, .check a { text-underline-offset:3px; }
 </style>
 </head>
 <body>
@@ -113,8 +119,8 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
   <section class="hero">
     <div class="container">
       <p class="eyebrow">Bien démarrer</p>
-      <h1>Votre premier quart d'heure avec Diqto.</h1>
-      <p class="lead">Ne préparez pas une démonstration. Prenez simplement une tâche que vous devez vraiment terminer aujourd'hui.</p>
+      <h1>Votre premier document Diqto, étape par étape.</h1>
+      <p class="lead">Un devis, une note d’honoraires ou une facture de cours : préparez votre premier cas, trouvez la dictée dans l’app et contrôlez le document avant de le partager.</p>
     </div>
   </section>
 
@@ -123,32 +129,48 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
       <article class="step">
         <span class="step-number">1</span>
         <div>
-          <h2>Choisissez quelque chose de réel</h2>
-          <p>Un devis à envoyer, une facture à préparer, une note de séance ou un client dont vous devez reprendre le dossier. Plus le cas est concret, plus l'essai sera utile.</p>
+          <h2>Installez Diqto et choisissez votre activité</h2>
+          <p>Sur iPhone, installez Diqto puis connectez-vous. Renseignez votre métier et les informations de votre entreprise. Pour un artisan, le démarrage propose ensuite <strong>Ajoute ton premier client</strong>, puis ouvre un formulaire manuel. C’est normal : la voix se trouve dans l’onglet <strong>Créer</strong>.</p>
         </div>
       </article>
       <article class="step">
         <span class="step-number">2</span>
         <div>
-          <h2>Parlez comme à un collègue</h2>
-          <p>Donnez le nom du client, ce que vous avez fait, les prestations ou travaux concernés, les montants déjà connus et ce qui reste à vérifier.</p>
-          <div class="example"><strong>Exemple</strong>« Chez Martin, remplacement du chauffe-eau 200 litres, dépose de l'ancien, pose et raccordement. Je dois encore vérifier le prix du matériel. »</div>
+          <h2>Ouvrez Créer, puis Parler</h2>
+          <p>Dans <strong>Créer</strong>, choisissez <strong>Parler</strong> pour la dictée ou <strong>Manuel</strong> pour saisir votre document. Autorisez le microphone si vous dictez et gardez une connexion réseau pour le traitement IA. Donnez la prestation, les quantités, les montants connus et les informations à vérifier.</p>
+          <div class="example"><strong>Besoin d’un point de départ ?</strong><a href="#premiere-dictee">Copiez une trame de dictée adaptée à votre document</a>. Les exemples sont fictifs ; aucun document n’est créé sur cette page.</div>
         </div>
       </article>
       <article class="step">
         <span class="step-number">3</span>
         <div>
           <h2>Regardez ce que Diqto a compris</h2>
-          <p>Vérifiez le client, le type de document, les lignes proposées et les informations manquantes. Corrigez directement ce qui doit l'être.</p>
+          <p>Après traitement, vérifiez <strong>Document à générer</strong>, puis utilisez <strong>Préparer</strong> pour ouvrir le document proposé. Contrôlez le destinataire, les lignes, les montants et les informations manquantes. Selon votre activité, le type de document et les champs diffèrent.</p>
         </div>
       </article>
       <article class="step">
         <span class="step-number">4</span>
         <div>
           <h2>Relisez avant de partager</h2>
-          <p>Le document reste un brouillon jusqu'à votre validation. Contrôlez les montants, les coordonnées et les libellés. Partagez seulement quand vous êtes satisfait.</p>
+          <p>Après la création, ouvrez <strong>Relire le brouillon</strong>. Vérifiez l’aperçu PDF et corrigez les montants, les coordonnées et les libellés. Rien n’a encore été envoyé au client. Dans le parcours actuel, un nouveau brouillon enregistré compte dans le quota mensuel de documents Free ; sa création n’est pas un achat.</p>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="checks" id="premiere-dictee" aria-labelledby="starter-title">
+    <div class="container">
+      <p class="eyebrow">À utiliser sans compte</p>
+      <h2 id="starter-title">Trois trames pour préparer votre première dictée</h2>
+      <p>Ces textes sont des aides à adapter, pas des résultats IA ni des documents prêts à envoyer. La copie reste sur votre appareil ; aucune trame n’est envoyée à Diqto depuis cette page.</p>
+      <div class="check-grid">
+        <article class="check" id="trame-devis"><h3>Un devis de travaux</h3><p id="prompt-devis">Prépare un devis pour [client] : [travaux à réaliser]. Fourniture [matériel], quantité [nombre], prix unitaire [montant] euros HT. Main-d’œuvre [description], [montant] euros HT. La TVA et les conditions sont à vérifier avant validation.</p><button class="button" type="button" data-copy-prompt="prompt-devis">Copier la trame devis</button><p><a href="/plombier.html#exemple-devis-plombier">Voir l’exemple chiffré et le PDF plombier</a></p></article>
+        <article class="check" id="trame-honoraires"><h3>Une note d’honoraires</h3><p id="prompt-honoraires">Prépare une note d’honoraires pour [destinataire], pour la prestation [libellé] réalisée le [date], montant [montant] euros. Reprends le régime de TVA configuré et laisse les informations manquantes à vérifier. N’ajoute aucune observation médicale au document de facturation.</p><button class="button" type="button" data-copy-prompt="prompt-honoraires">Copier la trame honoraires</button><p><a href="/osteopathe.html">Voir le parcours notes d’honoraires</a></p></article>
+        <article class="check" id="trame-cours"><h3>Une facture de cours</h3><p id="prompt-cours">Prépare une facture pour [élève ou client] : [nombre] cours de [activité] sur la période [dates], au prix de [montant] euros par cours. Vérifie le total, le destinataire et le régime de TVA avant validation. Ne lance aucun prélèvement.</p><button class="button" type="button" data-copy-prompt="prompt-cours">Copier la trame cours</button><p><a href="/coach-sportif.html">Voir le parcours cours et abonnements</a></p></article>
+      </div>
+      <p role="status" aria-live="polite"></p>
+      <noscript><p>Vous pouvez sélectionner et copier directement le texte de la trame choisie.</p></noscript>
+      <p>Votre essai est réussi si le document contient les bonnes lignes et les bons montants, et si vous pouvez le retrouver puis le corriger. Aucun temps gagné n’est présumé : comparez sur votre propre tâche.</p>
     </div>
   </section>
 
@@ -166,11 +188,11 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
   <section class="plans">
     <div class="container">
       <h2>Et si vous voulez continuer ?</h2>
-      <p>Commencez sans carte bancaire. Changez de plan seulement quand l'usage devient régulier.</p>
+      <p>Commencez sans achat. Si votre essai vous convient et que vous devez créer davantage de documents, ouvrez <strong>Profil &gt; Abonnement Diqto &gt; Voir les offres</strong>. Vous pouvez consulter les formules sans acheter ; seul Apple confirme un achat intégré.</p>
       <div class="plan-list">
-        <div class="plan"><strong>Free · 0€</strong><p>Clients et brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, et 3 vocaux courts jusqu'à 1 minute.</p></div>
-        <div class="plan"><strong>Essential · 9€ TTC</strong><p>Devis et factures illimités, footer supprimé et vocal court jusqu'à 5 minutes.</p></div>
-        <div class="plan"><strong>Vocal Pro · 19€ TTC</strong><p>Tout Essential, avec les comptes rendus vocaux longs soumis à fair use.</p></div>
+        <div class="plan"><strong>Free · 0 €</strong><p>3 documents par mois pour essayer, y compris les nouveaux brouillons enregistrés dans le parcours actuel. Aucun achat requis pour commencer.</p></div>
+        <div class="plan"><strong>Essential · 9 € TTC/mois</strong><p>Devis et factures illimités et vocal court jusqu’à 5 minutes, pour un usage régulier.</p></div>
+        <div class="plan"><strong>Vocal Pro · 19 € TTC/mois</strong><p>Tout Essential, avec les comptes rendus vocaux longs soumis à fair use.</p></div>
       </div>
       <p>Prix TTC pour l’App Store France. Apple affiche le prix définitif avant tout achat intégré optionnel.</p>
     </div>
@@ -200,5 +222,6 @@ footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted)
     <a href="/confidentialite.html">Confidentialité</a>
   </div>
 </footer>
+<script defer src="starter-prompts.js"></script>
 </body>
 </html>

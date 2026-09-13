@@ -150,13 +150,13 @@ GUIDES = [
         "description": "Créez devis et factures de micro-entreprise sur iPhone, avec brouillons modifiables, suivi client et contrôle avant envoi. Prix et limites Diqto.",
         "eyebrow": "Guide pratique · Micro-entreprise",
         "lead": "Pour une micro-entreprise ou une auto-entreprise, le bon outil fait gagner du temps sans masquer les mentions, la TVA, les montants ni les limites du forfait.",
-        "updated": "2026-09-03",
-        "updated_label": "3 septembre 2026",
+        "updated": "2026-09-13",
+        "updated_label": "13 septembre 2026",
         "hero_cta": True,
         "body": """
 <section class="seo-section" aria-labelledby="test-micro"><h2 id="test-micro">Ce que Diqto permet de tester gratuitement</h2>
 <div class="seo-grid"><article class="seo-card"><p class="seo-card-kicker">1. Partir du réel</p><h3>Parlez ou écrivez</h3><p>Dictez le client, la prestation et les montants connus, ou saisissez-les manuellement depuis l'iPhone.</p></article><article class="seo-card"><p class="seo-card-kicker">2. Garder le contrôle</p><h3>Relisez chaque champ</h3><p>Le résultat reste un brouillon modifiable. Vérifiez les coordonnées, la numérotation, la TVA, les lignes et les conditions de règlement.</p></article><article class="seo-card"><p class="seo-card-kicker">3. Créer la suite</p><h3>Retrouvez le client</h3><p>Conservez l'historique, reprenez un devis et préparez la facture sans repartir d'une page blanche. Aucun envoi n'est automatique.</p></article></div>
-<div class="seo-note"><p><strong>Plan Free :</strong> clients et brouillons illimités, avec trois documents finalisés, exportés ou envoyés par mois. Essential coûte 9&nbsp;€ TTC par mois et Vocal Pro 19&nbsp;€ TTC par mois en France. Le prix local affiché par Apple fait foi.</p></div></section>
+<div class="seo-note"><p><strong>Plan Free :</strong> 3 documents par mois pour essayer. Dans le parcours actuel, les nouveaux brouillons enregistrés comptent dans ce quota. Essential coûte 9&nbsp;€ TTC par mois et Vocal Pro 19&nbsp;€ TTC par mois en France. Le prix local affiché par Apple fait foi.</p></div></section>
 <section class="seo-section"><h2>Le volume de documents ne dit pas tout</h2>
 <p>Deux indépendants qui émettent dix factures par mois peuvent avoir des besoins opposés. L'un reprend toujours les mêmes prestations. L'autre travaille sur devis, facture des acomptes et doit relancer plusieurs clients. Le bon choix part donc de votre parcours réel, pas d'une liste de fonctionnalités.</p></section>
 <section class="seo-section"><h2>La checklist avant de choisir</h2><ul>
@@ -169,7 +169,7 @@ GUIDES = [
 </ul>
 <div class="seo-note"><p>Les mentions obligatoires varient selon le destinataire et la situation. Le site officiel Entreprendre.Service-Public.fr tient une liste de référence. Un logiciel aide à préparer le document, mais vous restez responsable de sa vérification.</p></div></section>
 <section class="seo-section"><h2>Gratuit ou payant&nbsp;: regardez les limites, pas seulement le prix</h2>
-<p>Un plan gratuit peut suffire pour tester votre parcours et produire quelques documents. Vérifiez ce qui est limité&nbsp;: documents finalisés, envois, exports, utilisateurs, pied de page ou durée des fonctions vocales. Chez Diqto, Free permet les clients et brouillons illimités, avec trois documents finalisés, exportés ou envoyés par mois.</p>
+<p>Un plan gratuit peut suffire pour tester votre parcours et produire quelques documents. Vérifiez ce qui est limité&nbsp;: documents finalisés, envois, exports, utilisateurs, pied de page ou durée des fonctions vocales. Chez Diqto, Free permet les 3 documents par mois pour essayer. Dans le parcours actuel, les nouveaux brouillons enregistrés comptent dans ce quota.</p>
 <p>Essential est affiché à 9&nbsp;€ TTC par mois en France et Vocal Pro à 19&nbsp;€ TTC. Dans l'app iPhone, le prix local présenté par Apple avant l'achat fait foi.</p></section>
 <section class="seo-section"><h2>Quand la voix devient réellement utile</h2>
 <p>La dictée a de la valeur quand elle récupère des informations que vous auriez sinon dû retaper&nbsp;: client, prestation, montant connu, détail à vérifier et prochaine action. Elle n'a pas de valeur si le résultat part sans relecture ou si vous devez corriger tout le document.</p>
@@ -376,7 +376,7 @@ def page_head(title: str, description: str, url: str, schema: str, og_type: str 
 
 
 def related_section(related) -> str:
-    cards = "".join(f'<article class="seo-card"><h3>{html.escape(label)}</h3><p><a href="{href}">Consulter cette page</a></p></article>' for href, label in related)
+    cards = "".join(f'<article class="seo-card"><h3><a href="{href}">{html.escape(label)}</a></h3><p>Consultez le parcours et les points à vérifier avant de créer votre document.</p></article>' for href, label in related)
     return f'<section class="seo-section"><h2>Continuer avec un cas concret</h2><div class="seo-grid">{cards}</div></section>'
 
 
@@ -432,7 +432,8 @@ def generate_trades_hub() -> None:
     url = f"{BASE_URL}/metiers.html"
     schema = schemas("CollectionPage", title, description, url, "Métiers", items=items)
     content = page_head(title, description, url, schema) + shell("trades")
-    content += '''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Votre activité, vos mots</p><h1>Diqto part de votre métier.</h1><p class="seo-lead">Le moteur reste commun. Les documents, le vocabulaire et les raccourcis s'adaptent à votre activité sans promettre la même fonction à tout le monde.</p></div></header><div class="seo-container seo-main">'''
+    content += '''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Votre activité, vos mots</p><h1>Devis, honoraires, cours : trouvez votre parcours Diqto.</h1><p class="seo-lead">Le moteur reste commun. Les documents, le vocabulaire et les raccourcis s'adaptent à votre activité sans promettre la même fonction à tout le monde.</p></div></header><div class="seo-container seo-main">'''
+    content += '<section class="seo-section"><h2>Un premier document, pas une liste de fonctions</h2><div class="seo-grid"><article class="seo-card"><h3>Artisans et prestations</h3><p>Visualisez les lignes, les montants et le PDF avant de tester votre propre chantier.</p><a href="/plombier.html#exemple-devis-plombier">Consulter un devis plombier chiffré</a></article><article class="seo-card"><h3>Honoraires</h3><p>Préparez la facturation de votre prestation sans y inclure vos observations confidentielles.</p><a href="/docs.html#trame-honoraires">Préparer une note d’honoraires</a></article><article class="seo-card"><h3>Cours et coaching</h3><p>Indiquez la période, les séances et leur prix, puis vérifiez le destinataire et le total.</p><a href="/docs.html#trame-cours">Préparer une facture de cours</a></article></div></section>'
     priority_links = "".join(
         (
             '<a data-search-intent="metier-prioritaire" '
@@ -442,7 +443,7 @@ def generate_trades_hub() -> None:
     )
     content += (
         '<section class="seo-category" aria-labelledby="metiers-prioritaires">'
-        '<h2 id="metiers-prioritaires">Parcours les plus recherchés</h2>'
+        '<h2 id="metiers-prioritaires">Des métiers pour commencer</h2>'
         '<p>Commencez par une page qui reprend les documents, le vocabulaire '
         'et un exemple concret de votre activité.</p>'
         f'<div class="seo-link-grid">{priority_links}</div></section>'
@@ -487,15 +488,14 @@ def generate_guides_hub() -> None:
         (
             '<article class="seo-card" data-search-intent="guide-prioritaire">'
             f'<p class="seo-card-kicker">{guide["intent"]}</p>'
-            f'<h2>{guide["title"]}</h2>'
+            f'<h2><a href="{guide["href"]}">{guide["title"]}</a></h2>'
             f'<p>{guide["description"]}</p>'
-            f'<p><a href="{guide["href"]}">Lire le guide</a></p>'
             '</article>'
         )
         for guide in guide_cards
     )
     content = page_head(title, description, url, schema, growth_page="guides") + shell("guides", growth=True)
-    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Des repères clairs pour décider sereinement.</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}" data-growth-placement="final_cta">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
+    content += f'''<main id="contenu"><header class="seo-hero"><div class="seo-container"><p class="seo-eyebrow">Comprendre avant de choisir</p><h1>Guides devis et factures pour indépendants</h1><p class="seo-lead">Chaque guide part d'une décision réelle d'indépendant, cite les sources officielles quand le sujet est réglementaire et distingue clairement ce que Diqto fait déjà.</p></div></header><div class="seo-container seo-main"><section class="seo-section"><h2>Commencez par un exemple utilisable</h2><p>Consultez <a href="/plombier.html#exemple-devis-plombier">un devis plombier chiffré avec son PDF</a>, ou copiez <a href="/docs.html#premiere-dictee">une trame de dictée pour votre premier document</a>. Ces ressources sont accessibles sans compte. Les montants de démonstration ne sont pas des prix de marché.</p></section><div class="seo-grid">{cards}</div><section class="seo-cta"><h2>Vous préférez tester plutôt que lire&nbsp;?</h2><p>Prenez la tâche administrative qui vous attend aujourd'hui et regardez si Diqto vous évite une ressaisie.</p><div class="seo-actions"><a class="seo-button" href="{APP_STORE_URL}" data-growth-placement="final_cta">Télécharger Diqto gratuitement</a><a class="seo-button secondary" href="/metiers.html">Trouver mon métier</a></div></section></div></main>'''
     content += footer() + "</body></html>"
     (ROOT / "guides.html").write_text(content, encoding="utf-8")
 

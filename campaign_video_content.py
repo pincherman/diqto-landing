@@ -284,7 +284,7 @@ def render_video_section(video: CampaignVideo) -> str:
       Votre navigateur ne permet pas de lire cette vidéo.
     </video>
   </div>
-  <p class="campaign-video-disclosure">Film de démonstration avec situation fictive et écrans Diqto sur données de démonstration. Rien n'est envoyé sans validation.</p>
+  <p class="campaign-video-disclosure">Film de démonstration avec situation fictive et écrans Diqto sur données de démonstration. Rien n'est envoyé sans validation. Les fonctions de paiement présentées dépendent de leur disponibilité et de leur activation pour votre activité. Aucun paiement n’est effectué dans cette démonstration.</p>
   <details class="campaign-video-transcript">
     <summary>Lire la transcription complète</summary>
 {paragraphs}

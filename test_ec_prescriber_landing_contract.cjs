@@ -151,11 +151,11 @@ assert.doesNotMatch(script, /console\.(?:log|info|debug)\(/);
 
 assert.match(
     home,
-    /<title>Diqto — Devis et factures par la voix pour indépendants<\/title>/,
+    /<title>Diqto - Devis et factures par la voix sur iPhone<\/title>/,
 );
 assert.match(home, /class="ec-entry-section"/);
 assert.match(home, /Aidez un client de terrain à mieux alimenter vos outils/);
-assert.match(home, /Vous évitez de tout ressaisir/);
+assert.match(home, /Diqto prépare un brouillon/);
 assert.match(home, /"@type": "UnitPriceSpecification"/);
 
 assert.ok(

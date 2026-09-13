@@ -86,8 +86,8 @@ assert(!home.includes('Réforme 2026–2027'), 'home must not hide the topic beh
 
 const guides = read('guides.html');
 assert(
-  guides.includes('Des repères clairs pour décider sereinement.'),
-  'guide hub must use positive, reader-first microcopy',
+  guides.includes('Guides devis et factures pour indépendants'),
+  'guide hub must clearly name its useful subject',
 );
 assert(!guides.includes('remplissage SEO'), 'guide hub must not talk about SEO to readers');
 assert(

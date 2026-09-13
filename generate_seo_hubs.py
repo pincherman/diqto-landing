@@ -84,16 +84,20 @@ GUIDES = [
         "intent": "Logiciel devis facture artisan",
         "title": "Logiciel devis facture artisan sur iPhone",
         "h1": "Un logiciel de devis et factures pour artisan, pensé pour l'iPhone",
-        "description": "Dictez un devis ou une facture d'artisan sur iPhone, relisez le brouillon et décidez quand le finaliser. Parcours, limites et prix Diqto.",
-        "eyebrow": "Guide pratique · Artisans",
-        "lead": "Capturez le client et les travaux tant qu'ils sont frais. Diqto prépare un brouillon modifiable, puis vous gardez la main sur les prix, la TVA et l'envoi.",
-        "updated": "2026-09-03",
-        "updated_label": "3 septembre 2026",
+        "description": "Dictez un devis ou une facture d'artisan sur iPhone, relisez le brouillon et décidez quand le finaliser. Exemple PDF, Free 3 documents/mois, Essential 9 € TTC/mois en France.",
+        "eyebrow": "Choisir Diqto · Artisans sur iPhone",
+        "lead": "Le devis attend encore quand le chantier est terminé ? Dictez vos travaux sur iPhone, corrigez le document et gardez le fil client. Voyez un exemple PDF sans compte, puis choisissez Free ou Essential selon votre volume de documents.",
+        "updated": "2026-09-13",
+        "updated_label": "13 septembre 2026",
         "hero_cta": True,
         "body": """
+<section class="seo-section" aria-labelledby="exemple-artisan"><h2 id="exemple-artisan">Voir un devis rempli avant de choisir le logiciel</h2>
+<p>Remplacer un chauffe-eau, ce n'est pas une ligne «&nbsp;travaux divers&nbsp;». L'exemple plombier distingue la fourniture, la pose et la dépose. Vous voyez les prix, la TVA, le total et le PDF généré par Diqto.</p>
+<div class="seo-actions"><a class="seo-button" href="/plombier.html#exemple-devis-plombier">Voir les lignes et le PDF du devis plombier</a><a class="seo-button secondary" href="/assets/examples/devis-plombier-chauffe-eau-demonstration.pdf">Ouvrir le PDF sans compte</a></div>
+<p class="seo-meta">Exemple fictif, données préparées pour la démonstration. Il ne s'agit ni d'un résultat client, ni d'un test complet de dictée. Les montants d'exemple ne sont pas des tarifs de marché.</p></section>
 <section class="seo-section" aria-labelledby="test-artisan"><h2 id="test-artisan">Le parcours à tester sur un vrai devis</h2>
 <div class="seo-grid"><article class="seo-card"><p class="seo-card-kicker">1. Dicter</p><h3>Décrivez le chantier</h3><p>Depuis l'iPhone, indiquez le client, les travaux, les quantités et les prix que vous connaissez. Vous pouvez aussi saisir le texte manuellement.</p></article><article class="seo-card"><p class="seo-card-kicker">2. Relire</p><h3>Contrôlez le brouillon</h3><p>Diqto structure les lignes dans un brouillon modifiable. Corrigez la prestation, la quantité, le prix, la TVA et les coordonnées avant de continuer.</p></article><article class="seo-card"><p class="seo-card-kicker">3. Décider</p><h3>Finalisez quand c'est prêt</h3><p>Rien ne part à la seule dictée. Vous choisissez quand finaliser, exporter ou envoyer le document après votre vérification.</p></article></div>
-<div class="seo-note"><p><strong>Prix en France :</strong> Free à 0&nbsp;€, Essential à 9&nbsp;€ TTC par mois et Vocal Pro à 19&nbsp;€ TTC par mois. Le prix local affiché par Apple avant l'achat fait foi.</p></div></section>
+<div class="seo-note"><p><strong>Prix en France :</strong> Free à 0&nbsp;€ pour 3 documents par mois, brouillons compris. Essential à 9&nbsp;€ TTC par mois pour les documents illimités ; Vocal Pro à 19&nbsp;€ TTC par mois pour les comptes rendus vocaux longs. Le prix local affiché par Apple avant l'achat fait foi.</p></div></section>
 <section class="seo-section"><h2>Commencez par la contrainte réelle</h2>
 <p>Pour un artisan, le devis n'est pas qu'un calcul. Il faut retrouver le client, se rappeler les travaux, reprendre les quantités, vérifier le matériel, appliquer le bon taux de TVA et garder une trace. Si le logiciel exige de tout ressaisir le soir, il déplace la paperasse sans la réduire.</p>
 <div class="seo-note"><p><strong>Le test le plus utile :</strong> prenez une intervention terminée aujourd'hui. Pouvez-vous préparer un brouillon fiable depuis votre téléphone, le corriger et le garder pour demain sans rien envoyer par erreur&nbsp;?</p></div></section>
@@ -115,6 +119,21 @@ GUIDES = [
 <section class="seo-section"><h2>Ce que Diqto apporte, et ce qu'il ne promet pas</h2>
 <p>Diqto part de la voix, du texte et, pour sept métiers chantier, d'une photo afin de préparer une estimation modifiable. L'objectif est d'éviter la page blanche et de garder le fil client. Une analyse photo ne constitue jamais un prix ferme ni un devis envoyé automatiquement.</p>
 <p>La fonction photo est actuellement limitée aux plombiers, électriciens, peintres, maçons, menuisiers, carreleurs et chauffagistes. Pour les autres métiers, la dictée et le texte restent les entrées principales.</p></section>
+<section class="seo-section" aria-labelledby="choisir-plan-artisan"><h2 id="choisir-plan-artisan">Free ou Essential : partez du nombre de documents à créer</h2>
+<div class="seo-table-wrap"><table class="seo-table"><thead><tr><th scope="col">Votre besoin</th><th scope="col">Le plan à examiner</th><th scope="col">Ce que vous devez savoir</th></tr></thead><tbody>
+<tr><td>Essayer avec une intervention réelle</td><td>Free : 0&nbsp;€</td><td>3 documents par mois, brouillons compris. Corrigez le même document pour le mettre au point.</td></tr>
+<tr><td>Créer plus de 3 devis ou factures par mois</td><td>Essential : 9&nbsp;€ TTC/mois</td><td>Documents illimités et usage vocal court jusqu'à 5 minutes.</td></tr>
+<tr><td>Dicter des comptes rendus longs de chantier ou de rendez-vous</td><td>Vocal Pro : 19&nbsp;€ TTC/mois</td><td>Tout Essential, avec comptes rendus vocaux longs dans un cadre de fair use.</td></tr>
+</tbody></table></div>
+<p>Prix de référence App Store France. L'abonnement se choisit dans <strong>Profil &gt; Abonnement Diqto</strong> sur l'iPhone. Apple affiche le prix local avant confirmation. Les abonnements payants se renouvellent chaque mois jusqu'à résiliation auprès d'Apple ; le téléchargement ne déclenche pas d'abonnement payant.</p>
+<p><a href="/#tarifs">Comparer les trois plans Diqto et leurs conditions</a>.</p></section>
+<section class="seo-section" aria-labelledby="questions-artisan"><h2 id="questions-artisan">Les questions à régler avant votre premier devis</h2>
+<h3>Comment démarrer après le téléchargement ?</h3><p>Créez votre compte, renseignez votre métier et les informations de votre activité, puis ajoutez un premier client. Préparez un devis avec les travaux et les prix que vous connaissez. <a href="/docs.html">Suivre le guide de démarrage Diqto</a>.</p>
+<h3>Dois-je parler avec une formule particulière ?</h3><p>Non. Donnez le client, les travaux, les quantités et vos prix avec vos mots. Vous pouvez aussi saisir le texte manuellement. Vérifiez toujours le brouillon : la voix ne garantit pas que chaque détail est correct.</p>
+<h3>Puis-je modifier les prix et la TVA ?</h3><p>Oui, le brouillon reste modifiable. Contrôlez les lignes, les quantités, les prix et la TVA applicable à votre intervention avant de finaliser. Diqto ne remplace pas cette vérification.</p>
+<h3>Faut-il Vocal Pro pour préparer des devis ?</h3><p>Non. Les documents illimités font partie d'Essential. Le choix de Vocal Pro répond surtout au besoin de comptes rendus vocaux longs.</p>
+<h3>Est-ce que Diqto envoie le document dès la dictée ?</h3><p>Non. Rien ne part à la seule dictée. Vous choisissez de finaliser, d'exporter ou de partager après relecture. Le PDF ordinaire et la facturation électronique réglementaire sont deux parcours distincts : <a href="/guides/pdf-email-facture-electronique.html">comprendre la différence entre PDF et facture électronique</a>.</p>
+<h3>Et si je bloque sur mon premier document ?</h3><p><a href="/aide.html">Le support Diqto</a> explique comment demander de l'aide. Vous pouvez commencer par l'exemple public sans ouvrir de compte.</p></section>
 """,
         "related": [
             ("/plombier.html", "Diqto pour plombiers"),

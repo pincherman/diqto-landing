@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0c0c0c">
-<title>Diqto — Devis et factures par la voix pour indépendants</title>
+<title>Diqto - Devis et factures par la voix sur iPhone</title>
 <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon-diqto-voice.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,19 +12,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site-shell.css">
 <script defer src="site-shell.js"></script>
-<meta name="description" content="Dictez une prestation : Diqto prépare le devis, la facture ou le compte rendu à relire, puis vous aide à suivre vos clients et votre facturation électronique.">
+<meta name="description" content="Préparez vos devis et factures par la voix sur iPhone. Exemple PDF à consulter, 3 documents par mois avec Free, Essential à 9 € TTC/mois en France.">
 <meta name="keywords" content="devis indépendant, facture artisan, facturation électronique, logiciel facture électronique, suivi client, application facturation iPhone">
 <link rel="canonical" href="https://diqto.fr/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://diqto.fr/">
-<meta property="og:title" content="Diqto — Le travail est fini. Pas votre journée ?">
+<meta property="og:title" content="Diqto - Devis et factures par la voix sur iPhone">
 <meta property="og:site_name" content="Diqto">
-<meta property="og:description" content="Parlez de ce que vous venez de faire. Diqto prépare le devis, la facture ou le compte rendu. Vous relisez et vous décidez.">
+<meta property="og:description" content="Préparez vos devis par la voix sur iPhone. Regardez un exemple PDF sans compte, puis essayez avec Free : 3 documents par mois.">
 <meta property="og:image" content="https://diqto.fr/og-image.png">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Diqto — Le travail est fini. Pas votre journée ?">
-<meta name="twitter:description" content="Moins de devis à retaper, de factures à finir et de clients à retrouver. Diqto vous aide à fermer la journée plus tôt.">
+<meta name="twitter:title" content="Diqto - Devis et factures par la voix sur iPhone">
+<meta name="twitter:description" content="De la voix au devis à relire sur iPhone. Free : 3 documents par mois. Essential : documents illimités, 9 € TTC/mois en France.">
 <meta name="twitter:image" content="https://diqto.fr/og-image.png">
 <script type="application/ld+json">
 {
@@ -39,7 +39,7 @@
   "datePublished": "2026-08-20",
   "downloadUrl": "https://apps.apple.com/fr/app/diqto/id6761616034",
   "offers": [
-    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "description": "Diqto Free — Brouillons illimités, 3 documents finalisés, exportés ou envoyés par mois, footer Diqto" },
+    { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "description": "Diqto Free - 3 documents par mois pour découvrir Diqto" },
     { "@type": "Offer", "price": "9", "priceCurrency": "EUR", "eligibleRegion": "FR", "availability": "https://schema.org/InStock", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "9", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Essential — Prix App Store France TTC, devis et factures illimités, vocal court jusqu'à 5 minutes" },
     { "@type": "Offer", "price": "19", "priceCurrency": "EUR", "eligibleRegion": "FR", "availability": "https://schema.org/InStock", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "19", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }, "description": "Diqto Vocal Pro — Prix App Store France TTC, Essential plus comptes rendus vocaux longs avec fair use" }
   ]
@@ -229,7 +229,7 @@ button, input, textarea { font: inherit; }
 .hero-copy h1 {
   max-width: 760px;
   margin-top: 18px;
-  font-size: clamp(50px, 7.5vw, 90px);
+  font-size: clamp(44px, 6.1vw, 74px);
   font-weight: 800;
   line-height: 0.96;
   letter-spacing: -0.065em;
@@ -506,6 +506,15 @@ button, input, textarea { font: inherit; }
 .control-note strong { font-size: 18px; }
 .control-note p { max-width: 620px; color: var(--green-dark); }
 
+.product-example { padding: 62px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); }
+.example-note { max-width: 820px; margin-top: 20px; color: var(--muted); font-size: 14px; }
+.purchase-help { margin-top: 32px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); }
+.purchase-help h3 { font-size: 23px; }
+.purchase-help p { margin-top: 12px; color: var(--muted); }
+.purchase-help a { color: var(--green); }
+.purchase-help details { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.purchase-help summary { cursor: pointer; font-weight: 700; }
+.purchase-help details:last-child { border-bottom: 0; }
 .benefits { padding: 110px 0; }
 .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
 .benefit {
@@ -675,7 +684,7 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
   .nav-shell { min-height: 68px; }
   .nav-links a:not(.nav-cta) { display: none; }
   .hero { padding: 54px 0 46px; }
-  .hero-copy h1 { font-size: clamp(46px, 14vw, 68px); }
+  .hero-copy h1 { font-size: clamp(40px, 11.5vw, 60px); }
   .hero-actions { flex-direction: column; }
   .button-primary, .button-secondary { width: 100%; }
   .intent-section, .stories-section, .day-section, .how-section, .benefits, .partner-section, .trades, .pricing { padding: 76px 0; }
@@ -732,22 +741,22 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Devis, factures et suivi client sur iPhone</p>
-        <h1>Le travail est fini.<br><span>Pas votre journée ?</span></h1>
-        <p>Diqto transforme ce que vous venez de faire en devis, facture ou compte rendu à relire. Vous gardez la main. Vous évitez de tout ressaisir.</p>
+        <h1>Vos devis et factures<br><span>par la voix, sur iPhone.</span></h1>
+        <p>Le travail est fini, mais le devis reste à faire ? Dictez le client, les travaux et vos prix. Diqto prépare un brouillon : vous corrigez, vous validez, puis vous partagez.</p>
         <div class="hero-actions">
           <a class="button-primary" href="https://apps.apple.com/fr/app/diqto/id6761616034" data-growth-placement="hero">Télécharger Diqto gratuitement</a>
-          <a class="button-secondary" href="#une-journee">Voir une journée avec Diqto</a>
+          <a class="button-secondary" href="/plombier.html#exemple-devis-plombier">Voir un exemple de devis</a>
         </div>
-        <p class="hero-note">Disponible maintenant sur l’App Store France · iPhone · Sans carte bancaire pour commencer</p>
+        <p class="hero-note">Disponible maintenant sur l’App Store France · Free : 3 documents par mois · Aucun abonnement requis pour commencer</p>
       </div>
 
-      <div class="day-card" aria-label="Exemple de brouillon préparé par Diqto">
+      <div class="day-card" aria-label="Illustration du parcours de préparation d’un devis">
         <div class="day-card-top">
           <strong>À finir avant ce soir</strong>
           <span>18:07</span>
         </div>
         <div class="voice-note">
-          <small>Vous venez de dire</small>
+          <small>Exemple de dictée</small>
           <div class="voice-wave" aria-hidden="true">
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           </div>
@@ -758,8 +767,21 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
           <div class="prepared-row"><strong>Brouillon préparé</strong><span>Devis</span></div>
           <div class="prepared-row"><strong>Prochaine étape</strong><span>Relire</span></div>
         </div>
-        <p class="review-note">Rien ne part sans votre validation.</p>
+        <p class="review-note">Illustration de parcours. Rien ne part sans votre validation.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="product-example" id="exemple-devis" aria-labelledby="exemple-devis-title">
+    <div class="container">
+      <p class="eyebrow">Regardez le document avant d'installer</p>
+      <h2 class="section-heading" id="exemple-devis-title">Un chauffe-eau, trois lignes, un devis lisible.</h2>
+      <p class="section-intro">Fourniture, pose, dépose : l'exemple plombier montre les lignes, les montants à vérifier et le PDF généré par Diqto. Vous pouvez le consulter sans compte.</p>
+      <div class="hero-actions">
+        <a class="button-primary" href="/plombier.html#exemple-devis-plombier">Examiner le devis et ses montants</a>
+        <a class="button-secondary" href="/assets/examples/devis-plombier-chauffe-eau-demonstration.pdf">Ouvrir le PDF de démonstration</a>
+      </div>
+      <p class="example-note">Données fictives préparées pour cet exemple. Ce PDF n'est ni un devis client réel, ni la preuve d'une dictée testée de bout en bout. Vos prix et votre TVA restent à vérifier.</p>
     </div>
   </section>
 
@@ -986,29 +1008,27 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
 
   <section class="pricing" id="tarifs">
     <div class="container">
-      <p class="eyebrow">Des prix qui n'ajoutent pas une contrainte</p>
-      <h2 class="section-heading">Essayez sur un vrai cas avant de payer.</h2>
-      <p class="section-intro">Pas de carte bancaire pour commencer. Le gratuit sert à voir si Diqto vous fait réellement gagner du temps.</p>
+      <p class="eyebrow">Tarifs Diqto</p>
+      <h2 class="section-heading">Free pour essayer. Essential pour vos documents du quotidien.</h2>
+      <p class="section-intro">Commencez par un document. Passez à Essential si vous devez en créer plus de trois par mois ; choisissez Vocal Pro si vos comptes rendus demandent des enregistrements longs.</p>
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-name">Diqto Free</div>
           <div class="price-amount">0€ <span>/ mois</span></div>
-          <p class="price-desc">Pour essayer avec votre propre activité.</p>
+          <p class="price-desc">Pour préparer vos premiers documents sans abonnement.</p>
           <ul class="price-features">
-            <li>1 entreprise et 1 utilisateur</li>
-            <li>Clients et brouillons illimités</li>
-            <li>3 documents finalisés, exportés ou envoyés par mois</li>
-            <li>PDF avec footer Diqto</li>
-            <li>3 vocaux courts par mois jusqu'à 1 min</li>
-            <li>Tableau de bord simple</li>
+            <li>3 documents par mois, brouillons compris</li>
+            <li>Dictée et saisie manuelle</li>
+            <li>Historique client et documents</li>
+            <li>Export des documents en PDF</li>
             <li>Aucun achat requis</li>
           </ul>
-          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Télécharger Diqto</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Installer Diqto sur iPhone</a>
         </div>
         <div class="price-card featured">
           <div class="price-name">Diqto Essential</div>
           <div class="price-amount">9€ <span>/ mois TTC</span></div>
-          <p class="price-desc">Pour les devis et factures du quotidien.</p>
+          <p class="price-desc">Pour dépasser la limite de 3 documents par mois.</p>
           <ul class="price-features">
             <li>Devis et factures illimités</li>
             <li>Clients et produits illimités</li>
@@ -1016,15 +1036,14 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Dictée et compte rendu vocal court jusqu'à 5 min</li>
             <li>Photo vers brouillon pour les métiers compatibles</li>
             <li>Catalogue enrichi par vos validations</li>
-            <li>Paiement cadré avant activation</li>
-            <li>Footer supprimé</li>
+            <li>Historique et exports</li>
           </ul>
-          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn primary" data-growth-placement="pricing">Télécharger Diqto</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn primary" data-growth-placement="pricing">Installer puis choisir Essential</a>
         </div>
         <div class="price-card">
           <div class="price-name">Diqto Vocal Pro</div>
           <div class="price-amount">19€ <span>/ mois TTC</span></div>
-          <p class="price-desc">Pour les journées riches en notes et comptes rendus.</p>
+          <p class="price-desc">Pour les comptes rendus vocaux longs, au-delà du vocal court Essential.</p>
           <ul class="price-features">
             <li>Tout Diqto Essential</li>
             <li>Comptes rendus vocaux longs</li>
@@ -1032,13 +1051,20 @@ footer { padding: 48px 0 34px; border-top: 1px solid var(--line); }
             <li>Fair use anti-abus sur transcriptions massives</li>
             <li>Notes de séance, chantier ou rendez-vous</li>
             <li>Suivi client ou patient dans le temps</li>
-            <li>Export FEC comptable</li>
-            <li>Support prioritaire pilote</li>
+            <li>Support prioritaire</li>
           </ul>
-          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Télécharger Diqto</a>
+          <a href="https://apps.apple.com/fr/app/diqto/id6761616034" class="price-btn secondary" data-growth-placement="pricing">Installer Diqto sur iPhone</a>
         </div>
       </div>
-      <p class="pricing-note">Prix TTC pour l’App Store France. Le téléchargement est gratuit et Apple affiche le prix définitif avant tout achat intégré optionnel. Aucun frais par devis ou facture sur les plans payants.</p>
+      <p class="pricing-note">Prix TTC pour l’App Store France. Le téléchargement est gratuit et Apple affiche le prix définitif avant tout achat intégré optionnel. Aucun frais par devis ou facture sur les plans payants. Abonnements mensuels à renouvellement automatique, résiliables auprès d’Apple.</p>
+      <div class="purchase-help" id="choisir-abonnement">
+        <h3>Comment passer à Essential ou Vocal Pro ?</h3>
+        <p>Dans l'app iPhone, ouvrez <strong>Profil &gt; Abonnement Diqto</strong>. Consultez l'offre et son prix local, puis confirmez uniquement si elle vous convient. Installer Diqto ne déclenche pas d'abonnement payant.</p>
+        <details><summary>Que compte la limite Free de 3 documents ?</summary><p>Les documents créés dans le mois, y compris les brouillons. Commencez avec une intervention et corrigez ce document au lieu de multiplier les essais. Essential enlève cette limite mensuelle de documents.</p></details>
+        <details><summary>Faut-il Vocal Pro pour faire des devis ?</summary><p>Non. Essential comprend les devis et factures illimités ainsi que l'usage vocal court jusqu'à 5 minutes. Vocal Pro ajoute surtout les comptes rendus vocaux longs, dans un cadre d'usage normal avec fair use.</p></details>
+        <details><summary>Est-ce que mes documents partent tout seuls ?</summary><p>Non. La dictée prépare un brouillon à contrôler. Vous vérifiez le client, les prestations, les montants et la TVA avant de valider et de partager.</p></details>
+        <details><summary>Je veux voir le résultat avant de m'inscrire.</summary><p><a href="/plombier.html#exemple-devis-plombier">Consultez l'exemple de devis plombier et son PDF</a>, sans compte. Pour être accompagné sur votre premier document, retrouvez le <a href="/aide.html">support Diqto</a>.</p></details>
+      </div>
     </div>
   </section>
 

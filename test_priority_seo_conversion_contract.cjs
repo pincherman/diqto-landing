@@ -10,6 +10,7 @@ const priorityPages = [
     canonical: 'https://diqto.fr/guides/logiciel-devis-facture-artisan.html',
     title: 'Logiciel devis facture artisan sur iPhone',
     h1: "Un logiciel de devis et factures pour artisan, pensé pour l'iPhone",
+    modified: '2026-09-13',
     intent: ['Décrivez le chantier', 'Contrôlez le brouillon', "Finalisez quand c'est prêt"],
   },
   {
@@ -17,6 +18,7 @@ const priorityPages = [
     canonical: 'https://diqto.fr/guides/logiciel-facturation-micro-entrepreneur.html',
     title: 'Logiciel facturation auto-entrepreneur et micro-entreprise',
     h1: 'Un logiciel de facturation pour auto-entrepreneur, sans usine à gaz',
+    modified: '2026-09-03',
     intent: ['Parlez ou écrivez', 'Relisez chaque champ', 'Retrouvez le client'],
   },
 ];
@@ -26,7 +28,7 @@ for (const page of priorityPages) {
   assert(html.includes(`<title>${page.title} — Diqto</title>`), `${page.file} title`);
   assert(html.includes(`<h1>${page.h1}</h1>`), `${page.file} h1`);
   assert(html.includes(`<link rel="canonical" href="${page.canonical}">`), `${page.file} canonical`);
-  assert(html.includes('"dateModified": "2026-09-03"'), `${page.file} modified date`);
+  assert(html.includes(`"dateModified": "${page.modified}"`), `${page.file} modified date`);
   assert(html.includes('data-growth-page="guides"'), `${page.file} guide analytics bucket`);
   assert(html.includes('data-growth-source="direct_or_organic"'), `${page.file} closed source`);
   assert(html.includes('../growth.js'), `${page.file} growth script`);

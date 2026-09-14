@@ -28,7 +28,7 @@ a { color: inherit; }
 }
 
 .watch-breadcrumbs {
-    padding-top: 24px;
+    padding-top: 12px;
     color: var(--watch-muted);
     font-size: 13px;
 }
@@ -36,7 +36,7 @@ a { color: inherit; }
 .watch-breadcrumbs a { text-decoration: none; }
 .watch-breadcrumbs span { margin: 0 7px; }
 
-.watch-hero { padding: 68px 0 34px; }
+.watch-hero { padding: 16px 0 20px; }
 
 .watch-eyebrow {
     margin: 0;
@@ -49,9 +49,9 @@ a { color: inherit; }
 
 .watch-hero h1 {
     max-width: 920px;
-    margin: 16px 0 0;
-    font-size: clamp(42px, 7vw, 76px);
-    line-height: 0.99;
+    margin: 8px 0 0;
+    font-size: clamp(24px, 3.5vw, 38px);
+    line-height: 1.12;
     letter-spacing: -0.055em;
 }
 
@@ -82,6 +82,13 @@ a { color: inherit; }
     display: block;
     aspect-ratio: 16 / 9;
 }
+
+.watch-player-portrait {
+    width: min(100%, 340px, 31.5svh);
+    margin: 0 auto;
+}
+
+.watch-player-portrait video { aspect-ratio: 9 / 16; }
 
 .watch-main { padding: 50px 0 96px; }
 
@@ -211,7 +218,7 @@ a { color: inherit; }
 
 @media (max-width: 560px) {
     .watch-container { width: min(100% - 28px, 1040px); }
-    .watch-hero { padding-top: 50px; }
+    .watch-hero { padding-top: 12px; }
     .watch-main { padding-top: 34px; }
 }
 

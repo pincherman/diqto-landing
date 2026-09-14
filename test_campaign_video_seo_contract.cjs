@@ -46,23 +46,30 @@ const campaigns = [
   },
 ];
 
-test('each canonical métier page exposes one prominent, accessible campaign video', () => {
+const watchPath = (campaign) => `/histoires/${path.basename(campaign.media, '.mp4').replace(/^diqto-/, '')}.html`;
+
+test('each métier page links to its dedicated accessible watch page', () => {
   for (const campaign of campaigns) {
     const html = read(campaign.page);
     const videoBlocks = html.match(new RegExp(`data-campaign-video="${campaign.id}"`, 'g')) || [];
     assert.equal(videoBlocks.length, 1, campaign.page);
     assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">/);
-    assert.ok(html.includes(`<source src="/${campaign.media}" type="video/mp4">`));
-    assert.ok(html.includes(`<track kind="captions" src="/${campaign.captions}"`));
-    assert.ok(html.includes(`poster="/${campaign.poster}"`));
+    assert.doesNotMatch(html, /<video\b|"@type": "VideoObject"/);
+    assert.ok(html.includes(`href="${watchPath(campaign)}"`));
+    assert.ok(html.includes(`<link rel="canonical" href="${campaign.canonical}">`));
+    const watch = read(watchPath(campaign).slice(1));
+    assert.ok(watch.includes(`<source src="/${campaign.media}" type="video/mp4">`));
+    assert.ok(watch.includes(`<track kind="captions" src="/${campaign.captions}"`));
+    assert.ok(watch.includes(`poster="/${campaign.poster}"`));
     assert.match(html, /<details class="campaign-video-transcript">/);
 
-    const match = html.match(/<script type="application\/ld\+json" data-schema="campaign-video">\s*([\s\S]*?)\s*<\/script>/);
-    assert.ok(match, `missing VideoObject in ${campaign.page}`);
-    const schema = JSON.parse(match[1]);
-    assert.equal(schema['@type'], 'VideoObject');
-    assert.equal(schema.url, campaign.canonical);
-    assert.equal(schema.mainEntityOfPage, campaign.canonical);
+    const match = watch.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+    assert.ok(match, `missing watch schema in ${watchPath(campaign)}`);
+    const schema = JSON.parse(match[1])['@graph'].find(item => item['@type'] === 'VideoObject');
+    assert.ok(schema);
+    assert.equal(schema.url, `https://diqto.fr${watchPath(campaign)}`);
+    assert.equal(schema.mainEntityOfPage, schema.url);
+    assert.ok(watch.includes(`href="/${campaign.page}"`));
     assert.equal(schema.contentUrl, `https://diqto.fr/${campaign.media}`);
     assert.equal(schema.thumbnailUrl[0], `https://diqto.fr/${campaign.poster}`);
     assert.equal(schema.duration, 'PT40S');
@@ -81,11 +88,12 @@ test('published assets are exact masters with stable posters and French captions
   }
 });
 
-test('video sitemap contains the five stories and four canonical campaign pages', () => {
+test('video sitemap contains the nine dedicated watch pages and no commercial pages', () => {
   const sitemap = read('video-sitemap.xml');
   assert.equal((sitemap.match(/<video:video>/g) || []).length, 9);
   for (const campaign of campaigns) {
-    assert.ok(sitemap.includes(`<loc>${campaign.canonical}</loc>`));
+    assert.ok(sitemap.includes(`<loc>https://diqto.fr${watchPath(campaign)}</loc>`));
+    assert.ok(!sitemap.includes(`<loc>${campaign.canonical}</loc>`));
     assert.ok(sitemap.includes(`<video:content_loc>https://diqto.fr/${campaign.media}</video:content_loc>`));
   }
 });
@@ -111,7 +119,7 @@ test('brand identity and truthful lastmod values are aligned with the campaign',
 
   const sitemap = read('sitemap.xml');
   for (const campaign of campaigns) {
-    const lastmod = '2026-09-13';
+    const lastmod = '2026-09-14';
     const entry = `<loc>${campaign.canonical}</loc>\n    <lastmod>${lastmod}</lastmod>`;
     assert.ok(sitemap.includes(entry), campaign.page);
   }

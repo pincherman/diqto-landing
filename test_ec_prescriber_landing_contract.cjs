@@ -77,10 +77,13 @@ assert.match(
 assert.match(page, /"@type": "ProfessionalAudience"/);
 assert.match(page, /"@type": "FAQPage"/);
 assert.match(page, /class="ec-freedom-film"/);
-assert.match(page, /<video[\s\S]+muted[\s\S]+controls[\s\S]+preload="none"/);
-assert.doesNotMatch(page, /<video[^>]+(?:autoplay|loop)/);
-assert.match(page, /diqto-cabinet-cinematique-v9\.mp4/);
-assert.match(page, /diqto-cabinet-cinematique-v9-fr\.vtt/);
+assert.doesNotMatch(page, /<video\b/);
+assert.match(page, /class="film-preview" href="\/histoires\/cabinet-expert-comptable\.html"/);
+assert.match(page, /diqto-cabinet-cinematique-v9-poster\.jpg/);
+const watchPage = fs.readFileSync(path.join(root, 'histoires/cabinet-expert-comptable.html'), 'utf8');
+assert.match(watchPage, /<video controls/);
+assert.match(watchPage, /diqto-cabinet-cinematique-v9\.mp4/);
+assert.match(watchPage, /diqto-cabinet-cinematique-v9-fr\.vtt/);
 assert.match(
     page,
     /href="\/histoires\/cabinet-expert-comptable\.html"[^>]*>[\s\S]*?Voir le film et sa transcription/,

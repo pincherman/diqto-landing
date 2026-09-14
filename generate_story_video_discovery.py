@@ -12,7 +12,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
 from release_config import APP_STORE_URL
-from campaign_video_content import CAMPAIGN_VIDEOS, render_vtt
+from campaign_video_content import CAMPAIGN_VIDEOS, CAMPAIGN_DISCLOSURE, render_vtt
 
 
 ROOT = Path(__file__).resolve().parent
@@ -237,12 +237,42 @@ STORIES = (
 )
 
 
+CAMPAIGN_STORIES = tuple(
+    Story(
+        slug=video.watch_slug,
+        title=f"{video.heading} | Film Diqto",
+        heading=video.heading,
+        description=video.description,
+        eyebrow="Film métier · 40 secondes",
+        summary=video.summary,
+        details=(
+            "Dicter les travaux et préparer le devis.",
+            "Relire, corriger et indiquer ce qui a changé.",
+            "Préparer la facture en conservant la validation humaine.",
+        ),
+        transcript=video.transcript,
+        related_url=video.page_path,
+        related_label="Voir le parcours métier",
+        video_asset=video.video_path,
+        thumbnail_asset=video.poster_path,
+        captions_asset=video.captions_path,
+        duration_seconds=video.duration_seconds,
+        width=video.width,
+        height=video.height,
+        upload_date=video.upload_date,
+        disclosure=CAMPAIGN_DISCLOSURE,
+    )
+    for video in CAMPAIGN_VIDEOS
+)
+
+
 def structured_data(story: Story) -> str:
     data = {
         "@context": "https://schema.org",
         "@graph": [
             {
                 "@type": "VideoObject",
+                "@id": f"{story.watch_url}#video",
                 "name": story.heading,
                 "description": story.description,
                 "thumbnailUrl": [story.thumbnail_url],
@@ -250,6 +280,7 @@ def structured_data(story: Story) -> str:
                 "duration": f"PT{story.duration_seconds}S",
                 "contentUrl": story.video_url,
                 "url": story.watch_url,
+                "mainEntityOfPage": story.watch_url,
                 "inLanguage": "fr-FR",
                 "isFamilyFriendly": True,
                 "transcript": " ".join(story.transcript),
@@ -368,18 +399,18 @@ def render_page(story: Story) -> str:
     <div class="watch-container">
       <p class="watch-eyebrow">{escape(story.eyebrow)}</p>
       <h1>{escape(story.heading)}</h1>
-      <p class="watch-lead">{escape(story.summary)}</p>
-      <p class="watch-disclosure">Film de {story.duration_seconds} secondes · {escape(story.disclosure)}</p>
     </div>
   </header>
   <div class="watch-container">
-    <div class="watch-player">
+    <div class="watch-player{' watch-player-portrait' if story.height > story.width else ''}">
       <video controls preload="metadata" playsinline poster="{story.thumbnail_path}" aria-label="{escape(story.heading, quote=True)}">
         <source src="{story.video_path}" type="video/mp4">
         <track kind="captions" src="{story.captions_url}" srclang="fr" label="Français" default>
         Votre navigateur ne permet pas de lire cette vidéo.
       </video>
     </div>
+    <p class="watch-lead">{escape(story.summary)}</p>
+    <p class="watch-disclosure">Film de {story.duration_seconds} secondes · {escape(story.disclosure)}</p>
   </div>
   <div class="watch-container watch-main">
     <div class="watch-grid">
@@ -433,7 +464,7 @@ def render_page(story: Story) -> str:
 
 def render_video_sitemap() -> str:
     entries = []
-    for story in STORIES:
+    for story in (*STORIES, *CAMPAIGN_STORIES):
         entries.append(
             "  <url>\n"
             f"    <loc>{xml_escape(story.watch_url)}</loc>\n"
@@ -443,21 +474,6 @@ def render_video_sitemap() -> str:
             f"      <video:description>{xml_escape(story.description)}</video:description>\n"
             f"      <video:content_loc>{xml_escape(story.video_url)}</video:content_loc>\n"
             f"      <video:duration>{story.duration_seconds}</video:duration>\n"
-            "      <video:family_friendly>yes</video:family_friendly>\n"
-            "      <video:live>no</video:live>\n"
-            "    </video:video>\n"
-            "  </url>"
-        )
-    for video in CAMPAIGN_VIDEOS:
-        entries.append(
-            "  <url>\n"
-            f"    <loc>{xml_escape(video.page_url)}</loc>\n"
-            "    <video:video>\n"
-            f"      <video:thumbnail_loc>{xml_escape(video.poster_url)}</video:thumbnail_loc>\n"
-            f"      <video:title>{xml_escape(video.heading)}</video:title>\n"
-            f"      <video:description>{xml_escape(video.description)}</video:description>\n"
-            f"      <video:content_loc>{xml_escape(video.video_url)}</video:content_loc>\n"
-            f"      <video:duration>{video.duration_seconds}</video:duration>\n"
             "      <video:family_friendly>yes</video:family_friendly>\n"
             "      <video:live>no</video:live>\n"
             "    </video:video>\n"
@@ -518,7 +534,7 @@ def main() -> int:
 
     results = [
         write_or_check(WATCH_DIR / f"{story.slug}.html", render_page(story), args.check)
-        for story in STORIES
+        for story in (*STORIES, *CAMPAIGN_STORIES)
     ]
     results.extend(
         write_or_check(
@@ -535,7 +551,7 @@ def main() -> int:
     action = "check" if args.check else "generate"
     print(
         f"story_video_discovery_{action}: OK "
-        f"pages={len(STORIES)} campaign_videos={len(CAMPAIGN_VIDEOS)}"
+        f"pages={len(STORIES) + len(CAMPAIGN_STORIES)} campaign_videos={len(CAMPAIGN_VIDEOS)}"
     )
     return 0
 

@@ -53,36 +53,6 @@
 }
 </script>
 <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
-<meta property="og:video" content="https://diqto.fr/assets/campaign/diqto-electricien-diagnostic-paiement.mp4">
-<meta property="og:video:type" content="video/mp4">
-<meta property="og:video:width" content="1080">
-<meta property="og:video:height" content="1920">
-<script type="application/ld+json" data-schema="campaign-video">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "@id": "https://diqto.fr/electricien.html#video",
-  "name": "Du diagnostic au paiement : le cas concret d'un électricien",
-  "description": "Film Diqto de 40 secondes pour électriciens : dicter le diagnostic et les travaux, préparer le devis puis la facture sans tout ressaisir.",
-  "thumbnailUrl": [
-    "https://diqto.fr/assets/campaign/diqto-electricien-diagnostic-paiement-poster.jpg"
-  ],
-  "uploadDate": "2026-08-31T03:00:00+00:00",
-  "duration": "PT40S",
-  "contentUrl": "https://diqto.fr/assets/campaign/diqto-electricien-diagnostic-paiement.mp4",
-  "url": "https://diqto.fr/electricien.html",
-  "mainEntityOfPage": "https://diqto.fr/electricien.html",
-  "inLanguage": "fr-FR",
-  "isAccessibleForFree": true,
-  "isFamilyFriendly": true,
-  "transcript": "Chaque métier a son langage. La même simplicité : vous parlez, Diqto prépare. Prenons l'exemple de l'électricien : il suit son intervention, du diagnostic au paiement. Un diagnostic électrique ne devrait pas finir en notes à ressaisir. Après avoir localisé le défaut, vous dictez les travaux à prévoir, le matériel et les quantités. Diqto prépare le devis. Vous le relisez et vous l'envoyez. L'intervention terminée, vous indiquez seulement ce qui a changé. Diqto reprend le devis, prépare la facture et les données utiles à la facturation électronique. Après votre validation, votre client peut la régler par un lien sécurisé. Du diagnostic au paiement, sans tout ressaisir. Diqto. Vous dictez. Diqto prépare.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "DIQTO",
-    "url": "https://diqto.fr/"
-  }
-}
-</script>
 <style>
 :root { --bg:#0c0c0c; --primary:#25d366; --green:#25d366; --text:#f5f5f2; --dim:#a3aaa3; --card:#171b17; --border:rgba(255,255,255,.11); }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -117,8 +87,9 @@ footer a { color:var(--primary); text-decoration:none; }
 .campaign-video-eyebrow { color:var(--primary); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .campaign-video h2 { margin:8px 0 12px; font-size:clamp(26px,4vw,38px); line-height:1.12; letter-spacing:-.03em; }
 .campaign-video-copy p:last-child { color:var(--dim); }
-.campaign-video-player { width:min(100%,360px); margin:0 auto; aspect-ratio:9/16; overflow:hidden; border:1px solid var(--border); border-radius:24px; background:#050806; box-shadow:0 24px 60px rgba(0,0,0,.35); }
-.campaign-video-player video { width:100%; height:100%; display:block; object-fit:cover; }
+.campaign-video-player { display:block; position:relative; width:min(100%,280px); margin:0 auto; aspect-ratio:9/16; overflow:hidden; border:1px solid var(--border); border-radius:24px; background:#050806; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+.campaign-video-player img { width:100%; height:100%; display:block; object-fit:cover; }
+.campaign-video-player span { position:absolute; bottom:18px; left:12px; right:12px; padding:12px; border-radius:16px; background:#111; color:#fff; font-weight:700; text-align:center; }
 .campaign-video-disclosure { margin:14px auto 0; max-width:600px; color:var(--dim); font-size:12px; text-align:center; }
 .campaign-video-transcript { margin:18px auto 0; max-width:680px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:16px 0; }
 .campaign-video-transcript summary { cursor:pointer; font-weight:700; }
@@ -168,13 +139,10 @@ footer a { color:var(--primary); text-decoration:none; }
     <h2 id="campaign-video-electricien">Du diagnostic au paiement : le cas concret d&#x27;un électricien</h2>
     <p>Après avoir localisé le défaut, l&#x27;électricien dicte les travaux, le matériel et les quantités. Diqto prépare, le professionnel relit et conserve la décision finale.</p>
   </div>
-  <div class="campaign-video-player">
-    <video controls preload="metadata" playsinline poster="/assets/campaign/diqto-electricien-diagnostic-paiement-poster.jpg" aria-label="Du diagnostic au paiement : le cas concret d&#x27;un électricien">
-      <source src="/assets/campaign/diqto-electricien-diagnostic-paiement.mp4" type="video/mp4">
-      <track kind="captions" src="/assets/campaign/diqto-electricien-diagnostic-paiement-fr.vtt" srclang="fr" label="Français" default>
-      Votre navigateur ne permet pas de lire cette vidéo.
-    </video>
-  </div>
+  <a class="campaign-video-player" href="/histoires/electricien-diagnostic-paiement.html" aria-label="Voir le film : Du diagnostic au paiement : le cas concret d&#x27;un électricien">
+    <img src="/assets/campaign/diqto-electricien-diagnostic-paiement-poster.jpg" width="1080" height="1920" loading="lazy" alt="">
+    <span>Voir le film · 40 secondes</span>
+  </a>
   <p class="campaign-video-disclosure">Film de démonstration avec situation fictive et écrans Diqto sur données de démonstration. Rien n'est envoyé sans validation. Les fonctions de paiement présentées dépendent de leur disponibilité et de leur activation pour votre activité. Aucun paiement n’est effectué dans cette démonstration.</p>
   <details class="campaign-video-transcript">
     <summary>Lire la transcription complète</summary>

@@ -82,20 +82,17 @@ for (const story of storyCases) {
         assert.equal(digest, story.sha256, `${videoRelative} provenance drifted`);
     }
 
-    assert.match(stories, new RegExp(`src="/${videoRelative}"`));
-    assert.match(stories, new RegExp(`poster="/${posterRelative}"`));
+    const watchPage = fs.readFileSync(path.join(root, story.watch.slice(1)), 'utf8');
+    assert.match(watchPage, new RegExp(`src="/${videoRelative}"`));
+    assert.match(stories, new RegExp(`src="/${posterRelative}"`));
+    assert.match(watchPage, new RegExp(`poster="/${posterRelative}"`));
     assert.match(stories, new RegExp(`href="${story.destination}"`));
     assert.match(stories, new RegExp(`href="${story.watch}"`));
     assert.match(home, new RegExp(`href="${story.watch}"`));
 }
 
-const videos = stories.match(/<video\b[^>]*>/g) || [];
-assert.equal(videos.length, storyCases.length);
-for (const video of videos) {
-    assert.match(video, /controls/);
-    assert.match(video, /preload="none"/);
-    assert.doesNotMatch(video, /autoplay/);
-}
+assert.doesNotMatch(stories, /<video\b/);
+assert.equal((stories.match(/class="film-preview"/g) || []).length, storyCases.length);
 
 assert.match(stories, /Rien ne part sans votre validation/);
 assert.match(

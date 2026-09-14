@@ -1,12 +1,17 @@
 """Canonical campaign-video metadata shared by métier pages and sitemaps."""
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from html import escape
 
 
 BASE_URL = "https://diqto.fr"
+CAMPAIGN_DISCLOSURE = (
+    "Film de démonstration avec situation fictive et écrans Diqto sur données de démonstration. "
+    "Rien n'est envoyé sans validation. Les fonctions de paiement présentées dépendent de "
+    "leur disponibilité et de leur activation pour votre activité. "
+    "Aucun paiement n’est effectué dans cette démonstration."
+)
 
 
 @dataclass(frozen=True)
@@ -37,6 +42,18 @@ class CampaignVideo:
     @property
     def page_url(self) -> str:
         return f"{BASE_URL}{self.page_path}"
+
+    @property
+    def watch_slug(self) -> str:
+        return self.video_path.rsplit("/", 1)[-1].removeprefix("diqto-").removesuffix(".mp4")
+
+    @property
+    def watch_path(self) -> str:
+        return f"/histoires/{self.watch_slug}.html"
+
+    @property
+    def watch_url(self) -> str:
+        return f"{BASE_URL}{self.watch_path}"
 
     @property
     def video_url(self) -> str:
@@ -215,41 +232,9 @@ def campaign_video_for_page(page_path: str) -> CampaignVideo | None:
     return CAMPAIGN_VIDEO_BY_PAGE.get(page_path)
 
 
-def video_schema(video: CampaignVideo) -> dict:
-    return {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "@id": f"{video.page_url}#video",
-        "name": video.heading,
-        "description": video.description,
-        "thumbnailUrl": [video.poster_url],
-        "uploadDate": video.upload_date,
-        "duration": f"PT{video.duration_seconds}S",
-        "contentUrl": video.video_url,
-        "url": video.page_url,
-        "mainEntityOfPage": video.page_url,
-        "inLanguage": "fr-FR",
-        "isAccessibleForFree": True,
-        "isFamilyFriendly": True,
-        "transcript": video.transcript_text,
-        "publisher": {
-            "@type": "Organization",
-            "name": "DIQTO",
-            "url": f"{BASE_URL}/",
-        },
-    }
-
-
 def render_video_head(video: CampaignVideo) -> str:
-    schema = json.dumps(video_schema(video), ensure_ascii=False, indent=2)
-    return f'''<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
-<meta property="og:video" content="{video.video_url}">
-<meta property="og:video:type" content="video/mp4">
-<meta property="og:video:width" content="{video.width}">
-<meta property="og:video:height" content="{video.height}">
-<script type="application/ld+json" data-schema="campaign-video">
-{schema}
-</script>'''
+    """Commercial pages link to the film; only watch pages declare a VideoObject."""
+    return '<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">'
 
 
 CAMPAIGN_VIDEO_CSS = '''
@@ -258,8 +243,9 @@ CAMPAIGN_VIDEO_CSS = '''
 .campaign-video-eyebrow { color:var(--primary); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .campaign-video h2 { margin:8px 0 12px; font-size:clamp(26px,4vw,38px); line-height:1.12; letter-spacing:-.03em; }
 .campaign-video-copy p:last-child { color:var(--dim); }
-.campaign-video-player { width:min(100%,360px); margin:0 auto; aspect-ratio:9/16; overflow:hidden; border:1px solid var(--border); border-radius:24px; background:#050806; box-shadow:0 24px 60px rgba(0,0,0,.35); }
-.campaign-video-player video { width:100%; height:100%; display:block; object-fit:cover; }
+.campaign-video-player { display:block; position:relative; width:min(100%,280px); margin:0 auto; aspect-ratio:9/16; overflow:hidden; border:1px solid var(--border); border-radius:24px; background:#050806; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+.campaign-video-player img { width:100%; height:100%; display:block; object-fit:cover; }
+.campaign-video-player span { position:absolute; bottom:18px; left:12px; right:12px; padding:12px; border-radius:16px; background:#111; color:#fff; font-weight:700; text-align:center; }
 .campaign-video-disclosure { margin:14px auto 0; max-width:600px; color:var(--dim); font-size:12px; text-align:center; }
 .campaign-video-transcript { margin:18px auto 0; max-width:680px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:16px 0; }
 .campaign-video-transcript summary { cursor:pointer; font-weight:700; }
@@ -277,14 +263,11 @@ def render_video_section(video: CampaignVideo) -> str:
     <h2 id="campaign-video-{video.trade_id}">{escape(video.heading)}</h2>
     <p>{escape(video.summary)}</p>
   </div>
-  <div class="campaign-video-player">
-    <video controls preload="metadata" playsinline poster="{video.poster_path}" aria-label="{escape(video.heading, quote=True)}">
-      <source src="{video.video_path}" type="video/mp4">
-      <track kind="captions" src="{video.captions_path}" srclang="fr" label="Français" default>
-      Votre navigateur ne permet pas de lire cette vidéo.
-    </video>
-  </div>
-  <p class="campaign-video-disclosure">Film de démonstration avec situation fictive et écrans Diqto sur données de démonstration. Rien n'est envoyé sans validation. Les fonctions de paiement présentées dépendent de leur disponibilité et de leur activation pour votre activité. Aucun paiement n’est effectué dans cette démonstration.</p>
+  <a class="campaign-video-player" href="{video.watch_path}" aria-label="Voir le film : {escape(video.heading, quote=True)}">
+    <img src="{video.poster_path}" width="{video.width}" height="{video.height}" loading="lazy" alt="">
+    <span>Voir le film · {video.duration_seconds} secondes</span>
+  </a>
+  <p class="campaign-video-disclosure">{CAMPAIGN_DISCLOSURE}</p>
   <details class="campaign-video-transcript">
     <summary>Lire la transcription complète</summary>
 {paragraphs}

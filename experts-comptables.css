@@ -279,7 +279,7 @@ a {
     text-transform: none;
 }
 
-.ec-freedom-film video {
+.ec-freedom-film .film-preview img {
     width: 100%;
     display: block;
     border-radius: 18px;

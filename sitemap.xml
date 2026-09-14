@@ -20,13 +20,13 @@
   </url>
   <url>
     <loc>https://diqto.fr/experts-comptables.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://diqto.fr/histoires.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/electricien.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,7 +128,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/plombier.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers/couvreur.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -326,7 +326,7 @@
   </url>
   <url>
     <loc>https://diqto.fr/metiers/macon.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -530,31 +530,55 @@
   </url>
   <url>
     <loc>https://diqto.fr/histoires/cabinet-expert-comptable.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://diqto.fr/histoires/claire-osteopathe.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/couvreur-inspection-paiement.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/electricien-diagnostic-paiement.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://diqto.fr/histoires/jean-luc-karate.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/macon-devis-paiement.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://diqto.fr/histoires/marc-artisan.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diqto.fr/histoires/plombier-devis-paiement.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://diqto.fr/histoires/sarah-avocate.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
